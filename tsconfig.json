@@ -17,6 +17,6 @@
     "baseUrl": "./src",
     "types": ["./typings.d.ts"]
   },
-  "include": ["./src/**/*.ts", "./src/**/*.tsx"],
+  "include": ["./src/**/*.ts", "./src/**/*.tsx", "./typing.d.ts"],
   "exclude": ["node_modules"]
 }
