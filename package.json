@@ -7,11 +7,11 @@
     "url": "git+https://github.com/uStudioCompany/u-documentation-frontend.git"
   },
   "scripts": {
-    "copyLogo": "copyfiles ../logo.png src/assets/images/logo.png && git add src/assets/images/logo.png",
-    "copyTheme": "copyfiles ../theme.json src/assets/theme.json && git add src/assets/theme.json",
-    "copyFiles": "yarn run copyLogo && yarn run copyTheme",
+    "copyLogo": "copyfiles logo.png src/assets/images && git add src/assets/images/logo.png",
+    "copyConfig": "copyfiles config.json src && git add src/config.json",
+    "copyFiles": "yarn run copyLogo && yarn run copyConfig",
     "dev": "rm -fr ./.cache && yarn run copyFiles && parcel public/index.html",
-    "build": "rm -fr ./.cache && parcel build public/index.html ‑‑no‑cache"
+    "build": "rm -fr ./.cache && yarn run copyFiles && parcel build public/index.html ‑‑no‑cache"
   },
   "dependencies": {
     "@babel/core": "^7.9.0",
@@ -19,7 +19,7 @@
     "@babel/preset-env": "^7.9.5",
     "@babel/preset-react": "^7.9.4",
     "@babel/preset-typescript": "^7.9.0",
-    "@types/node": "^13.13.2",
+    "@types/node": "^13.13.4",
     "@types/react": "^16.9.32",
     "@types/react-dom": "^16.9.5",
     "@types/react-router-dom": "^5.1.4",
