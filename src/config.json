@@ -11,6 +11,7 @@
     "owner": "BulbProject",
     "name": "bulb-project-frontend",
     "branch": "develop",
-    "docsFolder": "info"
+    "path": "info",
+    "docsFolder": "docs"
   }
 }

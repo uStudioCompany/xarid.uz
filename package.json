@@ -7,7 +7,7 @@
     "url": "git+https://github.com/uStudioCompany/u-documentation-frontend.git"
   },
   "scripts": {
-    "copyLogo": "copyfiles logo.png src/assets/images && git add src/assets/images/logo.png",
+    "copyLogo": "copyfiles logo.svg src/assets/images && git add src/assets/images/logo.svg",
     "copyConfig": "copyfiles config.json src && git add src/config.json",
     "copyFiles": "yarn run copyLogo && yarn run copyConfig",
     "dev": "rm -fr ./.cache && yarn run copyFiles && parcel public/index.html",
@@ -23,11 +23,16 @@
     "@types/react": "^16.9.32",
     "@types/react-dom": "^16.9.5",
     "@types/react-router-dom": "^5.1.4",
+    "@types/react-syntax-highlighter": "^11.0.4",
     "@types/styled-components": "^5.0.1",
+    "axios": "^0.19.2",
     "babel-plugin-styled-components": "^1.10.7",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-markdown": "^4.3.1",
     "react-router-dom": "^5.1.2",
+    "react-syntax-highlighter": "^12.2.1",
+    "regenerator-runtime": "^0.13.5",
     "styled-components": "^5.0.1",
     "typescript": "^3.8.3",
     "ustudio-ui": "^1.2.1"

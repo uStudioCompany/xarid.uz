@@ -1,17 +1,22 @@
 import React from 'react';
-import { HashRouter } from 'react-router-dom';
+import { HashRouter, Switch, Route } from 'react-router-dom';
 
 import { ThemeProvider } from 'ustudio-ui/theme';
 
 import { palette } from './config.json';
 import { Layout } from './components/layout';
+import { routes } from './routes';
 
 const App = () => {
   return (
     <ThemeProvider override={{ palette }}>
       <HashRouter>
         <Layout>
-          <h1>Hello world</h1>
+          <Switch>
+            {routes.map((route) => (
+              <Route {...route} key={route.path as string} />
+            ))}
+          </Switch>
         </Layout>
       </HashRouter>
     </ThemeProvider>
