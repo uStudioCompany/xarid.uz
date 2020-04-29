@@ -3,7 +3,7 @@ import { HashRouter } from 'react-router-dom';
 
 import { ThemeProvider } from 'ustudio-ui/theme';
 
-import { palette } from './assets/theme.json';
+import { palette } from './assets/config.json';
 import { Layout } from './components/Layout';
 
 const App = () => {

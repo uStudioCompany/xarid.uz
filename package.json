@@ -8,10 +8,10 @@
   },
   "scripts": {
     "copyLogo": "copyfiles ../logo.png src/assets/images/logo.png && git add src/assets/images/logo.png",
-    "copyTheme": "copyfiles ../theme.json src/assets/theme.json && git add src/assets/theme.json",
-    "copyFiles": "yarn run copyLogo && yarn run copyTheme",
+    "copyConfig": "copyfiles ../config.json src/assets/config.json && git add src/assets/config.json",
+    "copyFiles": "yarn run copyLogo && yarn run copyConfig",
     "dev": "rm -fr ./.cache && yarn run copyFiles && parcel public/index.html",
-    "build": "rm -fr ./.cache && parcel build public/index.html ‑‑no‑cache"
+    "build": "rm -fr ./.cache && yarn run copyFiles && parcel build public/index.html ‑‑no‑cache"
   },
   "dependencies": {
     "@babel/core": "^7.9.0",
