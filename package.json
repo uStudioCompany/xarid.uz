@@ -7,8 +7,8 @@
     "url": "git+https://github.com/uStudioCompany/u-documentation-frontend.git"
   },
   "scripts": {
-    "copyLogo": "copyfiles ../logo.png src/assets/images/logo.png && git add src/assets/images/logo.png",
-    "copyConfig": "copyfiles ../config.json src/assets/config.json && git add src/assets/config.json",
+    "copyLogo": "copyfiles logo.png src/assets/images && git add src/assets/images/logo.png",
+    "copyConfig": "copyfiles config.json src && git add src/config.json",
     "copyFiles": "yarn run copyLogo && yarn run copyConfig",
     "dev": "rm -fr ./.cache && yarn run copyFiles && parcel public/index.html",
     "build": "rm -fr ./.cache && yarn run copyFiles && parcel build public/index.html ‑‑no‑cache"
