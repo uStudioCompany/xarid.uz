@@ -52,10 +52,10 @@ const Main = styled.main`
 `;
 
 const Footer = styled.footer`
-  ${Mixin.Font.bodySmall()};
-
   padding: var(--i-small) 0;
   text-align: center;
+
+  ${Mixin.Font.bodySmall()};
 
   background-color: var(--c-light);
 `;
