@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 
 import logo from '../../assets/images/logo.png';
 
-import Styled from './Layout.styles';
+import Styled from './layout.styles';
 
 export const Layout: FC = ({ children }) => {
   return (
