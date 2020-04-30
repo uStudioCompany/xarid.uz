@@ -8,9 +8,9 @@
     "negative-light": "#fbab95"
   },
   "repo": {
-    "owner": "BulbProject",
-    "name": "bulb-project-frontend",
-    "branch": "develop",
-    "docsFolder": "info"
+    "owner": "annisokay97",
+    "name": "markdownRepo",
+    "branch": "master",
+    "docsFolder": "docs"
   }
 }

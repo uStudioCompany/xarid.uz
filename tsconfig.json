@@ -14,9 +14,9 @@
     "resolveJsonModule": true,
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
-    "baseUrl": "./src",
-    "types": ["./typings.d.ts", "node"]
+    "baseUrl": "./",
+    "types": ["node"]
   },
-  "include": ["./src/**/*.ts", "./src/**/*.tsx", "./typing.d.ts"],
+  "include": ["src/**/*.ts", "src/**/*.tsx", "typing.d.ts"],
   "exclude": ["node_modules"]
 }

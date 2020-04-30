@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { getMarkdownFileConfig } from '../../lib';
+import { getMarkdownDocumentConfig } from '../../lib';
 
 export const kebabToHumanCase = (string: string): string => {
   const noDashString = string.replace(/-/, ' ');
@@ -8,10 +8,10 @@ export const kebabToHumanCase = (string: string): string => {
   return `${noDashString.slice(0, 1).toUpperCase()}${noDashString.slice(1)}`;
 };
 
-export const getMarkdownFile = async (fileName: string): Promise<string> => {
+export const getMarkdownDocument = async ({ path, docName }:{path: string; docName: string}): Promise<string> => {
   const {
     data: { content: source },
-  } = await axios(getMarkdownFileConfig(fileName));
+  } = await axios(getMarkdownDocumentConfig({ path, docName }));
 
   return source;
 };

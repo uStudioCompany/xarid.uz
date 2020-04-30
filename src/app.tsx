@@ -3,7 +3,7 @@ import { HashRouter, Switch, Route } from 'react-router-dom';
 
 import { ThemeProvider } from 'ustudio-ui/theme';
 
-import { palette } from './config.json';
+import { palette } from '../config.json';
 import { Layout } from './components/layout';
 import { routes } from './routes';
 

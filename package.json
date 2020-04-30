@@ -2,16 +2,11 @@
   "name": "u-documentation-frontend",
   "version": "0.0.1",
   "author": "uStudio Front-end Crew",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/uStudioCompany/u-documentation-frontend.git"
-  },
+  "repository": "github:uStudioCompany/u-documentation-frontend",
   "scripts": {
     "copyLogo": "copyfiles logo.svg src/assets/images && git add src/assets/images/logo.svg",
-    "copyConfig": "copyfiles config.json src && git add src/config.json",
-    "copyFiles": "yarn run copyLogo && yarn run copyConfig",
-    "dev": "rm -fr ./.cache && yarn run copyFiles && parcel public/index.html",
-    "build": "rm -fr ./.cache && yarn run copyFiles && parcel build public/index.html ‑‑no‑cache"
+    "dev": "rm -fr ./.cache dist && parcel public/index.html",
+    "build": "rm -fr ./.cache dist && yarn run copyLogo && parcel build public/index.html ‑‑no‑cache --no-source-maps"
   },
   "dependencies": {
     "@babel/core": "^7.9.0",
