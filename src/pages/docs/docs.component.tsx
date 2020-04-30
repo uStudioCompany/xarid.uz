@@ -31,7 +31,7 @@ export const DocsPage: React.FC = () => {
     } finally {
       setLoading(false);
     }
-  }, []);
+  }, [path, docName]);
 
   useEffect(
     function getSourceDataOnMount() {
