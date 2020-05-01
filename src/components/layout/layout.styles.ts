@@ -32,6 +32,10 @@ const Header = styled.header`
   color: var(--c-lightest);
   background-color: var(--c-primary);
   box-shadow: var(--s-light);
+
+  a {
+    color: currentColor;
+  }
 `;
 
 const LogoLink = styled(Link)`
@@ -71,8 +75,6 @@ const LogoText = styled.span`
 const Nav = styled.nav`
   a {
     margin: 0 var(--i-regular);
-
-    color: currentColor;
   }
 `;
 

@@ -6,7 +6,7 @@
   "scripts": {
     "copyLogo": "copyfiles logo.svg src/assets/icons && git add src/assets/icons/logo.inline.svg",
     "dev": "rm -fr ./.cache dist && parcel public/index.html",
-    "build": "rm -fr ./.cache dist && yarn run copyLogo && parcel build public/index.html ‑‑no‑cache --no-source-maps"
+    "build": "rm -fr ./.cache dist && yarn run copyLogo && parcel build public/index.html --no‑cache --no-source-maps --public-url ./"
   },
   "dependencies": {
     "@babel/core": "^7.9.0",
@@ -26,9 +26,9 @@
     "babel-plugin-styled-components": "^1.10.7",
     "framer-motion": "^1.10.3",
     "papaparse": "^5.2.0",
-    "react": "^16.8",
+    "react": "^16.8.6",
     "react-csv-to-table": "^0.0.4",
-    "react-dom": "^16.8",
+    "react-dom": "^16.8.6",
     "react-markdown": "^4.3.1",
     "react-router-dom": "^5.1.2",
     "react-syntax-highlighter": "^12.2.1",
