@@ -5,8 +5,9 @@ import Flex from 'ustudio-ui/components/Flex';
 import Spinner from 'ustudio-ui/components/Spinner';
 import Text from 'ustudio-ui/components/Text';
 
-import { getMarkdownDocument } from './docs.module';
 import { Markdown } from '../../components/markdown';
+
+import { getMarkdownDocument } from './docs.module';
 
 export const DocsPage: React.FC = () => {
   const { path, docName } = useParams();

@@ -3,6 +3,8 @@ import styled, { css, keyframes } from 'styled-components';
 
 import { Mixin } from 'ustudio-ui/theme';
 
+const asideWidth = '320px';
+
 const Layout = styled.div`
   height: 100%;
   min-height: 100vh;
@@ -104,8 +106,8 @@ const CloseDrawerButtonAnimation = keyframes`
   }
 `;
 
-const DrawerButton = styled.button(
-  ({ drawerIsOpen }: { drawerIsOpen: boolean }) => css`
+const DrawerButton = styled.button<{ isDrawerOpen: boolean }>(
+  ({ isDrawerOpen }) => css`
     --delay: calc(var(--transition) * 2);
 
     width: 2rem;
@@ -150,7 +152,7 @@ const DrawerButton = styled.button(
       transition-delay: calc(var(--delay) * 2);
     }
 
-    ${drawerIsOpen
+    ${isDrawerOpen
       ? css`
           background-position-x: 32px;
           animation-name: ${OpenDrawerButtonAnimation};
@@ -176,17 +178,21 @@ const DrawerButton = styled.button(
   `
 );
 
-const Main = styled.main`
-  min-height: 100%;
+const Main = styled.main<{ isDocPage: boolean }>(
+  ({ isDocPage }) => css`
+    min-height: 100%;
 
-  display: flex;
-  flex-grow: 1;
+    display: flex;
+    flex-grow: 1;
 
-  ${Mixin.Screen.md(css`
-    width: calc(100vw - 320px);
-    margin-left: auto;
-  `)}
-`;
+    ${isDocPage
+      ? Mixin.Screen.md(css`
+          width: calc(100vw - ${asideWidth});
+          margin-left: auto;
+        `)
+      : ''}
+  `
+);
 
 const Footer = styled.footer`
   padding: var(--i-small) 0;

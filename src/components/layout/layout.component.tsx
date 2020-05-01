@@ -1,5 +1,5 @@
 import React, { FC, useState, createContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 import useMediaQuery from 'ustudio-ui/hooks/use-media-query';
 import Flex from 'ustudio-ui/components/Flex';
@@ -16,6 +16,10 @@ export const DrawerState = createContext(() => {});
 
 export const Layout: FC = ({ children }) => {
   const [isDrawerOpen, setDrawerOpen] = useState(false);
+
+  const { pathname } = useLocation();
+
+  const isDocPage = pathname.includes(repo.docsFolder);
 
   const isMd = useMediaQuery('screen and (min-width: 768px)');
 
@@ -36,11 +40,11 @@ export const Layout: FC = ({ children }) => {
             </a>
           </Styled.Nav>
 
-          {!isMd && <Styled.DrawerButton drawerIsOpen={isDrawerOpen} onClick={() => setDrawerOpen(!isDrawerOpen)} />}
+          {!isMd && isDocPage && <Styled.DrawerButton isDrawerOpen={isDrawerOpen} onClick={() => setDrawerOpen(!isDrawerOpen)} />}
         </Styled.Header>
 
-        <Styled.Main>
-          <Aside isMd={isMd} setDrawerOpen={setDrawerOpen} isDrawerOpen={isDrawerOpen} />
+        <Styled.Main isDocPage={isDocPage}>
+          {isDocPage && <Aside isMd={isMd} setDrawerOpen={setDrawerOpen} isDrawerOpen={isDrawerOpen} />}
 
           <Flex padding={{ left: 'large', right: 'large' }}>{children}</Flex>
         </Styled.Main>
