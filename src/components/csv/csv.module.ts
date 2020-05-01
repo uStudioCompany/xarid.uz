@@ -5,20 +5,20 @@ import { DocProps, getCsvDocumentConfig } from '../../lib';
 import { encodePath } from '../../utils';
 
 export const getDocPropsFromHref = (href: string): DocProps => {
-  const matchedPath = href.match(/(?<=\/).+(?=\.csv)/) as [string];
+  const matchedPath = href.match(/(?:\/).+(?=\.csv)/) as [string];
   const matchedPathArray = matchedPath[0].split('/');
 
   return {
-    path: encodePath(matchedPathArray.slice(0, -1).join('/')),
+    path: encodePath(matchedPathArray.slice(1, -1).join('/')),
     docName: matchedPathArray.slice(-1)[0],
   };
 };
 
 export const getQueryFromHref = (href: string): string => {
-  const matchedPath = href.match(/(?<=\.csv).+$/) as [string] | null;
+  const matchedPath = href.match(/(?:\.csv).+$/) as [string] | null;
 
   if (matchedPath) {
-    return matchedPath[0];
+    return matchedPath[0].slice(4);
   }
 
   return '';

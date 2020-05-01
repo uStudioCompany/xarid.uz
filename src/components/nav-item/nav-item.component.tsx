@@ -55,8 +55,16 @@ export const NavItem = ({ node, prevPath, isRoot }: { node: Node; prevPath?: str
         {isRoot ? (
           <NavList tree={folder} prevPath={path} isLoading={isLoading} />
         ) : (
-          <Flex direction="column" margin={{ left: 'regular' }}>
-            <NavList tree={folder} prevPath={path} isLoading={isLoading} />
+          <Flex direction="column" margin={{ top: 'medium', bottom: 'medium' }}>
+            <Flex alignment={{ vertical: 'center' }}>
+              <Styled.Folder />
+
+              <Text>{node.name}</Text>
+            </Flex>
+
+            <Flex direction="column" margin={{ left: 'regular', top: 'medium' }}>
+              <NavList tree={folder} prevPath={path} isLoading={isLoading} />
+            </Flex>
           </Flex>
         )}
       </Styled.NavItem>

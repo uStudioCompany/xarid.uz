@@ -7,7 +7,7 @@ import Text from 'ustudio-ui/components/Text';
 import { CsvToHtmlTable } from 'react-csv-to-table';
 import { FadeIn } from '../fade-in';
 
-import { getCsvDocument, getDocPropsFromHref, getQueryFromHref } from './csv.module';
+import { getCsvDocument, getQueryFromHref } from './csv.module';
 import { CSVProps } from './csv.types';
 
 import './csv.module.scss';
@@ -24,7 +24,7 @@ export const CSV: React.FC<CSVProps> = ({ href, title }) => {
       const query = getQueryFromHref(href);
 
       const matchQuery = (param: 'c' | 'r'): [string] | null => {
-        return query.match(new RegExp(`(?<=${param}\\=).+(?=&)|(?<=${param}\\=).+(?=$)`)) as [string] | null;
+        return query.match(new RegExp(`(?:${param}\\=).+(?=&)|(?:${param}\\=).+(?=$)`)) as [string] | null;
       };
 
       const formatQuery = (match: [string] | null): string | undefined => {
