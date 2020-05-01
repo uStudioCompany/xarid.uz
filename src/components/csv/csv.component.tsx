@@ -5,6 +5,7 @@ import Text from 'ustudio-ui/components/Text';
 // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
 // @ts-ignore
 import { CsvToHtmlTable } from 'react-csv-to-table';
+import { FadeIn } from '../fade-in';
 
 import { getCsvDocument, getDocPropsFromHref, getQueryFromHref } from './csv.module';
 import { CSVProps } from './csv.types';
@@ -68,39 +69,43 @@ export const CSV: React.FC<CSVProps> = ({ href, title }) => {
 
   if (error) {
     return (
-      <Text color="var(--c-negative)">
-        This table was unable to load{' '}
-        <span role="img" aria-label=":(">
-          ☹️
-        </span>
-      </Text>
+      <FadeIn>
+        <Text color="var(--c-negative)">
+          This table was unable to load{' '}
+          <span role="img" aria-label=":(">
+            ☹️
+          </span>
+        </Text>
+      </FadeIn>
     );
   }
 
   return (
-    <Flex direction="column" margin={{ top: 'regular' }}>
-      {title && <Text variant="h3">{title}</Text>}
+    <FadeIn>
+      <Flex direction="column" margin={{ top: 'regular' }}>
+        {title && <Text variant="h3">{title}</Text>}
 
-      {meta && (
-        <Flex margin={{ top: 'small' }}>
-          {meta?.rows && (
-            <Text variant="small" color="var(--c-dark)">
-              {meta.rows} rows
-            </Text>
-          )}
+        {meta && (
+          <Flex margin={{ top: 'small' }}>
+            {meta?.rows && (
+              <Text variant="small" color="var(--c-dark)">
+                {meta.rows} rows
+              </Text>
+            )}
 
-          {meta?.cols && (
-            <Text variant="small" color="var(--c-dark)">
-              {', '}
-              {meta.cols} cols
-            </Text>
-          )}
-        </Flex>
-      )}
+            {meta?.cols && (
+              <Text variant="small" color="var(--c-dark)">
+                {', '}
+                {meta.cols} cols
+              </Text>
+            )}
+          </Flex>
+        )}
 
-      <div className="table-wrapper">
-        <CsvToHtmlTable data={source} csvDelimiter=";" />
-      </div>
-    </Flex>
+        <div className="table-wrapper">
+          <CsvToHtmlTable data={source} csvDelimiter=";" />
+        </div>
+      </Flex>
+    </FadeIn>
   );
 };

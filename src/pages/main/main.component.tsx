@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet';
 
 import Cell from 'ustudio-ui/components/Grid/Cell';
 import Grid from 'ustudio-ui/components/Grid/Grid';
@@ -9,6 +10,8 @@ import Spinner from 'ustudio-ui/components/Spinner';
 import { Markdown } from '../../components/markdown';
 import { CenteredContainer } from '../../components/centered-container';
 import { FadeIn } from '../../components/fade-in';
+
+import { name } from '../../../config.json';
 
 import { getMarkdownDocument } from './main.module';
 
@@ -36,34 +39,40 @@ export const Main = () => {
   }, []);
 
   return (
-    <Grid isContainer>
-      <Cell>
-        {isLoading && !error && (
-          <FadeIn>
-            <CenteredContainer>
-              <Flex alignment={{ horizontal: 'center' }}>
-                <Spinner delay={500} appearance={{ size: 48 }} />
-              </Flex>
-            </CenteredContainer>
-          </FadeIn>
-        )}
+    <>
+      <Helmet>
+        <title>{name} documentation</title>
+      </Helmet>
 
-        {!isLoading && !error && (
-          <FadeIn>
-            <Markdown source={source} />
-          </FadeIn>
-        )}
+      <Grid isContainer>
+        <Cell>
+          {isLoading && !error && (
+            <FadeIn>
+              <CenteredContainer>
+                <Flex alignment={{ horizontal: 'center' }}>
+                  <Spinner delay={500} appearance={{ size: 48 }} />
+                </Flex>
+              </CenteredContainer>
+            </FadeIn>
+          )}
 
-        {!isLoading && error && (
-          <FadeIn>
-            <CenteredContainer>
-              <Text variant="h5" color="var(--c-negative)" align="center">
-                {`${error} ☹️`}
-              </Text>
-            </CenteredContainer>
-          </FadeIn>
-        )}
-      </Cell>
-    </Grid>
+          {!isLoading && !error && (
+            <FadeIn>
+              <Markdown source={source} />
+            </FadeIn>
+          )}
+
+          {!isLoading && error && (
+            <FadeIn>
+              <CenteredContainer>
+                <Text variant="h5" color="var(--c-negative)" align="center">
+                  {`${error} ☹️`}
+                </Text>
+              </CenteredContainer>
+            </FadeIn>
+          )}
+        </Cell>
+      </Grid>
+    </>
   );
 };

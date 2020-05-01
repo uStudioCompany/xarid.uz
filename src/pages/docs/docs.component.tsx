@@ -1,6 +1,8 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
+import { Helmet } from 'react-helmet';
+
 import Flex from 'ustudio-ui/components/Flex';
 import Spinner from 'ustudio-ui/components/Spinner';
 import Text from 'ustudio-ui/components/Text';
@@ -47,6 +49,10 @@ export const DocsPage: React.FC = () => {
 
   return (
     <>
+      <Helmet>
+        <title>{docName}</title>
+      </Helmet>
+
       {isLoading && !error && (
         <FadeIn>
           <CenteredContainer>

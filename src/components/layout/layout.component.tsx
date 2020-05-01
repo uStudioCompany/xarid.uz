@@ -1,4 +1,5 @@
 import React, { FC, useState, useEffect, createContext } from 'react';
+import { Helmet } from 'react-helmet';
 import { Link, useLocation } from 'react-router-dom';
 
 import useMediaQuery from 'ustudio-ui/hooks/use-media-query';
@@ -40,42 +41,46 @@ export const Layout: FC = ({ children }) => {
   }, []);
 
   return (
-    <DrawerState.Provider value={() => setDrawerOpen(false)}>
-      <Styled.Layout>
-        <Styled.Header>
-          <Styled.LogoLink to="/">
-            <Styled.Logo />
+    <>
+      <Helmet titleTemplate={`${name} | %s`} defaultTitle={name} />
 
-            <Styled.LogoText>{name}</Styled.LogoText>
-          </Styled.LogoLink>
+      <DrawerState.Provider value={() => setDrawerOpen(false)}>
+        <Styled.Layout>
+          <Styled.Header>
+            <Styled.LogoLink to="/">
+              <Styled.Logo />
 
-          <Styled.Nav>
-            {firstDocName && <Link to={`/${repo.docsFolder}/${firstDocName}`}>Docs</Link>}
+              <Styled.LogoText>{name}</Styled.LogoText>
+            </Styled.LogoLink>
 
-            <a href={`https://github.com/${repo.owner}/${repo.name}`} target="_blank" rel="noopener noreferrer">
-              Github
-            </a>
-          </Styled.Nav>
+            <Styled.Nav>
+              {firstDocName && <Link to={`/${repo.docsFolder}/${firstDocName}`}>Docs</Link>}
 
-          {!isMd && isDocPage && (
-            <Styled.DrawerButton isDrawerOpen={isDrawerOpen} onClick={() => setDrawerOpen(!isDrawerOpen)} />
-          )}
-        </Styled.Header>
+              <a href={`https://github.com/${repo.owner}/${repo.name}`} target="_blank" rel="noopener noreferrer">
+                Github
+              </a>
+            </Styled.Nav>
 
-        <Styled.Main isDocPage={isDocPage}>
-          {isDocPage && <Aside isMd={isMd} setDrawerOpen={setDrawerOpen} isDrawerOpen={isDrawerOpen} />}
+            {!isMd && isDocPage && (
+              <Styled.DrawerButton isDrawerOpen={isDrawerOpen} onClick={() => setDrawerOpen(!isDrawerOpen)} />
+            )}
+          </Styled.Header>
 
-          <Flex padding={{ left: 'large', right: 'large' }}>{children}</Flex>
-        </Styled.Main>
+          <Styled.Main isDocPage={isDocPage}>
+            {isDocPage && <Aside isMd={isMd} setDrawerOpen={setDrawerOpen} isDrawerOpen={isDrawerOpen} />}
 
-        <Styled.Footer>
-          © 2020{' '}
-          <a href="https://ustudio.company" target="_blank" rel="noreferrer noopener">
-            uStudio LLC
-          </a>{' '}
-          ❤️
-        </Styled.Footer>
-      </Styled.Layout>
-    </DrawerState.Provider>
+            <Flex padding={{ left: 'large', right: 'large' }}>{children}</Flex>
+          </Styled.Main>
+
+          <Styled.Footer>
+            © 2020{' '}
+            <a href="https://ustudio.company" target="_blank" rel="noreferrer noopener">
+              uStudio LLC
+            </a>{' '}
+            ❤️
+          </Styled.Footer>
+        </Styled.Layout>
+      </DrawerState.Provider>
+    </>
   );
 };

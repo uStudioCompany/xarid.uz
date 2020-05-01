@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import { useHistory } from 'react-router-dom';
 
 import Grid from 'ustudio-ui/components/Grid/Grid';
@@ -9,40 +10,44 @@ import Text from 'ustudio-ui/components/Text';
 
 import Styled from './pate-404.styles';
 
-import { name } from '../../../config.json';
-
 export const Page404 = () => {
   const { goBack, replace } = useHistory();
 
   return (
-    <Grid isContainer>
-      <Cell>
-        <Styled.Content direction="column">
-          <Flex alignment={{ horizontal: 'center', vertical: 'center' }}>
-            <Styled.ErrorStatus>4</Styled.ErrorStatus>
+    <>
+      <Helmet>
+        <title>404</title>
+      </Helmet>
 
-            <Styled.Logo />
+      <Grid isContainer>
+        <Cell>
+          <Styled.Content direction="column">
+            <Flex alignment={{ horizontal: 'center', vertical: 'center' }}>
+              <Styled.ErrorStatus>4</Styled.ErrorStatus>
 
-            <Styled.ErrorStatus>4</Styled.ErrorStatus>
-          </Flex>
+              <Styled.Logo />
 
-          <Flex alignment={{ horizontal: 'center', vertical: 'center' }}>
-            <Text color="var(--c-dark)" align="center" variant="h1">
-              Someone has stolen this page ... :(
-            </Text>
-          </Flex>
+              <Styled.ErrorStatus>4</Styled.ErrorStatus>
+            </Flex>
 
-          <Flex margin={{ top: 'large' }} alignment={{ horizontal: 'space-around', vertical: 'center' }}>
-            <Button appearance="text" onClick={() => goBack()}>
-              Back
-            </Button>
+            <Flex alignment={{ horizontal: 'center', vertical: 'center' }}>
+              <Text color="var(--c-dark)" align="center" variant="h1">
+                Someone has stolen this page ... :(
+              </Text>
+            </Flex>
 
-            <Button appearance="text" onClick={() => replace('/')}>
-              Home
-            </Button>
-          </Flex>
-        </Styled.Content>
-      </Cell>
-    </Grid>
+            <Flex margin={{ top: 'large' }} alignment={{ horizontal: 'space-around', vertical: 'center' }}>
+              <Button appearance="text" onClick={() => goBack()}>
+                Back
+              </Button>
+
+              <Button appearance="text" onClick={() => replace('/')}>
+                Home
+              </Button>
+            </Flex>
+          </Styled.Content>
+        </Cell>
+      </Grid>
+    </>
   );
 };
