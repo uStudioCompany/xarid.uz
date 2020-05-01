@@ -6,6 +6,8 @@ import Spinner from 'ustudio-ui/components/Spinner';
 import Text from 'ustudio-ui/components/Text';
 
 import { Markdown } from '../../components/markdown';
+import { CenteredContainer } from '../../components/centered-container';
+import { FadeIn } from '../../components/fade-in';
 
 import { getMarkdownDocument } from './docs.module';
 
@@ -41,21 +43,33 @@ export const DocsPage: React.FC = () => {
     [path, docName]
   );
 
-  if (isLoading) {
-    return (
-      <Flex alignment={{ horizontal: 'center' }}>
-        <Spinner delay={500} appearance={{ size: 32 }} />
-      </Flex>
-    );
-  }
+  return (
+    <>
+      {isLoading && !error && (
+        <FadeIn>
+          <CenteredContainer>
+            <Flex alignment={{ horizontal: 'center' }}>
+              <Spinner delay={500} appearance={{ size: 48 }} />
+            </Flex>
+          </CenteredContainer>
+        </FadeIn>
+      )}
 
-  if (error) {
-    return (
-      <Text color="var(--c-negative)" align="center">
-        {`${error} ☹️`}
-      </Text>
-    );
-  }
+      {!isLoading && !error && (
+        <FadeIn>
+          <Markdown source={source} />
+        </FadeIn>
+      )}
 
-  return <Markdown source={source} />;
+      {!isLoading && error && (
+        <FadeIn>
+          <CenteredContainer>
+            <Text color="var(--c-negative)" align="center">
+              {`${error} ☹️`}
+            </Text>
+          </CenteredContainer>
+        </FadeIn>
+      )}
+    </>
+  );
 };

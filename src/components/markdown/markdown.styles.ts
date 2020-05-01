@@ -4,6 +4,8 @@ import { Mixin } from 'ustudio-ui/theme';
 import Text from 'ustudio-ui/components/Text';
 
 const Root = styled.article`
+  width: 100%;
+
   margin: var(--i-large) 0;
   scroll-snap-type: y mandatory;
 `;

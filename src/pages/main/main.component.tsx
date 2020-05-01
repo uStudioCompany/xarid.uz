@@ -7,6 +7,8 @@ import Text from 'ustudio-ui/components/Text';
 import Spinner from 'ustudio-ui/components/Spinner';
 
 import { Markdown } from '../../components/markdown';
+import { CenteredContainer } from '../../components/centered-container';
+import { FadeIn } from '../../components/fade-in';
 
 import { getMarkdownDocument } from './main.module';
 
@@ -37,17 +39,29 @@ export const Main = () => {
     <Grid isContainer>
       <Cell>
         {isLoading && !error && (
-          <Flex alignment={{ horizontal: 'center' }}>
-            <Spinner delay={500} appearance={{ size: 32 }} />
-          </Flex>
+          <FadeIn>
+            <CenteredContainer>
+              <Flex alignment={{ horizontal: 'center' }}>
+                <Spinner delay={500} appearance={{ size: 48 }} />
+              </Flex>
+            </CenteredContainer>
+          </FadeIn>
         )}
 
-        {!isLoading && !error && <Markdown source={source} />}
+        {!isLoading && !error && (
+          <FadeIn>
+            <Markdown source={source} />
+          </FadeIn>
+        )}
 
         {!isLoading && error && (
-          <Text color="var(--c-negative)" align="center">
-            {`${error} ☹️`}
-          </Text>
+          <FadeIn>
+            <CenteredContainer>
+              <Text variant="h5" color="var(--c-negative)" align="center">
+                {`${error} ☹️`}
+              </Text>
+            </CenteredContainer>
+          </FadeIn>
         )}
       </Cell>
     </Grid>
