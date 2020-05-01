@@ -6,7 +6,8 @@
   "scripts": {
     "copyLogo": "copyfiles logo.svg src/assets/icons && git add src/assets/icons/logo.inline.svg",
     "dev": "rm -fr ./.cache dist && parcel public/index.html",
-    "build": "rm -fr ./.cache dist && yarn run copyLogo && parcel build public/index.html --no‑cache --no-source-maps --public-url ./"
+    "build": "rm -fr ./.cache dist && yarn run copyLogo && parcel build public/index.html --no-source-maps --public-url /",
+    "deploy": "yarn build && gh-pages -b gh-pages --dotfiles=true -d dist"
   },
   "dependencies": {
     "@babel/core": "^7.9.0",
@@ -25,8 +26,14 @@
     "@types/styled-components": "^5.0.1",
     "axios": "^0.19.2",
     "babel-plugin-styled-components": "^1.10.7",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-typescript": "^7.0.0-alpha.19",
+    "copyfiles": "^2.2.0",
     "framer-motion": "^1.10.3",
+    "gh-pages": "^2.2.0",
     "papaparse": "^5.2.0",
+    "parcel-bundler": "^1.12.4",
     "react": "^16.8",
     "react-csv-to-table": "^0.0.4",
     "react-dom": "^16.8",
@@ -35,6 +42,7 @@
     "react-router-dom": "^5.1.2",
     "react-syntax-highlighter": "^12.2.1",
     "regenerator-runtime": "^0.13.5",
+    "sass": "^1.26.5",
     "styled-components": "^5.0.1",
     "typescript": "^3.8.3",
     "ustudio-ui": "^1.2.1"
@@ -42,10 +50,6 @@
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^2.29.0",
     "@typescript-eslint/parser": "^2.29.0",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-react": "^6.24.1",
-    "babel-preset-typescript": "^7.0.0-alpha.19",
-    "copyfiles": "^2.2.0",
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-config-prettier": "^6.11.0",
@@ -56,9 +60,7 @@
     "eslint-plugin-react-hooks": "^3.0.0",
     "husky": "^4.2.1",
     "lint-staged": "^10.1.7",
-    "parcel-bundler": "^1.12.4",
-    "prettier": "^2.0.5",
-    "sass": "^1.26.5"
+    "prettier": "^2.0.5"
   },
   "lint-staged": {
     ".": [

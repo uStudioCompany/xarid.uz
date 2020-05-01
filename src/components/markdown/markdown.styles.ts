@@ -4,7 +4,7 @@ import { Mixin } from 'ustudio-ui/theme';
 
 const Root = styled.article`
   width: 100%;
-  
+
   margin-bottom: var(--i-large);
   scroll-snap-type: y mandatory;
 
@@ -23,9 +23,11 @@ const Heading = styled.h1`
 `;
 
 const Paragraph = styled.div`
+  margin: var(--i-medium) 0;
+
   ${Mixin.Font.articleRegular()};
 
-  margin: var(--i-medium) 0;
+  line-height: 1.7;
 `;
 
 const Quote = styled.blockquote`
