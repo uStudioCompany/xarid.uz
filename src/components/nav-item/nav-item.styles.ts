@@ -1,9 +1,10 @@
 import styled from 'styled-components';
+import { Flex } from 'ustudio-ui';
 
 import FolderIcon from '../../assets/icons/folder.inline.svg';
 
-const NavItem = styled.div`
-  padding: 0;
+const NavList = styled(Flex)`
+  margin-left: 20px;
 `;
 
 const Folder = styled(FolderIcon)`
@@ -16,4 +17,4 @@ const Folder = styled(FolderIcon)`
   margin-top: 1px;
 `;
 
-export default { NavItem, Folder };
+export default { NavList, Folder };

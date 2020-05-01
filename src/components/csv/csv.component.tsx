@@ -33,7 +33,7 @@ export const CSV: React.FC<CSVProps> = ({ href, title }) => {
         }
 
         // Replace by , didn't work out here
-        return match[0].split(',').join(', ');
+        return match[0].split(',').join(', ').slice(2);
       };
 
       if (query) {

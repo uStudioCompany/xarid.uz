@@ -51,23 +51,23 @@ export const NavItem = ({ node, prevPath, isRoot }: { node: Node; prevPath?: str
 
   return (
     <FadeIn>
-      <Styled.NavItem>
+      <div>
         {isRoot ? (
           <NavList tree={folder} prevPath={path} isLoading={isLoading} />
         ) : (
-          <Flex direction="column" margin={{ top: 'medium', bottom: 'medium' }}>
+          <Flex direction="column" margin={{ top: 'medium' }}>
             <Flex alignment={{ vertical: 'center' }}>
               <Styled.Folder />
 
               <Text>{node.name}</Text>
             </Flex>
 
-            <Flex direction="column" margin={{ left: 'regular', top: 'medium' }}>
+            <Styled.NavList direction="column">
               <NavList tree={folder} prevPath={path} isLoading={isLoading} />
-            </Flex>
+            </Styled.NavList>
           </Flex>
         )}
-      </Styled.NavItem>
+      </div>
     </FadeIn>
   );
 };
