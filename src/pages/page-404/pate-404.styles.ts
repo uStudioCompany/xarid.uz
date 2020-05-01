@@ -5,6 +5,8 @@ import Text from 'ustudio-ui/components/Text';
 
 import { Mixin } from 'ustudio-ui/theme';
 
+import LogoIcon from '../../assets/icons/logo.inline.svg';
+
 const Content = styled(Flex)`
   margin-top: 4rem;
 `;
@@ -15,10 +17,11 @@ const ErrorStatus = styled(Text)`
   font-size: 6rem;
 `;
 
-const Logo = styled.img`
+const Logo = styled(LogoIcon)`
   height: 4rem;
+  width: 4rem;
 
-  margin: 0 var(--i-medium);
+  margin: var(--i-medium) var(--i-medium) 0;
 `;
 
 export default { Content, ErrorStatus, Logo };

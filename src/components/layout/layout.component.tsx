@@ -4,8 +4,6 @@ import { Link, useLocation } from 'react-router-dom';
 import useMediaQuery from 'ustudio-ui/hooks/use-media-query';
 import Flex from 'ustudio-ui/components/Flex';
 
-import logo from '../../assets/images/logo.svg';
-
 import { Aside } from '../aside';
 
 import Styled from './layout.styles';
@@ -28,7 +26,8 @@ export const Layout: FC = ({ children }) => {
       <Styled.Layout>
         <Styled.Header>
           <Styled.LogoLink to="/">
-            <Styled.LogoImage src={logo} alt={`${name} Logo`} />
+            <Styled.Logo />
+
             <Styled.LogoText>{name}</Styled.LogoText>
           </Styled.LogoLink>
 
@@ -40,7 +39,9 @@ export const Layout: FC = ({ children }) => {
             </a>
           </Styled.Nav>
 
-          {!isMd && isDocPage && <Styled.DrawerButton isDrawerOpen={isDrawerOpen} onClick={() => setDrawerOpen(!isDrawerOpen)} />}
+          {!isMd && isDocPage && (
+            <Styled.DrawerButton isDrawerOpen={isDrawerOpen} onClick={() => setDrawerOpen(!isDrawerOpen)} />
+          )}
         </Styled.Header>
 
         <Styled.Main isDocPage={isDocPage}>

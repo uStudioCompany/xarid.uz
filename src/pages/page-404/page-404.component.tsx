@@ -7,8 +7,6 @@ import Button from 'ustudio-ui/components/Button';
 import Flex from 'ustudio-ui/components/Flex';
 import Text from 'ustudio-ui/components/Text';
 
-import logo from '../../assets/images/logo.svg';
-
 import Styled from './pate-404.styles';
 
 import { name } from '../../../config.json';
@@ -23,7 +21,7 @@ export const Page404 = () => {
           <Flex alignment={{ horizontal: 'center', vertical: 'center' }}>
             <Styled.ErrorStatus>4</Styled.ErrorStatus>
 
-            <Styled.Logo src={logo} alt={`${name} Logo`} />
+            <Styled.Logo />
 
             <Styled.ErrorStatus>4</Styled.ErrorStatus>
           </Flex>

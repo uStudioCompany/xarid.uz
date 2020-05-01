@@ -4,7 +4,7 @@ import { DocsPage } from './pages/docs';
 import { Main } from './pages/main';
 import { Page404 } from './pages/page-404';
 
-import config from '../config.json';
+import { repo } from '../config.json';
 
 export const routes: RouteProps[] = [
   {
@@ -12,7 +12,7 @@ export const routes: RouteProps[] = [
     component: Main
   },
   {
-    path: `/${encodeURI(config.repo.docsFolder)}/:path*/:docName`,
+    path: `/${encodeURI(repo.docsFolder)}/:path*/:docName`,
     component: DocsPage
   },
   {

@@ -5,6 +5,8 @@ import { coy } from 'react-syntax-highlighter/dist/esm/styles/prism'; */
 
 import Styled from './markdown.styles';
 
+import { CSV } from '../csv';
+
 export const renderers: Renderers = {
   inlineCode: Styled.InlineCode,
   // react-syntax-highlighter is broken with parcel for now
@@ -33,5 +35,11 @@ export const renderers: Renderers = {
       {children}
     </Styled.List>
   ),
-  link: Styled.Link,
+  link: ({ href, children, title }: { href: string; children: string; title?: string }) => {
+    if (/^.+\.csv/.test(href)) {
+      return <CSV href={href} title={title} />;
+    }
+
+    return <Styled.Link href={href}>{children}</Styled.Link>;
+  },
 };

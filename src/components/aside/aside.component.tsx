@@ -8,6 +8,7 @@ import { repo } from '../../../config.json';
 import { NavItem } from '../nav-item';
 
 import Styled from './aside.styles';
+import Layout from '../layout/layout.styles';
 
 export const Aside = ({
   setDrawerOpen,
@@ -21,8 +22,10 @@ export const Aside = ({
   if (!isMd) {
     return (
       <Styled.Drawer isOpen={isDrawerOpen} onChange={() => setDrawerOpen(false)} showOverlay>
-        <Flex margin={{ bottom: 'regular' }}>
+        <Flex margin={{ bottom: 'regular' }} alignment={{ vertical: 'center', horizontal: 'space-between' }}>
           <Text variant="h3">Resources</Text>
+
+          <Layout.DrawerButton isDrawerOpen={isDrawerOpen} onClick={() => setDrawerOpen(false)} color="darkest" />
         </Flex>
 
         <NavItem node={{ name: repo.docsFolder, type: 'tree' }} isRoot />

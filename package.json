@@ -4,7 +4,7 @@
   "author": "uStudio Front-end Crew",
   "repository": "github:uStudioCompany/u-documentation-frontend",
   "scripts": {
-    "copyLogo": "copyfiles logo.svg src/assets/images && git add src/assets/images/logo.svg",
+    "copyLogo": "copyfiles logo.svg src/assets/icons && git add src/assets/icons/logo.inline.svg",
     "dev": "rm -fr ./.cache dist && parcel public/index.html",
     "build": "rm -fr ./.cache dist && yarn run copyLogo && parcel build public/index.html ‑‑no‑cache --no-source-maps"
   },
@@ -14,7 +14,9 @@
     "@babel/preset-env": "^7.9.5",
     "@babel/preset-react": "^7.9.4",
     "@babel/preset-typescript": "^7.9.0",
+    "@svgr/parcel-plugin-svgr": "^5.4.0",
     "@types/node": "^13.13.4",
+    "@types/papaparse": "^5.0.3",
     "@types/react": "^16.9.32",
     "@types/react-dom": "^16.9.5",
     "@types/react-router-dom": "^5.1.4",
@@ -23,8 +25,10 @@
     "axios": "^0.19.2",
     "babel-plugin-styled-components": "^1.10.7",
     "framer-motion": "^1.10.3",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
+    "papaparse": "^5.2.0",
+    "react": "^16.8",
+    "react-csv-to-table": "^0.0.4",
+    "react-dom": "^16.8",
     "react-markdown": "^4.3.1",
     "react-router-dom": "^5.1.2",
     "react-syntax-highlighter": "^12.2.1",
@@ -51,7 +55,8 @@
     "husky": "^4.2.1",
     "lint-staged": "^10.1.7",
     "parcel-bundler": "^1.12.4",
-    "prettier": "^2.0.5"
+    "prettier": "^2.0.5",
+    "sass": "^1.26.5"
   },
   "lint-staged": {
     ".": [

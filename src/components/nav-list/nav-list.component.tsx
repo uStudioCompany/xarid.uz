@@ -1,24 +1,22 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 
-import Flex from 'ustudio-ui/components/Flex';
-import Spinner from 'ustudio-ui/components/Spinner';
+import Placeholder from 'ustudio-ui/components/Placeholder';
 
 import { NavItem } from '../nav-item';
 
 import { DrawerState } from '../layout';
 
 import type { Node } from '../../types';
+import { getRandomPlaceholderWidth } from './nav-list.module';
+
+import Styled from './nav-list.styles';
 
 export const NavList = ({ tree, prevPath, isLoading }: { tree: Node[]; prevPath: string; isLoading: boolean }) => {
   const setDrawerState = useContext(DrawerState);
 
   if (isLoading) {
-    return (
-      <Flex alignment={{ horizontal: 'center' }}>
-        <Spinner delay={500} appearance={{ size: 32 }} />
-      </Flex>
-    );
+    return <Placeholder variant="text" appearance={{ width: `${getRandomPlaceholderWidth()}%`, height: 'body' }} />;
   }
 
   return (
@@ -29,13 +27,9 @@ export const NavList = ({ tree, prevPath, isLoading }: { tree: Node[]; prevPath:
         return node.type === 'tree' ? (
           <NavItem key={node.name} node={node} prevPath={prevPath} />
         ) : (
-          <Link
-            to={`/${prevPath}/${parsedDocName}`}
-            key={node.name}
-            onClick={setDrawerState}
-          >
-            {parsedDocName}
-          </Link>
+          <Styled.Button type="button" onClick={setDrawerState} key={node.name}>
+            <Link to={`/${prevPath}/${parsedDocName}`}>{parsedDocName}</Link>
+          </Styled.Button>
         );
       })}
     </>

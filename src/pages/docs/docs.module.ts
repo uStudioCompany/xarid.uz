@@ -8,7 +8,7 @@ export const kebabToHumanCase = (string: string): string => {
   return `${noDashString.slice(0, 1).toUpperCase()}${noDashString.slice(1)}`;
 };
 
-export const getMarkdownDocument = async ({ path, docName }:{path: string; docName: string}): Promise<string> => {
+export const getMarkdownDocument = async ({ path, docName }: { path: string; docName: string }): Promise<string> => {
   const {
     data: { content: source },
   } = await axios(getMarkdownDocumentConfig({ path, docName }));

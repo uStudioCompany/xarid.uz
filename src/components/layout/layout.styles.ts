@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
 import styled, { css, keyframes } from 'styled-components';
-
 import { Mixin } from 'ustudio-ui/theme';
+
+import LogoIcon from '../../assets/icons/logo.inline.svg';
 
 const asideWidth = '320px';
 
@@ -28,6 +29,7 @@ const Header = styled.header`
 
   padding: var(--i-regular) var(--i-large);
 
+  color: var(--c-lightest);
   background-color: var(--c-primary);
   box-shadow: var(--s-light);
 `;
@@ -45,8 +47,9 @@ const LogoLink = styled(Link)`
   }
 `;
 
-const LogoImage = styled.img`
+const Logo = styled(LogoIcon)`
   width: 1.5rem;
+  color: var(--c-lightest);
 
   margin-right: var(--i-regular);
 `;
@@ -61,7 +64,6 @@ const LogoText = styled.span`
 
     line-height: 1;
 
-    color: var(--c-darkest);
     user-select: none;
   `)}
 `;
@@ -106,8 +108,8 @@ const CloseDrawerButtonAnimation = keyframes`
   }
 `;
 
-const DrawerButton = styled.button<{ isDrawerOpen: boolean }>(
-  ({ isDrawerOpen }) => css`
+const DrawerButton = styled.button<{ isDrawerOpen: boolean; color?: 'lightest' | 'darkest' }>(
+  ({ isDrawerOpen, color = 'lightest' }) => css`
     --delay: calc(var(--transition) * 2);
 
     width: 2rem;
@@ -123,10 +125,10 @@ const DrawerButton = styled.button<{ isDrawerOpen: boolean }>(
 
     background-image: linear-gradient(
       to bottom,
-      var(--c-primary) calc(50% - 1px),
-      var(--c-darkest) calc(50% - 1px),
-      var(--c-darkest) calc(50% + 1px),
-      var(--c-primary) calc(50% + 1px)
+      transparent calc(50% - 1px),
+      var(${`--c-${color}`}) calc(50% - 1px),
+      var(${`--c-${color}`}) calc(50% + 1px),
+      transparent calc(50% + 1px)
     );
     background-repeat: no-repeat;
     background-position-x: 0;
@@ -144,7 +146,7 @@ const DrawerButton = styled.button<{ isDrawerOpen: boolean }>(
       width: 32px;
       height: 2px;
 
-      background-color: var(--c-darkest);
+      background-color: var(${`--c-${color}`});
 
       transform-origin: right center;
 
@@ -207,7 +209,7 @@ export default {
   Layout,
   Header,
   LogoLink,
-  LogoImage,
+  Logo,
   LogoText,
   Nav,
   DrawerButton,

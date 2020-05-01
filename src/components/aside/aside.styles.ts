@@ -1,7 +1,8 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import Flex from 'ustudio-ui/components/Flex';
 import LibDrawer from 'ustudio-ui/components/Drawer';
+import { Mixin } from 'ustudio-ui/theme';
 
 const Aside = styled(Flex)`
   position: fixed;
@@ -11,7 +12,7 @@ const Aside = styled(Flex)`
   width: 320px;
   min-height: 100%;
 
-  padding: var(--i-regular) var(--i-large);
+  padding: var(--i-large);
 
   border-right: 1px solid var(--c-light);
   border-radius: 0;
@@ -25,7 +26,11 @@ const Drawer = styled(LibDrawer)`
 
   flex-direction: column;
 
-  padding: var(--i-large);
+  padding: var(--i-regular) var(--i-large);
+
+  ${Mixin.Screen.md(css`
+    padding: var(--i-large);
+  `)}
 `;
 
 export default { Aside, Drawer };
