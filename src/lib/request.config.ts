@@ -3,7 +3,7 @@ import { AxiosRequestConfig } from 'axios';
 import { repo } from '../../config.json';
 
 const { owner, name, branch, docsFolder } = repo;
-const serviceUrl = `http://185.25.116.133:3535`;
+const serviceUrl = `https://udoc.eprocurement.systems`;
 
 export interface DocProps {
   path: string;

@@ -1,1 +1,1 @@
-export * from './docs.component';
+export { DocsPage as default } from './docs.component';

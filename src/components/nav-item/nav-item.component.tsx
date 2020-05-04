@@ -1,15 +1,15 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { Flex } from 'ustudio-ui';
 
+import Flex from 'ustudio-ui/components/Flex';
 import Text from 'ustudio-ui/components/Text';
 
-import type { Node } from '../../types';
 import { FadeIn } from '../fade-in';
-
 import { NavList } from '../nav-list';
 
 import { getEntries } from './nav-item.module';
 import Styled from './nav-item.styles';
+
+import type { Node } from '../../types';
 
 export const NavItem = ({ node, prevPath, isRoot }: { node: Node; prevPath?: string; isRoot?: true }) => {
   const [folder, serFolder] = useState([] as Node[]);

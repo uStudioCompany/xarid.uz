@@ -1,14 +1,16 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { Flex } from 'ustudio-ui';
+
+import Flex from 'ustudio-ui/components/Flex';
 import Spinner from 'ustudio-ui/components/Spinner';
 import Text from 'ustudio-ui/components/Text';
+
 // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
 // @ts-ignore
 import { CsvToHtmlTable } from 'react-csv-to-table';
 import { FadeIn } from '../fade-in';
 
 import { getCsvDocument, getQueryFromHref } from './csv.module';
-import { CSVProps } from './csv.types';
+import type { CSVProps } from './csv.types';
 
 import './csv.module.scss';
 

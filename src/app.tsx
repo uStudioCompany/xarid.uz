@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { HashRouter, Switch, Route } from 'react-router-dom';
 
 import { ThemeProvider } from 'ustudio-ui/theme';
@@ -15,11 +15,13 @@ const App = () => {
       <HashRouter>
         <FadeIn>
           <Layout>
-            <Switch>
-              {routes.map((route) => (
-                <Route {...route} key={route.path as string} />
-              ))}
-            </Switch>
+            <Suspense fallback={<div />}>
+              <Switch>
+                {routes.map((route) => (
+                  <Route {...route} key={route.path as string} />
+                ))}
+              </Switch>
+            </Suspense>
           </Layout>
         </FadeIn>
       </HashRouter>

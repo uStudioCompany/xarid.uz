@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
-import { Tag } from 'ustudio-ui';
+
+import Tag from 'ustudio-ui/components/Tag';
 import { Mixin } from 'ustudio-ui/theme';
 
 const Root = styled.article`

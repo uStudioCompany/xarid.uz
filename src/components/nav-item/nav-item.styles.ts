@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Flex } from 'ustudio-ui';
+import Flex from 'ustudio-ui/components/Flex';
 
 import FolderIcon from '../../assets/icons/folder.inline.svg';
 

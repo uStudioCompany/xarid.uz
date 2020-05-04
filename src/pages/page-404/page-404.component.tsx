@@ -8,7 +8,7 @@ import Button from 'ustudio-ui/components/Button';
 import Flex from 'ustudio-ui/components/Flex';
 import Text from 'ustudio-ui/components/Text';
 
-import Styled from './pate-404.styles';
+import Styled from './page-404.styles';
 
 export const Page404 = () => {
   const { goBack, replace } = useHistory();
