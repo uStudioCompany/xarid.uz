@@ -23,12 +23,16 @@ export const NavList = ({ tree, prevPath, isLoading }: { tree: Node[]; prevPath:
     );
   }
 
-  const filteredList = tree?.filter(({ type, name }) => type === 'tree' || (type === 'blob' && /.md$/.test(name)));
+  const normalizedList = tree
+    ?.filter(({ type, name }) => type === 'tree' || (type === 'blob' && /.md$/.test(name)))
+    ?.sort((nodeA, nodeB) => {
+      return nodeA.name.localeCompare(nodeB.name, undefined, { numeric: true, sensitivity: 'base' });
+    });
 
   return (
     <>
-      {filteredList.length ? (
-        filteredList.map((node) => {
+      {normalizedList.length ? (
+        normalizedList.map((node) => {
           const parsedDocName = node.name.replace('.md', '');
 
           return node.type === 'tree' ? (
