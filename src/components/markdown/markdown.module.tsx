@@ -1,20 +1,11 @@
 import React from 'react';
 import { Renderers } from 'react-markdown';
-/* import Code from 'react-syntax-highlighter';
-import { coy } from 'react-syntax-highlighter/dist/esm/styles/prism'; */
 
 import Styled from './markdown.styles';
 
 import { CSV } from '../csv';
 
 export const renderers: Renderers = {
-  inlineCode: Styled.InlineCode,
-  // react-syntax-highlighter is broken with parcel for now
-  /* code: ({ children, language }) => (
-    <Code language={language} style={coy}>
-      {children}
-    </Code>
-  ), */
   thematicBreak: Styled.Divider,
   root: Styled.Root,
   heading: ({ children, level }) => (
