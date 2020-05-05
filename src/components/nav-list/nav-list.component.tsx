@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import Flex from 'ustudio-ui/components/Flex';
 import Placeholder from 'ustudio-ui/components/Placeholder';
@@ -9,15 +9,18 @@ import { NavItem } from '../nav-item';
 
 import { DrawerState } from '../layout';
 
-import type { Node } from '../../types';
 import { getRandomPlaceholderWidth } from './nav-list.module';
+import Styled from './nav-list.styles';
+import { sortDocsByName } from '../../utils';
+
+import type { Node } from '../../types';
 
 export const NavList = ({ tree, prevPath, isLoading }: { tree: Node[]; prevPath: string; isLoading: boolean }) => {
   const setDrawerState = useContext(DrawerState);
 
   if (isLoading) {
     return (
-      <Flex margin={{ top: 'small' }}>
+      <Flex margin={{ top: 'medium' }}>
         <Placeholder variant="text" appearance={{ width: `${getRandomPlaceholderWidth()}%`, height: 'body' }} />
       </Flex>
     );
@@ -25,12 +28,10 @@ export const NavList = ({ tree, prevPath, isLoading }: { tree: Node[]; prevPath:
 
   const normalizedList = tree
     ?.filter(({ type, name }) => type === 'tree' || (type === 'blob' && /.md$/.test(name)))
-    ?.sort((nodeA, nodeB) => {
-      return nodeA.name.localeCompare(nodeB.name, undefined, { numeric: true, sensitivity: 'base' });
-    });
+    ?.sort(sortDocsByName);
 
   return (
-    <>
+    <Styled.NavList>
       {normalizedList.length ? (
         normalizedList.map((node) => {
           const parsedDocName = node.name.replace('.md', '');
@@ -38,10 +39,10 @@ export const NavList = ({ tree, prevPath, isLoading }: { tree: Node[]; prevPath:
           return node.type === 'tree' ? (
             <NavItem key={node.name} node={node} prevPath={prevPath} />
           ) : (
-            <Flex key={node.name} margin={{ top: 'small' }}>
-              <Link to={`/${prevPath}/${parsedDocName}`} onClick={setDrawerState}>
+            <Flex key={node.name} margin={{ top: 'medium' }}>
+              <NavLink to={`/${prevPath}/${parsedDocName}`} onClick={setDrawerState} activeClassName="current-page">
                 {parsedDocName}
-              </Link>
+              </NavLink>
             </Flex>
           );
         })
@@ -50,6 +51,6 @@ export const NavList = ({ tree, prevPath, isLoading }: { tree: Node[]; prevPath:
           No resources
         </Text>
       )}
-    </>
+    </Styled.NavList>
   );
 };
