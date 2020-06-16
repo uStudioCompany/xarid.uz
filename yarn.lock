@@ -4538,6 +4538,11 @@ hoist-non-react-statics@^3.0.0, hoist-non-react-statics@^3.1.0, hoist-non-react-
   dependencies:
     react-is "^16.7.0"
 
+honks@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/honks/-/honks-0.3.0.tgz#4977075acb4e68230248708c010271c1274d8a94"
+  integrity sha512-7VH0XeyxNXS/rHcE6NkEASjL7VEwR6qySCoPWebeP5/diuDxVTMpq2CGrJYixG7cXmmtkM04EiQaZCWr5oA5sQ==
+
 hosted-git-info@^2.1.4:
   version "2.8.8"
   resolved "https://registry.yarnpkg.com/hosted-git-info/-/hosted-git-info-2.8.8.tgz#7539bd4bc1e0e0a895815a2e0262420b12858488"
@@ -8497,10 +8502,10 @@ typescript@^3.8.3:
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.9.5.tgz#586f0dba300cde8be52dd1ac4f7e1009c1b13f36"
   integrity sha512-hSAifV3k+i6lEoCJ2k6R2Z/rp/H3+8sdmcn5NrS3/3kE7+RyZXm9aqvxWqjEXHAd8b0pShatpcdMTvEdvAJltQ==
 
-u-json-docs@^0.0.9:
-  version "0.0.9"
-  resolved "https://registry.yarnpkg.com/u-json-docs/-/u-json-docs-0.0.9.tgz#33e4d5e0e7143056695b4364ad59ccf3c5d40baa"
-  integrity sha512-+9409RFUuqTC03Lo6EEmbD+/C+TgG9MUpQ8zXRfIhU7gzQZKrki9d125u9yBgGBHFIqGDgGfw8qemL63ALdkHg==
+u-json-docs@^0.0.10:
+  version "0.0.10"
+  resolved "https://registry.yarnpkg.com/u-json-docs/-/u-json-docs-0.0.10.tgz#27f0d53b4e3d2c71f22200c069c25548541203a1"
+  integrity sha512-UDdd+hliX4LnxQ8GsaRxis1quo/lB25HNgG+ALpc54ZaVUKH/5ISdiRq/Szy/fG/6ILOYRfsQN6o3226bFhN8w==
   dependencies:
     "@apidevtools/json-schema-ref-parser" "^9.0.1"
     json-schema "^0.2.5"

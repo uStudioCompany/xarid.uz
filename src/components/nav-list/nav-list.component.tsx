@@ -15,7 +15,7 @@ import { sortDocsByName } from '../../utils';
 
 import type { Node } from '../../types';
 
-export const NavList = ({ tree, prevPath, isLoading }: { tree: Node[]; prevPath: string; isLoading: boolean }) => {
+export const NavList = ({ tree, prevPath, isLoading }: { tree: Node[]; prevPath: string; isLoading?: boolean }) => {
   const setDrawerState = useContext(DrawerState);
 
   if (isLoading) {

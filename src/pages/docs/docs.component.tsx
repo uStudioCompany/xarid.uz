@@ -1,7 +1,8 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
 import { Helmet } from 'react-helmet';
+import { useRequest } from 'honks';
 
 import Flex from 'ustudio-ui/components/Flex';
 import Spinner from 'ustudio-ui/components/Spinner';
@@ -18,31 +19,18 @@ import { getMarkdownDocument } from './docs.module';
 export const DocsPage: React.FC = () => {
   const { path, docName } = useParams();
 
-  const [isLoading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  const getSource = (): Promise<string> => {
+    return getMarkdownDocument({
+      path: encodePath(path),
+      docName,
+    });
+  };
 
-  const [source, setSource] = useState('');
-
-  const getSource = useCallback(async (): Promise<void> => {
-    setLoading(true);
-
-    try {
-      const markdownFile = await getMarkdownDocument({
-        path: encodePath(path),
-        docName,
-      });
-
-      setSource(markdownFile);
-    } catch ({ message: errorMessage }) {
-      setError(errorMessage);
-    } finally {
-      setLoading(false);
-    }
-  }, [path, docName]);
+  const { sendRequest, onSuccess, onFail, onPending } = useRequest(getSource);
 
   useEffect(
     function getSourceDataOnMount() {
-      getSource();
+      sendRequest();
     },
     [path, docName]
   );
@@ -52,32 +40,31 @@ export const DocsPage: React.FC = () => {
       <Helmet>
         <title>{docName}</title>
       </Helmet>
+      <FadeIn>
+        {onPending(() => {
+          return (
+            <CenteredContainer>
+              <Flex alignment={{ horizontal: 'center' }}>
+                <Spinner delay={500} appearance={{ size: 48 }} />
+              </Flex>
+            </CenteredContainer>
+          );
+        })}
 
-      {isLoading && !error && (
-        <FadeIn>
-          <CenteredContainer>
-            <Flex alignment={{ horizontal: 'center' }}>
-              <Spinner delay={500} appearance={{ size: 48 }} />
-            </Flex>
-          </CenteredContainer>
-        </FadeIn>
-      )}
+        {onSuccess((data) => {
+          return <Markdown source={data} />;
+        })}
 
-      {!isLoading && !error && (
-        <FadeIn>
-          <Markdown source={source} />
-        </FadeIn>
-      )}
-
-      {!isLoading && error && (
-        <FadeIn>
-          <CenteredContainer>
-            <Text color="var(--c-negative)" align="center">
-              {`${error} ☹️`}
-            </Text>
-          </CenteredContainer>
-        </FadeIn>
-      )}
+        {onFail((error) => {
+          return (
+            <CenteredContainer>
+              <Text color="var(--c-negative)" align="center">
+                {`${error.message} ☹️`}
+              </Text>
+            </CenteredContainer>
+          );
+        })}
+      </FadeIn>
     </>
   );
 };
