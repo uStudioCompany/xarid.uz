@@ -19,14 +19,12 @@ import { getMarkdownDocument } from './docs.module';
 export const DocsPage: React.FC = () => {
   const { path, docName } = useParams();
 
-  const getSource = (): Promise<string> => {
-    return getMarkdownDocument({
+  const { sendRequest, onSuccess, onFail, onPending } = useRequest(() =>
+    getMarkdownDocument({
       path: encodePath(path),
       docName,
-    });
-  };
-
-  const { sendRequest, onSuccess, onFail, onPending } = useRequest(getSource);
+    })
+  );
 
   useEffect(
     function getSourceDataOnMount() {

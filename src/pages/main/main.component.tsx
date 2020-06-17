@@ -47,7 +47,7 @@ export const Main = () => {
             return (
               <CenteredContainer>
                 <Text variant="h5" color="var(--c-negative)" align="center">
-                  {`${error} ☹️`}
+                  {`${error.message} ☹️`}
                 </Text>
               </CenteredContainer>
             );
