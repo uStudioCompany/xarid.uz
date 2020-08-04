@@ -1,0 +1,19 @@
+{
+  "name": "uDocumentation",
+  "palette": {
+    "lightest": "#f5f5f5",
+    "light": "#eee",
+    "primary": "#23a6da",
+    "primary-light": "#82c5e7",
+    "positive-light": "#97e31a",
+    "positive": "#8dd419",
+    "negative": "#f69378",
+    "negative-light": "#fbab95"
+  },
+  "repo": {
+    "owner": "",
+    "name": "",
+    "branch": "",
+    "docsFolder": ""
+  }
+}

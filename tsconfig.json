@@ -1,22 +1,25 @@
 {
   "compilerOptions": {
-    "strict": true,
-    "target": "es2015",
     "module": "commonjs",
+    "target": "ES2019",
     "moduleResolution": "node",
-    "sourceMap": true,
-    "lib": ["dom", "esnext"],
+    "lib": ["esnext", "dom"],
     "jsx": "react",
-    "allowJs": true,
-    "skipLibCheck": true,
-    "noEmit": true,
-    "esModuleInterop": true,
+    "rootDir": "src",
     "resolveJsonModule": true,
+    "emitDeclarationOnly": true,
+    "declaration": true,
+    "declarationDir": "lib",
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
     "forceConsistentCasingInFileNames": true,
-    "isolatedModules": true,
-    "baseUrl": "./src",
-    "types": ["./typings.d.ts"]
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "strict": true
   },
-  "include": ["./src/**/*.ts", "./src/**/*.tsx"],
-  "exclude": ["node_modules"]
+  "include": ["src/globals.d.ts"]
 }
