@@ -5,13 +5,15 @@
   },
   "extends": [
     "airbnb",
-    "plugin:prettier/recommended",
-    "prettier/@typescript-eslint",
-    "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
-    "plugin:import/typescript"
+    "plugin:import/typescript",
+    "plugin:jsx-a11y/recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:promise/recommended",
+    "plugin:sonarjs/recommended",
+    "plugin:prettier/recommended"
   ],
-  "plugins": ["@typescript-eslint", "import"],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "sourceType": "module",
@@ -28,34 +30,12 @@
     }
   },
   "rules": {
-    "@typescript-eslint/no-unused-vars": "warn",
-    "@typescript-eslint/member-ordering": "warn",
-    "import/named": "off",
+    "comma-dangle": "off",
     "import/extensions": "off",
     "import/no-cycle": "warn",
     "import/prefer-default-export": "off",
-    "jsx-a11y/anchor-is-valid": [
-      "error",
-      {
-        "components": ["Link"],
-        "specialLink": ["hrefLeft", "hrefRight"],
-        "aspects": ["invalidHref", "preferButton"]
-      }
-    ],
-    "jsx-a11y/label-has-associated-control": [
-      "error",
-      {
-        "labelComponents": ["label"],
-        "labelAttributes": ["htmlFor"],
-        "controlComponents": ["input"]
-      }
-    ],
     "no-console": "warn",
-    "no-restricted-globals": "off",
-    "no-empty-function": "warn",
-    "no-unused-vars": "warn",
-    "no-useless-constructor": "off",
-    "react/jsx-curly-newline": "off",
+    "react/jsx-one-expression-per-line": "warn",
     "react/jsx-filename-extension": [
       1,
       {
@@ -63,10 +43,21 @@
       }
     ],
     "react/jsx-props-no-spreading": "off",
-    "react/jsx-one-expression-per-line": "off",
-    "react/jsx-wrap-multilines": "warn",
     "react/prop-types": "off",
-    "prettier/prettier": "warn",
-    "spaced-comment": "warn"
+    "react/function-component-definition": [
+      "error",
+      {
+        "namedComponents": "arrow-function",
+        "unnamedComponents": "arrow-function"
+      }
+    ],
+    "react/boolean-prop-naming": "error",
+    "@typescript-eslint/explicit-function-return-type": [
+      "warn",
+      {
+        "allowExpressions": true
+      }
+    ],
+    "react/display-name": "off"
   }
 }
