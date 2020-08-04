@@ -7,7 +7,7 @@
     "copy:logo": "cpy logo.svg src/assets/icons/ --rename=logo.inline.svg && git add src/assets/icons/logo.inline.svg",
     "copy:robots": "cpy public/robots.txt dist",
     "dev": "rm -rf ./.cache dist && parcel public/index.html",
-    "build": "rm -rf ./.cache dist && yarn run copyLogo && parcel build public/index.html --no-autoinstall --no-source-maps --public-url / && yarn copyRobotsFile",
+    "build": "rm -rf ./.cache dist && yarn run copy:logo && parcel build public/index.html --no-autoinstall --no-source-maps --public-url / && yarn copy:robots",
     "deploy": "yarn build && gh-pages -b gh-pages --dotfiles=true -d dist"
   },
   "dependencies": {
