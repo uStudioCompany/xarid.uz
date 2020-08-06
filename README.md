@@ -2,7 +2,7 @@
 
 ## Instruction for install in another repo
 
-1. In your repo directory run command: `git clone https://github.com/uStudioCompany/u-documentation-frontend.git master --allow-unrelated-histories`
+1. In your repo directory run command: `git pull https://github.com/uStudioCompany/u-documentation-frontend.git master --allow-unrelated-histories`
 2. Create a file `config.json` in the root with the content as `config.example.json`. In this file you can specify the project name, color palette and mandatory settings for the application: name of the repository owner, name of the repository itself, working branch, and name of the folder from which navigation will be built.
 3. To install your own logo, place the image with it at the root of the project. The file name must be `logo.svg`.
 4. In the repository settings, enable the "GitHub Pages" option, select the branch `gh-pages`, directory `/` (root).
