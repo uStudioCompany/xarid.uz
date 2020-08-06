@@ -1,6 +1,6 @@
 import React, { FC, createContext, useContext, useCallback } from 'react';
 
-import type { AxiosRequestConfig } from 'axios';
+import { AxiosRequestConfig } from 'axios';
 
 import { useAppConfig } from '../app-config';
 
@@ -13,6 +13,7 @@ export interface RequestConfigService {
   getMarkdownDocumentConfig(Document: Document): AxiosRequestConfig;
   getCsvDocumentConfig(Document: Document): AxiosRequestConfig;
   getJsonSchemaDocumentConfig(Document: Document): AxiosRequestConfig;
+  getJsonDocumentConfig(Document: Document): AxiosRequestConfig;
 }
 
 const RequestConfigContext = createContext<RequestConfigService | undefined>(undefined);
@@ -64,6 +65,14 @@ const RequestConfig: FC<RequestConfigProps> = ({ children, serviceUrl }) => {
     []
   );
 
+  const getJsonDocumentConfig = useCallback(
+    ({ path, docName }: Document): AxiosRequestConfig => ({
+      method: 'get',
+      url: `${serviceUrl}/entries/${owner}/${name}/${branch}/${path}/${docName}.json`,
+    }),
+    []
+  );
+
   return (
     <RequestConfigContext.Provider
       value={{
@@ -72,6 +81,7 @@ const RequestConfig: FC<RequestConfigProps> = ({ children, serviceUrl }) => {
         getMarkdownDocumentConfig,
         getCsvDocumentConfig,
         getJsonSchemaDocumentConfig,
+        getJsonDocumentConfig
       }}
     >
       {children}

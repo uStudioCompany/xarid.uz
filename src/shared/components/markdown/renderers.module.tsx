@@ -1,11 +1,12 @@
 import React from 'react';
 import { Renderers, MarkdownAbstractSyntaxTree } from 'react-markdown';
-import Code from 'react-syntax-highlighter/dist/cjs/prism';
 
+import { Code } from '../code';
 import Styled from './markdown.styles';
 
 import { CSV } from './csv';
 import { JsonSchema } from './json-schema';
+import { Json } from '../json';
 
 export const renderers: Renderers = {
   thematicBreak: Styled.Divider,
@@ -38,23 +39,7 @@ export const renderers: Renderers = {
       {children}
     </Styled.List>
   ),
-  code: ({ value, language }: { value: string; language: string }) => (
-    <Code
-      language={language}
-      customStyle={{
-        padding: 'var(--i-regular) 0',
-        marginBottom: '0',
-        marginTop: '0',
-      }}
-      codeTagProps={{
-        style: {
-          whiteSpace: 'pre-wrap',
-        },
-      }}
-    >
-      {value}
-    </Code>
-  ),
+  code: ({ value, language }: { value: string; language: string }) => <Code language={language} value={value} />,
   link: ({ href, children, title }: { href: string; children: string; title?: string }) => {
     if (/^.+\.csv/.test(href)) {
       return <CSV href={href} title={title} />;
@@ -62,6 +47,10 @@ export const renderers: Renderers = {
 
     if (/^.+\.schema.json/.test(href)) {
       return <JsonSchema href={href} />;
+    }
+
+    if (/^.+\.json/.test(href)) {
+      return <Json href={href} />;
     }
 
     return <Styled.Link href={href}>{children}</Styled.Link>;

@@ -24,6 +24,7 @@
     "react-helmet": "^6.0.0",
     "react-markdown": "^4.3.1",
     "react-router-dom": "^5.1.2",
+    "react-syntax-highlighter": "^13.0.0",
     "regenerator-runtime": "^0.13.5",
     "sass": "^1.26.8",
     "styled-components": "^5.0.1",
