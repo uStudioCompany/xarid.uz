@@ -1,12 +1,15 @@
 import React from 'react';
 import { Renderers, MarkdownAbstractSyntaxTree } from 'react-markdown';
 
+import Dropdown from 'ustudio-ui/components/Dropdown';
+
 import { Code } from '../code';
 import Styled from './markdown.styles';
 
 import { CSV } from './csv';
 import { JsonSchema } from './json-schema';
 import { Json } from '../json';
+import { Markdown } from './markdown.component';
 
 export const renderers: Renderers = {
   thematicBreak: Styled.Divider,
@@ -17,7 +20,7 @@ export const renderers: Renderers = {
         return getRecursiveChildren(children[0]?.props?.children);
       }
 
-      return children as unknown as string;
+      return (children as unknown) as string;
     };
 
     return (
@@ -52,6 +55,20 @@ export const renderers: Renderers = {
 
     if (/^.+\.json/.test(href)) {
       return <Json href={href} />;
+    }
+
+    if (href.startsWith('$')) {
+      const parsedType = href.slice(1);
+
+      //Incorrect type MarkdownAbstractSyntaxTree in "react-markdown"
+      // @ts-ignore
+      const value = children?.[0]?.props?.children || {};
+
+      return (
+        <Dropdown title={title}>
+          {parsedType ? <Code language={parsedType} value={value} /> : <Markdown source={value} />}
+        </Dropdown>
+      );
     }
 
     return <Styled.Link href={href}>{children}</Styled.Link>;
