@@ -14,8 +14,6 @@ import { useCsvParser } from '../csv-parser';
 
 import type { CSVProps } from './csv.props';
 
-import './csv.module.scss';
-
 export const CSV: React.FC<CSVProps> = ({ href, title }) => {
   const [meta, setMeta] = useState<{ rows?: string; cols?: string } | null>(null);
   const { getCsvDocument, getQueryFromHref } = useCsvParser();

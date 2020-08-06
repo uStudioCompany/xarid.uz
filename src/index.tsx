@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import 'regenerator-runtime/runtime';
+import './shared/styles/index.scss';
 
 import configJson from '../config.json';
 

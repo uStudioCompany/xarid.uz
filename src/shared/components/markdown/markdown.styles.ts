@@ -26,7 +26,7 @@ const Heading = styled.h1`
 const Paragraph = styled.div`
   margin: var(--i-medium) 0;
 
-  ${Mixin.Font.articleRegular()};
+  ${Mixin.Font.bodyRegular()};
 
   line-height: 1.7;
 `;
