@@ -15,6 +15,7 @@ import { encodePath } from '../../shared/utils';
 import { Markdown } from '../../shared/components/markdown';
 import { CenteredContainer } from '../../shared/components/centered-container';
 import { FadeIn } from '../../shared/components/fade-in';
+import { ErrorBoundary } from '../../shared/components/error-boundary';
 
 export const DocsPage: React.FC = () => {
   const { path, docName } = useParams();
@@ -43,29 +44,33 @@ export const DocsPage: React.FC = () => {
         <title>{docName}</title>
       </Helmet>
       <FadeIn>
-        {onPending(() => {
-          return (
-            <CenteredContainer>
-              <Flex alignment={{ horizontal: 'center' }}>
-                <Spinner delay={500} appearance={{ size: 48 }} />
-              </Flex>
-            </CenteredContainer>
-          );
-        })}
+        <ErrorBoundary>
+          <>
+            {onPending(() => {
+              return (
+                <CenteredContainer>
+                  <Flex alignment={{ horizontal: 'center' }}>
+                    <Spinner delay={500} appearance={{ size: 48 }} />
+                  </Flex>
+                </CenteredContainer>
+              );
+            })}
 
-        {onSuccess((data) => {
-          return <Markdown source={data} />;
-        })}
+            {onSuccess((data) => {
+              return <Markdown source={data} />;
+            })}
 
-        {onFail((error) => {
-          return (
-            <CenteredContainer>
-              <Text color="var(--c-negative)" align="center">
-                {`${error.message} ☹️`}
-              </Text>
-            </CenteredContainer>
-          );
-        })}
+            {onFail((error) => {
+              return (
+                <CenteredContainer>
+                  <Text color="var(--c-negative)" align="center">
+                    {`${error.message} ☹️`}
+                  </Text>
+                </CenteredContainer>
+              );
+            })}
+          </>
+        </ErrorBoundary>
       </FadeIn>
     </>
   );
