@@ -32,6 +32,7 @@ export const renderers: Renderers = {
       </Styled.Heading>
     );
   },
+  table: ({ children }) => <table className="html-table">{children}</table>,
   blockquote: Styled.Quote,
   paragraph: Styled.Paragraph,
   list: ({ depth, children, ordered }) => (
