@@ -6,6 +6,4 @@ node_modules
 dist
 .cache
 
-config.json
-
 *.log

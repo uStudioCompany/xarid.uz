@@ -1,0 +1,19 @@
+{
+  "name": "xarid.uz",
+  "palette": {
+    "lightest": "#fff",
+    "light": "#ececec",
+    "primary": "#4e9edb",
+    "primary-light": "#54a9ea",
+    "positive-light": "#97e31a",
+    "positive": "#44ab1f",
+    "negative": "#b92b0d",
+    "negative-light": "#fbab95"
+  },
+  "repo": {
+    "owner": "uStudioCompany",
+    "name": "xarid.uz",
+    "branch": "main",
+    "docsFolder": "docs"
+  }
+}
