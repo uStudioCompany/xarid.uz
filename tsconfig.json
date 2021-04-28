@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "ES2019",
+    "moduleResolution": "node",
+    "lib": ["esnext", "dom"],
+    "jsx": "react",
+    "rootDir": "src",
+    "resolveJsonModule": true,
+    "emitDeclarationOnly": true,
+    "declaration": true,
+    "declarationDir": "lib",
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "strict": true
+  },
+  "include": ["src/globals.d.ts"]
+}
