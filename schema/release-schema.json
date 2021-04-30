@@ -561,19 +561,16 @@
         "address": {
           "title": "Legal [Address] of the Bank",
           "description": "Legal [Address] of the Bank",
-          "type": "Object",
           "$ref": "#/definitions/Address"
         },
         "identifier": {
           "title": "",
           "description": "Primary [Identifier] of the Bank",
-          "type": "Object",
           "$ref": "#/definitions/Identifier"
         },
         "accountIdentification": {
           "title": "",
           "description": "Account number as [Classification]",
-          "type": "object",
           "$ref": "#/definitions/Classification"
         },
         "additionalAccountIndentifiers": {
@@ -684,38 +681,36 @@
       "description": "",
       "type": "object",
       "properties": {
-        "properties": {
-          "id": {
-            "title": "ID",
-            "description": "Идентификатор статьи бюджета, которая предоставляет средства для этого процесса заключения контракта",
-            "type": [
-              "string",
-              "integer"
-            ]
-          },
-          "description": {
-            "title": "Budget Source",
-            "description": "A short free text description of the budget source. May be used to provide the title of the budget line, or the programme used to fund this project.",
-            "type": [
-              "string",
-              "null"
-            ]
-          },
-          "budgetBreakdown": {
-            "type": "array",
-            "title": "Budget breakdown",
-            "description": "A array of BudgetBreakdown of the budget by period and/or participating funders.",
-            "items": {
-              "$ref": "#/definitions/BudgetBreakdown"
-            }
-          },
-          "finance": {
-            "title": "Finance",
-            "description": "An array with details of each source of finance arranged for this contract.",
-            "type": "array",
-            "items": {
-              "$ref": "#/definitions/Finance"
-            }
+        "id": {
+          "title": "ID",
+          "description": "Идентификатор статьи бюджета, которая предоставляет средства для этого процесса заключения контракта",
+          "type": [
+            "string",
+            "integer"
+          ]
+        },
+        "description": {
+          "title": "Budget Source",
+          "description": "A short free text description of the budget source. May be used to provide the title of the budget line, or the programme used to fund this project.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "budgetBreakdown": {
+          "type": "array",
+          "title": "Budget breakdown",
+          "description": "A array of BudgetBreakdown of the budget by period and/or participating funders.",
+          "items": {
+            "$ref": "#/definitions/BudgetBreakdown"
+          }
+        },
+        "finance": {
+          "title": "Finance",
+          "description": "An array with details of each source of finance arranged for this contract.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Finance"
           }
         }
       }
@@ -1030,14 +1025,14 @@
           "title":"",
           "description":"",
           "type":"object",
-          "$ref":"#definitions/OrgizationReference"
+          "$ref":"#/definitions/OrganizationReference"
         },
         "suppliers": {
           "title":"",
           "description":"",
           "type":"array",
           "items": {
-            "$ref":"#definitions/OrgizationReference"
+            "$ref":"#/definitions/OrganizationReference"
           }
         },
         "period": {
@@ -1164,8 +1159,7 @@
         },
         "financialTermsDetails": {
           "title": "",
-          "description": "",
-          "$ref": "???"
+          "description": ""
         }
       }
     },
@@ -1761,7 +1755,7 @@
           "description": "",
           "type": "array",
           "items": {
-            "$ref": "#/definitions/organizationReference"
+            "$ref": "#/definitions/OrganizationReference"
           }
         }
       }
@@ -2202,7 +2196,7 @@
           "type": "object",
           "title": "Unit",
           "description": "Unit",
-          "$ref": "#/Definitions/Unit"
+          "$ref": "#/definitions/Unit"
         },
         "dimensions": {
           "type": "object",
@@ -2304,7 +2298,7 @@
             "object",
             "null"
           ],
-          "$ref": "#definitions/OrganizationDetails"
+          "$ref": "#/definitions/OrganizationDetails"
         }
       }
     },
@@ -2416,6 +2410,70 @@
           "items": {
             "type": "string"
           }
+        }
+      }
+    },
+    "PerformanceFailure": {
+      "type": "object",
+      "title": "Performance failure disclosure",
+      "description": "Details of the performance failures for a given period and category. Details of the associated penalties and abatements provided for in the contract, imposed and paid can also be provided.",
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "title": "Identifier",
+          "description": "A local identifier for this specific category and period of performance failure. This field is used to keep track of revisions of a charge across multiple OCDS releases.",
+          "type": "string"
+        },
+        "period": {
+          "title": "Performance failure [Period]",
+          "description": "The reporting period for these performance failures.",
+          "type": [
+            "object",
+            "null"
+          ],
+          "$ref": "#/definitions/Period"
+        },
+        "category": {
+          "title": "Performance failure category",
+          "description": "The category into which these performance failures fall.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "events": {
+          "title": "Number of events",
+          "description": "The number of performance failures for the given period and category.",
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "penaltyContracted": {
+          "title": "Contracted penalty",
+          "description": "A free text description of the penalty or abatement provided for in the contract for this period, category and number of performance failures.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "penaltyImposed": {
+          "title": "Penalty imposed",
+          "description": "A free text description of the penalty or abatement imposed for this period, category and number of performance failures.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "penaltyPaid": {
+          "title": "Penalty paid",
+          "description": "A yes/no field indicating whether the penalty imposed for this period, category and number of performance failures has been paid.",
+          "type": [
+            "boolean",
+            "null"
+          ]
         }
       }
     },
@@ -2533,15 +2591,13 @@
           "type": "object",
           "$ref": "#/definitions/Identifier"
         },
-        "businessFunctions": [
-          {
-            "description": "A set of persones' [BusinessFunction]",
-            "type": "array",
-            "items": {
-              "$ref": "#/definitions/BusinessFunction"
-            }
+        "businessFunctions":{
+          "description": "A set of persones' [BusinessFunction]",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/BusinessFunction"
           }
-        ]
+        }
       }
     },
     "PlaceOfPerformance": {
@@ -2612,8 +2668,7 @@
           "description": "",
           "type": "string",
           "codelist": "",
-          "openCodelist": false,
-          "enum": []
+          "openCodelist": false
         },
         "period": {
           "title": "Pre-qualification period",
@@ -2728,8 +2783,7 @@
           "description": "Additional details of an award status.",
           "type": "string",
           "codelist": "",
-          "openCodelist": false,
-          "enum": []
+          "openCodelist": false
         },
         "relatedSubmission": {
           "title": "Related Submission",
@@ -2870,7 +2924,7 @@
           "description": "Any [Evidance] that will be accepted as a proof of sasisfaction of sepcific requirement ",
           "type": "array",
           "items": {
-            "$ref": "#/definition/Evidence"
+            "$ref": "#/definitions/Evidence"
           }
         }
       }
@@ -3152,8 +3206,7 @@
           "description": "Additional details of an award status.",
           "type": "string",
           "codelist": "",
-          "openCodelist": false,
-          "enum": []
+          "openCodelist": false
         },
         "candidates": {
           "title": "Tenderer",
