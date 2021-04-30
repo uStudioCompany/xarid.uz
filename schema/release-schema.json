@@ -2,6 +2,160 @@
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Definitions of OCDS elements",
   "type": "object",
+  "properties": {
+    "id": {
+      "title": "Id",
+      "description": "Идентификатор этого конкретного релиза. Идентификатор должен быть уникальным в рамках связанного с ним контрактного (определяемого общим идентификатором ocid)",
+      "type": "string"
+    },
+    "ocid": {
+      "title": "ocid",
+      "description": "Глобальный уникальный идентификатор данного контрактного процесса заключения контрактов. Состоит из префикса ocid и идентификатора процесса заключения контракта",
+      "type": "string"
+    },
+    "tag": {
+      "title": "Tag",
+      "description": "",
+      "codelist": "",
+      "openCodelist": false,
+      "enum": [
+        "planning",
+        "planningUpdate",
+        "tender",
+        "tenderAmendment",
+        "tenderUpdate",
+        "tenderCancellation",
+        "award",
+        "awardUpdate",
+        "awardCancellation",
+        "contract",
+        "contractUpdate",
+        "contractAmendment",
+        "implementation",
+        "implementationUpdate",
+        "contractTermination"
+      ],
+      "type": "string"
+    },
+    "initiationType": {
+      "title": "Initiation Type",
+      "description": "Тип испольуемой инициации",
+      "codelist": "",
+      "openCodelist": false,
+      "enum": [
+        "tender"
+      ],
+      "type": "string"
+    },
+    "date": {
+      "title": "Date",
+      "description": "Дата публикации данного релиза",
+      "type": "string",
+      "format": "date-time"
+    },
+    "planning": {
+      "title": "Planning",
+      "description": "Объект используется для описания финансовой основы процесса заключения контракта, а также - ожидаеммого состава и последовательности исполнения будущего договора сторонами",
+      "type": "object",
+      "properties": {
+        "budget": {
+          "title": "Budget",
+          "description": "В объекте содержится информация о бюджетных линиях и/или связанных проектах, через которые финансируется процесс заключения данного договора",
+          "$ref": "#/definitions/Budget"
+        },
+        "milestones": {
+          "title": "Milestones",
+          "description": "Объект описывает вехи, связанные с планированием исполнения будущего договора",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Milestone"
+          }
+        },
+        "forecasts": {
+          "title": "Forecasts",
+          "description": "Объект описывает индикативы, исползуемые для планирования исполнения будущего договора",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Metric"
+          }
+        }
+      }
+    },
+    "preQualification": {
+      "title": "Prequalification",
+      "description": "Объект описывает аспекты стадии предварительнй квалификации экономических агентов, выразивших заинтересовнность в участии в данном контрактном процессе",
+      "type": "object",
+      "$ref": "#/definitions/PreQualification"
+    },
+    "submissions": {
+      "title": "Submissions",
+      "description": "Объект описывает выражения заинтересованности и/или заявки на участие, полученные от экономических агентов в отношении данного контрактного процесса",
+      "type": "object",
+      "items": {
+        "$ref": "#/definitions/Submissions"
+      }
+    },
+    "qualifications": {
+      "title": "Qualifications",
+      "description": "Объект описывает решения тендерного комитета, вынесенные в отношении выражений заинтересованности и/или заявки на участие, полученные от экономических агентов в отношении данного контрактного процесса",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Qualification"
+      }
+    },
+    "tender": {
+      "title": "Tender",
+      "description": "Обект описывает тендерную фазу данного контрактного процесса",
+      "type": "object",
+      "$ref": "#/deficitions/Tender"
+    },
+    "invitations": {
+      "title": "Invitations",
+      "description": "Объект описывает перечень приглашений к участию в закупочной фазе процедуры, выпущенные в отнощении экономических агентов, заявивших о своей заинтересованности в участии",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Invitation"
+      }
+    },
+    "bids": {
+      "title": "Bids",
+      "description": "Объект описывает сводную статистику и детальную информацию о полученных тендерных предложениях",
+      "type": "object",
+      "$ref": "#/definitions/Bids"
+    },
+    "awards": {
+      "title": "Awards",
+      "description": "Объект используется для описания результатов тендерной фазы контрактного процесса, как позитивных так и негативных",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Award"
+      }
+    },
+    "contracts": {
+      "title": "Contracts",
+      "description": "Объект используется для предоставления подробной информации о контрактах, заключенных в рамках данного контрактного процесса",
+      "type": "array",
+      "items": {
+        "$ref": "#/definotions/Contract"
+      }
+    },
+    "parties": {
+      "title": "Parties",
+      "description": "Объект содержит информацию обо всех сторонах, участвующих в данном контрактном процессе",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Organization"
+      }
+    },
+    "relatedProcesses":{
+      "title":"",
+      "description":"",
+      "type":"array",
+      "items":{
+        "$ref":"#/definitions/RelatedProcess"
+      }
+    }
+  },
   "definitions": {
     "Address": {
       "title": "Address",
