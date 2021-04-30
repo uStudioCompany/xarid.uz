@@ -107,7 +107,7 @@
       "title": "Tender",
       "description": "Обект описывает тендерную фазу данного контрактного процесса",
       "type": "object",
-      "$ref": "#/deficitions/Tender"
+      "$ref": "#/definitions/Tender"
     },
     "invitations": {
       "title": "Invitations",
@@ -136,7 +136,7 @@
       "description": "Объект используется для предоставления подробной информации о контрактах, заключенных в рамках данного контрактного процесса",
       "type": "array",
       "items": {
-        "$ref": "#/definotions/Contract"
+        "$ref": "#/definitions/Contract"
       }
     },
     "parties": {
