@@ -1,4 +1,4 @@
 # Award
 
 ## Дефиниция OCDS 
-[](/schema/definitions/Award.json)
+[](/schema/definitions/Award.schema.json)
