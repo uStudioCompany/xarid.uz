@@ -1,0 +1,8 @@
+{
+  "id":"",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Award.commonDefinition",
+  "type":"object",
+  "description": "A common definitions of an 'award' as per standard",
+  "$ref": "/schema/release-schema.json#/definitions/Award"
+}
