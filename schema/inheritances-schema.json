@@ -6,6 +6,7 @@
     "Award.EvaluationDecision": {
       "title": "",
       "description": "",
+      "type":"object",
       "required": [
         "id",
         "date",
@@ -48,6 +49,41 @@
         "relatedBid": {
           "description": "",
           "source": "System"
+        }
+      }
+    },
+    "Award.NegativeCan": {
+      "title": "",
+      "description": "",
+      "type":"object",
+      "required": [
+        "id",
+        "date",
+        "status",
+        "relatedLots"
+      ],
+      "properties": {
+        "id": {
+          "description": "",
+          "source": "Procuring Entity"
+        },
+        "status": {
+          "description": "",
+          "source": "Procuring Entity",
+          "codelist": ""
+        },
+        "statusDetails": {
+          "description": "",
+          "source": "Procuring Entity",
+          "codelist": ""
+        },
+        "date": {
+          "description": "",
+          "source": "Procuring Entity"
+        },
+        "relatedLots": {
+          "description": "",
+          "source": "Procuring Entity"
         }
       }
     }
