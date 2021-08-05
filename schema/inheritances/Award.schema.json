@@ -4,5 +4,5 @@
   "title": "Award.Inheritances",
   "type":"object",
   "description": "A common definitions of an 'award' as per standard",
-  "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/inheritances-schema.json#interitances"
+  "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/inheritances-schema.json#/interitances"
 }
