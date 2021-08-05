@@ -45,6 +45,7 @@
         "suppliers": {
           "description": "",
           "source": "Procuring Entity",
+          "type":"array",
           "items": {
             "$ref": "#/properties/OrganizationReference.RegularOrganizationReference"
           }
