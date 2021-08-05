@@ -16,21 +16,26 @@
       ],
       "properties": {
         "id": {
-          "description":"",
-          "source": "Procuring Entity"
+          "description":"Системный идентификатор решения",
+          "source": "System"
         },
         "status": {
-          "description":"",
-          "codelist":"",
+          "description":"Текущий статус решения",
+          "codelist":"EvaluationDecisionStatuses.csv",
+          "source": "System"
+        },
+        "status": {
+          "description":"Детализация статуса решения",
+          "codelist":"EvaluationDecisionStatusesDetails.csv",
           "source": "Procuring Entity"
         },
         "date": {
-          "description":"",
+          "description":"Дата вынесения решения",
           "source": "Procuring Entity"
         },
         "relatedLots": {
-          "description":"",
-          "source": "Procuring Entity"
+          "description":"Системный идентификатор лота, с которым связано данное решение",
+          "source": "System"
         },
         "value": {
           "description":"",
