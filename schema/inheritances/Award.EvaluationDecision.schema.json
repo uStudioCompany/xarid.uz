@@ -6,6 +6,7 @@
   "properties":{
     "Award.EvaluationDecision":{
       "description":"Решение тендерного комитета",
+      "type":"object",
       "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/inheritances-schema.json#/definitions/Award.EvaluationDecision"
     }
   }
