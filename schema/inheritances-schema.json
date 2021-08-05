@@ -1,0 +1,75 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Definitions of OCDS elements",
+  "type": "object",
+  "inheritances": {
+    "Award.EvaluationDecision": {
+      "title": "",
+      "description": "",
+      "required": [
+        "id",
+        "date",
+        "status",
+        "relatedLots",
+        "suppliers",
+        "value"
+      ],
+      "properties": {
+        "id": {},
+        "status": {},
+        "date": {},
+        "relatedLots": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "value": {},
+        "suppliers": {
+          "description": {},
+          "type": "array",
+          "source": "Procuring Entity",
+          "items": {
+            "$ref": "#/inheritances/OrganizationReference.RegularOrganizationReference"
+          }
+        }
+      }
+    },
+    "Award.NegativeCan": {
+      "title": "",
+      "description": "",
+      "required": [
+        "id",
+        "date",
+        "status",
+        "relatedLots"
+      ],
+      "properties": {
+        "id": {},
+        "status": {},
+        "statusDetails": {},
+        "date": {},
+        "relatedLots": {}
+      }
+    },
+    "OrganizationReference.RegularOrganizationReference":{
+      "title":"Ссылка на организацию-участника процесса",
+      "description":"",
+      "required":[
+        "id"
+      ],
+      "properties":{
+        "id":{
+          "description":"Идентификатор организации, сформированный как конкатонация данных ее осноной классификации из массива 'parties' актуального релиза данного закупочного процесса по маске 'parties[].classification.id'-'parties[].classification.legalName'",
+          "source":"System",
+          "type":"string"
+        },
+        "name":{
+          "description":"Название организации согласно данных ее осноной классификации из массива 'parties' актуального релиза данного закупочного процесса",
+          "source":"System",
+          "type":"string"
+        }
+      }
+    }
+  }
+}
