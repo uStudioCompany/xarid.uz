@@ -2,7 +2,7 @@
   "id":"",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type":"object",
-  "description": "A common definitions of an 'award' as per standard",
+  "description": "Бизнес-логическое наследование дефиниции 'ocds.award'",
   "properties":{
     "Award.EvaluationDecision":{
       "description":"Решение тендерного комитета",
