@@ -1,8 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "title": "Definitions of ocds.Award inheritances",
+  "title": "Definitions of OCDS elements",
   "type": "object",
-  "definitions": {
+  "properties": {
     "Award.EvaluationDecision": {
       "title": "",
       "description": "",
@@ -24,7 +24,7 @@
           "codelist":"EvaluationDecisionStatuses.csv",
           "source": "System"
         },
-        "status": {
+        "statusDetails": {
           "description":"Детализация статуса решения",
           "codelist":"EvaluationDecisionStatusesDetails.csv",
           "source": "Procuring Entity"
@@ -43,7 +43,65 @@
         },
         "suppliers": {
           "description": "",
+          "source": "Procuring Entity",
+          "items": {
+            "$ref": "#/definitions/OrganizationReference.RegularOrganizationReference"
+          }
+        },
+        "relatedBid": {
+          "description": "",
+          "source": "System"
+        }
+      }
+    },
+    "Award.NegativeCan": {
+      "title": "",
+      "description": "",
+      "required": [
+        "id",
+        "date",
+        "status",
+        "relatedLots"
+      ],
+      "properties": {
+        "id": {
+          "description":"",
           "source": "Procuring Entity"
+        },
+        "status": {
+          "description":"",
+          "source": "Procuring Entity",
+          "codelist":""
+        },
+        "statusDetails": {
+          "description":"",
+          "source": "Procuring Entity",
+          "codelist":""
+        },
+        "date": {
+          "description":"",
+          "source": "Procuring Entity"
+        },
+        "relatedLots": {
+          "description":"",
+          "source": "Procuring Entity"
+        }
+      }
+    },
+    "OrganizationReference.RegularOrganizationReference":{
+      "title":"Ссылка на организацию-участника процесса",
+      "description":"",
+      "required":[
+        "id"
+      ],
+      "properties":{
+        "id":{
+          "description":"Идентификатор организации, сформированный как конкатонация данных ее осноной классификации из массива 'parties' актуального релиза данного закупочного процесса по маске 'parties[].classification.id'-'parties[].classification.legalName'",
+          "source":"System"
+        },
+        "name":{
+          "description":"Название организации согласно данных ее осноной классификации из массива 'parties' актуального релиза данного закупочного процесса",
+          "source":"System"
         }
       }
     }
