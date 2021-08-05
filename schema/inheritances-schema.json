@@ -16,7 +16,6 @@
       ],
       "properties": {
         "id": {
-          "title":"id",
           "description":"Системный идентификатор решения",
           "source": "System"
         },
