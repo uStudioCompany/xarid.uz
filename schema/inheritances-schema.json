@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Definitions of OCDS elements",
   "type": "object",
-  "inheritances": {
+  "definitions": {
     "Award.EvaluationDecision": {
       "title": "",
       "description": "",
@@ -30,7 +30,7 @@
           "type": "array",
           "source": "Procuring Entity",
           "items": {
-            "$ref": "#/inheritances/OrganizationReference.RegularOrganizationReference"
+            "$ref": "#/definitions/OrganizationReference.RegularOrganizationReference"
           }
         }
       }
