@@ -44,6 +44,7 @@
         "suppliers": {
           "description": "",
           "source": "Procuring Entity",
+          "type":"array",
           "items": {
             "type":"object",
             "title": "Ссылка на организацию-участника процесса",
