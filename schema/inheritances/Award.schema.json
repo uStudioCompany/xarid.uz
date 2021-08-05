@@ -1,47 +1,8 @@
 {
+  "id":"",
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "title": "Definitions of OCDS elements",
-  "type": "object",
-  "definitions": {
-    "Award.EvaluationDecision": {
-      "title": "",
-      "description": "",
-      "required": [
-        "id",
-        "date",
-        "status",
-        "relatedLots",
-        "suppliers",
-        "value"
-      ],
-      "properties": {
-        "id": {
-          "description":"",
-          "source": "Procuring Entity"
-        },
-        "status": {
-          "description":"",
-          "codelist":"",
-          "source": "Procuring Entity"
-        },
-        "date": {
-          "description":"",
-          "source": "Procuring Entity"
-        },
-        "relatedLots": {
-          "description":"",
-          "source": "Procuring Entity"
-        },
-        "value": {
-          "description":"",
-          "source": "Procuring Entity"
-        },
-        "suppliers": {
-          "description": "",
-          "source": "Procuring Entity"
-          
-        }
-      }
-    }
-  }
+  "title": "Award.Inheritances",
+  "type":"object",
+  "description": "A common definitions of an 'award' as per standard",
+  "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/release-schema.json#/definitions/Award"
 }
