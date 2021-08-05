@@ -22,12 +22,10 @@
         },
         "status": {
           "description": "Текущий статус решения",
-          "codelist": "EvaluationDecisionStatuses.csv",
           "source": "System"
         },
         "statusDetails": {
           "description": "Детализация статуса решения",
-          "codelist": "EvaluationDecisionStatusesDetails.csv",
           "source": "Procuring Entity"
         },
         "date": {
