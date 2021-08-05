@@ -1,6 +1,5 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "title": "Definitions of OCDS elements",
   "type": "object",
   "properties": {
     "id": {
@@ -147,284 +146,233 @@
         "$ref": "#/definitions/Organization"
       }
     },
-    "relatedProcesses":{
-      "title":"",
-      "description":"",
-      "type":"array",
-      "items":{
-        "$ref":"#/definitions/RelatedProcess"
+    "relatedProcesses": {
+      "title": "",
+      "description": "",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/RelatedProcess"
       }
     }
   },
   "definitions": {
     "Address": {
       "title": "Address",
-      "description": "An address. This may be the legally registered address of the organization, or may be a correspondence address for this particular contracting process.",
+      "description": "Объект, структурно описывающий адрессную информацию",
       "type": "object",
       "properties": {
         "streetAddress": {
           "title": "Street address",
-          "type": [
-            "string",
-            "null"
-          ],
-          "description": "The street address. For example, 1600 Amphitheatre Pkwy."
+          "description": "Адресс в свяном населенном пункте. Например: \"ул. Сайилгох 12, офис 1\"",
+          "type": "string"
         },
         "locality": {
           "title": "Locality",
-          "type": [
-            "string",
-            "null"
-          ],
-          "description": "The locality. For example, Mountain View."
+          "description": "Название населеного пункта. Например: \"Ташкент\"",
+          "type": "string"
         },
         "region": {
           "title": "Region",
-          "type": [
-            "string",
-            "null"
-          ],
-          "description": "The region. For example, CA."
+          "type": "string",
+          "description": "Название региона. Например \"Ташкентская область\""
         },
         "postalCode": {
           "title": "Postalcode",
-          "type": [
-            "string",
-            "null"
-          ],
-          "description": "The postal code. For example, 94043."
+          "description": "Почтовый индекс. Например \"100012\"",
+          "type": "string"
         },
         "countryName": {
           "title": "Country name",
-          "type": [
-            "string",
-            "null"
-          ],
-          "description": "The country name. For example, United States."
+          "description": "Название страны. Например \"Республика Узбекистан\"",
+          "type": "string"
         },
         "addressDetails": {
-          "description": "AddressDetails for machine proceeding",
+          "title": "Address details",
+          "description": "Детальная информация о кодовой информации, описывающей ключевые адресные данные",
           "type": "object",
           "$ref": "#/definitions/AddressDetails"
         }
       }
     },
     "AddressDetails": {
-      "title": "",
-      "description": "",
+      "title": "Address Details",
+      "description": "Детальная информация о кодовой информации, описывающей ключевые адресные данные",
       "type": "object",
       "properties": {
         "countryDetails": {
-          "description": "Country code [Classification] according to 'iso-alpha2' classifier",
+          "description": "Кодовая классификация страны согласно 'iso-alpha2'",
           "type": "object",
           "$ref": "#/definitions/Classification"
         },
         "regionDetails": {
-          "description": "Region code [Classification] according to 'iso-alpha2' classifier",
+          "description": "Кодовая классификация региона согласно 'iso-alpha2'",
           "type": "object",
           "$ref": "#/definitions/Classification"
         },
         "localityDetails": {
-          "description": "Locality code [Classification] according to either 'UN/LOCDE' or any applicable local classifier",
+          "description": "Кодовая классификация населенного пункта согласно 'UN/LOCDE'",
           "type": "object",
           "$ref": "#/definitions/Classification"
         }
       }
     },
     "Amendment": {
-      "title": "",
-      "description": "",
+      "title": "Amendment",
+      "description": "Объект, описывающий факт изменений в 'tender'/'award'/'contract' и связные с таким иззмененим данные",
       "type": "object",
       "properties": {
         "id": {
-          "title": "id",
-          "description": "",
+          "title": "Id",
+          "description": "Идентификатор изменения. Должен быть уникальным в рамках массива 'amendment' родительского объекта",
           "type": "string"
         },
         "date": {
-          "title": "id",
-          "description": "",
+          "title": "Date",
+          "description": "Дата публикации данного изменения",
           "type": "string",
           "format": "date-time"
         },
         "rationale": {
-          "title": "id",
-          "description": "",
+          "title": "Rationale",
+          "description": "Аргументация внесения изменения",
           "type": "string"
         },
         "description": {
-          "title": "id",
-          "description": "",
+          "title": "Description",
+          "description": "Текстовое описание сути изменения",
           "type": "string"
         },
         "amendsReleaseID": {
-          "title": "id",
-          "description": "",
+          "title": "Amended release ID",
+          "description": "Идентификатор релиза данных, содержащего данные, обновленные данным изменением",
           "type": "string"
         },
         "releaseID": {
-          "title": "id",
-          "description": "",
+          "title": "Release ID",
+          "description": "Идентификатор релиза данных, содержащий первую публикацию данного изменения",
           "type": "string"
         }
       }
     },
     "Award": {
       "title": "Award",
-      "description": "An award for the given procurement. There may be more than one award per contracting process e.g. because the contract is split amongst different providers, or because it is a standing offer.",
+      "description": "Объект используется для описания результатов оценки тендерных предложений в данном контрактном процессе, а так же рещзультаты тендерной фазы контрактного процесса в целом: позитивные и негативные",
       "type": "object",
       "properties": {
         "id": {
           "title": "Award ID",
-          "description": "The identifier for this award. It must be unique and cannot change within the Open Contracting Process it is part of (defined by a single ocid)",
-          "type": [
-            "string",
-            "integer"
-          ]
+          "description": "Идентификатор данного 'award'. Должен быть уникальным в рамках массива 'awards'",
+          "type": "string"
         },
-        "internalId": {
-          "title": "",
-          "description": "",
-          "type": [
-            "string",
-            "integer"
-          ]
+        "externalReference": {
+          "title": "External reference",
+          "description": "Код/идентификатор решения/результата, описанного данным 'award', вне системы, если существует",
+          "type": "string"
         },
         "title": {
           "title": "Title",
-          "description": "Award title",
-          "type": [
-            "string",
-            "null"
-          ]
+          "description": "Заглавие данного решения/результата",
+          "type": "string"
         },
         "description": {
           "title": "Description",
-          "description": "Award description",
-          "type": [
-            "string",
-            "null"
-          ]
+          "description": "Текстовое описание данного решения/результата",
+          "type": "string"
         },
         "status": {
           "title": "Award status",
-          "description": "The current status of the award drawn from the awardStatus codelist",
-          "type": [
-            "string",
-            "null"
-          ],
-          "codelist": "",
-          "openCodelist": false
+          "description": "Текущий статус данного решения/результата согласно стандартному справочнику допустимых состояний",
+          "type": "string",
+          "codelist": "awardStatuses",
+          "openCodelist": false,
+          "enum": [
+            "pending",
+            "active",
+            "cancelled",
+            "unsuccessful"
+          ]
         },
         "statusDetails": {
           "title": "Status details",
-          "description": "Additional details of an award status.",
-          "type": "string",
-          "codelist": "",
-          "openCodelist": false
+          "description": "Дополнительная информация о статусе данного решения/результата",
+          "type": "string"
         },
         "date": {
           "title": "Award date",
-          "description": "The date of the contract award. This is usually the date on which a decision to award was made.",
-          "type": [
-            "string",
-            "null"
-          ],
+          "description": "Дата публикации данного решения/результата",
+          "type": "string",
           "format": "date-time"
         },
         "value": {
           "title": "Value",
-          "description": "The total value of this award. In the case of a framework contract this may be the total estimated lifetime value, or maximum value, of the agreement. There may be more than one award per procurement. A negative value indicates that the award may involve payments from the supplier to the buyer (commonly used in concession contracts).",
+          "description": "Полное финансовое значение, закрепляемое данным решением",
           "$ref": "#/definitions/Value"
         },
         "suppliers": {
           "title": "Suppliers",
-          "description": "The suppliers awarded this award. If different suppliers have been awarded different items of values, these should be split into separate award blocks.",
+          "description": "Перечень экономических операторов, связных с данным решением/результатом, указанных в виде 'organization references'",
           "type": "array",
           "items": {
             "$ref": "#/definitions/OrganizationReference"
-          },
-          "uniqueItems": true
+          }
         },
         "items": {
-          "title": "Items awarded",
-          "description": "The goods and services awarded in this award, broken into line items wherever possible. Items should not be duplicated, but the quantity specified instead.",
+          "title": "Items",
+          "description": "Перечень товарных позиций / линий предмета закупки в рамках данного контрактного процесса, связных с данным решением/результатом,",
           "type": "array",
-          "minItems": 1,
           "items": {
             "$ref": "#/definitions/Item"
-          },
-          "uniqueItems": true
+          }
         },
         "documents": {
           "title": "Documents",
-          "description": "All documents and attachments related to the award, including any notices.",
+          "description": "Массив, описывающий документы, относящиеся к данному решению/результату",
           "type": "array",
           "items": {
             "$ref": "#/definitions/Document"
-          },
-          "uniqueItems": true
+          }
         },
         "relatedLots": {
           "title": "Related lot(s)",
-          "description": "If this award relates to one or more specific lots, provide the identifier(s) of the related lot(s) here.",
-          "type": [
-            "array"
-          ],
+          "description": "Массив, описывающий идентификаторы лотов, с которыми связано данное решение/результат",
+          "type": "array",
           "items": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           }
         },
         "requirementResponses": {
+          "title": "Requirement responses",
+          "description": "Структурированный перечень ответов тендерного комитета, принявшего данное решение, на вопросы, предписанные тендерным объявлением, данные в отношении экономических агентов, связзанных с этим решением и/или их тендерного предложения",
           "type": "array",
-          "mergeStrategy": "arrayMergeById",
-          "mergeOptions": {
-            "idRef": "id"
-          },
           "items": {
             "$ref": "#/definitions/RequirementResponse"
-          },
-          "unqiueItems": true
+          }
         },
         "relatedBid": {
           "title": "Related Bid",
-          "description": "Where bid details are used, a cross reference to the entry in the bids array to which this award relates. Provide the bid identifier here",
-          "type": [
-            "string",
-            "integer"
-          ]
+          "description": "Если данное решение ассоциированно с конктерным тендерным предложением, данный атрибут используется для указания идентификатора такого тендерного предложения ",
+          "type": "string"
         }
       }
     },
     "AwardCriteria": {
       "title": "Award criteria",
-      "description": "Information about the award criteria.",
+      "description": "Информация о применяемых критериях присуждения контракта",
       "type": "object",
       "properties": {
         "weightingDescription": {
           "title": "Complicated weighting description",
-          "description": "When the weighting cannot be expressed per criterion, the mathematical equation (or other description) that expresses the complicated (e.g. non-linear) weighting.",
-          "type": [
-            "string",
-            "null"
-          ],
-          "minLength": 1
+          "description": "В случае, если описать логику применяемых криерев невозможно в структурированном виде (с помощью массива 'criteria'), такая логика может быть описана в текстовом виде в данном атрибуте",
+          "type": "string"
         },
         "orderRationale": {
           "title": "Justification for order of importance",
-          "description": "The justification for only indicating the award criteria's order of importance, not their weighting.",
-          "type": [
-            "string",
-            "null"
-          ],
-          "minLength": 1
+          "description": "Описание очередности применения и учета описанны критериев присуждения",
+          "type": "string"
         },
         "criteria": {
           "title": "Award criteria",
-          "description": "The award criteria.",
+          "description": "Массив, содержащий детальную Информацию о применяемых критериях присуждения контракта",
           "type": "array",
           "items": {
             "$ref": "#/definitions/AwardCriterion"
@@ -439,33 +387,24 @@
       "properties": {
         "type": {
           "title": "Type",
-          "description": "The aspect of the bid that the criterion concerns.",
-          "type": [
-            "string",
-            "null"
-          ],
+          "description": "Аспект тендерного предложения, рассматриваемый данным критерием",
+          "type": "string",
           "codelist": "awardCriterionType.csv",
           "openCodelist": true
         },
         "name": {
           "title": "Name",
-          "description": "The name of the criterion.",
-          "type": [
-            "string",
-            "null"
-          ]
+          "description": "Наименование критерия",
+          "type": "string"
         },
         "description": {
           "title": "Description",
-          "description": "The description of the criterion.",
-          "type": [
-            "string",
-            "null"
-          ]
+          "description": "Описание критерия и его сути",
+          "type": "string"
         },
         "numbers": {
           "title": "Numbers",
-          "description": "Numbers linked to the criterion.",
+          "description": "Метрируемые значения данного критерия",
           "type": "array",
           "items": {
             "$ref": "#/definitions/AwardCriterionNumber"
@@ -475,24 +414,18 @@
     },
     "AwardCriterionNumber": {
       "title": "Award criterion number",
-      "description": "Information about a number linked to an award criterion.",
+      "description": "Информация о метритуемых значениях данного критерия",
       "type": "object",
       "properties": {
         "number": {
           "title": "Number",
           "description": "The number.",
-          "type": [
-            "number",
-            "null"
-          ]
+          "type": "number"
         },
         "weight": {
           "title": "Weight",
-          "description": "Whether the number is a type of weight.",
-          "type": [
-            "string",
-            "null"
-          ],
+          "description": "Тип веса критерия, в качестве которого применяется его данное метрируемое значение",
+          "type": "string",
           "codelist": "criterionWeight.csv",
           "openCodelist": false,
           "enum": [
@@ -502,80 +435,71 @@
             "decimalRangeMiddle",
             "pointsExact",
             "pointsRangeMiddle",
-            "order",
-            null
+            "order"
           ]
         },
         "fixed": {
           "title": "Fixed",
-          "description": "Whether the number is a fixed value.",
-          "type": [
-            "string",
-            "null"
-          ],
+          "description": "Объектная область тендерного предложения, к которому применяется данное метритуемое значение критерия",
+          "type": "string",
           "codelist": "awardCriterionFixed.csv",
           "openCodelist": false,
           "enum": [
             "total",
-            "unit",
-            null
+            "unit"
           ]
         },
         "threshold": {
           "title": "Threshold",
-          "description": "Whether the number is a type of threshold.",
-          "type": [
-            "string",
-            "null"
-          ],
+          "description": "Способ применения данного метритуемого значения критерия",
+          "type": "string",
           "codelist": "criterionThreshold.csv",
           "openCodelist": false,
           "enum": [
             "minimumScore",
-            "maximumBids",
-            null
+            "maximumBids"
           ]
         }
       }
     },
     "BankAccount": {
-      "title": "",
-      "description": "",
+      "title": "Bank account",
+      "description": "Объект, структурно описывающий банковские реквиизты",
       "type": "object",
       "properties": {
         "id": {
-          "title": "",
-          "description": "",
+          "title": "Id",
+          "description": "Идентификатор записи о банковских реквизитах в рамках профиля организации",
           "type": "string"
         },
         "description": {
-          "title": "",
-          "description": "",
+          "title": "Descripption",
+          "description": "Сопроводительно описание группы реквизитов",
           "type": "string"
         },
         "bankName": {
-          "title": "",
-          "description": "",
+          "title": "Bank name",
+          "description": "Наименование банка",
           "type": "string"
         },
         "address": {
-          "title": "Legal [Address] of the Bank",
-          "description": "Legal [Address] of the Bank",
+          "title": "Address",
+          "description": "Объект, структурно описывающий адрессную информацию реквизитов банка",
           "$ref": "#/definitions/Address"
         },
         "identifier": {
-          "title": "",
-          "description": "Primary [Identifier] of the Bank",
+          "title": "Identifier",
+          "description": "Объект, структурно идентифицирующий банк",
           "$ref": "#/definitions/Identifier"
         },
         "accountIdentification": {
-          "title": "",
-          "description": "Account number as [Classification]",
+          "title": "Account Identification",
+          "description": "Объект, структурно идентифицирующий счет организации в банке",
           "$ref": "#/definitions/Classification"
         },
         "additionalAccountIndentifiers": {
-          "title": "",
-          "description": "Account additional requisites as an array of [Classification]",
+          "title": "Additional Account Identifiers",
+          "description": "Массив объектов, дополнительно идентифицирующий/описывающих счет организации в банке",
           "type": "array",
           "items": {
             "$ref": "#/definitions/Classification"
@@ -585,53 +509,48 @@
     },
     "Bid": {
       "title": "Bid",
-      "description": "For representing a bid in response to the tender or qualification stage in this contracting process.",
+      "description": "Объект, описывающий тендерное предложение",
       "type": "object",
       "properties": {
         "id": {
           "title": "ID",
-          "description": "A local identifier for this bid",
-          "type": [
-            "string"
-          ]
+          "description": "Идентификатор тендерного предложения. Должен быть уникальным в рамках массива 'bids'",
+          "type": "string"
         },
         "date": {
           "title": "Date",
-          "description": "The date when this bid was received.",
-          "type": [
-            "string",
-            "null"
-          ],
+          "description": "Дата регистрации тендерного предложения",
+          "type": "string",
           "format": "date-time"
         },
         "status": {
           "title": "Status",
-          "description": "The status of the bid, drawn from the bidStatus codelist",
-          "type": [
-            "string",
-            "null"
-          ],
-          "codelist": ""
+          "description": "Статус данного предложения согласно стандартного справочника",
+          "type": "string",
+          "codelist": "bidStatuses.csv",
+          "enum": [
+            "pending",
+            "valid",
+            "withdrawn",
+            "disqualified"
+          ]
         },
         "tenderers": {
-          "title": "Tenderer",
-          "description": "The OrganizationReference for party, or parties, responsible for this bid. This should provide a name and identifier, cross-referenced to an entry in the parties array at the top level of the release.",
-          "type": [
-            "array",
-            "null"
-          ],
+          "title": "Tenderers",
+          "description": "Перечень экономических операторов, связных с данным тендерным предложением, указанных в виде 'organization references'",
+          "type": "array",
           "items": {
             "$ref": "#/definitions/OrganizationReference"
           }
         },
         "value": {
           "title": "Value",
-          "description": "The total Value of the bid.",
+          "description": "Финансовое значение тендерного предложения",
           "$ref": "#/definitions/Value"
         },
         "documents": {
           "title": "Documents",
-          "description": "Any Document and attachment related to the bid and its evaluation.",
+          "description": "Массив, описывающий документы, связазнные с данным тендерным предложением",
           "type": "array",
           "items": {
             "$ref": "#/definitions/Document"
@@ -640,20 +559,15 @@
         },
         "relatedLots": {
           "title": "Related lot(s)",
-          "description": "If this bid relates to one or more specific lots, provide the identifier(s) of the related lot(s) here.",
-          "type": [
-            "array"
-          ],
+          "description": "Массив, описывающий идентификаторы лотов, с которыми связано данное тендерное предложение",
+          "type": "array",
           "items": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           }
         },
         "requirementResponses": {
-          "title": "",
-          "description": "A set of RequirementResponse relevant to the requirements requested under Contract Notice",
+          "title": "Requirement responses",
+          "description": "Структурированный перечень ответов экономических операторов, подавших данное тендерное предложение, на вопросы, предписанные тендерным объявлением",
           "type": "array",
           "items": {
             "$ref": "#/definitions/RequirementResponse"
@@ -661,53 +575,32 @@
         }
       }
     },
-    "Bids": {
-      "title": "",
-      "description": "",
-      "type": "object",
-      "properties": {
-        "details": {
-          "title": "",
-          "description": "",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/Bid"
-          }
-        }
-      }
-    },
     "Budget": {
-      "title": "",
-      "description": "",
+      "title": "Budget",
+      "description": "Объект, описывающий бюджет контрактного процесса",
       "type": "object",
       "properties": {
         "id": {
           "title": "ID",
           "description": "Идентификатор статьи бюджета, которая предоставляет средства для этого процесса заключения контракта",
-          "type": [
-            "string",
-            "integer"
-          ]
+          "type": "string"
         },
         "description": {
           "title": "Budget Source",
-          "description": "A short free text description of the budget source. May be used to provide the title of the budget line, or the programme used to fund this project.",
-          "type": [
-            "string",
-            "null"
-          ]
+          "description": "Описание источника финансирования в рамках бюдженой статьи",
+          "type": "string"
         },
         "budgetBreakdown": {
           "type": "array",
           "title": "Budget breakdown",
-          "description": "A array of BudgetBreakdown of the budget by period and/or participating funders.",
+          "description": "Массив, описывающий структуру бюджета контрактного процесса",
           "items": {
             "$ref": "#/definitions/BudgetBreakdown"
           }
         },
         "finance": {
           "title": "Finance",
-          "description": "An array with details of each source of finance arranged for this contract.",
+          "description": "Массив, описывающий детальную информацию об источниках финансирования  контрактного процесса",
           "type": "array",
           "items": {
             "$ref": "#/definitions/Finance"
@@ -716,99 +609,90 @@
       }
     },
     "BudgetBreakdown": {
-      "title": "",
-      "description": "",
+      "title": "BudgetBreakdown",
+      "description": "Структурная единица бюджета контрактного процесса",
       "type": "object",
       "properties": {
         "id": {
           "title": "Identifier",
-          "description": "An identifier for this particular budget entry.",
-          "mergeStrategy": "ocdsVersion",
-          "type": [
-            "string",
-            "integer"
-          ]
+          "description": "Идентификатор структурной единицы бюджета",
+          "type": "string"
         },
         "description": {
           "title": "Description",
-          "description": "A short free text description of this budget entry.",
-          "mergeStrategy": "ocdsVersion",
-          "type": [
-            "string",
-            "null"
-          ]
+          "description": "Описание структурной единицы бюджета",
+          "type": "string"
         },
         "amount": {
           "title": "Amount",
-          "description": "The [Value] of the budget line item.",
+          "description": "Финансовое выражение структурной единицы бюджета",
           "$ref": "#/definitions/Value"
         },
         "uri": {
           "title": "Linked budget information",
-          "description": "A URI pointing directly to a machine-readable information about this budget entry.",
+          "description": "URI машиночитаемой информации, описывающей структурную единицу бюджета",
           "mergeStrategy": "ocdsVersion",
-          "type": [
-            "string",
-            "null"
-          ],
+          "type": "string",
           "format": "uri"
         },
         "period": {
-          "$ref": "#/definitions/Period",
           "title": "Budget period",
-          "description": "The [Period] covered by this budget entry."
+          "description": "Фискальный период доступности структурной единицы бюджета",
+          "$ref": "#/definitions/Period"
         },
         "sourceParty": {
-          "$ref": "#/definitions/OrganizationReference",
           "title": "Source party",
-          "description": "The [OrganizationReference] for Organization or other party related to this budget entry. If the budget amount is positive, this indicates a flow of resources from the party to the contracting process. If the budget amount is negative, it indicates a payment from the contracting process to this party."
+          "description": "Организация, предоставляющая средства для структурной единицы бюджета",
+          "$ref": "#/definitions/OrganizationReference"
         },
         "measures": {
           "title": "measures",
-          "description": "Measures must be provided as a set of key-value pairs, where the key should be the name of the measure used within a related Fiscal Data Package dataset or other budget and spending dataset. The value is the value of this measure when last updated, and must be provided as a number in the same default currency as any aggregate reported budget or spending figures.",
+          "description": "Метрируемые характеристики структурной единицы бюджета: должны описываться как \"ключ: значение\"",
           "type": "object"
         },
         "classifications": {
           "title": "Budget classifications",
-          "description": "Budget classifications must be provided as a set of key-value pairs, where the key is a dimension (or the label of a dimension) used in budget classification, and the value is the value of that dimension for this contracting process or specific contract (depending on the point within an OCDS file at which the classification is provided).",
-          "type": "object",
-          "patternProperties": {
-            "[A-Za-z0-9._-]": {
-              "type": [
-                "string",
-                "number",
-                "null"
-              ],
-              "minLength": 1
-            }
-          },
-          "minProperties": 1
+          "description": "Классификации структурной единицы бюджета: должны описываться как \"ключ: значение\"",
+          "type": "object"
         }
       }
     },
     "BusinessFunction": {
-      "title": "",
-      "description": "",
+      "title": "BusinessFunction",
+      "description": "Бизнес-функция, определяющая/описываюшая полномочия представителя юридического лица-участника контрактного процесса",
       "type": "object",
       "properties": {
         "type": {
+          "title": "Type",
           "description": "Business function type accodring to the [Codelists#Business function types]",
           "type": "string",
-          "opencodelist": true
+          "codelist": "businessFunctionTypes.csv",
+          "opencodelist": true,
+          "enum": [
+            "chairman",
+            "authority",
+            "technicalEvaluator",
+            "financialEvaluator",
+            "legalEvaluator",
+            "committeeMember"
+          ]
         },
         "jobTitle": {
-          "description": "[Classification] and human-readeble description of persones' position",
+          "title": "Job title",
+          "description": "Описание выполняемой функции",
           "type": "object",
           "$ref": "#/definitions/Classification"
         },
         "period": {
-          "description": "Actual [Period] of this business function",
+          "title": "Period",
+          "description": "Период актуальности функции",
           "type": "object",
           "$ref": "#/definitions/Period"
         },
         "documents": {
+          "title": "Documents",
+          "descriptiopn": "Массив документов, связанных с описанием/подтверждением данной функции",
           "type": "array",
-          "descriptiopn": "[Document] with docType:regulatoryDocument",
           "items": [
             {
               "$ref": "#/definitions/Document"
@@ -819,42 +703,28 @@
     },
     "Classification": {
       "title": "Classification",
+      "description": "Объект, структурно описывающий классификацию другого объекта",
       "type": "object",
       "properties": {
         "scheme": {
           "title": "Scheme",
-          "description": "An classification should be drawn from an existing scheme or list of codes. This field is used to indicate the scheme/codelist from which the classification is drawn.",
-          "type": [
-            "string",
-            "null"
-          ],
-          "codelist": "http://standard.open-contracting.org/1.1-dev/en/schema/codelists/#item-classification-scheme",
-          "openCodelist": true
+          "description": "Идентификатор схемы классификации (стандарта, справочника, системы), согласно которой классифицируется связный объект",
+          "type": "string"
         },
         "id": {
           "title": "ID",
-          "description": "The classification code drawn from the selected scheme.",
-          "type": [
-            "string",
-            "integer",
-            "null"
-          ]
+          "description": "Идентификатор класса в исползуемой схеме, которым классифицируется связный объект",
+          "type": "string"
         },
         "description": {
           "title": "Description",
-          "description": "A textual description or title for the code.",
-          "type": [
-            "string",
-            "null"
-          ]
+          "description": "Тектовое описание класса в исползуемой схеме, которым классифицируется связный объект",
+          "type": "string"
         },
         "uri": {
           "title": "URI",
-          "description": "A URI to identify the code. In the event individual URIs are not available for items in the identifier scheme this value should be left blank.",
-          "type": [
-            "string",
-            "null"
-          ],
+          "description": "URL по которому доступно расширенное описание схемы классификации (стандарта, справочника, системы), согласно которой классифицируется связный объект",
+          "type": "string",
           "format": "uri"
         }
       }
@@ -917,99 +787,60 @@
     },
     "ContactPoint": {
       "title": "Contact point",
+      "description": "Объект описывающий физическое лицо-предствителя либо департамент, представляющий юридическое лицо в рамках контрактного процесса. ",
       "type": "object",
-      "description": "A person, contact point or department to contact in relation to this contracting process.",
       "properties": {
         "id": {
-          "description": "The legal identifier of this person according to local identification scheme used as a cross-reference to the full description ob the person, including contacts and business function, described in the 'persones' section",
+          "title": "ID",
+          "description": "Легальный идентификатор физического лица / код департамента",
           "type": "string"
         },
         "name": {
           "title": "Name",
-          "type": [
-            "string",
-            "null"
-          ],
-          "description": "The name of the contact person, department, or contact point, for correspondence relating to this contracting process."
+          "description": "Имя физического лица / название департамента",
+          "type": "string"
         },
         "email": {
           "title": "Email",
-          "type": [
-            "string",
-            "null"
-          ],
-          "description": "The e-mail address of the contact point/person."
+          "description": "Адрес электронной почты физизческого лица / департамента",
+          "type": "string"
         },
         "telephone": {
           "title": "Telephone",
-          "type": [
-            "string",
-            "null"
-          ],
-          "description": "The telephone number of the contact point/person. This should include the international dialling code."
-        },
-        "url": {
-          "title": "URL",
-          "type": [
-            "string",
-            "null"
-          ],
-          "description": "A web address for the contact point/person.",
-          "format": "uri"
-        },
-        "availableLanguage": {
-          "title": "URL",
-          "type": "array",
-          "description": "A web address for the contact point/person.",
-          "items": {
-            "type": "string"
-          }
+          "description": "Контакный номер телефона физического лица / департамента",
+          "type": "string"
         }
       }
     },
     "Contract": {
-      "type": "object",
       "title": "Contract",
-      "description": "Information regarding the signed contract between the buyer and supplier(s).",
+      "description": "Объект, описывающий контракт, заключенный в результате контрактного процесса",
+      "type": "object",
       "properties": {
         "id": {
           "title": "Contract ID",
           "description": "The identifier for this contract. It must be unique and cannot change within its Open Contracting Process (defined by a single ocid).",
-          "type": [
-            "string",
-            "integer"
-          ]
+          "type": "string"
         },
         "internalId": {
           "title": "",
           "description": "",
-          "type": [
-            "string",
-            "integer"
-          ]
+          "type": "string"
         },
         "awardID": {
           "title": "Award ID",
           "description": "The award.id against which this contract is being issued.",
-          "type": [
-            "string",
-            "integer"
-          ]
+          "type": "string"
         },
         "extendsContractID": {
           "title": "Extends contract ID",
           "description": "If this contract extends or amends a previously issued contract, then the contract.id value for the extended/amended contract can be provided here.",
-          "type": [
-            "string"
-          ]
+          "type": "string"
         },
         "description": {
           "title": "Contract description",
           "description": "Contract description",
-          "type": [
-            "string",
-            "null"
-          ]
+          "type": "string"
         },
         "status": {
           "title": "Contract status",
@@ -1017,22 +848,22 @@
           "type": "string"
         },
         "statusDetails": {
-          "title":"",
-          "description":"",
-          "type":"string"
+          "title": "",
+          "description": "",
+          "type": "string"
         },
         "buyer": {
-          "title":"",
-          "description":"",
-          "type":"object",
-          "$ref":"#/definitions/OrganizationReference"
+          "title": "",
+          "description": "",
+          "type": "object",
+          "$ref": "#/definitions/OrganizationReference"
         },
         "suppliers": {
-          "title":"",
-          "description":"",
-          "type":"array",
+          "title": "",
+          "description": "",
+          "type": "array",
           "items": {
-            "$ref":"#/definitions/OrganizationReference"
+            "$ref": "#/definitions/OrganizationReference"
           }
         },
         "period": {
@@ -1049,26 +880,21 @@
           "title": "Items contracted",
           "description": "The goods, services, and any intangible outcomes in this contract. Note: If the items are the same as the award do not repeat.",
           "type": "array",
-          "minItems": 1,
           "items": {
             "$ref": "#/definitions/Item"
-          },
-          "uniqueItems": true
+          }
         },
         "dateSigned": {
           "title": "Date signed",
           "description": "The date the contract was signed. In the case of multiple signatures, the date of the last signature.",
-          "type": [
-            "string",
-            "null"
-          ],
+          "type": "string",
           "format": "date-time"
         },
         "date": {
-          "title":"",
-          "description":"",
-          "type":"string",
-          "format":"date-time"
+          "title": "",
+          "description": "",
+          "type": "string",
+          "format": "date-time"
         },
         "documents": {
           "title": "Documents",
@@ -1076,8 +902,7 @@
           "type": "array",
           "items": {
             "$ref": "#/definitions/Document"
-          },
-          "uniqueItems": true
+          }
         },
         "implementation": {
           "title": "Implementation",
@@ -1085,13 +910,12 @@
           "$ref": "#/definitions/Implementation"
         },
         "relatedProcesses": {
-          "uniqueItems": true,
+          "title": "Related processes",
+          "description": "If this process is followed by one or more contracting processes, represented under a separate open contracting identifier (ocid) then details of the related process can be provided here. This is commonly used to point to subcontracts, or to renewal and replacement processes for this contract.",
+          "type": "array",
           "items": {
             "$ref": "#/definitions/RelatedProcess"
-          },
-          "description": "If this process is followed by one or more contracting processes, represented under a separate open contracting identifier (ocid) then details of the related process can be provided here. This is commonly used to point to subcontracts, or to renewal and replacement processes for this contract.",
-          "title": "Related processes",
-          "type": "array"
+          }
         },
         "milestones": {
           "title": "Contract milestones",
@@ -1102,21 +926,20 @@
           }
         },
         "amendments": {
+          "title": "Amendments",
           "description": "A contract amendment is a formal change to, or extension of, a contract, and generally involves the publication of a new contract notice/release, or some other documents detailing the change. The rationale and a description of the changes made can be provided here.",
           "type": "array",
-          "title": "Amendments",
           "items": {
             "$ref": "#/definitions/Amendment"
           }
         },
         "agreedMetrics": {
-          "type": "array",
           "title": "Agreed metrics",
           "description": "Any target metrics set out as part of the contract documents.",
+          "type": "array",
           "items": {
             "$ref": "#/definitions/Metric"
-          },
-          "uniqueItems": true
+          }
         },
         "finance": {
           "title": "Finance",
@@ -1124,9 +947,7 @@
           "type": "array",
           "items": {
             "$ref": "#/definitions/Finance"
-          },
-          "uniqueItems": true,
-          "minItems": 1
+          }
         },
         "contractTerms": {
           "title": "Contract terms",
@@ -2591,7 +2412,7 @@
           "type": "object",
           "$ref": "#/definitions/Identifier"
         },
-        "businessFunctions":{
+        "businessFunctions": {
           "description": "A set of persones' [BusinessFunction]",
           "type": "array",
           "items": {
@@ -2686,6 +2507,40 @@
           "type": "array",
           "items": {
             "$ref": "#/definitions/Milestone"
+          }
+        }
+      }
+    },
+    "Procedure": {
+      "title": "Procedure",
+      "description": "Information about the procurement procedure.",
+      "type": "object",
+      "properties": {
+        "isAccelerated": {
+          "title": "Accelerated procedure used",
+          "description": "Whether the time limit for receipt of bids or requests to participate can be reduced due to a state of urgency.",
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "acceleratedRationale": {
+          "title": "Accelerated procedure rationale",
+          "description": "The justification for using an accelerated procedure.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "features": {
+          "title": "Features",
+          "description": "The main features of the procedure (e.g. description of the individual stages) and information about where the full rules for the procedure can be found.",
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "string"
           }
         }
       }
@@ -3599,9 +3454,9 @@
           "$ref": "#/definitions/SecondStage"
         },
         "procedure": {
-          "properties": {
-            "features": {}
-          }
+          "title": "Procedure",
+          "description": "Information about the procurement procedure.",
+          "$ref": "#/definitions/Procedure"
         },
         "contractTerms": {
           "title": "Contract terms",
