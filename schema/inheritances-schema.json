@@ -1,11 +1,11 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Definitions of OCDS elements",
-  "type": "object",
   "definitions": {
     "Award.EvaluationDecision": {
       "title": "",
       "description": "",
+      "type":"object",
       "required": [
         "id",
         "date",
@@ -57,6 +57,7 @@
     "Award.NegativeCan": {
       "title": "",
       "description": "",
+      "type":"object",
       "required": [
         "id",
         "date",
@@ -91,6 +92,7 @@
     "OrganizationReference.RegularOrganizationReference": {
       "title": "Ссылка на организацию-участника процесса",
       "description": "",
+      "type":"object",
       "required": [
         "id"
       ],
