@@ -16,36 +16,36 @@
       ],
       "properties": {
         "id": {
-          "description":"Системный идентификатор решения",
+          "description": "Системный идентификатор решения",
           "source": "System"
         },
         "status": {
-          "description":"Текущий статус решения",
-          "codelist":"EvaluationDecisionStatuses.csv",
+          "description": "Текущий статус решения",
+          "codelist": "EvaluationDecisionStatuses.csv",
           "source": "System"
         },
         "statusDetails": {
-          "description":"Детализация статуса решения",
-          "codelist":"EvaluationDecisionStatusesDetails.csv",
+          "description": "Детализация статуса решения",
+          "codelist": "EvaluationDecisionStatusesDetails.csv",
           "source": "Procuring Entity"
         },
         "date": {
-          "description":"Дата вынесения решения",
+          "description": "Дата вынесения решения",
           "source": "Procuring Entity"
         },
         "relatedLots": {
-          "description":"Системный идентификатор лота, с которым связано данное решение",
+          "description": "Системный идентификатор лота, с которым связано данное решение",
           "source": "System"
         },
         "value": {
-          "description":"",
+          "description": "",
           "source": "Procuring Entity"
         },
         "suppliers": {
           "description": "",
           "source": "Procuring Entity",
           "items": {
-            "$ref": "#/definitions/OrganizationReference.RegularOrganizationReference"
+            "$ref": "#/properties/OrganizationReference.RegularOrganizationReference"
           }
         },
         "relatedBid": {
@@ -65,43 +65,43 @@
       ],
       "properties": {
         "id": {
-          "description":"",
+          "description": "",
           "source": "Procuring Entity"
         },
         "status": {
-          "description":"",
+          "description": "",
           "source": "Procuring Entity",
-          "codelist":""
+          "codelist": ""
         },
         "statusDetails": {
-          "description":"",
+          "description": "",
           "source": "Procuring Entity",
-          "codelist":""
+          "codelist": ""
         },
         "date": {
-          "description":"",
+          "description": "",
           "source": "Procuring Entity"
         },
         "relatedLots": {
-          "description":"",
+          "description": "",
           "source": "Procuring Entity"
         }
       }
     },
-    "OrganizationReference.RegularOrganizationReference":{
-      "title":"Ссылка на организацию-участника процесса",
-      "description":"",
-      "required":[
+    "OrganizationReference.RegularOrganizationReference": {
+      "title": "Ссылка на организацию-участника процесса",
+      "description": "",
+      "required": [
         "id"
       ],
-      "properties":{
-        "id":{
-          "description":"Идентификатор организации, сформированный как конкатонация данных ее осноной классификации из массива 'parties' актуального релиза данного закупочного процесса по маске 'parties[].classification.id'-'parties[].classification.legalName'",
-          "source":"System"
+      "properties": {
+        "id": {
+          "description": "Идентификатор организации, сформированный как конкатонация данных ее осноной классификации из массива 'parties' актуального релиза данного закупочного процесса по маске 'parties[].classification.id'-'parties[].classification.legalName'",
+          "source": "System"
         },
-        "name":{
-          "description":"Название организации согласно данных ее осноной классификации из массива 'parties' актуального релиза данного закупочного процесса",
-          "source":"System"
+        "name": {
+          "description": "Название организации согласно данных ее осноной классификации из массива 'parties' актуального релиза данного закупочного процесса",
+          "source": "System"
         }
       }
     }
