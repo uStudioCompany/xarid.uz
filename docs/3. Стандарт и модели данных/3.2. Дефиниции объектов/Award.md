@@ -3,4 +3,4 @@
 ## Дефиниция OCDS 
 [](/schema/definitions/Award.schema.json)
 ## Модели применения
-[](/schema/inheritances/AwardEvaluationDecision.schema.json)
+[](/schema/inheritances/Award.EvaluationDecision.schema.json)
