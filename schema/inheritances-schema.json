@@ -6,9 +6,17 @@
     "Award.EvaluationDecision": {
       "title": "",
       "description": "",
-      
+      "required": [
+        "id",
+        "date",
+        "status",
+        "relatedLots",
+        "suppliers",
+        "value"
+      ],
       "properties": {
         "id": {
+          "title":"id",
           "description":"Системный идентификатор решения",
           "source": "System"
         },
