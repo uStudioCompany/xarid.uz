@@ -22,10 +22,12 @@
         },
         "status": {
           "description": "Текущий статус решения",
+          "codelist": "EvaluationDecisionStatuses.csv",
           "source": "System"
         },
         "statusDetails": {
           "description": "Детализация статуса решения",
+          "codelist": "EvaluationDecisionStatusesDetails.csv",
           "source": "Procuring Entity"
         },
         "date": {
@@ -42,7 +44,11 @@
         },
         "suppliers": {
           "description": "",
-          "source": "Procuring Entity"
+          "source": "Procuring Entity",
+          "type":"array",
+          "items": {
+            "$ref": "#/properties/OrganizationReference.RegularOrganizationReference"
+          }
         },
         "relatedBid": {
           "description": "",
