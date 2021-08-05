@@ -47,7 +47,7 @@
           "source": "Procuring Entity",
           "type":"array",
           "items": {
-            "$ref": "#/properties/OrganizationReference.RegularOrganizationReference"
+            "$ref": "#/definitions/OrganizationReference.RegularOrganizationReference"
           }
         },
         "relatedBid": {
