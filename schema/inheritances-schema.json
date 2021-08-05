@@ -1,7 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Definitions of ocds.Award inheritances",
-  "type": "object",
   "definitions": {
     "Award.EvaluationDecision": {
       "title": "",
@@ -39,7 +38,6 @@
         "suppliers": {
           "description": "",
           "source": "Procuring Entity"
-          
         }
       }
     }
