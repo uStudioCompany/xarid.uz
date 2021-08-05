@@ -84,24 +84,6 @@
           "source": "Procuring Entity"
         }
       }
-    },
-    "OrganizationReference.RegularOrganizationReference": {
-      "title": "Ссылка на организацию-участника процесса",
-      "description": "",
-      "type":"object",
-      "required": [
-        "id"
-      ],
-      "properties": {
-        "id": {
-          "description": "Идентификатор организации, сформированный как конкатонация данных ее осноной классификации из массива 'parties' актуального релиза данного закупочного процесса по маске 'parties[].classification.id'-'parties[].classification.legalName'",
-          "source": "System"
-        },
-        "name": {
-          "description": "Название организации согласно данных ее осноной классификации из массива 'parties' актуального релиза данного закупочного процесса",
-          "source": "System"
-        }
-      }
     }
   }
 }
