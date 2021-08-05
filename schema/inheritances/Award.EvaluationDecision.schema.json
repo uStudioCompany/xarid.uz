@@ -1,7 +1,6 @@
 {
   "id":"",
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "title": "Award.Inheritances",
   "type":"object",
   "description": "A common definitions of an 'award' as per standard",
   "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/inheritances-schema.json#/definitions/Award.EvaluationDecision"
