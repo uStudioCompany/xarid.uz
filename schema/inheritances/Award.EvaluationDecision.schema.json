@@ -3,5 +3,10 @@
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type":"object",
   "description": "A common definitions of an 'award' as per standard",
-  "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/inheritances-schema.json#/definitions/Award.EvaluationDecision"
+  "properties":{
+    "Award.EvaluationDecision":{
+      "description":"Решение тендерного комитета",
+      "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/inheritances-schema.json#/definitions/Award.EvaluationDecision"
+    }
+  }
 }
