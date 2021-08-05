@@ -1,8 +1,7 @@
 {
   "id":"",
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "title": "Award.commonDefinition",
   "type":"object",
-  "description": "A common definitions of an 'award' as per standard",
+  "description": "Базовая дефиниция объекта 'Award' согласно стандарнта OCDS",
   "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/release-schema.json#/definitions/Award"
 }
