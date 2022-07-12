@@ -1,0 +1,990 @@
+{
+  "ocid": "ocds-u1z2b3-UZ-22411006008060",
+  "id": "ocds-u1z2b3-UZ-22411006008060-1657621124729308",
+  "date": "2022-07-12T10:18:44Z",
+  "tag": [
+    "planning"
+  ],
+  "initiationType": "tender",
+  "parties": [
+    {
+      "id": "UZ-INN-202230110",
+      "identifier": {
+        "scheme": "UZ-INN",
+        "id": "202230110",
+        "legalName": "Toshkent tuman 8 -MTT"
+      },
+      "address": {
+        "streetAddress": "Toshkent tuman Qizgaldoq hududi bog`cha ko`cha",
+        "countryName": "Узбекистан",
+        "countryCode": "UZ",
+        "addressDetails": {
+          "region": {
+            "scheme": "COATO",
+            "id": "27401",
+            "uri": "https://nrm.uz/contentf?doc=534450_soato_(sistema_oboznacheniya_administrativno-territorialnyh_obrazovaniy)&products=1_vse_zakonodatelstvo_uzbekistana"
+          }
+        }
+      },
+      "contactPoint": {
+        "email": "",
+        "telephone": "973440779",
+        "faxNumber": "973440779"
+      },
+      "roles": [
+        "funder",
+        "buyer"
+      ],
+      "details": {
+        "classifications": [
+          {
+            "scheme": "OKONX",
+            "id": "92400",
+            "uri": "https://nrm.uz/contentf?doc=23947_okonh_(klassifikator_otrasley_narodnogo_hozyaystva)&products=1_vse_zakonodatelstvo_uzbekistana"
+          }
+        ],
+        "bankAccounts": [
+          {
+            "accountIdentification": {
+              "scheme": "UZ-Treasury",
+              "id": "100021860274017096521075096"
+            },
+            "type": "accountInTreasury",
+            "bankName": "Управление по Ташкентской области",
+            "additionalAccountIndentifiers": [
+              {
+                "scheme": "uz-treasury-depts",
+                "id": "585"
+              },
+              {
+                "scheme": "UZ-MFO",
+                "id": ""
+              },
+              {
+                "id": ""
+              }
+            ]
+          }
+        ]
+      },
+      "persones": [
+        {
+          "name": "Худойбердиева Сабнна",
+          "businessFunctions": [
+            {
+              "type": "authority"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "UZ-INN-202230110",
+      "identifier": {
+        "scheme": "UZ-INN",
+        "id": "202230110",
+        "legalName": "Toshkent tuman 8 -MTT"
+      },
+      "address": {
+        "streetAddress": "Toshkent tuman Qizgaldoq hududi bog`cha ko`cha",
+        "countryName": "Узбекистан",
+        "countryCode": "UZ",
+        "addressDetails": {
+          "region": {
+            "scheme": "COATO",
+            "id": "27401",
+            "uri": "https://nrm.uz/contentf?doc=534450_soato_(sistema_oboznacheniya_administrativno-territorialnyh_obrazovaniy)&products=1_vse_zakonodatelstvo_uzbekistana"
+          }
+        }
+      },
+      "contactPoint": {
+        "email": "",
+        "telephone": "973440779"
+      },
+      "roles": [
+        "procuringEntity"
+      ],
+      "details": {
+        "classifications": [
+          {
+            "scheme": "uz-treasury",
+            "id": "00585000224",
+            "description": "Код бюджетной организации"
+          },
+          {
+            "scheme": "OKONX",
+            "id": "92400",
+            "uri": "https://nrm.uz/contentf?doc=23947_okonh_(klassifikator_otrasley_narodnogo_hozyaystva)&products=1_vse_zakonodatelstvo_uzbekistana"
+          }
+        ],
+        "bankAccounts": [
+          {
+            "accountIdentification": {
+              "scheme": "UZ-Treasury",
+              "id": "100021860274017096521075096",
+              "description": "Реконструкция килиш 2021-2022 йил (12х24 спорт зал) Зангиота тумани Абдужалилов МФЙдаги 43-сонли мактаб"
+            },
+            "type": "budgetary",
+            "additionalAccountIndentifiers": [
+              {
+                "scheme": "uz-treasury-depts",
+                "id": "585",
+                "description": "Управление по Ташкентской области"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "planning": {
+    "budget": {
+      "finance": [
+        {
+          "id": "1d611127-c181-4135-8d56-e220a760c736",
+          "financingParty": {
+            "name": "Toshkent tuman 8 -MTT",
+            "id": "UZ-INN-202230110"
+          },
+          "value": {
+            "amount": 186718500000,
+            "currency": "UZS",
+            "valueAddedTaxIncluded": false
+          },
+          "classifications": {
+            "relatedItem": "8d7b9fc5-8c5c-4f68-82cc-d2c21f762c23",
+            "financeType": "institutional",
+            "budgetType": 0,
+            "accountIdentificationId": "100021860274017096521075096"
+          }
+        }
+      ],
+      "budgetBreakdown": [
+        {
+          "classifications": {
+            "budgetLineId": "100021860274017096521075096",
+            "financialYear": 2022
+          }
+        },
+        {
+          "classifications": {
+            "budgetLineId": "100021860274017096521075096",
+            "financialYear": 2022
+          }
+        },
+        {
+          "classifications": {
+            "budgetLineId": "100021860274017096521075096",
+            "financialYear": 2022
+          }
+        },
+        {
+          "classifications": {
+            "budgetLineId": "100021860274017096521075096",
+            "financialYear": 2022
+          }
+        },
+        {
+          "classifications": {
+            "budgetLineId": "100021860274017096521075096",
+            "financialYear": 2022
+          }
+        },
+        {
+          "classifications": {
+            "budgetLineId": "100021860274017096521075096",
+            "financialYear": 2022
+          }
+        },
+        {
+          "classifications": {
+            "budgetLineId": "100021860274017096521075096",
+            "financialYear": 2022
+          }
+        },
+        {
+          "classifications": {
+            "budgetLineId": "100021860274017096521075096",
+            "financialYear": 2022
+          }
+        },
+        {
+          "classifications": {
+            "budgetLineId": "100021860274017096521075096",
+            "financialYear": 2022
+          }
+        },
+        {
+          "classifications": {
+            "uzExpenditures": "34321200"
+          },
+          "period": {
+            "startDate": "2022-03-01T00:00:00Z",
+            "endDate": "2022-03-31T00:00:00Z"
+          },
+          "amount": {
+            "amount": 28007775000,
+            "currency": "UZS",
+            "valueAddedTaxIncluded": false
+          }
+        },
+        {
+          "classifications": {
+            "uzExpenditures": "34321200"
+          },
+          "period": {
+            "startDate": "2022-06-01T00:00:00Z",
+            "endDate": "2022-06-30T00:00:00Z"
+          },
+          "amount": {
+            "amount": 9335925000,
+            "currency": "UZS",
+            "valueAddedTaxIncluded": false
+          }
+        },
+        {
+          "classifications": {
+            "uzExpenditures": "34321200"
+          },
+          "period": {
+            "startDate": "2022-05-01T00:00:00Z",
+            "endDate": "2022-05-31T00:00:00Z"
+          },
+          "amount": {
+            "amount": 46679625000,
+            "currency": "UZS",
+            "valueAddedTaxIncluded": false
+          }
+        },
+        {
+          "classifications": {
+            "uzExpenditures": "34321200"
+          },
+          "period": {
+            "startDate": "2022-04-01T00:00:00Z",
+            "endDate": "2022-04-30T00:00:00Z"
+          },
+          "amount": {
+            "amount": 28007775000,
+            "currency": "UZS",
+            "valueAddedTaxIncluded": false
+          }
+        },
+        {
+          "classifications": {
+            "uzExpenditures": "34321200"
+          },
+          "period": {
+            "startDate": "2022-10-01T00:00:00Z",
+            "endDate": "2022-10-31T00:00:00Z"
+          },
+          "amount": {
+            "amount": 23339812500,
+            "currency": "UZS",
+            "valueAddedTaxIncluded": false
+          }
+        },
+        {
+          "classifications": {
+            "uzExpenditures": "34321200"
+          },
+          "period": {
+            "startDate": "2022-11-01T00:00:00Z",
+            "endDate": "2022-11-30T00:00:00Z"
+          },
+          "amount": {
+            "amount": 9335925000,
+            "currency": "UZS",
+            "valueAddedTaxIncluded": false
+          }
+        },
+        {
+          "classifications": {
+            "uzExpenditures": "34321200"
+          },
+          "period": {
+            "startDate": "2022-08-01T00:00:00Z",
+            "endDate": "2022-08-31T00:00:00Z"
+          },
+          "amount": {
+            "amount": 9335925000,
+            "currency": "UZS",
+            "valueAddedTaxIncluded": false
+          }
+        },
+        {
+          "classifications": {
+            "uzExpenditures": "34321200"
+          },
+          "period": {
+            "startDate": "2022-09-01T00:00:00Z",
+            "endDate": "2022-09-30T00:00:00Z"
+          },
+          "amount": {
+            "amount": 9335925000,
+            "currency": "UZS",
+            "valueAddedTaxIncluded": false
+          }
+        },
+        {
+          "classifications": {
+            "uzExpenditures": "34321200"
+          },
+          "period": {
+            "startDate": "2022-07-01T00:00:00Z",
+            "endDate": "2022-07-31T00:00:00Z"
+          },
+          "amount": {
+            "amount": 23339812500,
+            "currency": "UZS",
+            "valueAddedTaxIncluded": false
+          }
+        }
+      ]
+    },
+    "forecasts": [
+      {
+        "id": "deliveryEstimate",
+        "title": "Сроки выполнения работ",
+        "observations": [
+          {
+            "id": "828cd962-2857-436f-9a3a-78780598d5bc",
+            "measure": 120,
+            "unit": {
+              "name": "день"
+            },
+            "notes": "Количество дней после закючения контракта"
+          }
+        ]
+      },
+      {
+        "id": "deliverySchedule",
+        "title": "Разбивка по месяцам",
+        "observations": [
+          {
+            "period": {
+              "startDate": "2023-03-01T00:00:00Z",
+              "endDate": "2023-03-31T00:00:00Z"
+            },
+            "measure": "1",
+            "unit": {
+              "name": "усл. ед",
+              "id": 0
+            },
+            "notes": "Март",
+            "dimensions": {
+              "relatedItem": "8d7b9fc5-8c5c-4f68-82cc-d2c21f762c23"
+            }
+          }
+        ]
+      },
+      {
+        "id": "deliverySchedule",
+        "title": "Разбивка по месяцам",
+        "observations": [
+          {
+            "period": {
+              "startDate": "2022-06-01T00:00:00Z",
+              "endDate": "2022-06-30T00:00:00Z"
+            },
+            "measure": "1",
+            "unit": {
+              "name": "усл. ед",
+              "id": 0
+            },
+            "notes": "Июнь",
+            "dimensions": {
+              "relatedItem": "1010cb96-5533-425d-b877-388c464c2082"
+            }
+          }
+        ]
+      },
+      {
+        "id": "deliverySchedule",
+        "title": "Разбивка по месяцам",
+        "observations": [
+          {
+            "period": {
+              "startDate": "2022-05-01T00:00:00Z",
+              "endDate": "2022-05-31T00:00:00Z"
+            },
+            "measure": "1",
+            "unit": {
+              "name": "усл. ед",
+              "id": 0
+            },
+            "notes": "Май",
+            "dimensions": {
+              "relatedItem": "09e1d80f-5b1a-4431-a6f9-c93a3f7be9be"
+            }
+          }
+        ]
+      },
+      {
+        "id": "deliverySchedule",
+        "title": "Разбивка по месяцам",
+        "observations": [
+          {
+            "period": {
+              "startDate": "2023-04-01T00:00:00Z",
+              "endDate": "2023-04-30T00:00:00Z"
+            },
+            "measure": "1",
+            "unit": {
+              "name": "усл. ед",
+              "id": 0
+            },
+            "notes": "Апрель",
+            "dimensions": {
+              "relatedItem": "1b005a99-4f6f-4780-b3b8-0f8d8c86597c"
+            }
+          }
+        ]
+      },
+      {
+        "id": "deliverySchedule",
+        "title": "Разбивка по месяцам",
+        "observations": [
+          {
+            "period": {
+              "startDate": "2022-10-01T00:00:00Z",
+              "endDate": "2022-10-31T00:00:00Z"
+            },
+            "measure": "1",
+            "unit": {
+              "name": "усл. ед",
+              "id": 0
+            },
+            "notes": "Октябрь",
+            "dimensions": {
+              "relatedItem": "c0ab022f-49b6-4eb4-ae08-232fb00c0b6b"
+            }
+          }
+        ]
+      },
+      {
+        "id": "deliverySchedule",
+        "title": "Разбивка по месяцам",
+        "observations": [
+          {
+            "period": {
+              "startDate": "2022-11-01T00:00:00Z",
+              "endDate": "2022-11-30T00:00:00Z"
+            },
+            "measure": "1",
+            "unit": {
+              "name": "усл. ед",
+              "id": 0
+            },
+            "notes": "Ноябрь",
+            "dimensions": {
+              "relatedItem": "d7054507-ea54-4b0e-b256-5b4d92a1ad4b"
+            }
+          }
+        ]
+      },
+      {
+        "id": "deliverySchedule",
+        "title": "Разбивка по месяцам",
+        "observations": [
+          {
+            "period": {
+              "startDate": "2022-08-01T00:00:00Z",
+              "endDate": "2022-08-31T00:00:00Z"
+            },
+            "measure": "1",
+            "unit": {
+              "name": "усл. ед",
+              "id": 0
+            },
+            "notes": "Август",
+            "dimensions": {
+              "relatedItem": "b8445237-ce38-4ef3-a683-e7ad34342f25"
+            }
+          }
+        ]
+      },
+      {
+        "id": "deliverySchedule",
+        "title": "Разбивка по месяцам",
+        "observations": [
+          {
+            "period": {
+              "startDate": "2022-09-01T00:00:00Z",
+              "endDate": "2022-09-30T00:00:00Z"
+            },
+            "measure": "1",
+            "unit": {
+              "name": "усл. ед",
+              "id": 0
+            },
+            "notes": "Сентябрь",
+            "dimensions": {
+              "relatedItem": "d23a65ba-67fc-45aa-bcda-e73bc17e3e4c"
+            }
+          }
+        ]
+      },
+      {
+        "id": "deliverySchedule",
+        "title": "Разбивка по месяцам",
+        "observations": [
+          {
+            "period": {
+              "startDate": "2022-07-01T00:00:00Z",
+              "endDate": "2022-07-31T00:00:00Z"
+            },
+            "measure": "1",
+            "unit": {
+              "name": "усл. ед",
+              "id": 0
+            },
+            "notes": "Июль",
+            "dimensions": {
+              "relatedItem": "49a0e8ef-d577-49bd-a67a-bb34920cb295"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "tender": {
+    "id": "8d8f1420-efcb-4a68-a866-05d1ee5b7092",
+    "description": "Toshkent viloyati Zangiota tumanidagi 43-maktabni rekonstruksia qilish (yordamchi xonalar bilan 12x24 o'lchamli sport zal qurish)",
+    "status": "planning",
+    "items": [
+      {
+        "id": "8d7b9fc5-8c5c-4f68-82cc-d2c21f762c23",
+        "description": "Строительно монтажные работы",
+        "classification": {
+          "scheme": "UZ-TNGZ",
+          "id": "43.29.19.190-00003",
+          "description": "Строительно монтажные работы",
+          "uri": "http://tasniflagich.mf.uz"
+        },
+        "additionalClassifications": [
+          {
+            "scheme": "UZ-Expenditures",
+            "id": "34321200",
+            "description": "Нежилые здания"
+          }
+        ],
+        "quantity": 1,
+        "unit": {
+          "id": 0,
+          "name": "усл. ед",
+          "value": {
+            "amount": 28007775000,
+            "currency": "UZS",
+            "valueAddedTaxIncluded": false
+          }
+        },
+        "relatedLot": "d46392c6-28a7-4376-ac1d-587ffed64e6a",
+        "internalId": 1
+      },
+      {
+        "id": "1010cb96-5533-425d-b877-388c464c2082",
+        "description": "Строительно монтажные работы",
+        "classification": {
+          "scheme": "UZ-TNGZ",
+          "id": "43.29.19.190-00003",
+          "description": "Строительно монтажные работы",
+          "uri": "http://tasniflagich.mf.uz"
+        },
+        "additionalClassifications": [
+          {
+            "scheme": "UZ-Expenditures",
+            "id": "34321200",
+            "description": "Нежилые здания"
+          }
+        ],
+        "quantity": 1,
+        "unit": {
+          "id": 0,
+          "name": "усл. ед",
+          "value": {
+            "amount": 9335925000,
+            "currency": "UZS",
+            "valueAddedTaxIncluded": false
+          }
+        },
+        "relatedLot": "d46392c6-28a7-4376-ac1d-587ffed64e6a",
+        "internalId": 2
+      },
+      {
+        "id": "09e1d80f-5b1a-4431-a6f9-c93a3f7be9be",
+        "description": "Строительно монтажные работы",
+        "classification": {
+          "scheme": "UZ-TNGZ",
+          "id": "43.29.19.190-00003",
+          "description": "Строительно монтажные работы",
+          "uri": "http://tasniflagich.mf.uz"
+        },
+        "additionalClassifications": [
+          {
+            "scheme": "UZ-Expenditures",
+            "id": "34321200",
+            "description": "Нежилые здания"
+          }
+        ],
+        "quantity": 1,
+        "unit": {
+          "id": 0,
+          "name": "усл. ед",
+          "value": {
+            "amount": 46679625000,
+            "currency": "UZS",
+            "valueAddedTaxIncluded": false
+          }
+        },
+        "relatedLot": "d46392c6-28a7-4376-ac1d-587ffed64e6a",
+        "internalId": 3
+      },
+      {
+        "id": "1b005a99-4f6f-4780-b3b8-0f8d8c86597c",
+        "description": "Строительно монтажные работы",
+        "classification": {
+          "scheme": "UZ-TNGZ",
+          "id": "43.29.19.190-00003",
+          "description": "Строительно монтажные работы",
+          "uri": "http://tasniflagich.mf.uz"
+        },
+        "additionalClassifications": [
+          {
+            "scheme": "UZ-Expenditures",
+            "id": "34321200",
+            "description": "Нежилые здания"
+          }
+        ],
+        "quantity": 1,
+        "unit": {
+          "id": 0,
+          "name": "усл. ед",
+          "value": {
+            "amount": 28007775000,
+            "currency": "UZS",
+            "valueAddedTaxIncluded": false
+          }
+        },
+        "relatedLot": "d46392c6-28a7-4376-ac1d-587ffed64e6a",
+        "internalId": 4
+      },
+      {
+        "id": "c0ab022f-49b6-4eb4-ae08-232fb00c0b6b",
+        "description": "Строительно монтажные работы",
+        "classification": {
+          "scheme": "UZ-TNGZ",
+          "id": "43.29.19.190-00003",
+          "description": "Строительно монтажные работы",
+          "uri": "http://tasniflagich.mf.uz"
+        },
+        "additionalClassifications": [
+          {
+            "scheme": "UZ-Expenditures",
+            "id": "34321200",
+            "description": "Нежилые здания"
+          }
+        ],
+        "quantity": 1,
+        "unit": {
+          "id": 0,
+          "name": "усл. ед",
+          "value": {
+            "amount": 23339812500,
+            "currency": "UZS",
+            "valueAddedTaxIncluded": false
+          }
+        },
+        "relatedLot": "d46392c6-28a7-4376-ac1d-587ffed64e6a",
+        "internalId": 5
+      },
+      {
+        "id": "d7054507-ea54-4b0e-b256-5b4d92a1ad4b",
+        "description": "Строительно монтажные работы",
+        "classification": {
+          "scheme": "UZ-TNGZ",
+          "id": "43.29.19.190-00003",
+          "description": "Строительно монтажные работы",
+          "uri": "http://tasniflagich.mf.uz"
+        },
+        "additionalClassifications": [
+          {
+            "scheme": "UZ-Expenditures",
+            "id": "34321200",
+            "description": "Нежилые здания"
+          }
+        ],
+        "quantity": 1,
+        "unit": {
+          "id": 0,
+          "name": "усл. ед",
+          "value": {
+            "amount": 9335925000,
+            "currency": "UZS",
+            "valueAddedTaxIncluded": false
+          }
+        },
+        "relatedLot": "d46392c6-28a7-4376-ac1d-587ffed64e6a",
+        "internalId": 6
+      },
+      {
+        "id": "b8445237-ce38-4ef3-a683-e7ad34342f25",
+        "description": "Строительно монтажные работы",
+        "classification": {
+          "scheme": "UZ-TNGZ",
+          "id": "43.29.19.190-00003",
+          "description": "Строительно монтажные работы",
+          "uri": "http://tasniflagich.mf.uz"
+        },
+        "additionalClassifications": [
+          {
+            "scheme": "UZ-Expenditures",
+            "id": "34321200",
+            "description": "Нежилые здания"
+          }
+        ],
+        "quantity": 1,
+        "unit": {
+          "id": 0,
+          "name": "усл. ед",
+          "value": {
+            "amount": 9335925000,
+            "currency": "UZS",
+            "valueAddedTaxIncluded": false
+          }
+        },
+        "relatedLot": "d46392c6-28a7-4376-ac1d-587ffed64e6a",
+        "internalId": 7
+      },
+      {
+        "id": "d23a65ba-67fc-45aa-bcda-e73bc17e3e4c",
+        "description": "Строительно монтажные работы",
+        "classification": {
+          "scheme": "UZ-TNGZ",
+          "id": "43.29.19.190-00003",
+          "description": "Строительно монтажные работы",
+          "uri": "http://tasniflagich.mf.uz"
+        },
+        "additionalClassifications": [
+          {
+            "scheme": "UZ-Expenditures",
+            "id": "34321200",
+            "description": "Нежилые здания"
+          }
+        ],
+        "quantity": 1,
+        "unit": {
+          "id": 0,
+          "name": "усл. ед",
+          "value": {
+            "amount": 9335925000,
+            "currency": "UZS",
+            "valueAddedTaxIncluded": false
+          }
+        },
+        "relatedLot": "d46392c6-28a7-4376-ac1d-587ffed64e6a",
+        "internalId": 8
+      },
+      {
+        "id": "49a0e8ef-d577-49bd-a67a-bb34920cb295",
+        "description": "Строительно монтажные работы",
+        "classification": {
+          "scheme": "UZ-TNGZ",
+          "id": "43.29.19.190-00003",
+          "description": "Строительно монтажные работы",
+          "uri": "http://tasniflagich.mf.uz"
+        },
+        "additionalClassifications": [
+          {
+            "scheme": "UZ-Expenditures",
+            "id": "34321200",
+            "description": "Нежилые здания"
+          }
+        ],
+        "quantity": 1,
+        "unit": {
+          "id": 0,
+          "name": "усл. ед",
+          "value": {
+            "amount": 23339812500,
+            "currency": "UZS",
+            "valueAddedTaxIncluded": false
+          }
+        },
+        "relatedLot": "d46392c6-28a7-4376-ac1d-587ffed64e6a",
+        "internalId": 9
+      }
+    ],
+    "procurementMethod": "open",
+    "procurementMethodDetails": "openTender",
+    "mainProcurementCategory": "works",
+    "submissionMethod": [
+      "electronicSubmission"
+    ],
+    "tenderPeriod": {
+      "startDate": "2022-03-25T00:00:00Z",
+      "endDate": "2022-04-12T00:00:00Z"
+    },
+    "enquiryPeriod": {
+      "startDate": "2022-03-25T00:00:00Z",
+      "endDate": "2022-04-10T00:00:00Z"
+    },
+    "milestones": [
+      {
+        "id": "3eb52dd1-04a1-404c-9bba-41993b7e6752",
+        "title": "Регистрация в казначействе",
+        "type": "approval",
+        "status": "scheduled"
+      }
+    ],
+    "lots": [
+      {
+        "id": "d46392c6-28a7-4376-ac1d-587ffed64e6a",
+        "internalId": "22411006008060",
+        "status": "planning",
+        "value": {
+          "amount": 186718500000,
+          "currency": "UZS",
+          "valueAddedTaxIncluded": false
+        }
+      }
+    ],
+    "targets": [
+      {
+        "id": "itemCharacteristics",
+        "title": "Перечень свойств товаров",
+        "observations": [
+          {
+            "measure": 0,
+            "notes": "усл. ед",
+            "dimensions": {
+              "relatedItem": "8d7b9fc5-8c5c-4f68-82cc-d2c21f762c23",
+              "attributeId": 0,
+              "attributeName": "Единица измерения"
+            }
+          }
+        ]
+      },
+      {
+        "id": "itemCharacteristics",
+        "title": "Перечень свойств товаров",
+        "observations": [
+          {
+            "measure": 0,
+            "notes": "усл. ед",
+            "dimensions": {
+              "relatedItem": "1010cb96-5533-425d-b877-388c464c2082",
+              "attributeId": 0,
+              "attributeName": "Единица измерения"
+            }
+          }
+        ]
+      },
+      {
+        "id": "itemCharacteristics",
+        "title": "Перечень свойств товаров",
+        "observations": [
+          {
+            "measure": 0,
+            "notes": "усл. ед",
+            "dimensions": {
+              "relatedItem": "09e1d80f-5b1a-4431-a6f9-c93a3f7be9be",
+              "attributeId": 0,
+              "attributeName": "Единица измерения"
+            }
+          }
+        ]
+      },
+      {
+        "id": "itemCharacteristics",
+        "title": "Перечень свойств товаров",
+        "observations": [
+          {
+            "measure": 0,
+            "notes": "усл. ед",
+            "dimensions": {
+              "relatedItem": "1b005a99-4f6f-4780-b3b8-0f8d8c86597c",
+              "attributeId": 0,
+              "attributeName": "Единица измерения"
+            }
+          }
+        ]
+      },
+      {
+        "id": "itemCharacteristics",
+        "title": "Перечень свойств товаров",
+        "observations": [
+          {
+            "measure": 0,
+            "notes": "усл. ед",
+            "dimensions": {
+              "relatedItem": "c0ab022f-49b6-4eb4-ae08-232fb00c0b6b",
+              "attributeId": 0,
+              "attributeName": "Единица измерения"
+            }
+          }
+        ]
+      },
+      {
+        "id": "itemCharacteristics",
+        "title": "Перечень свойств товаров",
+        "observations": [
+          {
+            "measure": 0,
+            "notes": "усл. ед",
+            "dimensions": {
+              "relatedItem": "d7054507-ea54-4b0e-b256-5b4d92a1ad4b",
+              "attributeId": 0,
+              "attributeName": "Единица измерения"
+            }
+          }
+        ]
+      },
+      {
+        "id": "itemCharacteristics",
+        "title": "Перечень свойств товаров",
+        "observations": [
+          {
+            "measure": 0,
+            "notes": "усл. ед",
+            "dimensions": {
+              "relatedItem": "b8445237-ce38-4ef3-a683-e7ad34342f25",
+              "attributeId": 0,
+              "attributeName": "Единица измерения"
+            }
+          }
+        ]
+      },
+      {
+        "id": "itemCharacteristics",
+        "title": "Перечень свойств товаров",
+        "observations": [
+          {
+            "measure": 0,
+            "notes": "усл. ед",
+            "dimensions": {
+              "relatedItem": "d23a65ba-67fc-45aa-bcda-e73bc17e3e4c",
+              "attributeId": 0,
+              "attributeName": "Единица измерения"
+            }
+          }
+        ]
+      },
+      {
+        "id": "itemCharacteristics",
+        "title": "Перечень свойств товаров",
+        "observations": [
+          {
+            "measure": 0,
+            "notes": "усл. ед",
+            "dimensions": {
+              "relatedItem": "49a0e8ef-d577-49bd-a67a-bb34920cb295",
+              "attributeId": 0,
+              "attributeName": "Единица измерения"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
