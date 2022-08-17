@@ -2,6 +2,7 @@
   "id":"",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type":"object",
+  "title":"Дефиниция Award",
   "description": "Бизнес-логическое наследование дефиниции 'ocds.award'",
   "properties":{
     "Award.EvaluationDecision":{
