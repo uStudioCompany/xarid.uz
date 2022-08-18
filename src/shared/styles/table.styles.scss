@@ -16,7 +16,7 @@
 
   thead {
     font-weight: 700;
-    background-color: var(--c-dark);
+    background-color: var(--c-light);
   }
 
   thead th {
@@ -33,12 +33,12 @@
   tr {
     &,
     td {
-      border-left: 0px solid var(--c-light);
-      border-right: 0px solid var(--c-light);
+      border-left: 0px solid var(--c-lightest);
+      border-right: 0px solid var(--c-lightest);
     }
 
     &:nth-child(2n) {
-      background-color: var(--c-light);
+      background-color: var(--c-lightest);
 
       td {
         border-left: 0px solid var(--c-lightest);
