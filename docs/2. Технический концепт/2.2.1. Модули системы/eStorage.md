@@ -1,1 +1,1 @@
-![]([/assets/images/tux.png](https://www.websequencediagrams.com/files/render?link=1xufgLtJYhgS7xKYPTCttbPnAdAMmko3nTr55o6jXCHds0TRuiIiN1lhDVtjn62T))
+![](https://www.websequencediagrams.com/files/render?link=1xufgLtJYhgS7xKYPTCttbPnAdAMmko3nTr55o6jXCHds0TRuiIiN1lhDVtjn62T)
