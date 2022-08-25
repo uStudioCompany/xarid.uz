@@ -10,7 +10,7 @@ const Aside = styled(Flex)`
   left: 0;
 
   width: 320px;
-  min-height: 100%;
+  max-height: calc(100vh - 64px - 24px);
 
   padding: var(--i-large);
 
