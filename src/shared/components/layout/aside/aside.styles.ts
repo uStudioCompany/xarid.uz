@@ -17,7 +17,7 @@ const Aside = styled(Flex)`
   border-right: 1px solid var(--c-light);
   border-radius: 0;
 
-  overflow-y: scroll;
+  overflow: hidden auto;
   z-index: var(--l-bottom);
 `;
 
