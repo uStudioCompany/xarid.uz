@@ -23,6 +23,10 @@ const Heading = styled.h1`
   scroll-margin: calc(54px + 2rem) 0 0;
 `;
 
+const Heading = styled.ul`
+  padding:12px 0;
+`;
+
 const Paragraph = styled.div`
   margin: var(--i-medium) 0;
 
