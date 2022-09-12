@@ -139,7 +139,9 @@
             "items":{
               "title":"",
               "description":"",
-              "type":"array"
+              "type":"array",
+              "items":{
+                "$ref": "#/definitions/Item.ExpenditureItem"  
               }
             }
           }
