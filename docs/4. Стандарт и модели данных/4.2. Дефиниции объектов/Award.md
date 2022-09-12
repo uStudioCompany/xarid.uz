@@ -4,7 +4,7 @@
 #### Таблица состояний 
 Набор значений, досуптимых для атрибута `awards[].status`
 [](/schema/definitions/codelists/awardStatuses.csv)
-#### Таблица подсостояний (awards[].statusDetails)
+#### Таблица подсостояний
 Набор значений, досуптимых для атрибута `awards[].statusDetails`
 [](/schema/definitions/codelists/awardStatusDetails.csv)
 #### Диаграмма состояний
