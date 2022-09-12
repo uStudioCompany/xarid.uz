@@ -154,27 +154,6 @@
         "description": {
           "description": "Free-text description for this initiation",
           "type": "string"
-        },
-        "mainProcurementCategory": {
-          "title": "",
-          "description": "",
-          "type": "string",
-          "codelist": "procurementCategory.csv",
-          "openCodelist": false
-        },
-        "additionalProcurementCategories": {
-          "title": "",
-          "description": "",
-          "type": "array",
-          "items": {
-            "type": "string",
-            "codelist": "procurementCategory.csv",
-            "openCodelist": false
-          }
-        },
-        "procuringEntity": {
-          "description": "Организация, отвечающая за проведение данной закупочной процедуры",
-          "$ref": "#/definitions/OrganizationReference.RegularOrganizationReference"
         }
       }
     },
