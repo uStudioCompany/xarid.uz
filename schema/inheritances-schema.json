@@ -171,6 +171,11 @@
             "codelist": "procurementCategory.csv"
           }
         },
+        "procuringEntity": {
+          "title":"",
+          "description": "Организация, отвечающая за проведение данной закупочной процедуры",
+          "$ref": "#/definitions/OrganizationReference.RegularOrganizationReference"
+        },
         "contractTerms": {
           "title":"",
           "description":"",
