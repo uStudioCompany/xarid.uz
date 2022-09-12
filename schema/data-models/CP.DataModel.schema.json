@@ -1,0 +1,8 @@
+{
+  "id":"",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type":"object",
+  "title":"",
+  "description": "",
+  "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/datamodels-schema.json#/definitions/ProcurementProcedure"
+}
