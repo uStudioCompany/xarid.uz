@@ -123,12 +123,14 @@
       ],
       "properties": {
         "id": {
+          "title":"",
           "description": "Идентификатор организации, сформированный как конкатонация данных ее осноной классификации из массива 'parties' актуального релиза данного закупочного процесса по маске 'parties[].classification.id'-'parties[].classification.legalName'",
-          "source": "System"
+          "type":"string"
         },
         "name": {
+          "title":"",
           "description": "Название организации согласно данных ее осноной классификации из массива 'parties' актуального релиза данного закупочного процесса",
-          "source": "System"
+          "type":"string"
         }
       }
     },
