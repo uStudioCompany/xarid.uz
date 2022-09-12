@@ -137,10 +137,7 @@
             "forecasts":{},
             "budget":{},
             "items":{
-              "type":"array",
-              "items":{
-                "$ref":"#/definitions/Item.ExpenditureItem"  
-              }
+              "type":"array"
             }
           }
         }
