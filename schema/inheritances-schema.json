@@ -91,6 +91,16 @@
         }
       }
     },
+    "Item.ExpenditureItem":{
+      "title":"",
+      "description:"",
+      "type":"object",
+      "properties":{
+        "id":{},
+        "description":{},
+        "quantity":{}
+      }
+    },
     "OrganizationReference.RegularOrganizationReference": {
       "title": "Ссылка на организацию-участника процесса",
       "description": "",
@@ -126,10 +136,15 @@
           "properties":{
             "forecasts":{},
             "budget":{},
-            "items":{}
+            "items":{
+              "type":"array",
+              "items:{
+                "$ref":"#/definitions/Item.ExpenditureItem"  
+              }
+            }
           }
         }
       }
-    },
+    }
   }
 }
