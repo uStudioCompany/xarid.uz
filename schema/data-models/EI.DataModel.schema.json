@@ -4,5 +4,5 @@
   "type":"object",
   "title":"Дефиниция Award",
   "description": "Бизнес-логическое наследование дефиниции 'ocds.award'",
-  "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/inheritances-schema.json#/definitions/DataModel.ExpenditureItem"
+  "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/datamodels-schema.json#/definitions/DataModel.ExpenditureItem"
 }
