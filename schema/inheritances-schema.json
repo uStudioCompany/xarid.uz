@@ -155,7 +155,115 @@
         "description": {
           "description": "Free-text description for this initiation",
           "type": "string"
-        }
+        },
+        "mainProcurementCategory": {
+          "title": "",
+          "description": "",
+          "type": "string",
+          "codelist": "procurementCategory.csv",
+          "openCodelist": false
+        },
+        "additionalProcurementCategories": {
+          "title": "",
+          "description": "",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "codelist": "procurementCategory.csv",
+            "openCodelist": false
+          }
+        },
+        "procuringEntity": {
+          "description": "Организация, отвечающая за проведение данной закупочной процедуры",
+          "$ref": "#/definitions/OrganizationReference.RegularOrganizationReference"
+        },
+        "legalBasis": {
+          "description": "Основание для проведения процедуры",
+          "$ref": "#/definitions/Classification.DescriptiveClassification"
+        },
+        "contractTerms": {
+          "title":"",
+          "description":"",
+          "type":"array",
+          "items":{
+            "item":"string"
+          }
+        },
+        "particiationFees": {
+          "description": "Any documents related to announcement on a root-level",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ParticipationFee.BidBondGuarantee"
+          }
+        },
+        "procurementMethod": {
+          "title": "Закупочный метод",
+          "description": "",
+          "type": "string",
+          "codelist": "procurementMethods.csv",
+          "openCodelist": false
+        },
+        "procurementMethodDetails": {
+          "title": "Название закупочной процедуры",
+          "description": "",
+          "type": "string",
+          "codelist": "procurementMethodDetails.csv",
+          "openCodelist": false
+        },
+        "submissionMethod": {
+          "description": "The method by which bids must be submitted. For this type of initiation - 'electronicSubmission' by default",
+          "type": "string",
+          "codelist": "submissionMethod.csv",
+          "openCodelist": false
+        },
+        "submissionMethodDetails": {
+          "description": "",
+          "type": "string"
+        },
+        "procedure": {
+          "description": "Допольнительная информация об особенностях проведеня данной закупочной процедуры",
+          "$ref": "#/definitions/Procedure.TenderFeatures"
+        },
+        "milestones": {
+          "title": "",
+          "description": "",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Milestone.TenderMilestone"
+          }
+        },
+        "awardCriteria": {
+          "type": "string",
+          "description": "Awarding methodoligy of the initiation taken from [Award criteria codelist] according to the state-chart diagram",
+          "codelist": "awardCriteria.csv",
+          "openCodelist": false
+        },
+        "awardCriteriaDetails": {
+          "type": "string",
+          "description": "Awarding methodoligy details of the initiation taken from [Award criteria details codelist] according to the state-chart diagram",
+          "codelist": "awardCriteriaDetails.csv",
+          "openCodelist": false
+        },
+        "eligibilityCriteria": {
+          "description": "",
+          "type": "string"
+        },
+        "criteria": {
+          "description": "",
+          "type": "array",
+          "items": {
+            "$href": "#/definitions/Criterion.espdCriterion"
+          }
+        },
+        "converions": {
+          "title": "",
+          "description": "",
+          "type": "array",
+          "items": {
+            "$href": "#/definitions/Conversion.Common"
+          }
+        },
+        "targets": {}
       }
     },
     "ParticipationFee.BidBondGuarantee": {
