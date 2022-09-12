@@ -160,8 +160,7 @@
           "title": "",
           "description": "",
           "type": "string",
-          "codelist": "procurementCategory.csv",
-          "openCodelist": false
+          "codelist": "procurementCategory.csv"
         },
         "additionalProcurementCategories": {
           "title": "",
@@ -169,15 +168,16 @@
           "type": "array",
           "items": {
             "type": "string",
-            "codelist": "procurementCategory.csv",
-            "openCodelist": false
+            "codelist": "procurementCategory.csv"
           }
         },
         "procuringEntity": {
+          "title":"",
           "description": "Организация, отвечающая за проведение данной закупочной процедуры",
           "$ref": "#/definitions/OrganizationReference.RegularOrganizationReference"
         },
         "legalBasis": {
+          "title":"",
           "description": "Основание для проведения процедуры",
           "$ref": "#/definitions/Classification.DescriptiveClassification"
         },
@@ -186,7 +186,7 @@
           "description":"",
           "type":"array",
           "items":{
-            "item":"string"
+            "type":"string"
           }
         },
         "particiationFees": {
@@ -268,7 +268,7 @@
           "description":"",
           "type":"array",
           "items":{
-            "item":"string"
+            "type":"string"
           }
         }
       }
