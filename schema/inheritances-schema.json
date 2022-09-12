@@ -200,27 +200,24 @@
           "title": "Закупочный метод",
           "description": "",
           "type": "string",
-          "codelist": "procurementMethods.csv",
-          "openCodelist": false
+          "codelist": "procurementMethods.csv"
         },
         "procurementMethodDetails": {
           "title": "Название закупочной процедуры",
           "description": "",
           "type": "string",
-          "codelist": "procurementMethodDetails.csv",
-          "openCodelist": false
+          "codelist": "procurementMethodDetails.csv"
         },
         "submissionMethod": {
           "description": "The method by which bids must be submitted. For this type of initiation - 'electronicSubmission' by default",
-          "type": "string",
-          "codelist": "submissionMethod.csv",
-          "openCodelist": false
-        },
-        "submissionMethodDetails": {
-          "description": "",
-          "type": "string"
+          "type": "array",
+          "items":{
+            "type":"string",
+            "codelist": "submissionMethod.csv"
+          }
         },
         "procedure": {
+          "title":"",
           "description": "Допольнительная информация об особенностях проведеня данной закупочной процедуры",
           "$ref": "#/definitions/Procedure.TenderFeatures"
         },
@@ -234,21 +231,18 @@
         },
         "awardCriteria": {
           "type": "string",
+          "title":"",
           "description": "Awarding methodoligy of the initiation taken from [Award criteria codelist] according to the state-chart diagram",
-          "codelist": "awardCriteria.csv",
-          "openCodelist": false
+          "codelist": "awardCriteria.csv"
         },
         "awardCriteriaDetails": {
           "type": "string",
+          "title":"",
           "description": "Awarding methodoligy details of the initiation taken from [Award criteria details codelist] according to the state-chart diagram",
-          "codelist": "awardCriteriaDetails.csv",
-          "openCodelist": false
-        },
-        "eligibilityCriteria": {
-          "description": "",
-          "type": "string"
+          "codelist": "awardCriteriaDetails.csv"
         },
         "criteria": {
+          "title":"",
           "description": "",
           "type": "array",
           "items": {
@@ -285,8 +279,7 @@
           "description": "",
           "type": "string",
           "source": "Procuring Entity",
-          "codelist": "bidBondGuaranteeTypes.csv",
-          "openCodelist": false
+          "codelist": "bidBondGuaranteeTypes.csv"
         },
         "value": {
           "description": "",
@@ -303,8 +296,7 @@
           "type": "array",
           "items": {
             "type": "string"
-          },
-          "source": "Procuring Entity"
+          }
         }
       }
     },
@@ -321,7 +313,7 @@
         }
       }
     },
-    "Procdure.TenderFeatures": {
+    "Procedure.TenderFeatures": {
       "title": "",
       "description": "",
       "required": [
@@ -370,8 +362,7 @@
           "description": "",
           "type": "string",
           "source": "Procuring Entity",
-          "codelist": "tenderMilestoneTypes.csv",
-          "openCodelist": true
+          "codelist": "tenderMilestoneTypes.csv"
         },
         "title": {
           "description": "",
