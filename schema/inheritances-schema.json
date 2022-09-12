@@ -135,15 +135,7 @@
           "type":"object",
           "properties":{
             "forecasts":{},
-            "budget":{},
-            "items":{
-              "title":"",
-              "description":"",
-              "type":"array",
-              "items":{
-                "$ref":"#/definitions/Item.ExpenditureItem"  
-              }
-            }
+            "budget":{}
           }
         }
       }
