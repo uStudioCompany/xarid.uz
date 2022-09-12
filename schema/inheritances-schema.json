@@ -171,29 +171,12 @@
             "codelist": "procurementCategory.csv"
           }
         },
-        "procuringEntity": {
-          "title":"",
-          "description": "Организация, отвечающая за проведение данной закупочной процедуры",
-          "$ref": "#/definitions/OrganizationReference.RegularOrganizationReference"
-        },
-        "legalBasis": {
-          "title":"",
-          "description": "Основание для проведения процедуры",
-          "$ref": "#/definitions/Classification.DescriptiveClassification"
-        },
         "contractTerms": {
           "title":"",
           "description":"",
           "type":"array",
           "items":{
             "type":"string"
-          }
-        },
-        "particiationFees": {
-          "description": "Any documents related to announcement on a root-level",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/ParticipationFee.BidBondGuarantee"
           }
         },
         "procurementMethod": {
@@ -216,19 +199,6 @@
             "codelist": "submissionMethod.csv"
           }
         },
-        "procedure": {
-          "title":"",
-          "description": "Допольнительная информация об особенностях проведеня данной закупочной процедуры",
-          "$ref": "#/definitions/Procedure.TenderFeatures"
-        },
-        "milestones": {
-          "title": "",
-          "description": "",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/Milestone.TenderMilestone"
-          }
-        },
         "awardCriteria": {
           "type": "string",
           "title":"",
@@ -240,22 +210,6 @@
           "title":"",
           "description": "Awarding methodoligy details of the initiation taken from [Award criteria details codelist] according to the state-chart diagram",
           "codelist": "awardCriteriaDetails.csv"
-        },
-        "criteria": {
-          "title":"",
-          "description": "",
-          "type": "array",
-          "items": {
-            "$href": "#/definitions/Criterion.espdCriterion"
-          }
-        },
-        "converions": {
-          "title": "",
-          "description": "",
-          "type": "array",
-          "items": {
-            "$href": "#/definitions/Conversion.Common"
-          }
         },
         "targets": {
           "title":"",
