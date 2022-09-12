@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Data models of the business objects",
+  "type": "object",
+  "definitions": {
+    "DataModel.ExpenditureItem":{
+      "title":"",
+      "description":"",
+      "type":"object",
+      "properties":{
+        "id":{},
+        "date": {},
+        "buyer": {},
+        "fiscalYear": {},
+        "classification": {},
+        "planning":{
+          "title":"",
+          "description":"",
+          "type":"object",
+          "properties":{
+            "forecasts":{},
+            "budget":{},
+            "items":{
+              "title":"",
+              "description":"",
+              "type":"array",
+              "items":{
+                "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/inheritances-schema.json#/definitions/Item.ExpenditureItem"  
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
