@@ -239,7 +239,7 @@
           "source":"ProcuringEntity"
         }
       }
-    }
+    },
     "Tender.ProcedureContractNotice": {
       "title": "Объявление о закупке",
       "description": "General common attributes of any type of the procurement procedure",
