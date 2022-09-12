@@ -381,10 +381,9 @@
           }
         },
         "targets": {}
-      },
-      "validationRules": {}
+      }
     },
-    "Conersion.Common":{
+    "Conversion.Common":{
       "title":"",
       "type":"object",
       "description":"",
