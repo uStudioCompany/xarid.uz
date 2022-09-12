@@ -109,7 +109,7 @@
         }
       }
     },
-    "expenditureItem":{
+    "DataModel.ExpenditureItem":{
       "title":"",
       "description":"",
       "type":"object",
