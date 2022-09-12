@@ -176,7 +176,7 @@
         "procuringEntity": {
           "title":"",
           "description": "Организация, отвечающая за проведение данной закупочной процедуры",
-          "$ref": "#/definitions/OrganizationReference.RegularOrganizationReference"
+          "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/inheritances-schema.json#/definitions/OrganizationReference.RegularOrganizationReference"
         },
         "contractTerms": {
           "title":"",
