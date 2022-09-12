@@ -119,34 +119,149 @@
         }
       }
     },
-    "DataModel.ExpenditureItem":{
-      "title":"",
-      "description":"",
-      "type":"object",
-      "properties":{
-        "id":{},
-        "date": {},
-        "buyer": {},
-        "fiscalYear": {},
-        "classification": {},
-        "planning":{
+    "Tender.ProcedureContractNotice": {
+      "title": "Объявление о закупке",
+      "description": "General common attributes of any type of the procurement procedure",
+      "required":[
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "description": "An identifier for this tender process. This may be the same as the ocid, or may be drawn from an internally held identifier for this tender.",
+          "type": "string",
+          "source": "System"
+        },
+        "internalId": {
+          "description": "An internal identifier of this tender process drawn from an internally held identifier for this tender.",
+          "type": "string",
+          "source": "Procuring Entity"
+        },
+        "title": {
+          "description": "Title for this initiation",
+          "type": "string",
+          "source": "Procuring Entity"
+        },
+        "description": {
+          "description": "Free-text description for this initiation",
+          "type": "string",
+          "source": "Procuring Entity"
+        },
+        "mainProcurementCategory": {
           "title":"",
           "description":"",
-          "type":"object",
-          "properties":{
-            "forecasts":{},
-            "budget":{},
-            "items":{
-              "title":"",
-              "description":"",
-              "type":"array",
-              "items":{
-                "$ref": "#/definitions/Item.ExpenditureItem"  
-              }
-            }
+          "type":"string",
+          "codelist":"procurementCategory.csv",
+          "openCodelist":false,
+          "source":"System"
+        },
+        "additionalProcurementCategories": {
+          "title":"",
+          "description":"",
+          "type":"array",
+          "source":"System",
+          "items":{
+            "type":"string",
+            "codelist":"procurementCategory.csv",
+            "openCodelist":false
           }
-        }
-      }
+        },
+        "procuringEntity": {
+          "description":"Организация, отвечающая за проведение данной закупочной процедуры",
+          "$ref":"#/inheritances/OrganizationReference/regularOrganizationReference"
+        },
+        "legalBasis": {
+          "description": "Основание для проведения процедуры",
+          "source": "Procuring Entity",
+          "$ref":"#/inheritances/Classification/descriptiveClassification"
+        },
+        "contractTerms":{},
+        "particiationFees":{
+          "description": "Any documents related to announcement on a root-level",
+          "type": "array",
+          "items":{
+            "$ref":"#/inheritances/ParticipationFee/bidBondGuarantee"
+          }
+        },
+        "procurementMethod": {
+          "title":"Закупочный метод",
+          "description":"",
+          "type":"string",
+          "source":"System",
+          "codelist":"procurementMethods.csv",
+          "openCodelist":false
+        },
+        "procurementMethodDetails": {
+          "title":"Название закупочной процедуры",
+          "description":"",
+          "type":"string",
+          "source":"Procuring Entity",
+          "codelist":"procurementMethodDetails.csv",
+          "openCodelist":false
+        },
+        "submissionMethod": {
+          "description": "The method by which bids must be submitted. For this type of initiation - 'electronicSubmission' by default",
+          "source": "System",
+          "type":"string",
+          "codelist":"submissionMethod.csv",
+          "openCodelist":false
+        },
+        "submissionMethodDetails": {
+          "source": "Procuring Entity",
+          "description": "",
+          "type": "string"
+        },
+        "procedure":{
+          "description":"Допольнительная информация об особенностях проведеня данной закупочной процедуры",
+          "source":"Procuring Entity",
+          "$ref":"#/inheritances/Procedure/tenderFeatures"
+        },
+        "milestones":{
+          "title":"",
+          "description":"",
+          "type":"array",
+          "items":{
+            "$ref":"#/inheritances/Milestones/tenderMilestone"
+          }
+        },
+        "awardCriteria": {
+          "source": "Procuring Entity",
+          "type": "string",
+          "description": "Awarding methodoligy of the initiation taken from [Award criteria codelist] according to the state-chart diagram",
+          "codelist": "awardCriteria.csv",
+          "openCodelist": false
+        },
+        "awardCriteriaDetails": {
+          "source": "Procuring Entity",
+          "type": "string",
+          "description": "Awarding methodoligy details of the initiation taken from [Award criteria details codelist] according to the state-chart diagram",
+          "codelist": "awardCriteriaDetails.csv",
+          "openCodelist": false
+        },
+        "eligibilityCriteria": {
+          "description": "",
+          "source": "Procuring Entity",
+          "type": "string"
+        },
+        "criteria": {
+          "description": "",
+          "source": "Procuring Entity",
+          "type": "array",
+          "items": {
+            "$href": "#/inheritances/Criterion/espdCriterion"
+          }
+        },
+        "converions": {
+          "title": "",
+          "description": "",
+          "source": "Procuring Entity",
+          "type": "array",
+          "items": {
+            "$href": "#/inheritances/Conversion/"
+          }
+        },
+        "targets": {}
+      },
+      "validationRules": {}
     }
   }
 }
