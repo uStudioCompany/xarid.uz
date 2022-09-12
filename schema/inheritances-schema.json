@@ -261,8 +261,7 @@
           "items": {
             "$href": "#/definitions/Conversion.Common"
           }
-        },
-        "targets": {}
+        }
       }
     },
     "ParticipationFee.BidBondGuarantee": {
