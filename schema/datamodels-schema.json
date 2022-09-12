@@ -31,6 +31,18 @@
           }
         }
       }
-    }
+    },
+    "ProcurementProcedure":{
+      "title":"",
+      "description":"",
+      "type":"object",
+      "properties":{
+        "contractNotice":{
+          "allOf":{
+            "$ref":"https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/inheritances-schema.json#/definitions/procedureContractNotice"
+          }
+        }
+      }
+    },
   }
 }
