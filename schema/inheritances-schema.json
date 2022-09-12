@@ -93,7 +93,7 @@
     },
     "Item.ExpenditureItem":{
       "title":"",
-      "description:"",
+      "description":"",
       "type":"object",
       "properties":{
         "id":{},
@@ -138,7 +138,7 @@
             "budget":{},
             "items":{
               "type":"array",
-              "items:{
+              "items":{
                 "$ref":"#/definitions/Item.ExpenditureItem"  
               }
             }
