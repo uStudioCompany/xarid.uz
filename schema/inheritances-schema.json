@@ -135,7 +135,13 @@
           "type":"object",
           "properties":{
             "forecasts":{},
-            "budget":{}
+            "budget":{},
+            "items":{
+              "title":"",
+              "description":"",
+              "type":"array"
+              }
+            }
           }
         }
       }
