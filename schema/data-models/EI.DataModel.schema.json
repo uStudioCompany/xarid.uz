@@ -1,0 +1,14 @@
+{
+  "id":"",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type":"object",
+  "title":"Дефиниция Award",
+  "description": "Бизнес-логическое наследование дефиниции 'ocds.award'",
+  "properties":{
+    "DataModel.ExpenditureItem":{
+      "description":"Категория потребности закупающей организации",
+      "type":"object",
+      "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/inheritances-schema.json#/definitions/DataModel.ExpenditureItem"
+    }
+  }
+}
