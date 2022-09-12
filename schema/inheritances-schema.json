@@ -402,3 +402,414 @@
     }
   }
 }
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Definitions of OCDS elements",
+  "type": "object",
+  "definitions": {
+    "Award.EvaluationDecision": {
+      "title": "",
+      "description": "",
+      "type": "object",
+      "required": [
+        "id",
+        "date",
+        "status",
+        "relatedLots",
+        "suppliers",
+        "value"
+      ],
+      "properties": {
+        "id": {
+          "description": "Системный идентификатор решения",
+          "source": "System"
+        },
+        "status": {
+          "description": "Текущий статус решения",
+          "codelist": "EvaluationDecisionStatuses.csv",
+          "source": "System"
+        },
+        "statusDetails": {
+          "description": "Детализация статуса решения",
+          "codelist": "EvaluationDecisionStatusesDetails.csv",
+          "source": "Procuring Entity"
+        },
+        "date": {
+          "description": "Дата вынесения решения",
+          "source": "Procuring Entity"
+        },
+        "relatedLots": {
+          "description": "Системный идентификатор лота, с которым связано данное решение",
+          "source": "System"
+        },
+        "value": {
+          "description": "",
+          "source": "Procuring Entity"
+        },
+        "suppliers": {
+          "description": "",
+          "source": "Procuring Entity",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OrganizationReference.RegularOrganizationReference"
+          }
+        },
+        "relatedBid": {
+          "description": "",
+          "source": "System"
+        }
+      }
+    },
+    "Classification.DescriptiveClassification": {
+      "title": "",
+      "description": "",
+      "required": [
+        "description"
+      ],
+      "properties": {
+        "description": {
+          "description": "",
+          "type": "string"
+        }
+      }
+    },
+    "Award.NegativeCan": {
+      "title": "",
+      "description": "",
+      "type": "object",
+      "required": [
+        "id",
+        "date",
+        "status",
+        "relatedLots"
+      ],
+      "properties": {
+        "id": {
+          "description": "",
+          "source": "Procuring Entity"
+        },
+        "status": {
+          "description": "",
+          "source": "Procuring Entity",
+          "codelist": ""
+        },
+        "statusDetails": {
+          "description": "",
+          "source": "Procuring Entity",
+          "codelist": ""
+        },
+        "date": {
+          "description": "",
+          "source": "Procuring Entity"
+        },
+        "relatedLots": {
+          "description": "",
+          "source": "Procuring Entity"
+        }
+      }
+    },
+    "Item.ExpenditureItem": {
+      "title": "",
+      "description": "",
+      "type": "object",
+      "properties": {
+        "id": {},
+        "description": {},
+        "quantity": {}
+      }
+    },
+    "OrganizationReference.RegularOrganizationReference": {
+      "title": "Ссылка на организацию-участника процесса",
+      "description": "",
+      "type": "object",
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "description": "Идентификатор организации, сформированный как конкатонация данных ее осноной классификации из массива 'parties' актуального релиза данного закупочного процесса по маске 'parties[].classification.id'-'parties[].classification.legalName'",
+          "source": "System"
+        },
+        "name": {
+          "description": "Название организации согласно данных ее осноной классификации из массива 'parties' актуального релиза данного закупочного процесса",
+          "source": "System"
+        }
+      }
+    },
+    "Tender.ProcedureContractNotice": {
+      "title": "Объявление о закупке",
+      "description": "General common attributes of any type of the procurement procedure",
+      "type":"object",
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "description": "An identifier for this tender process. This may be the same as the ocid, or may be drawn from an internally held identifier for this tender.",
+          "type": "string"
+        },
+        "internalId": {
+          "description": "An internal identifier of this tender process drawn from an internally held identifier for this tender.",
+          "type": "string"
+        },
+        "title": {
+          "description": "Title for this initiation",
+          "type": "string"
+        },
+        "description": {
+          "description": "Free-text description for this initiation",
+          "type": "string"
+        },
+        "mainProcurementCategory": {
+          "title": "",
+          "description": "",
+          "type": "string",
+          "codelist": "procurementCategory.csv",
+          "openCodelist": false
+        },
+        "additionalProcurementCategories": {
+          "title": "",
+          "description": "",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "codelist": "procurementCategory.csv",
+            "openCodelist": false
+          }
+        },
+        "procuringEntity": {
+          "description": "Организация, отвечающая за проведение данной закупочной процедуры",
+          "$ref": "#/definitions/OrganizationReference.RegularOrganizationReference"
+        },
+        "legalBasis": {
+          "description": "Основание для проведения процедуры",
+          "$ref": "#/definitions/Classification.DescriptiveClassification"
+        },
+        "contractTerms": {
+          "title":"",
+          "description":"",
+          "type":"array",
+          "items":{
+            "item":"string"
+          }
+        },
+        "particiationFees": {
+          "description": "Any documents related to announcement on a root-level",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ParticipationFee.BidBondGuarantee"
+          }
+        },
+        "procurementMethod": {
+          "title": "Закупочный метод",
+          "description": "",
+          "type": "string",
+          "codelist": "procurementMethods.csv",
+          "openCodelist": false
+        },
+        "procurementMethodDetails": {
+          "title": "Название закупочной процедуры",
+          "description": "",
+          "type": "string",
+          "codelist": "procurementMethodDetails.csv",
+          "openCodelist": false
+        },
+        "submissionMethod": {
+          "description": "The method by which bids must be submitted. For this type of initiation - 'electronicSubmission' by default",
+          "type": "string",
+          "codelist": "submissionMethod.csv",
+          "openCodelist": false
+        },
+        "submissionMethodDetails": {
+          "description": "",
+          "type": "string"
+        },
+        "procedure": {
+          "description": "Допольнительная информация об особенностях проведеня данной закупочной процедуры",
+          "$ref": "#/definitions/Procedure.TenderFeatures"
+        },
+        "milestones": {
+          "title": "",
+          "description": "",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Milestone.TenderMilestone"
+          }
+        },
+        "awardCriteria": {
+          "type": "string",
+          "description": "Awarding methodoligy of the initiation taken from [Award criteria codelist] according to the state-chart diagram",
+          "codelist": "awardCriteria.csv",
+          "openCodelist": false
+        },
+        "awardCriteriaDetails": {
+          "type": "string",
+          "description": "Awarding methodoligy details of the initiation taken from [Award criteria details codelist] according to the state-chart diagram",
+          "codelist": "awardCriteriaDetails.csv",
+          "openCodelist": false
+        },
+        "eligibilityCriteria": {
+          "description": "",
+          "type": "string"
+        },
+        "criteria": {
+          "description": "",
+          "type": "array",
+          "items": {
+            "$href": "#/definitions/Criterion.espdCriterion"
+          }
+        },
+        "converions": {
+          "title": "",
+          "description": "",
+          "type": "array",
+          "items": {
+            "$href": "#/definitions/Conversion.Common"
+          }
+        },
+        "targets": {
+          "title":"",
+          "description":"",
+          "type":"array",
+          "items":{
+            "item":"string"
+          }
+        }
+      }
+    },
+    "ParticipationFee.BidBondGuarantee": {
+      "title": "",
+      "description": "",
+      "required": [
+        "type",
+        "value"
+      ],
+      "properties": {
+        "type": {
+          "description": "",
+          "type": "string",
+          "source": "Procuring Entity",
+          "codelist": "bidBondGuaranteeTypes.csv",
+          "openCodelist": false
+        },
+        "value": {
+          "description": "",
+          "source": "Procuring Entity",
+          "$ref": "#/definitions/Value.AmountValue"
+        },
+        "description": {
+          "description": "",
+          "type": "string",
+          "source": "system"
+        },
+        "methodOfPayment": {
+          "description": "",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "source": "Procuring Entity"
+        }
+      }
+    },
+    "Value.AmountValue": {
+      "title": "",
+      "description": "",
+      "required": [
+        "amount"
+      ],
+      "properties": {
+        "amount": {
+          "description": "",
+          "type": "number"
+        }
+      }
+    },
+    "Procdure.TenderFeatures": {
+      "title": "",
+      "description": "",
+      "required": [
+        "features"
+      ],
+      "properties": {
+        "features": {
+          "description": "",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "Period.Duration": {
+      "title": "",
+      "type": "object",
+      "description": "",
+      "required": [
+        "durationInDays"
+      ],
+      "properties": {
+        "durationInDays": {
+          "title": "",
+          "description": "",
+          "type": "integer"
+        }
+      }
+    },
+    "Milestone.TenderMilestone": {
+      "title": "",
+      "description": "",
+      "required": [
+        "id",
+        "type",
+        "period"
+      ],
+      "properties": {
+        "id": {
+          "description": "",
+          "type": "string",
+          "source": "System"
+        },
+        "type": {
+          "description": "",
+          "type": "string",
+          "source": "Procuring Entity",
+          "codelist": "tenderMilestoneTypes.csv",
+          "openCodelist": true
+        },
+        "title": {
+          "description": "",
+          "type": "string",
+          "source": "System"
+        },
+        "period": {
+          "description": "",
+          "source": "Procuring Entity",
+          "$ref": "#/definitions/Period.Duration"
+        },
+        "relatedLots": {
+          "description": "",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "source": "ProcuringEntity"
+        }
+      }
+    },
+    "Conversion.Common": {
+      "title": "",
+      "type": "object",
+      "description": "",
+      "required": [],
+      "properties": {}
+    },
+    "Criterion.espdCriterion": {
+      "title": "",
+      "type": "object",
+      "description": "",
+      "required": [],
+      "properties": {}
+    }
+  }
+}
