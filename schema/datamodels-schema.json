@@ -32,11 +32,17 @@
         }
       }
     },
-    "DataModel.ProcurementProcedure":{
-      "title":"",
-      "description":"",
-      "type":"object",
-      "$ref":"https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/inheritances-schema.json#/definitions/Tender.ProcedureContractNotice"
+    "DataModel.ProcurementProcedure": {
+      "title": "",
+      "description": "",
+      "type": "object",
+      "properties":{
+        "allOf":[
+          {
+            "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/inheritances-schema.json#/definitions/Tender.ProcedureContractNotice" 
+          }
+        ]
+      }
     }
   }
 }
