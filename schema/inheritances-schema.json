@@ -111,7 +111,10 @@
       "properties": {
         "id": {},
         "description": {},
-        "quantity": {}
+        "quantity": {
+          "$anchor": "quantity",
+          "title":"tst"
+        }
       }
     },
     "OrganizationReference.RegularOrganizationReference": {
