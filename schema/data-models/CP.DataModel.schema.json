@@ -4,5 +4,12 @@
   "type":"object",
   "title":"",
   "description": "",
-  "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/datamodels-schema.json#/definitions/DataModel.ProcurementProcedure"
+  "properties":{
+    "procurementPlanning":{
+      "title:"",
+      "description":"",
+      "type":"object",
+      "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/inheritances-schema.json#/definitions/Planning.ProcedurePlan"
+    }
+  }
 }
