@@ -6,7 +6,7 @@
   "description": "",
   "properties":{
     "procurementPlanning":{
-      "title:"",
+      "title":"",
       "description":"",
       "type":"object",
       "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/inheritances-schema.json#/definitions/Planning.ProcedurePlan"
