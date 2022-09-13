@@ -5,11 +5,25 @@
   "title":"",
   "description": "",
   "properties":{
-    "procurementPlanning":{
+    "planning":{
       "title":"",
       "description":"",
       "type":"object",
       "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/inheritances-schema.json#/definitions/Planning.ProcedurePlan"
+    },
+    "tender":{
+      "title":"",
+      "description":"",
+      "type":"object",
+      "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/inheritances-schema.json#/definitions/Tender.ProcedurePlan"
+    },
+    "parties":{
+      "title":"",
+      "description":"",
+      "type":"array",
+      "items":{
+        
+      }
     }
   }
 }
