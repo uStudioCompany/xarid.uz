@@ -5,11 +5,9 @@
   "title":"",
   "description": "",
   "properties":{
-    "allOf":[
-      {
-        "$ref":"https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/inheritances-schema.json#/definitions/Tender.MetaData"
-      }
-    ],
+    "meta":{
+      "$ref":"https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/inheritances-schema.json#/definitions/Tender.MetaData"
+    },
     "planning":{
       "title":"",
       "description":"",
