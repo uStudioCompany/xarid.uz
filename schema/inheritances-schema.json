@@ -134,6 +134,56 @@
         }
       }
     },
+    "Planning.ProcedurePlan":{
+      "title":"",
+      "description":"",
+      "type":"object",
+      "properties":{
+        "budget":{},
+        "forecasts":{}
+      }
+    },
+    "Tender.ProcedurePlan":{
+      "title":"",
+      "description":"",
+      "type":"object",
+      "properties":{
+        "id": {
+          "description": "An identifier for this tender process. This may be the same as the ocid, or may be drawn from an internally held identifier for this tender.",
+          "type": "string"
+        },
+        "title": {
+          "description": "Title for this initiation",
+          "type": "string"
+        },
+        "description": {
+          "description": "Free-text description for this initiation",
+          "type": "string"
+        },
+        "mainProcurementCategory": {
+          "title": "",
+          "description": "",
+          "type": "string",
+          "codelist": "procurementCategory.csv"
+        },
+        "targets": {
+          "title":"",
+          "description":"",
+          "type":"array",
+          "items":{
+            "type":"string"
+          }
+        },
+        "items":{
+          "title":"",
+          "description":"",
+          "type":"array",
+          "items":{
+            "type":"string"
+          }
+        }
+      }
+    },
     "Tender.ProcedureContractNotice": {
       "title": "Объявление о закупке",
       "description": "General common attributes of any type of the procurement procedure",
