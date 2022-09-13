@@ -6,19 +6,31 @@
   "description": "",
   "properties":{
     "planning":{
-      "title":"planning",
+      "title":"",
       "description":"",
       "type":"object",
       "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/inheritances-schema.json#/definitions/Planning.ProcedurePlan"
     },
     "tender":{
-      "title":"tender",
+      "title":"",
       "description":"",
       "type": "object",
-      "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/inheritances-schema.json#/definitions/Tender.MetaData"
+      "properties:{
+        "meta-data":{
+          "title":"",
+          "description":"",
+          "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/inheritances-schema.json#/definitions/Tender.MetaData"
+        },
+        "contractNotice":{
+          "title":"",
+          "description":"",
+          "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/inheritances-schema.json#/definitions/Tender.ProcedureContractNotice"
+        }
+      }
+      
     },
     "parties":{
-      "title":"parties",
+      "title":"",
       "description":"",
       "type":"array",
       "items":{
