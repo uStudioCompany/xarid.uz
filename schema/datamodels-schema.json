@@ -19,28 +19,20 @@
           "type":"object",
           "properties":{
             "forecasts":{},
-            "budget":{},
+            "budget":{
+              
+            },
             "items":{
               "title":"",
               "description":"",
               "type":"array",
               "items":{
-                "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/inheritances-schema.json#/definitions/Item.ExpenditureItem"  
+                "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/inheritances-schema.json#/definitions/Item.ExpenditureItem/quantity"  
               }
             }
           }
         }
       }
-    },
-    "DataModel.ProcurementProcedure": {
-      "title": "",
-      "description": "",
-      "type": "object",
-      "allOf":[
-        {
-          "$ref":"https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/inheritances-schema.json#/definitions/Tender.ProcedureContractNotice"
-        }
-      ]
     }
   }
 }
