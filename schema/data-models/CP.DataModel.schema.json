@@ -4,10 +4,12 @@
   "type":"object",
   "title":"",
   "description": "",
-  "properties":{
-    "meta":{
+  "allOf":[
+    {
       "$ref":"https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/inheritances-schema.json#/definitions/Tender.MetaData"
-    },
+    }
+  ],  
+  "properties":{
     "planning":{
       "title":"",
       "description":"",
