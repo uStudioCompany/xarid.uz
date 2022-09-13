@@ -4,11 +4,6 @@
   "type":"object",
   "title":"",
   "description": "",
-  "allOf":[
-    {
-      "$ref":"https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/inheritances-schema.json#/definitions/Tender.MetaData"
-    }
-  ],  
   "properties":{
     "planning":{
       "title":"",
@@ -20,7 +15,14 @@
       "title":"",
       "description":"",
       "type":"object",
-      "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/inheritances-schema.json#/definitions/Tender.ProcedurePlan"
+      "allOf":[
+        {
+          "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/inheritances-schema.json#/definitions/Tender.MetaData"
+        },
+        {
+          "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/inheritances-schema.json#/definitions/Tender.ProcedurePlan"
+        }
+      ]
     },
     "parties":{
       "title":"",
