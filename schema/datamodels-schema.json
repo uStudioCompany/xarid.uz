@@ -36,8 +36,8 @@
       "title": "",
       "description": "",
       "type": "object",
-      "loadingURI":"https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/inheritances-schema.json",
-      "$ref": "#/definitions/Tender.ProcedureContractNotice" 
+      "loadingURI":"https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/inheritances-schema.json#",
+      "pointer": "/definitions/Tender.ProcedureContractNotice" 
     }
   }
 }
