@@ -36,13 +36,8 @@
       "title": "",
       "description": "",
       "type": "object",
-      "properties":{
-        "allOf":[
-          {
-            "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/inheritances-schema.json#/definitions/Tender.ProcedureContractNotice" 
-          }
-        ]
-      }
+      "loadingURI":"https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/inheritances-schema.json",
+      "$ref": "#/definitions/Tender.ProcedureContractNotice" 
     }
   }
 }
