@@ -112,8 +112,7 @@
         "id": {},
         "description": {},
         "quantity": {
-          "$anchor": "quantity",
-          "title":"tst"
+          
         }
       }
     },
