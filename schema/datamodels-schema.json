@@ -27,7 +27,7 @@
               "description":"",
               "type":"array",
               "items":{
-                "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/inheritances-schema.json#/definitions/Item.ExpenditureItem/properties/quantity"  
+                "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/inheritances-schema.json#/definitions/Item.ExpenditureItem#quantity"  
               }
             }
           }
