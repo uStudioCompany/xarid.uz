@@ -4,11 +4,11 @@
   "type":"object",
   "title":"",
   "description": "",
-  "properties":{
+  
     "allOf":[
       {
         "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/inheritances-schema.json#/definitions/Planning.ProcurementPlan"
       }
     ]
-  }
+  
 }
