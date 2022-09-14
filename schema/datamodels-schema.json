@@ -7,32 +7,7 @@
       "title":"",
       "description":"",
       "type":"object",
-      "properties":{
-        "id":{},
-        "date": {},
-        "buyer": {},
-        "fiscalYear": {},
-        "classification": {},
-        "planning":{
-          "title":"",
-          "description":"",
-          "type":"object",
-          "properties":{
-            "forecasts":{},
-            "budget":{
-              
-            },
-            "items":{
-              "title":"",
-              "description":"",
-              "type":"array",
-              "items":{
-                "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/inheritances-schema.json#/definitions/Item.ExpenditureItem"  
-              }
-            }
-          }
-        }
-      }
+      "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/inheritances-schema.json#/definitions/Item.ExpenditureItem"  
     }
   }
 }
