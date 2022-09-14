@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Definitions of OCDS elements",
   "type": "object",
   "properties": {
@@ -1670,6 +1670,13 @@
           "title": "Delivery Address",
           "description": "The [Address] to which, or where, goods or services related to this tender, contract or license will be delivered.",
           "$ref": "#/definitions/Address"
+        }
+      },
+      "$defs":{
+        "item-id":{
+          "title": "ID",
+          "description": "A local identifier to reference and merge the items by. Must be unique within a given array of items.",
+          "type":"string",
         }
       }
     },
