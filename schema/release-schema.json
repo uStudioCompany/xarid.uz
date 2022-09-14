@@ -575,7 +575,7 @@
         "description": {
           "title": "Description",
           "description": "Описание источника финансирования в рамках бюдженой статьи",
-          "type": "string"
+          "$ref":"#/definitions/Budget/$defs/budget.description"
         },
         "budgetBreakdown": {
           "type": "array",
@@ -597,7 +597,7 @@
           "description":"",
           "type":"array",
           "items":{
-            "$ref": "#/definitions/Metrics"
+            "$ref": "#/definitions/Metric"
           }
         },
         "amount":{
