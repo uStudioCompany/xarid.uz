@@ -9,15 +9,18 @@
       "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/inheritances-schema.json#/definitions/Planning.ProcurementPlan"
     },
     "tender": {
-      "type":"array",
-      "allOf":[
-        {
-          "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/inheritances-schema.json#/definitions/Tender.MetaData"
-        },
-        {
-          "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/inheritances-schema.json#/definitions/Tender.Tender.ProcedureContractNotice"
-        }
-      ]
+      "type":"object",
+      "$schema": "http://json-schema.org/draft-07/schema#"
+      "properties:{
+        "allOf":[
+          {
+            "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/inheritances-schema.json#/definitions/Tender.MetaData"
+          },
+          {
+            "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/inheritances-schema.json#/definitions/Tender.Tender.ProcedureContractNotice"
+          }
+        ]
+      }
     },
     "test":{
       "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/release-schema.json#/definitions/Item/$defs/item-id"
