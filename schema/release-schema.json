@@ -1,5 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Definitions of OCDS elements",
   "type": "object",
   "properties": {
     "id": {
@@ -14,8 +15,8 @@
     },
     "tag": {
       "title": "Tag",
-      "description": "",
-      "codelist": "",
+      "description": "Указатель типа релиза информации согласно стандартной классификации",
+      "codelist": "tags.ccv",
       "openCodelist": false,
       "enum": [
         "planning",
@@ -39,7 +40,7 @@
     "initiationType": {
       "title": "Initiation Type",
       "description": "Тип испольуемой инициации",
-      "codelist": "",
+      "codelist": "initiationType.csv",
       "openCodelist": false,
       "enum": [
         "tender"
@@ -118,13 +119,22 @@
     },
     "bids": {
       "title": "Bids",
-      "description": "Объект описывает сводную статистику и детальную информацию о полученных тендерных предложениях",
+      "description": "Перечень тендерных предложений в рамках данного контрактного процесса",
       "type": "object",
-      "$ref": "#/definitions/Bids"
+      "properties": {
+        "details": {
+          "title": "Bids details",
+          "description": "Детальная информация о тендерных предложениях в рамках данного контрактного процесса",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Bid"
+          }
+        }
+      }
     },
     "awards": {
       "title": "Awards",
-      "description": "Объект используется для описания результатов тендерной фазы контрактного процесса, как позитивных так и негативных",
+      "description": "Массив объектов используется для описания результатов оценки тендерных предложений в данном контрактном процессе: позитивных и негативных",
       "type": "array",
       "items": {
         "$ref": "#/definitions/Award"
@@ -132,7 +142,7 @@
     },
     "contracts": {
       "title": "Contracts",
-      "description": "Объект используется для предоставления подробной информации о контрактах, заключенных в рамках данного контрактного процесса",
+      "description": "Список контрактов, заключенных в рамках данного контрактного процесса",
       "type": "array",
       "items": {
         "$ref": "#/definitions/Contract"
@@ -140,15 +150,15 @@
     },
     "parties": {
       "title": "Parties",
-      "description": "Объект содержит информацию обо всех сторонах, участвующих в данном контрактном процессе",
+      "description": "Информация обо всех сторонах, участвующих в данном контрактном процессе",
       "type": "array",
       "items": {
         "$ref": "#/definitions/Organization"
       }
     },
     "relatedProcesses": {
-      "title": "",
-      "description": "",
+      "title": "Related Processes",
+      "description": "Перечень параллельных/предшевствующих процессов, связанных с данным контрактным процессом",
       "type": "array",
       "items": {
         "$ref": "#/definitions/RelatedProcess"
@@ -787,7 +797,7 @@
     },
     "ContactPoint": {
       "title": "Contact point",
-      "description": "Объект описывающий физическое лицо-предствителя либо департамент, представляющий юридическое лицо в рамках контрактного процесса. ",
+      "description": "ОБъект описывающий физическое лицо-предствителя либо департамент, представляющий юридическое лицо в рамках контрактного процесса. ",
       "type": "object",
       "properties": {
         "id": {
@@ -1660,14 +1670,6 @@
           "title": "Delivery Address",
           "description": "The [Address] to which, or where, goods or services related to this tender, contract or license will be delivered.",
           "$ref": "#/definitions/Address"
-        }
-      },
-      "$defs":{
-        "id":{
-          "id": {
-          "title": "ID",
-          "description": "testing defs",
-          "type": "string"
         }
       }
     },
