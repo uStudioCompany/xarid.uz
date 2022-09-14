@@ -12,11 +12,13 @@
       "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/inheritances-schema.json#/definitions/Tender.MetaData"  
     },
     "test":{
+      "description":"test description",
       "$ref":"#/$defs/test2"
     }
   },
   "$defs":{
     "test2":{
+      "description":"test2 description",
       "type":"string"
     }
   }
