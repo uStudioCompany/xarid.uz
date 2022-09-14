@@ -2469,7 +2469,8 @@
           "properties":{
             "id":{
               "$ref":"#/definitions/Budget/$defs/budget-id"   
-            }
+            },
+            "test":{}
           }
           
         }
