@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Definitions of the inheritance of the OCDS elements for the data models of Xarid.UZ instance",
   "type": "object",
   "$id":"https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/inheritances-schema.json",
@@ -291,8 +291,7 @@
       "type":"object",
       "properties":{
         "id": {
-          "description": "An identifier for this tender process. This may be the same as the ocid, or may be drawn from an internally held identifier for this tender.",
-          "$ref": "#/$defs/item-id"
+          "description": "An identifier for this tender process. This may be the same as the ocid, or may be drawn from an internally held identifier for this tender."
         },
         "title": {
           "description": "Title for this initiation",
@@ -308,11 +307,6 @@
         },
         "status":{},
         "statusDetails":{}
-      },
-      "$defs":{
-        "item-id":{
-          "type":"string"
-        }
       }
     },
     "Tender.ProcedureContractNotice": {
