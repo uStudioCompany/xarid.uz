@@ -56,7 +56,7 @@
     "planning": {
       "title": "Planning",
       "description": "Объект используется для описания финансовой основы процесса заключения контракта, а также - ожидаеммого состава и последовательности исполнения будущего договора сторонами",
-      "$ref":"#/Planning"
+      "$ref": "#/definitions/Planning"
     },
     "preQualification": {
       "title": "Prequalification",
@@ -2431,22 +2431,22 @@
       "type": "object",
       "properties": {
         "budget": {
-          "$ref":"#/$defs/planning-budget"  
+          "$ref": "#/$defs/planning-budget"
         },
         "milestones": {
-          "$ref":"#/$defs/planning-milestones"
+          "$ref": "#/$defs/planning-milestones"
         },
         "forecasts": {
-          "$ref":"#/$defs/planning-forecasts"
+          "$ref": "#/$defs/planning-forecasts"
         }
       },
-      "$defs":{
-        "planning-budget":{
+      "$defs": {
+        "planning-budget": {
           "title": "Budget",
           "description": "В объекте содержится информация о бюджетных линиях и/или связанных проектах, через которые финансируется процесс заключения данного договора",
           "$ref": "#/definitions/Budget"
         },
-        "planning-milestones":{
+        "planning-milestones": {
           "title": "Milestones",
           "description": "Объект описывает вехи, связанные с планированием исполнения будущего договора",
           "type": "array",
@@ -2454,7 +2454,7 @@
             "$ref": "#/definitions/Milestone"
           }
         },
-        "planning-forecasts":{
+        "planning-forecasts": {
           "title": "Forecasts",
           "description": "Объект описывает индикативы, исползуемые для планирования исполнения будущего договора",
           "type": "array",
