@@ -1,10 +1,10 @@
 {
   "id":"",
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "type":"object",
   "properties":{
     "cp.planning":{
       "description":"Аспекты плана закупочной процедуры",
+      "type":"object",
       "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/release-schema.json#/definitions/Planning/$defs/cp.planning"
     }
   }
