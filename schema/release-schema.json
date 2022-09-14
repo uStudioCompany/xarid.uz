@@ -2437,7 +2437,7 @@
       "type": "object",
       "properties": {
         "budget": {
-          "$ref":"#/defibitions/Planning/$defs/planning-budget"  
+          "$ref":"#/definitions/Planning/$defs/planning-budget"  
         },
         "milestones": {
           "title": "Milestones",
