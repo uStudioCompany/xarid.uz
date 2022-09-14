@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Definitions of the inheritance of the OCDS elements for the data models of Xarid.UZ instance",
   "type": "object",
   "$id":"https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/inheritances-schema.json",
@@ -253,8 +253,12 @@
       "title": "",
       "description": "",
       "type": "object",
+      "$id":"https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/release-schema.json"
       "properties": {
-        "id": {},
+        "id": {
+          "description":"",
+          "$ref":"#/$defs/item-id"
+        },
         "description": {},
         "quantity": {}
       }
