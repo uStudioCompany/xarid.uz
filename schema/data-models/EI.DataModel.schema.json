@@ -16,7 +16,7 @@
     }
   },
   "$defs":{
-    "tetst2":{
+    "test2":{
       "type":"string"
     }
   }
