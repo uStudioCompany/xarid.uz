@@ -570,20 +570,15 @@
       "properties": {
         "id": {
           "description": "Идентификатор статьи бюджета, которая предоставляет средства для этого процесса заключения контракта",
-          "$ref":"#/definitions/Budget/$defs/budget-id"
+          "$ref":"#/definitions/Budget/$defs/budget.id"
         },
         "description": {
-          "title": "Description",
           "description": "Описание источника финансирования в рамках бюдженой статьи",
           "$ref":"#/definitions/Budget/$defs/budget.description"
         },
         "budgetBreakdown": {
-          "type": "array",
-          "title": "Budget breakdown",
           "description": "Массив, описывающий структуру бюджета контрактного процесса",
-          "items": {
-            "$ref": "#/definitions/BudgetBreakdown"
-          }
+          "$ref":"#/definitions/Budget/$defs/budget.budgetBreakdown"
         },
         "finance": {
           "title": "Finance",
@@ -607,7 +602,7 @@
         }
       },
       "$defs":{
-        "budget-id": {
+        "budget.id": {
           "title": "ID",
           "type": "string"
         },
@@ -615,7 +610,15 @@
           "title": "Description",
           "type": "string"
         },
-        "procedure-plan-budget":{
+        "budget.budgetBreakdown":{
+          "type": "array",
+          "title": "Budget breakdown",
+          "description": "Массив, описывающий структуру бюджета контрактного процесса",
+          "items": {
+            "$ref": "#/definitions/BudgetBreakdown"
+          }
+        },
+        "cp.planning.budget":{
           "$schema": "http://json-schema.org/draft-07/schema#",
           "type":"object",
           "properties":{
