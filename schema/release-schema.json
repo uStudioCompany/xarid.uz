@@ -2489,7 +2489,7 @@
       "properties": {
         "budget": {
           "description":"test name of the inheritet def",
-          "$ref":"#/definitions/Budget/$defs/cp.planning.budget"  
+          "$ref":"#/definitions/Budget"  
         },
         "milestones": {
           "description": "Объект описывает вехи, связанные с планированием исполнения будущего договора",
@@ -2503,6 +2503,35 @@
           "type": "array",
           "items": {
             "$ref": "#/definitions/Metric"
+          }
+        },
+        "items":{
+          "description": "",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Item"
+          }
+        }
+      },
+      "$defs":{
+        "cp.planning":{
+          "budget": {
+            "description":"test name of the inheritet def",
+            "$ref":"#/definitions/Budget/$defs/cp.planning.budget"  
+          },
+          "milestones": {
+            "description": "Объект описывает вехи, связанные с планированием исполнения будущего договора",
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/Milestone"
+            }
+          },
+          "forecasts": {
+            "description": "Объект описывает индикативы, исползуемые для планирования исполнения будущего договора",
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/Metric"
+            }
           }
         }
       }
