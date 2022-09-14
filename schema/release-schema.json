@@ -208,6 +208,7 @@
       "title": "Amendment",
       "description": "Объект, описывающий факт изменений в 'tender'/'award'/'contract' и связные с таким иззмененим данные",
       "type": "object",
+      "$id": "/definitions/address",
       "properties": {
         "id": {
           "title": "Id",
@@ -239,18 +240,6 @@
           "title": "Release ID",
           "description": "Идентификатор релиза данных, содержащий первую публикацию данного изменения",
           "type": "string"
-        }
-      }
-    },
-    "Amendment.test":{
-      "title": "Amendment.test",
-      "description": "",
-      "type": "object",
-      "properties": {
-        "id": {
-          "title": "test",
-          "description": "test",
-          "$ref": "#/definitions/Amendment#/properties/id"
         }
       }
     },
