@@ -592,13 +592,13 @@
           "items": {
             "$ref": "#/definitions/Finance"
           }
-        },
-        "$defs":{
-          "budget-id": {
-            "title": "ID",
-            "type": "string"
-          }  
         }
+      },
+      "$defs":{
+        "budget-id": {
+          "title": "ID",
+          "type": "string"
+        }  
       }
     },
     "BudgetBreakdown": {
@@ -2464,7 +2464,12 @@
       "$defs":{
         "planning-budget":{
           "title": "Budget",
-          "description": "В объекте содержится информация о бюджетных линиях и/или связанных проектах, через которые финансируется процесс заключения данного договора"
+          "description": "В объекте содержится информация о бюджетных линиях и/или связанных проектах, через которые финансируется процесс заключения данного договора",
+          "properties":{
+            "id":{
+              "$ref":"#/definitions/Budget/$defs/budget-id"   
+            }
+          }
           
         }
       }
