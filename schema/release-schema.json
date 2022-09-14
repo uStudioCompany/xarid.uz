@@ -2460,7 +2460,7 @@
       "properties": {
         "budget": {
           "title":"test name of the inheritet def",
-          "$ref":"#/definitions/Planning/$defs/planning-budget"  
+          "$ref":"#/definitions/Budget/$defs/procedure-plan-budget"  
         },
         "milestones": {
           "title": "Milestones",
@@ -2477,14 +2477,6 @@
           "items": {
             "$ref": "#/definitions/Metric"
           }
-        }
-      },
-      "$defs":{
-        "planning-budget":{
-          "title": "Budget",
-          "description": "В объекте содержится информация о бюджетных линиях и/или связанных проектах, через которые финансируется процесс заключения данного договора",
-          "type":"object",
-          "$ref":"#/definitions/Budget/$defs/procedure-plan-budget"   
         }
       }
     },
