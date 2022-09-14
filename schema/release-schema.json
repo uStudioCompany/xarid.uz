@@ -570,7 +570,10 @@
       "properties": {
         "id": {
           "description": "Идентификатор статьи бюджета, которая предоставляет средства для этого процесса заключения контракта",
-          "$ref":"#/definitions/Budget/$defs/budget-id"
+          "$ref":"#/definitions/Budget/$defs/budget-id",
+          "enum":[
+            "1","2","3"
+          ]
         },
         "description": {
           "title": "Description",
@@ -597,10 +600,7 @@
       "$defs":{
         "budget-id": {
           "title": "ID",
-          "type": "string",
-          "enum":[
-            "1","2","3"
-          ]
+          "type": "string"
         }  
       }
     },
