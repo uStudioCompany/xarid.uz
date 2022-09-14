@@ -3,10 +3,14 @@
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title":"",
   "type":"object",
+  "$id":"https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/inheritances-schema.json",
   "description": "",
   "properties":{
     "planning":{
-      "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/inheritances-schema.json#/definitions/Planning.ProcurementPlan"
+      "$ref": "#/definitions/Planning.ProcurementPlan"
+    },
+    "tender":{
+      "ref": "#/definitions/Tender.ProcurementPlan"  
     }
   }
 }
