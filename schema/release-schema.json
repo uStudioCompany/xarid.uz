@@ -2432,22 +2432,11 @@
       "type": "object",
       "properties": {
         "budget": {
-          "$ref": "#/$defs/Planning/planning-budget"
-        },
-        "milestones": {
-          "$ref": "#/$defs/Planning/planning-milestones"
-        },
-        "forecasts": {
-          "$ref": "#/$defs/Planning/planning-forecasts"
-        }
-      },
-      "$defs": {
-        "planning-budget": {
           "title": "Budget",
           "description": "В объекте содержится информация о бюджетных линиях и/или связанных проектах, через которые финансируется процесс заключения данного договора",
           "$ref": "#/definitions/Budget"
         },
-        "planning-milestones": {
+        "milestones": {
           "title": "Milestones",
           "description": "Объект описывает вехи, связанные с планированием исполнения будущего договора",
           "type": "array",
@@ -2455,24 +2444,12 @@
             "$ref": "#/definitions/Milestone"
           }
         },
-        "planning-forecasts": {
+        "forecasts": {
           "title": "Forecasts",
           "description": "Объект описывает индикативы, исползуемые для планирования исполнения будущего договора",
           "type": "array",
           "items": {
             "$ref": "#/definitions/Metric"
-          }
-        },
-        "planning-procurementplan":{
-          "title": "Forecasts",
-          "description": "Объект описывает индикативы, исползуемые для планирования исполнения будущего договора",
-          "type": "object",
-          "properties":{
-            "forecasts":{
-              "title":"",
-              "description":"",
-              "$ref":"#/definitions/Metric"
-            }
           }
         }
       }
