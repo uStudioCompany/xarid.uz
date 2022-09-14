@@ -2437,9 +2437,7 @@
       "type": "object",
       "properties": {
         "budget": {
-          "title": "Budget",
-          "description": "В объекте содержится информация о бюджетных линиях и/или связанных проектах, через которые финансируется процесс заключения данного договора",
-          "$ref": "#/definitions/Budget"
+          "$ref":"#/$defs/planning-budget"  
         },
         "milestones": {
           "title": "Milestones",
@@ -2456,6 +2454,13 @@
           "items": {
             "$ref": "#/definitions/Metric"
           }
+        }
+      },
+      "$defs":{
+        "planning-budget":{
+          "title": "Budget",
+          "description": "В объекте содержится информация о бюджетных линиях и/или связанных проектах, через которые финансируется процесс заключения данного договора",
+          "$ref": "#/definitions/Budget"
         }
       }
     },
