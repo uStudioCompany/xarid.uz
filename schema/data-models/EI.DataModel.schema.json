@@ -12,7 +12,6 @@
       "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/inheritances-schema.json#/definitions/Tender.MetaData"  
     },
     "test":{
-      "description": "test description",
       "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/release-schema.json#/definitions/Item/$defs/item-id"
     }
   }
