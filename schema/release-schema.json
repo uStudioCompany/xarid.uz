@@ -242,6 +242,18 @@
         }
       }
     },
+    "Amendment.test":{
+      "title": "Amendment.test",
+      "description": "",
+      "type": "object",
+      "properties": {
+        "id": {
+          "title": "test",
+          "description": "test",
+          "$ref": "#/definitions/Amendment#/properties/id"
+        }
+      }
+    },
     "Award": {
       "title": "Award",
       "description": "Объект используется для описания результатов оценки тендерных предложений в данном контрактном процессе, а так же рещзультаты тендерной фазы контрактного процесса в целом: позитивные и негативные",
