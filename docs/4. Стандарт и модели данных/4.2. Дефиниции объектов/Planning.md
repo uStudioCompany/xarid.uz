@@ -1,4 +1,4 @@
-## Address
+## Planning
 #### Дефиниция OCDS
-[](/schema/definitions/Address.schema.json)
+[](/schema/definitions/Planning.schema.json)
 #### Наследование в бизнес-логике
