@@ -255,8 +255,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "description":"",
-          "$ref":"https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/release-schema.json#/$defs/item-id"
+          "description":""
         },
         "description": {},
         "quantity": {}
