@@ -2,6 +2,7 @@
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Definitions of OCDS elements",
   "type": "object",
+  "$id":"https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/inheritances-schema.json",
   "definitions": {
     "Award.EvaluationDecision": {
       "title": "",
@@ -270,7 +271,7 @@
           "description":"",
           "type":"array",
           "items":{
-            "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/inheritances-schema.json#/definitions/Item.ExpenditureItem"  
+            "$ref": "#/definitions/Item.ExpenditureItem"  
           }
         }
       }
@@ -313,9 +314,6 @@
       "title": "Объявление о закупке",
       "description": "General common attributes of any type of the procurement procedure",
       "type":"object",
-      "required": [
-        "id"
-      ],
       "properties": {
         "value": {
           "title": "Value",
@@ -326,14 +324,6 @@
           "title":"",
           "description": "Основание для проведения процедуры",
           "$ref": "#/definitions/Classification.DescriptiveClassification"
-        },
-        "contractTerms": {
-          "title":"",
-          "description":"",
-          "type":"array",
-          "items":{
-            "type":"string"
-          }
         },
         "particiationFees": {
           "description": "Any documents related to announcement on a root-level",
@@ -375,6 +365,80 @@
             "$ref": "#/definitions/Milestone.TenderMilestone"
           }
         },
+        "secondStage": {
+          "title": "Second stage",
+          "description": "Information about the second stage of a two-stage procedure (e.g. a restricted procedure, a competitive procedure with negotiation, a competitive dialogue or an innovation partnership).",
+          "$ref": "#/definitions/SecondStage"
+        },
+        "tenderPeriod": {
+          "title": "Tender period",
+          "description": "The period when the tender is open for submissions. The end date is the closing date for tender submissions.",
+          "$ref": "#/definitions/Period"
+        },
+        "enquiryPeriod": {
+          "title": "Enquiry period",
+          "description": "The period during which potential bidders may submit questions and requests for clarification to the entity managing procurement. Details of how to submit enquiries should be provided in attached notices, or in submissionMethodDetails. Structured dates for when responses to questions will be made can be provided using tender milestones.",
+          "$ref": "#/definitions/Period"
+        },
+        "awardPeriod": {
+          "title": "Evaluation and award period",
+          "description": "The period for adjudication and selection of the contract award. The end date should be the date on which an award is due to be finalised. The start date may be used to indicate the start of an evaluation period.",
+          "$ref": "#/definitions/Period"
+        },
+        "contractPeriod": {
+          "description": "The period over which the contract is estimated or required to be active. If the tender does not specify explicit dates, the duration field may be used.",
+          "title": "Contract period",
+          "$ref": "#/definitions/Period"
+        },
+        "amendments": {
+          "description": "A tender amendment is a formal change to the tender, and generally involves the publication of a new tender notice/release. The rationale and a description of the changes made can be provided here.",
+          "type": "array",
+          "title": "Amendments",
+          "items": {
+            "$ref": "#/definitions/Amendment"
+          }
+        },
+        "participationFees": {
+          "title": "Participation fees",
+          "description": "Any fees applicable to bidders wishing to participate in the tender process. Fees may apply for access to bidding documents, for the submission of bids or there may be a win fee payable by the successful bidder.",
+          "type": "array",
+          "mergeStrategy": "ocdsVersion",
+          "items": {
+            "$ref": "#/definitions/ParticipationFee"
+          },
+          "uniqueItems": true
+        }
+      }
+    },
+    "Tender.Subject":{
+      "title":"",
+      "description":"",
+      "type":"object",
+      "properties":{
+        "targets": {
+          "title":"",
+          "description":"",
+          "type":"array",
+          "items":{
+            "type":"string"
+          }
+        },
+        "items":{
+          "title":"",
+          "description":"",
+          "type":"array",
+          "items":{
+            "type":"string"
+          }
+        },
+        "lots": {
+          "title": "Lots",
+          "description": "A tender process may be divided into lots, where bidders can bid on one or more lots. Details of each lot can be provided here. Items, documents and other features can then reference the lot they are related to using relatedLot. Where no relatedLot identifier is given, the values should be interpreted as applicable to the whole tender. Properties of tender can be overridden for a given Lot through their inclusion in the Lot object.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Lot"
+          }
+        },
         "awardCriteria": {
           "type": "string",
           "title":"",
@@ -402,58 +466,30 @@
           "items": {
             "$href": "#/definitions/Conversion.Common"
           }
-        }
-      }
-    },
-    "Tender.Subject":{
-      "title":"",
-      "description":"",
-      "type":"object",
-      "properties":{
+        },
+        "documents": {
+          "title": "Documents",
+          "description": "All documents and attachments related to the tender, including any notices. See the [documentType codelist](http://standard.open-contracting.org/1.1-dev/en/schema/codelists/#document-type) for details of potential documents to include.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Document"
+          }
+        },
+        "classification": {
+          "title": "Classification",
+          "description": "The primary classification for the tender. Required by the EU. Uses CPV Codelist See the [itemClassificationScheme](http://standard.open-contracting.org/1.1-dev/en/schema/codelists/#item-classification-scheme).",
+          "$ref": "#/definitions/Classification"
+        },
         "mainProcurementCategory": {
           "title": "",
           "description": "",
           "type": "string",
           "codelist": "procurementCategory.csv"
-        },
-        "targets": {
-          "title":"",
-          "description":"",
-          "type":"array",
-          "items":{
-            "type":"string"
-          }
-        },
-        "items":{
-          "title":"",
-          "description":"",
-          "type":"array",
-          "items":{
-            "type":"string"
-          }
-        },
-        "lots": {
-          "title": "Lots",
-          "description": "A tender process may be divided into lots, where bidders can bid on one or more lots. Details of each lot can be provided here. Items, documents and other features can then reference the lot they are related to using relatedLot. Where no relatedLot identifier is given, the values should be interpreted as applicable to the whole tender. Properties of tender can be overridden for a given Lot through their inclusion in the Lot object.",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/Lot"
-          }
         }
       }
     },
-    "Tender": {
+    "Tender.Enquiries": {
       "properties": {
-        "tenderPeriod": {
-          "title": "Tender period",
-          "description": "The period when the tender is open for submissions. The end date is the closing date for tender submissions.",
-          "$ref": "#/definitions/Period"
-        },
-        "enquiryPeriod": {
-          "title": "Enquiry period",
-          "description": "The period during which potential bidders may submit questions and requests for clarification to the entity managing procurement. Details of how to submit enquiries should be provided in attached notices, or in submissionMethodDetails. Structured dates for when responses to questions will be made can be provided using tender milestones.",
-          "$ref": "#/definitions/Period"
-        },
         "enquiries": {
           "title": "Enquiries",
           "type": [
@@ -465,82 +501,6 @@
             "$ref": "#/definitions/Enquiry"
           },
           "uniqueItems": true
-        },
-        "eligibilityCriteria": {
-          "title": "Eligibility criteria",
-          "description": "A description of any eligibility criteria for potential suppliers.",
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "awardPeriod": {
-          "title": "Evaluation and award period",
-          "description": "The period for adjudication and selection of the contract award. The end date should be the date on which an award is due to be finalised. The start date may be used to indicate the start of an evaluation period.",
-          "$ref": "#/definitions/Period"
-        },
-        "contractPeriod": {
-          "description": "The period over which the contract is estimated or required to be active. If the tender does not specify explicit dates, the duration field may be used.",
-          "title": "Contract period",
-          "$ref": "#/definitions/Period"
-        },
-        "tenderers": {
-          "title": "Tenderers",
-          "description": "All entities who submit a bid on a tender. More detailed information on bids and the bidding organisation can be provided using the optional bid extension.",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/OrganizationReference"
-          },
-          "uniqueItems": true
-        },
-        "procuringEntity": {
-          "title": "Procuring entity",
-          "description": "The entity managing the procurement, which may be different from the buyer who is paying / using the items being procured.",
-          "$ref": "#/definitions/OrganizationReference"
-        },
-        "documents": {
-          "title": "Documents",
-          "description": "All documents and attachments related to the tender, including any notices. See the [documentType codelist](http://standard.open-contracting.org/1.1-dev/en/schema/codelists/#document-type) for details of potential documents to include.",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/Document"
-          }
-        },
-        "milestones": {
-          "title": "Milestones",
-          "description": "A list of milestones associated with the tender.",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/Milestone"
-          }
-        },
-        "amendments": {
-          "description": "A tender amendment is a formal change to the tender, and generally involves the publication of a new tender notice/release. The rationale and a description of the changes made can be provided here.",
-          "type": "array",
-          "title": "Amendments",
-          "items": {
-            "$ref": "#/definitions/Amendment"
-          }
-        },
-        "participationFees": {
-          "title": "Participation fees",
-          "description": "Any fees applicable to bidders wishing to participate in the tender process. Fees may apply for access to bidding documents, for the submission of bids or there may be a win fee payable by the successful bidder.",
-          "type": "array",
-          "mergeStrategy": "ocdsVersion",
-          "items": {
-            "$ref": "#/definitions/ParticipationFee"
-          },
-          "uniqueItems": true
-        },
-        "classification": {
-          "title": "Classification",
-          "description": "The primary classification for the tender. Required by the EU. Uses CPV Codelist See the [itemClassificationScheme](http://standard.open-contracting.org/1.1-dev/en/schema/codelists/#item-classification-scheme).",
-          "$ref": "#/definitions/Classification"
-        },
-        "secondStage": {
-          "title": "Second stage",
-          "description": "Information about the second stage of a two-stage procedure (e.g. a restricted procedure, a competitive procedure with negotiation, a competitive dialogue or an innovation partnership).",
-          "$ref": "#/definitions/SecondStage"
         }
       }
     }
