@@ -9,7 +9,7 @@
       "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/inheritances-schema.json#/definitions/Planning.ProcurementPlan"
     },
     "tender":{
-      "ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/inheritances-schema.json#/definitions/Tender.Tender.MetaData"  
+      "ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/inheritances-schema.json#/definitions/Tender.MetaData"  
     }
   }
 }
