@@ -2,6 +2,7 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Definitions of OCDS elements",
   "type": "object",
+  "$id":"https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/release-schema.json",
   "properties": {
     "id": {
       "title": "Id",
@@ -2460,6 +2461,18 @@
           "type": "array",
           "items": {
             "$ref": "#/definitions/Metric"
+          }
+        },
+        "planning-procurementplan":{
+          "title": "Forecasts",
+          "description": "Объект описывает индикативы, исползуемые для планирования исполнения будущего договора",
+          "type": "object",
+          "properties":{
+            "forecasts":{
+              "title":"",
+              "description":"",
+              "$ref":"#/definitions/Metric"
+            }
           }
         }
       }
