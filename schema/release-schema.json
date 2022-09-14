@@ -2445,6 +2445,7 @@
       "type": "object",
       "properties": {
         "budget": {
+          "title":"test name of the inheritet def",
           "$ref":"#/definitions/Planning/$defs/planning-budget"  
         },
         "milestones": {
@@ -2471,7 +2472,7 @@
           "type":"object",
           "properties":{
             "id":{
-              "title":"test name of the inheritet def",
+              
               "$ref":"#/definitions/Budget/$defs/budget-id"   
             }
           }
