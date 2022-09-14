@@ -13,7 +13,7 @@
     },
     "test":{
       "description":"test description",
-      "$ref":"#/$defs/test2"
+      "$ref":"https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/release-schema.json#/$defs/item-id"
     }
   },
   "$defs":{
