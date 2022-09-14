@@ -17,6 +17,7 @@
         {
           "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/inheritances-schema.json#/definitions/Tender.Tender.ProcedureContractNotice"
         }
+      ]
     },
     "test":{
       "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/release-schema.json#/definitions/Item/$defs/item-id"
