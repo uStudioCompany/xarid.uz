@@ -2432,13 +2432,13 @@
       "type": "object",
       "properties": {
         "budget": {
-          "$ref": "#/$defs/planning-budget"
+          "$ref": "#/$defs/Planning/planning-budget"
         },
         "milestones": {
-          "$ref": "#/$defs/planning-milestones"
+          "$ref": "#/$defs/Planning/planning-milestones"
         },
         "forecasts": {
-          "$ref": "#/$defs/planning-forecasts"
+          "$ref": "#/$defs/Planning/planning-forecasts"
         }
       },
       "$defs": {
