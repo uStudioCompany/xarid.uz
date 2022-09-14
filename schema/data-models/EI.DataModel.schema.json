@@ -13,9 +13,6 @@
     },
     "test":{
       "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/release-schema.json#/definitions/Item/$defs/item-id"
-    },
-    "planning2": {
-      "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/release-schema.json#/definitions/Planning"
     }
   }
 }
