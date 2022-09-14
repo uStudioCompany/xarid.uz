@@ -584,7 +584,6 @@
           }
         },
         "finance": {
-          "title": "Finance",
           "description": "Массив, описывающий детальную информацию об источниках финансирования  контрактного процесса",
           "type": "array",
           "items": {
@@ -606,20 +605,21 @@
       },
       "$defs":{
         "budget.id": {
-          "title": "ID",
           "type": "string"
         },
         "budget.description":{
-          "title": "Description",
           "type": "string"
         },
         "cp.planning.budget":{
           "$schema": "http://json-schema.org/draft-07/schema#",
           "type":"object",
           "properties":{
-            "id":{
-              "description":"Identifier of a budget",
-              "$ref":"#/definitions/Budget/$defs/budget.id"
+            "budgetBreakdown": {
+              "description": "График оплаты товаров/работ/услуг",
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/BudgetBreakdown/$defs/cp.planning.budget.budgetBreakdown"
+              }
             }
           }
         }
@@ -631,45 +631,68 @@
       "type": "object",
       "properties": {
         "id": {
-          "title": "Identifier",
           "description": "Идентификатор структурной единицы бюджета",
-          "type": "string"
+          "$ref":"#/definitions/BudgetBreakdown/$defs/budgetBreakdown.id"
         },
         "description": {
-          "title": "Description",
           "description": "Описание структурной единицы бюджета",
-          "type": "string"
+          "$ref":"#/definitions/BudgetBreakdown/$defs/budgetBreakdown.description"
         },
         "amount": {
-          "title": "Amount",
           "description": "Финансовое выражение структурной единицы бюджета",
           "$ref": "#/definitions/Value"
         },
         "uri": {
-          "title": "Linked budget information",
           "description": "URI машиночитаемой информации, описывающей структурную единицу бюджета",
-          "type": "string",
-          "format": "uri"
+          "$ref":"#/definitions/BudgetBreakdown/$defs/budgetBreakdown.uri"
         },
         "period": {
-          "title": "Budget period",
           "description": "Фискальный период доступности структурной единицы бюджета",
           "$ref": "#/definitions/Period"
         },
         "sourceParty": {
-          "title": "Source party",
           "description": "Организация, предоставляющая средства для структурной единицы бюджета",
           "$ref": "#/definitions/OrganizationReference"
         },
-        "measures": {
-          "title": "measures",
-          "description": "Метрируемые характеристики структурной единицы бюджета: должны описываться как \"ключ: значение\"",
+        "classifications": {
+          "description": "Классификации структурной единицы бюджета: должны описываться как \"ключ: значение\"",
+          "$ref":"#/definitions/BudgetBreakdown/$defs/budgetBreakdown.classifications"
+        }
+      },
+      "$defs":{
+        "budgetBreakdown.id":{
+          "description": "Идентификатор структурной единицы бюджета",
+          "type": "string"
+        },
+        "budgetBreakdown.description":{
+          "description": "Описание структурной единицы бюджета",
+          "type": "string"
+        },
+        "budgetBreakdown.uri":{
+          "description": "URI машиночитаемой информации, описывающей структурную единицу бюджета",
+          "type": "string",
+          "format": "uri"
+        },
+        "budgetBreakdown.classifications":{
+          "description": "Классификации структурной единицы бюджета: должны описываться как \"ключ: значение\" гле ключомм является одно из значений код-листа" ,
           "type": "object"
         },
-        "classifications": {
-          "title": "Budget classifications",
-          "description": "Классификации структурной единицы бюджета: должны описываться как \"ключ: значение\"",
-          "type": "object"
+        "cp.planning.budget.budgetBreakdown":{
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type":"object",
+          "properties":{
+            "id":{
+              "descripption":"",
+              "$ref":"#/definitions/BudgetBreakdown/$defs/budgetBreakdown.id"
+            },
+            "amount":{
+              "description": "Финансовое выражение структурной единицы бюджета",
+              "$ref": "#/definitions/Value"
+            },
+            "classifications":{
+              "$ref":"#/definitions/BudgetBreakdown/$defs/budgetBreakdown.classifications"
+            }
+          }
         }
       }
     },
