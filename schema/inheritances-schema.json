@@ -2,6 +2,7 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Definitions of the inheritance of the OCDS elements for the data models of Xarid.UZ instance",
   "type": "object",
+  "$id":"https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/inheritances-schema.json",
   "definitions": {
     "Award.EvaluationDecision": {
       "title": "",
