@@ -1661,6 +1661,14 @@
           "description": "The [Address] to which, or where, goods or services related to this tender, contract or license will be delivered.",
           "$ref": "#/definitions/Address"
         }
+      },
+      "$defs":{
+        "id":{
+          "id": {
+          "title": "ID",
+          "description": "testing defs",
+          "type": "string"
+        }
       }
     },
     "Location": {
