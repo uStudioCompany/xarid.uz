@@ -15,11 +15,5 @@
       "description":"test description",
       "$ref":"https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/release-schema.json#/definitions/Item/$defs/item-id"
     }
-  },
-  "$defs":{
-    "test2":{
-      "description":"test2 description",
-      "type":"string"
-    }
   }
 }
