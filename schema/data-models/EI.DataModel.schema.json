@@ -10,6 +10,14 @@
     },
     "tender":{
       "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/inheritances-schema.json#/definitions/Tender.MetaData"  
+    },
+    "test":{
+      "$ref":"#/$defs/test2"
+    }
+  },
+  "$defs":{
+    "tetst2":{
+      "type":"string"
     }
   }
 }
