@@ -2489,7 +2489,7 @@
       "properties": {
         "budget": {
           "title":"test name of the inheritet def",
-          "$ref":"#/definitions/Budget"  
+          "$ref":"#/definitions/Budget/$defs/cp.planning.budget"  
         },
         "milestones": {
           "title": "Milestones",
