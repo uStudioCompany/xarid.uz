@@ -611,9 +611,8 @@
           "type": "string"
         },
         "budget.budgetBreakdown":{
-          "type": "array",
-          "title": "Budget breakdown",
           "description": "Массив, описывающий структуру бюджета контрактного процесса",
+          "type": "array",
           "items": {
             "$ref": "#/definitions/BudgetBreakdown"
           }
