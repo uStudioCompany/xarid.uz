@@ -595,13 +595,27 @@
           "items": {
             "$ref": "#/definitions/Finance"
           }
+        },
+        "amount":{
+          "title":"",
+          "description":"",
+          "$ref":"#/definitions/Value"
         }
       },
       "$defs":{
         "budget-id": {
           "title": "ID",
           "type": "string"
-        }  
+        },
+        "procedure-plan-budget":{
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "$id":"/definitions/Budget",
+          "properties":{
+            "id":{
+              "$ref":"#/$defs/budget-id"
+            }
+          }
+        }
       }
     },
     "BudgetBreakdown": {
@@ -2470,13 +2484,7 @@
           "title": "Budget",
           "description": "В объекте содержится информация о бюджетных линиях и/или связанных проектах, через которые финансируется процесс заключения данного договора",
           "type":"object",
-          "properties":{
-            "id":{
-              
-              "$ref":"#/definitions/Budget/$defs/budget-id"   
-            }
-          }
-          
+          "$ref":"#/definitions/Budget/$defs/procedure-plan-budget"   
         }
       }
     },
