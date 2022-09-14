@@ -609,10 +609,10 @@
         },
         "procedure-plan-budget":{
           "$schema": "http://json-schema.org/draft-07/schema#",
-          "$id":"/definitions/Budget",
+          "type":"object",
           "properties":{
             "id":{
-              "$ref":"#/$defs/budget-id"
+              "$ref":"#/definitions/Budget/$defs/budget-id"
             }
           }
         }
@@ -2460,7 +2460,6 @@
       "properties": {
         "budget": {
           "title":"test name of the inheritet def",
-          "type":"object",
           "$ref":"#/definitions/Budget/$defs/procedure-plan-budget"  
         },
         "milestones": {
