@@ -8,17 +8,17 @@
     "planning": {
       "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/inheritances-schema.json#/definitions/Planning.ProcurementPlan"
     },
-    "tender": {
-      "additionalProperties":{
-        "allOf":[
-          {
-            "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/inheritances-schema.json#/definitions/Tender.MetaData"
-          },
-          {
-            "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/inheritances-schema.json#/definitions/Tender.Tender.ProcedureContractNotice"
-          }
-        ]
-      }
+    "tender": [
+      "allOf":[
+        {
+          "type":"object",
+          "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/inheritances-schema.json#/definitions/Tender.MetaData"
+        },
+        {
+          "type":"object",
+          "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/inheritances-schema.json#/definitions/Tender.Tender.ProcedureContractNotice"
+        }
+      ] 
     },
     "test":{
       "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/release-schema.json#/definitions/Item/$defs/item-id"
