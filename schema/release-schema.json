@@ -2471,6 +2471,7 @@
           "type":"object",
           "properties":{
             "id":{
+              "title":"test name of the inheritet def",
               "$ref":"#/definitions/Budget/$defs/budget-id"   
             }
           }
