@@ -2,6 +2,7 @@
   "id":"",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title":"",
+  "type":"array",
   "description": "",
   "properties":{
     "allOf":[
