@@ -569,9 +569,8 @@
       "type": "object",
       "properties": {
         "id": {
-          "title": "ID",
           "description": "Идентификатор статьи бюджета, которая предоставляет средства для этого процесса заключения контракта",
-          "type": "string"
+          "$ref":"#/definitions/Budget/$defs/budget-id"
         },
         "description": {
           "title": "Budget Source",
@@ -593,6 +592,12 @@
           "items": {
             "$ref": "#/definitions/Finance"
           }
+        },
+        "$defs":{
+          "budget-id": {
+            "title": "ID",
+            "type": "string"
+          }  
         }
       }
     },
@@ -2460,7 +2465,12 @@
         "planning-budget":{
           "title": "Budget",
           "description": "В объекте содержится информация о бюджетных линиях и/или связанных проектах, через которые финансируется процесс заключения данного договора",
-          "$ref":"#/definitions/Budget"
+          "properties":{
+            "id":{
+              "$ref":"#/definitions/Budget/$defs/budget-id"   
+            }
+          }
+          
         }
       }
     },
