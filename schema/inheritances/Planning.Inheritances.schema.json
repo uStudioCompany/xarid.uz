@@ -5,7 +5,6 @@
   "properties":{
     "cp.planning":{
       "description":"Аспекты плана закупочной процедуры",
-      "type":"object",
       "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/release-schema.json#/definitions/Planning/$defs/cp.planning"
     }
   }
