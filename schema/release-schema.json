@@ -2517,6 +2517,7 @@
         "cp.planning":{
           "budget": {
             "description":"test name of the inheritet def",
+            "type":"object",
             "$ref":"#/definitions/Budget/$defs/cp.planning.budget"  
           },
           "milestones": {
