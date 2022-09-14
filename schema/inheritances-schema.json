@@ -254,9 +254,7 @@
       "description": "",
       "type": "object",
       "properties": {
-        "id": {
-          "description":""
-        },
+        "id": {},
         "description": {},
         "quantity": {}
       }
