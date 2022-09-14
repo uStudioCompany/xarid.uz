@@ -1674,10 +1674,7 @@
       },
       "$defs":{
         "item.id":{
-          "title": "Testing defs",
-          "description": "A local identifier to reference and merge the items by. Must be unique within a given array of items.",
           "type": "string"
-        
         }
       }
     },
