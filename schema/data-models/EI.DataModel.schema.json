@@ -2,7 +2,13 @@
   "id":"",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type":"object",
-  "title":"Дефиниция Award",
-  "description": "Бизнес-логическое наследование дефиниции 'ocds.award'",
-  "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/inheritances-schema.json#/definitions/Planning.ProcurementPlan"
+  "title":"",
+  "description": "",
+  "properties":{
+    "allOf":[
+      {
+        "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/inheritances-schema.json#/definitions/Planning.ProcurementPlan"
+      }
+    ]
+  }
 }
