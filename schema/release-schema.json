@@ -573,7 +573,7 @@
           "$ref":"#/definitions/Budget/$defs/budget-id"
         },
         "description": {
-          "title": "Budget Source",
+          "title": "Description",
           "description": "Описание источника финансирования в рамках бюдженой статьи",
           "type": "string"
         },
@@ -2469,8 +2469,7 @@
           "properties":{
             "id":{
               "$ref":"#/definitions/Budget/$defs/budget-id"   
-            },
-            "test":{}
+            }
           }
           
         }
