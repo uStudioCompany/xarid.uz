@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Definitions of OCDS elements",
   "type": "object",
   "properties": {
@@ -56,30 +56,7 @@
     "planning": {
       "title": "Planning",
       "description": "Объект используется для описания финансовой основы процесса заключения контракта, а также - ожидаеммого состава и последовательности исполнения будущего договора сторонами",
-      "type": "object",
-      "properties": {
-        "budget": {
-          "title": "Budget",
-          "description": "В объекте содержится информация о бюджетных линиях и/или связанных проектах, через которые финансируется процесс заключения данного договора",
-          "$ref": "#/definitions/Budget"
-        },
-        "milestones": {
-          "title": "Milestones",
-          "description": "Объект описывает вехи, связанные с планированием исполнения будущего договора",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/Milestone"
-          }
-        },
-        "forecasts": {
-          "title": "Forecasts",
-          "description": "Объект описывает индикативы, исползуемые для планирования исполнения будущего договора",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/Metric"
-          }
-        }
-      }
+      "$ref":"#/Planning"
     },
     "preQualification": {
       "title": "Prequalification",
@@ -361,7 +338,7 @@
         "relatedBid": {
           "title": "Related Bid",
           "description": "Если данное решение ассоциированно с конктерным тендерным предложением, данный атрибут используется для указания идентификатора такого тендерного предложения ",
-          "type":"string"
+          "type": "string"
         }
       }
     },
@@ -1671,13 +1648,6 @@
           "description": "The [Address] to which, or where, goods or services related to this tender, contract or license will be delivered.",
           "$ref": "#/definitions/Address"
         }
-      },
-      "$defs":{
-        "item-id":{
-          "title": "ID",
-          "description": "A local identifier to reference and merge the items by. Must be unique within a given array of items.",
-          "type":"string",
-        }
       }
     },
     "Location": {
@@ -2452,6 +2422,45 @@
           "title": "description",
           "type": "string",
           "description": "Further description of the place of performance of the contract. Required by EU."
+        }
+      }
+    },
+    "Planning": {
+      "title": "Planning",
+      "description": "Объект используется для описания финансовой основы процесса заключения контракта, а также - ожидаеммого состава и последовательности исполнения будущего договора сторонами",
+      "type": "object",
+      "properties": {
+        "budget": {
+          "$ref":"#/$defs/planning-budget"  
+        },
+        "milestones": {
+          "$ref":"#/$defs/planning-milestones"
+        },
+        "forecasts": {
+          "$ref":"#/$defs/planning-forecasts"
+        }
+      },
+      "$defs":{
+        "planning-budget":{
+          "title": "Budget",
+          "description": "В объекте содержится информация о бюджетных линиях и/или связанных проектах, через которые финансируется процесс заключения данного договора",
+          "$ref": "#/definitions/Budget"
+        },
+        "planning-milestones":{
+          "title": "Milestones",
+          "description": "Объект описывает вехи, связанные с планированием исполнения будущего договора",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Milestone"
+          }
+        },
+        "planning-forecasts":{
+          "title": "Forecasts",
+          "description": "Объект описывает индикативы, исползуемые для планирования исполнения будущего договора",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Metric"
+          }
         }
       }
     },
