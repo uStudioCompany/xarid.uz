@@ -311,7 +311,7 @@
       },
       "$defs":{
         "item-id":{
-          "type":"string
+          "type":"string"
         }
       }
     },
