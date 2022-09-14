@@ -612,6 +612,7 @@
           "type":"object",
           "properties":{
             "id":{
+              "description":"Identifier of a busget record",
               "$ref":"#/definitions/Budget/$defs/budget-id"
             }
           }
