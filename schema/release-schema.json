@@ -2515,23 +2515,26 @@
       },
       "$defs":{
         "cp.planning":{
-          "budget": {
-            "description":"test name of the inheritet def",
-            "type":"object",
-            "$ref":"#/definitions/Budget/$defs/cp.planning.budget"  
-          },
-          "milestones": {
-            "description": "Объект описывает вехи, связанные с планированием исполнения будущего договора",
-            "type": "array",
-            "items": {
-              "$ref": "#/definitions/Milestone"
-            }
-          },
-          "forecasts": {
-            "description": "Объект описывает индикативы, исползуемые для планирования исполнения будущего договора",
-            "type": "array",
-            "items": {
-              "$ref": "#/definitions/Metric"
+          "type":"object",
+          "properties":{
+            "budget": {
+              "description":"test name of the inheritet def",
+              "type":"object",
+              "$ref":"#/definitions/Budget/$defs/cp.planning.budget"  
+            },
+            "milestones": {
+              "description": "Объект описывает вехи, связанные с планированием исполнения будущего договора",
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Milestone"
+              }
+            },
+            "forecasts": {
+              "description": "Объект описывает индикативы, исползуемые для планирования исполнения будущего договора",
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Metric"
+              }
             }
           }
         }
