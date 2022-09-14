@@ -570,10 +570,7 @@
       "properties": {
         "id": {
           "description": "Идентификатор статьи бюджета, которая предоставляет средства для этого процесса заключения контракта",
-          "$ref":"#/definitions/Budget/$defs/budget-id",
-          "enum":[
-            "1","2","3"
-          ]
+          "$ref":"#/definitions/Budget/$defs/budget-id"
         },
         "description": {
           "title": "Description",
@@ -596,6 +593,13 @@
             "$ref": "#/definitions/Finance"
           }
         },
+        "forecasts":{
+          "description":"",
+          "type":"array",
+          "items":{
+            "$ref": "#/definitions/Metrics"
+          }
+        },
         "amount":{
           "title":"",
           "description":"",
@@ -607,12 +611,16 @@
           "title": "ID",
           "type": "string"
         },
+        "budget.description":{
+          "title": "Description",
+          "type": "string"
+        },
         "procedure-plan-budget":{
           "$schema": "http://json-schema.org/draft-07/schema#",
           "type":"object",
           "properties":{
             "id":{
-              "description":"Identifier of a busget record",
+              "description":"Identifier of a budget",
               "$ref":"#/definitions/Budget/$defs/budget-id"
             }
           }
@@ -2461,7 +2469,7 @@
       "properties": {
         "budget": {
           "title":"test name of the inheritet def",
-          "$ref":"#/definitions/Budget/$defs/procedure-plan-budget"  
+          "$ref":"#/definitions/Budget"  
         },
         "milestones": {
           "title": "Milestones",
