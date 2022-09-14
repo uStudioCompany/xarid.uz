@@ -292,7 +292,7 @@
       "properties":{
         "id": {
           "description": "An identifier for this tender process. This may be the same as the ocid, or may be drawn from an internally held identifier for this tender.",
-          "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/release-schema.json#/$defs/item.id"
+          "$ref": "#/$defs/item-id"
         },
         "title": {
           "description": "Title for this initiation",
@@ -308,6 +308,11 @@
         },
         "status":{},
         "statusDetails":{}
+      },
+      "$defs":{
+        "item-id":{
+          "type":"string
+        }
       }
     },
     "Tender.ProcedureContractNotice": {
