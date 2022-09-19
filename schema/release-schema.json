@@ -346,7 +346,7 @@
           "description": "Массив, описывающий идентификаторы лотов, с которыми связано данное решение/результат",
           "type": "array",
           "items": {
-            "$ref": "#/definitions/Award/$defs/award.relatedLot"
+            "type": "string"
           }
         },
         "requirementResponses": {
