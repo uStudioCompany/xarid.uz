@@ -395,9 +395,9 @@
           "title": "",
           "description": "",
           "properties": {
-            "id": {
+            "internalId": {
               "description": "",
-              "$ref": "#/definitions/Award/$defs/award.id"
+              "$ref": "#/definitions/Award/$defs/award.internalId"
             }
           }
         },
