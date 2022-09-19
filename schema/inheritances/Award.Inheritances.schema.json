@@ -8,12 +8,12 @@
     "Award.EvaluationDecision":{
       "description":"Решение тендерного комитета",
       "type":"object",
-      "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/inheritances-schema.json#/definitions/Award.EvaluationDecision"
+      "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/release-schema.json#/definitions/Award/definitions/cp.awardDecision"
     },
     "Award.NegativeCan":{
       "description":"Уведомление о негативном результате закупки в контексте конкретного лота",
       "type":"object",
-      "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/inheritances-schema.json#/definitions/Award.NegativeCan"
+      "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/release-schema.json#/definitions/Award/definitions/cp.negativeCan"
     }
   }
 }
