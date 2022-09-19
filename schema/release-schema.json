@@ -387,12 +387,12 @@
               "description": "Массив, описывающий идентификаторы лотов, с которыми связано данное решение/результат",
               "type":"array",
               "items":{
-                "$ref": "#/definitions/Address/$defs/award.relatedLot"
+                "$ref": "#/definitions/Award/$defs/award.relatedLot"
               }
             },
             "relatedBid":{
               "description":"",
-              "$ref": "#/definitions/Address/$defs/award.relatedBid"
+              "$ref": "#/definitions/Award/$defs/award.relatedBid"
             }
           }
         },
