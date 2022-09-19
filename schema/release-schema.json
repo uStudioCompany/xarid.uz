@@ -326,23 +326,23 @@
           "properties":{
             "id":{
               "description":"",
-              "$ref": "#/definitions/Address/$defs/award.id"
+              "$ref": "#/definitions/Award/$defs/award.id"
             },
             "status":{
               "description":"",
-              "$ref": "#/definitions/Address/$defs/award.status"
+              "$ref": "#/definitions/Award/$defs/award.status"
             },
             "statusDetails":{
               "description":"",
-              "$ref": "#/definitions/Address/$defs/award.statusDetails"
+              "$ref": "#/definitions/Award/$defs/award.statusDetails"
             },
             "internalId":{
               "description":"",
-              "$ref": "#/definitions/Address/$defs/award.internalId"
+              "$ref": "#/definitions/Award/$defs/award.internalId"
             },
             "date":{
               "description":"",
-              "$ref": "#/definitions/Address/$defs/award.date"
+              "$ref": "#/definitions/Award/$defs/award.date"
             },
             "value":{
               "description":"",
@@ -403,24 +403,24 @@
           "properties":{
             "id":{
               "description":"",
-              "$ref": "#/definitions/Address/$defs/award.id"
+              "$ref": "#/definitions/Award/$defs/award.id"
             },
             "status":{
               "description":"",
-              "$ref": "#/definitions/Address/$defs/award.status"
+              "$ref": "#/definitions/Award/$defs/award.status"
             },
             "statusDetails":{
               "description":"",
-              "$ref": "#/definitions/Address/$defs/award.statusDetails"
+              "$ref": "#/definitions/Award/$defs/award.statusDetails"
             },
             
             "description":{
               "description":"",
-              "$ref": "#/definitions/Address/$defs/award.description"
+              "$ref": "#/definitions/Award/$defs/award.description"
             },
             "date":{
               "description":"",
-              "$ref": "#/definitions/Address/$defs/award.date"
+              "$ref": "#/definitions/Award/$defs/award.date"
             },
             "documents":{
               "description":"",
