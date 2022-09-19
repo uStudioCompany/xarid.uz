@@ -435,7 +435,7 @@
       "properties": {
         "id": {
           "description": "Идентификатор данного 'award'. Должен быть уникальным в рамках массива 'awards'",
-          "$ref": "#/definitions/Address/$defs/award.id"
+          "$ref": "#/definitions/Award/$defs/award.id"
         },
         "internalId": {
           "description": "Код/идентификатор решения/результата, описанного данным 'award', вне системы, если существует",
@@ -443,19 +443,19 @@
         },
         "description": {
           "description": "Текстовое описание данного решения/результата",
-          "$ref": "#/definitions/Address/$defs/award.description"
+          "$ref": "#/definitions/Award/$defs/award.description"
         },
         "status": {
           "description": "Текущий статус данного решения/результата согласно стандартному справочнику допустимых состояний",
-          "$ref": "#/definitions/Address/$defs/award.status"
+          "$ref": "#/definitions/Award/$defs/award.status"
         },
         "statusDetails": {
           "description": "Дополнительная информация о статусе данного решения/результата",
-          "$ref": "#/definitions/Address/$defs/award.statusDetails"
+          "$ref": "#/definitions/Award/$defs/award.statusDetails"
         },
         "date": {
           "description": "Дата публикации данного решения/результата",
-          "$ref": "#/definitions/Address/$defs/award.date"
+          "$ref": "#/definitions/Award/$defs/award.date"
         },
         "value": {
           "title": "Value",
@@ -494,7 +494,7 @@
           "description": "Массив, описывающий идентификаторы лотов, с которыми связано данное решение/результат",
           "type":"array",
           "items":{
-            "$ref": "#/definitions/Address/$defs/award.relatedLot"
+            "$ref": "#/definitions/Award/$defs/award.relatedLot"
           }
         },
         "requirementResponses": {
@@ -506,7 +506,7 @@
         },
         "relatedBid": {
           "description": "Если данное решение ассоциированно с конктерным тендерным предложением, данный атрибут используется для указания идентификатора такого тендерного предложения ",
-          "$ref": "#/definitions/Address/$defs/award.relatedBid"
+          "$ref": "#/definitions/Award/$defs/award.relatedBid"
         }
       }
     },
