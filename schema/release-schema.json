@@ -284,6 +284,83 @@
     "Award": {
       "description": "Объект используется для описания результатов оценки тендерных предложений в данном контрактном процессе, а так же рещзультаты тендерной фазы контрактного процесса в целом: позитивные и негативные",
       "type": "object",
+      "properties": {
+        "id": {
+          "description": "Идентификатор данного 'award'. Должен быть уникальным в рамках массива 'awards'",
+          "$ref": "#/definitions/Award/$defs/award.id"
+        },
+        "internalId": {
+          "description": "Код/идентификатор решения/результата, описанного данным 'award', вне системы, если существует",
+          "$ref": "#/definitions/Award/$defs/award.internalId"
+        },
+        "description": {
+          "description": "Текстовое описание данного решения/результата",
+          "$ref": "#/definitions/Award/$defs/award.description"
+        },
+        "status": {
+          "description": "Текущий статус данного решения/результата согласно стандартному справочнику допустимых состояний",
+          "$ref": "#/definitions/Award/$defs/award.status"
+        },
+        "statusDetails": {
+          "description": "Дополнительная информация о статусе данного решения/результата",
+          "$ref": "#/definitions/Award/$defs/award.statusDetails"
+        },
+        "date": {
+          "description": "Дата публикации данного решения/результата",
+          "$ref": "#/definitions/Award/$defs/award.date"
+        },
+        "value": {
+          "title": "Value",
+          "description": "Полное финансовое значение, закрепляемое данным решением",
+          "$ref": "#/definitions/Value"
+        },
+        "suppliers": {
+          "description": "Перечень экономических операторов, связных с данным решением/результатом, указанных в виде 'organization references'",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OrganizationReference"
+          }
+        },
+        "items": {
+          "description": "Перечень товарных позиций / линий предмета закупки в рамках данного контрактного процесса, связных с данным решением/результатом,",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Item"
+          }
+        },
+        "documents": {
+          "description": "Массив, описывающий документы, относящиеся к данному решению/результату",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Document"
+          }
+        },
+        "agreedMetrics": {
+          "description": "",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Metric"
+          }
+        },
+        "relatedLots": {
+          "description": "Массив, описывающий идентификаторы лотов, с которыми связано данное решение/результат",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Award/$defs/award.relatedLot"
+          }
+        },
+        "requirementResponses": {
+          "description": "Структурированный перечень ответов тендерного комитета, принявшего данное решение, на вопросы, предписанные тендерным объявлением, данные в отношении экономических агентов, связзанных с этим решением и/или их тендерного предложения",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/RequirementResponse"
+          }
+        },
+        "relatedBid": {
+          "description": "Если данное решение ассоциированно с конктерным тендерным предложением, данный атрибут используется для указания идентификатора такого тендерного предложения ",
+          "$ref": "#/definitions/Award/$defs/award.relatedBid"
+        }
+      },
       "$defs": {
         "award.id": {
           "type": "string"
@@ -421,83 +498,6 @@
               }
             }
           }
-        }
-      },
-      "properties": {
-        "id": {
-          "description": "Идентификатор данного 'award'. Должен быть уникальным в рамках массива 'awards'",
-          "$ref": "#/definitions/Award/$defs/award.id"
-        },
-        "internalId": {
-          "description": "Код/идентификатор решения/результата, описанного данным 'award', вне системы, если существует",
-          "$ref": "#/definitions/Award/$defs/award.internalId"
-        },
-        "description": {
-          "description": "Текстовое описание данного решения/результата",
-          "$ref": "#/definitions/Award/$defs/award.description"
-        },
-        "status": {
-          "description": "Текущий статус данного решения/результата согласно стандартному справочнику допустимых состояний",
-          "$ref": "#/definitions/Award/$defs/award.status"
-        },
-        "statusDetails": {
-          "description": "Дополнительная информация о статусе данного решения/результата",
-          "$ref": "#/definitions/Award/$defs/award.statusDetails"
-        },
-        "date": {
-          "description": "Дата публикации данного решения/результата",
-          "$ref": "#/definitions/Award/$defs/award.date"
-        },
-        "value": {
-          "title": "Value",
-          "description": "Полное финансовое значение, закрепляемое данным решением",
-          "$ref": "#/definitions/Value"
-        },
-        "suppliers": {
-          "description": "Перечень экономических операторов, связных с данным решением/результатом, указанных в виде 'organization references'",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/OrganizationReference"
-          }
-        },
-        "items": {
-          "description": "Перечень товарных позиций / линий предмета закупки в рамках данного контрактного процесса, связных с данным решением/результатом,",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/Item"
-          }
-        },
-        "documents": {
-          "description": "Массив, описывающий документы, относящиеся к данному решению/результату",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/Document"
-          }
-        },
-        "agreedMetrics": {
-          "description": "",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/Metric"
-          }
-        },
-        "relatedLots": {
-          "description": "Массив, описывающий идентификаторы лотов, с которыми связано данное решение/результат",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/Award/$defs/award.relatedLot"
-          }
-        },
-        "requirementResponses": {
-          "description": "Структурированный перечень ответов тендерного комитета, принявшего данное решение, на вопросы, предписанные тендерным объявлением, данные в отношении экономических агентов, связзанных с этим решением и/или их тендерного предложения",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/RequirementResponse"
-          }
-        },
-        "relatedBid": {
-          "description": "Если данное решение ассоциированно с конктерным тендерным предложением, данный атрибут используется для указания идентификатора такого тендерного предложения ",
-          "$ref": "#/definitions/Award/$defs/award.relatedBid"
         }
       }
     },
@@ -1868,11 +1868,6 @@
           "title": "Delivery Address",
           "description": "The [Address] to which, or where, goods or services related to this tender, contract or license will be delivered.",
           "$ref": "#/definitions/Address"
-        }
-      },
-      "$defs": {
-        "item-id": {
-          "type": "boolean"
         }
       }
     },
