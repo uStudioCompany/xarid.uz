@@ -54,92 +54,13 @@
       "type": "string",
       "format": "date-time"
     },
-    "planning": {
-      "title": "Planning",
-      "description": "Объект используется для описания финансовой основы процесса заключения контракта, а также - ожидаеммого состава и последовательности исполнения будущего договора сторонами",
-      "$ref": "#/definitions/Planning"
-    },
-    "preQualification": {
-      "title": "Prequalification",
-      "description": "Объект описывает аспекты стадии предварительнй квалификации экономических агентов, выразивших заинтересовнность в участии в данном контрактном процессе",
-      "type": "object",
-      "$ref": "#/definitions/PreQualification"
-    },
-    "submissions": {
-      "title": "Submissions",
-      "description": "Объект описывает выражения заинтересованности и/или заявки на участие, полученные от экономических агентов в отношении данного контрактного процесса",
-      "type": "object",
-      "items": {
-        "$ref": "#/definitions/Submissions"
-      }
-    },
-    "qualifications": {
-      "title": "Qualifications",
-      "description": "Объект описывает решения тендерного комитета, вынесенные в отношении выражений заинтересованности и/или заявки на участие, полученные от экономических агентов в отношении данного контрактного процесса",
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/Qualification"
-      }
-    },
-    "tender": {
-      "title": "Tender",
-      "description": "Обект описывает тендерную фазу данного контрактного процесса",
-      "type": "object",
-      "$ref": "#/definitions/Tender"
-    },
-    "invitations": {
-      "title": "Invitations",
-      "description": "Объект описывает перечень приглашений к участию в закупочной фазе процедуры, выпущенные в отнощении экономических агентов, заявивших о своей заинтересованности в участии",
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/Invitation"
-      }
-    },
-    "bids": {
-      "title": "Bids",
-      "description": "Перечень тендерных предложений в рамках данного контрактного процесса",
-      "type": "object",
-      "properties": {
-        "details": {
-          "title": "Bids details",
-          "description": "Детальная информация о тендерных предложениях в рамках данного контрактного процесса",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/Bid"
-          }
-        }
-      }
-    },
+    
     "awards": {
       "title": "Awards",
       "description": "Массив объектов используется для описания результатов оценки тендерных предложений в данном контрактном процессе: позитивных и негативных",
       "type": "array",
       "items": {
         "$ref": "#/definitions/Award"
-      }
-    },
-    "contracts": {
-      "title": "Contracts",
-      "description": "Список контрактов, заключенных в рамках данного контрактного процесса",
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/Contract"
-      }
-    },
-    "parties": {
-      "title": "Parties",
-      "description": "Информация обо всех сторонах, участвующих в данном контрактном процессе",
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/Organization"
-      }
-    },
-    "relatedProcesses": {
-      "title": "Related Processes",
-      "description": "Перечень параллельных/предшевствующих процессов, связанных с данным контрактным процессом",
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/RelatedProcess"
       }
     }
   },
