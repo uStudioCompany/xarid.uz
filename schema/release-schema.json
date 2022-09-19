@@ -299,11 +299,13 @@
         },
         "status": {
           "description": "Текущий статус данного решения/результата согласно стандартному справочнику допустимых состояний",
-          "$ref": "#/definitions/Award/$defs/award.status"
+          "$ref": "#/definitions/Award/$defs/award.status",
+          "codelist": "awardStatuses.csv"
         },
         "statusDetails": {
           "description": "Дополнительная информация о статусе данного решения/результата",
-          "$ref": "#/definitions/Award/$defs/award.statusDetails"
+          "$ref": "#/definitions/Award/$defs/award.statusDetails",
+          "codelist": "awardStatuseDetails.csv"
         },
         "date": {
           "description": "Дата публикации данного решения/результата",
@@ -346,7 +348,7 @@
           "description": "Массив, описывающий идентификаторы лотов, с которыми связано данное решение/результат",
           "type": "array",
           "items": {
-            "type": "string"
+            "$ref": "#/definitions/Award/$defs/award.relatedLot"
           }
         },
         "requirementResponses": {
@@ -363,7 +365,8 @@
       },
       "$defs": {
         "award.id": {
-          "type": "string"
+          "type": "string",
+          "format":"uid"
         },
         "award.internalId": {
           "type": "string"
@@ -372,8 +375,7 @@
           "type": "string"
         },
         "award.status": {
-          "type": "string",
-          "codelist": "awardStatuses"
+          "type": "string"
         },
         "award.statusDetails": {
           "type": "string"
@@ -456,7 +458,7 @@
               "description": "Массив, описывающий идентификаторы лотов, с которыми связано данное решение/результат",
               "type": "array",
               "items": {
-                "type": "string"
+                "$ref": "#/definitions/Award/$defs/award.relatedLot"
               }
             },
             "relatedBid": {
