@@ -145,45 +145,63 @@
   },
   "definitions": {
     "Address": {
-      "title": "Address",
       "description": "Объект, структурно описывающий адрессную информацию",
       "type": "object",
       "properties": {
         "streetAddress": {
-          "title": "Street address",
           "description": "Адресс в свяном населенном пункте. Например: \"ул. Сайилгох 12, офис 1\"",
-          "type": "string"
+          "$ref":"#/definitions/Address/$defs/streetAddress"  
         },
         "locality": {
-          "title": "Locality",
           "description": "Название населеного пункта. Например: \"Ташкент\"",
-          "type": "string"
+          "$ref":"#/definitions/Address/$defs/address.streetAddress"  
         },
         "region": {
-          "title": "Region",
-          "type": "string",
-          "description": "Название региона. Например \"Ташкентская область\""
+          "description": "Название региона. Например \"Ташкентская область\"",
+          "$ref":"#/definitions/Address/$defs/streetAddress"  
         },
         "postalCode": {
-          "title": "Postalcode",
           "description": "Почтовый индекс. Например \"100012\"",
-          "type": "string"
+          "$ref":"#/definitions/Address/$defs/streetAddress"  
+        },
+        "countryCode": {
+          "description": "Код страны. Например \"Республика Узбекистан\"",
+          "$ref":"#/definitions/Address/$defs/streetAddress"  
         },
         "countryName": {
-          "title": "Country name",
           "description": "Название страны. Например \"Республика Узбекистан\"",
-          "type": "string"
+          "$ref":"#/definitions/Address/$defs/streetAddress"  
         },
         "addressDetails": {
-          "title": "Address details",
           "description": "Детальная информация о кодовой информации, описывающей ключевые адресные данные",
           "type": "object",
           "$ref": "#/definitions/AddressDetails"
         }
+      },
+      "$defs":{
+        "address.streetAddress":{
+          "type": "string"
+        },
+        "address.locality":{
+          "type": "string"
+        },
+        "address.region":{
+          "type": "string"
+        },
+        "address.postalCode":{
+          
+          "type": "string"
+        },
+        "address.countryCode":{
+          
+          "type": "string"
+        },
+        "address.countryName":{
+          "type": "string"
+        }
       }
     },
     "AddressDetails": {
-      "title": "Address Details",
       "description": "Детальная информация о кодовой информации, описывающей ключевые адресные данные",
       "type": "object",
       "properties": {
@@ -211,86 +229,121 @@
       "$id": "/definitions/address",
       "properties": {
         "id": {
-          "title": "Id",
           "description": "Идентификатор изменения. Должен быть уникальным в рамках массива 'amendment' родительского объекта",
-          "type": "string"
+          "$ref":"#/definitions/Address/$defs/amendment.id"  
         },
         "date": {
-          "title": "Date",
           "description": "Дата публикации данного изменения",
+          "$ref":"#/definitions/Address/$defs/amendment.date"  
+        },
+        "status":{
+          "description": "",
+          "$ref":"#/definitions/Address/$defs/amendment.status"  
+        },
+        "rationale": {
+          "description": "Аргументация внесения изменения",
+          "$ref":"#/definitions/Address/$defs/amendment.rationale"  
+        },
+        "description": {
+          "description": "Текстовое описание сути изменения",
+          "$ref":"#/definitions/Address/$defs/amendment.description"  
+        },
+        "amendsReleaseID": {
+          "description": "Идентификатор релиза данных, содержащего данные, обновленные данным изменением",
+          "$ref":"#/definitions/Address/$defs/amendment.amendsReleaseID"  
+        },
+        "releaseID": {
+          "description": "Идентификатор релиза данных, содержащий первую публикацию данного изменения",
+          "$ref":"#/definitions/Address/$defs/amendment.releaseID"  
+        }
+      },
+      "$defs":{
+        "amendment.id": {
+          "type": "string"
+        },
+        "amendment.date": {
           "type": "string",
           "format": "date-time"
         },
-        "rationale": {
-          "title": "Rationale",
-          "description": "Аргументация внесения изменения",
+        "amendment.status":{
+          "type": "string",
+          "codelist":"amendmentStatuses"
+        },
+        "amendment.rationale": {
           "type": "string"
         },
-        "description": {
-          "title": "Description",
-          "description": "Текстовое описание сути изменения",
+        "amendment.description": {
           "type": "string"
         },
-        "amendsReleaseID": {
-          "title": "Amended release ID",
-          "description": "Идентификатор релиза данных, содержащего данные, обновленные данным изменением",
+        "amendment.amendsReleaseID": {
           "type": "string"
         },
-        "releaseID": {
-          "title": "Release ID",
-          "description": "Идентификатор релиза данных, содержащий первую публикацию данного изменения",
+        "amendment.releaseID": {
           "type": "string"
         }
       }
     },
     "Award": {
-      "title": "Award",
       "description": "Объект используется для описания результатов оценки тендерных предложений в данном контрактном процессе, а так же рещзультаты тендерной фазы контрактного процесса в целом: позитивные и негативные",
       "type": "object",
-      "properties": {
-        "id": {
-          "title": "Award ID",
-          "description": "Идентификатор данного 'award'. Должен быть уникальным в рамках массива 'awards'",
+      "$defs":{
+        "award.id": {
           "type": "string"
         },
-        "externalReference": {
-          "title": "External reference",
-          "description": "Код/идентификатор решения/результата, описанного данным 'award', вне системы, если существует",
+        "award.internalId": {
           "type": "string"
         },
-        "title": {
-          "title": "Title",
-          "description": "Заглавие данного решения/результата",
+        "award.description": {
           "type": "string"
         },
-        "description": {
-          "title": "Description",
-          "description": "Текстовое описание данного решения/результата",
-          "type": "string"
-        },
-        "status": {
-          "title": "Award status",
-          "description": "Текущий статус данного решения/результата согласно стандартному справочнику допустимых состояний",
+        "award.status": {
           "type": "string",
-          "codelist": "awardStatuses",
-          "openCodelist": false,
-          "enum": [
-            "pending",
-            "active",
-            "cancelled",
-            "unsuccessful"
-          ]
+          "codelist": "awardStatuses"
         },
-        "statusDetails": {
-          "title": "Status details",
-          "description": "Дополнительная информация о статусе данного решения/результата",
+        "award.statusDetails": {
           "type": "string"
         },
-        "date": {
-          "title": "Award date",
-          "description": "Дата публикации данного решения/результата",
+        "award.date": {
           "type": "string",
           "format": "date-time"
+        },
+        "award.relatedLots": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "award.relatedLot": {
+          "type": "string"
+        },
+        "award.relatedBid": {
+          "type": "string"
+        }
+      },
+      "properties": {
+        "id": {
+          "description": "Идентификатор данного 'award'. Должен быть уникальным в рамках массива 'awards'",
+          "$ref": "#/definitions/Address/$defs/award.id"
+        },
+        "internalId": {
+          "description": "Код/идентификатор решения/результата, описанного данным 'award', вне системы, если существует",
+          "$ref": "#/definitions/Address/$defs/award.internalId"
+        },
+        "description": {
+          "description": "Текстовое описание данного решения/результата",
+          "$ref": "#/definitions/Address/$defs/award.description"
+        },
+        "status": {
+          "description": "Текущий статус данного решения/результата согласно стандартному справочнику допустимых состояний",
+          "$ref": "#/definitions/Address/$defs/award.status"
+        },
+        "statusDetails": {
+          "description": "Дополнительная информация о статусе данного решения/результата",
+          "$ref": "#/definitions/Address/$defs/award.statusDetails"
+        },
+        "date": {
+          "description": "Дата публикации данного решения/результата",
+          "$ref": "#/definitions/Address/$defs/award.date"
         },
         "value": {
           "title": "Value",
@@ -298,7 +351,6 @@
           "$ref": "#/definitions/Value"
         },
         "suppliers": {
-          "title": "Suppliers",
           "description": "Перечень экономических операторов, связных с данным решением/результатом, указанных в виде 'organization references'",
           "type": "array",
           "items": {
@@ -306,7 +358,6 @@
           }
         },
         "items": {
-          "title": "Items",
           "description": "Перечень товарных позиций / линий предмета закупки в рамках данного контрактного процесса, связных с данным решением/результатом,",
           "type": "array",
           "items": {
@@ -314,23 +365,27 @@
           }
         },
         "documents": {
-          "title": "Documents",
           "description": "Массив, описывающий документы, относящиеся к данному решению/результату",
           "type": "array",
           "items": {
             "$ref": "#/definitions/Document"
           }
         },
-        "relatedLots": {
-          "title": "Related lot(s)",
-          "description": "Массив, описывающий идентификаторы лотов, с которыми связано данное решение/результат",
+        "agreedMetrics":{
+          "description": "",
           "type": "array",
           "items": {
-            "type": "string"
+            "$ref": "#/definitions/Metric"
+          }
+        },
+        "relatedLots": {
+          "description": "Массив, описывающий идентификаторы лотов, с которыми связано данное решение/результат",
+          "type":"array",
+          "items":{
+            "$ref": "#/definitions/Address/$defs/award.relatedLot"
           }
         },
         "requirementResponses": {
-          "title": "Requirement responses",
           "description": "Структурированный перечень ответов тендерного комитета, принявшего данное решение, на вопросы, предписанные тендерным объявлением, данные в отношении экономических агентов, связзанных с этим решением и/или их тендерного предложения",
           "type": "array",
           "items": {
@@ -338,9 +393,122 @@
           }
         },
         "relatedBid": {
-          "title": "Related Bid",
           "description": "Если данное решение ассоциированно с конктерным тендерным предложением, данный атрибут используется для указания идентификатора такого тендерного предложения ",
-          "type": "string"
+          "$ref": "#/definitions/Address/$defs/award.relatedBid"
+        }
+      },
+      "definitions":{
+        "cp.awardDecision":{
+          "type":"object",
+          "title":"",
+          "description":"",
+          "properties":{
+            "id":{
+              "description":"",
+              "$ref": "#/definitions/Address/$defs/award.id"
+            },
+            "status":{
+              "description":"",
+              "$ref": "#/definitions/Address/$defs/award.status"
+            },
+            "statusDetails":{
+              "description":"",
+              "$ref": "#/definitions/Address/$defs/award.statusDetails"
+            },
+            "internalId":{
+              "description":"",
+              "$ref": "#/definitions/Address/$defs/award.internalId"
+            },
+            "date":{
+              "description":"",
+              "$ref": "#/definitions/Address/$defs/award.date"
+            },
+            "value":{
+              "description":"",
+              "$ref": "#/definitions/Value"
+            },
+            "items":{
+              "description":"",
+              "type":"array",
+              "items":{
+                "$ref": "#/definitions/Item"
+              }
+            },
+            "suppliers":{
+              "description":"",
+              "type":"array",
+              "items":{
+                "$ref": "#/definitions/OrganizationReference"
+              }
+            },
+            "agreedMetrics":{
+              "description":"",
+              "type":"array",
+              "items":{
+                "$ref": "#/definitions/Metric"
+              }
+            },
+            "requirementResponses":{
+              "description":"",
+              "type":"array",
+              "items":{
+                "$ref": "#/definitions/requirementResponse"
+              }
+            },
+            "documents":{
+              "description":"",
+              "type":"array",
+              "items":{
+                "$ref": "#/definitions/Document"
+              }
+            },
+            "relatedLots":{
+              "description": "Массив, описывающий идентификаторы лотов, с которыми связано данное решение/результат",
+              "type":"array",
+              "items":{
+                "$ref": "#/definitions/Address/$defs/award.relatedLot"
+              }
+            },
+            "relatedBid":{
+              "description":"",
+              "$ref": "#/definitions/Address/$defs/award.relatedBid"
+            }
+          }
+        },
+        "cp.negativeCan":{
+          "type":"object",
+          "title":"",
+          "description":"",
+          "properties":{
+            "id":{
+              "description":"",
+              "$ref": "#/definitions/Address/$defs/award.id"
+            },
+            "status":{
+              "description":"",
+              "$ref": "#/definitions/Address/$defs/award.status"
+            },
+            "statusDetails":{
+              "description":"",
+              "$ref": "#/definitions/Address/$defs/award.statusDetails"
+            },
+            
+            "description":{
+              "description":"",
+              "$ref": "#/definitions/Address/$defs/award.description"
+            },
+            "date":{
+              "description":"",
+              "$ref": "#/definitions/Address/$defs/award.date"
+            },
+            "documents":{
+              "description":"",
+              "type":"array",
+              "items":{
+                "$ref": "#/definitions/Document"
+              }
+            }
+          }
         }
       }
     },
@@ -627,7 +795,6 @@
       }
     },
     "BudgetBreakdown": {
-      "title": "BudgetBreakdown",
       "description": "Структурная единица бюджета контрактного процесса",
       "type": "object",
       "properties": {
@@ -686,7 +853,7 @@
           ],
           "properties":{
             "id":{
-              "descripption":"",
+              "description":"",
               "$ref":"#/definitions/BudgetBreakdown/$defs/budgetBreakdown.id"
             },
             "amount":{
@@ -745,28 +912,37 @@
       }
     },
     "Classification": {
-      "title": "Classification",
       "description": "Объект, структурно описывающий классификацию другого объекта",
       "type": "object",
       "properties": {
         "scheme": {
-          "title": "Scheme",
           "description": "Идентификатор схемы классификации (стандарта, справочника, системы), согласно которой классифицируется связный объект",
-          "type": "string"
+          "$ref": "#/definitions/Address/$defs/classification.scheme"
         },
         "id": {
-          "title": "ID",
           "description": "Идентификатор класса в исползуемой схеме, которым классифицируется связный объект",
-          "type": "string"
+          "$ref": "#/definitions/Address/$defs/classification.id"
         },
         "description": {
-          "title": "Description",
           "description": "Тектовое описание класса в исползуемой схеме, которым классифицируется связный объект",
-          "type": "string"
+          "$ref": "#/definitions/Address/$defs/classification.description"
         },
         "uri": {
-          "title": "URI",
           "description": "URL по которому доступно расширенное описание схемы классификации (стандарта, справочника, системы), согласно которой классифицируется связный объект",
+          "$ref": "#/definitions/Address/$defs/classification.description"
+        }
+      },
+      "$defs":{
+        "classification.scheme": {
+          "type": "string"
+        },
+        "classification.id": {
+          "type": "string"
+        },
+        "classification.description": {
+          "type": "string"
+        },
+        "classification.uri": {
           "type": "string",
           "format": "uri"
         }
@@ -1711,35 +1887,6 @@
         }
       }
     },
-    "Location": {
-      "title": "Delivery Location",
-      "description": "The location where activity related to this tender, contract or license will be delivered, or will take place. A location can be described by either a geometry (point location, line or polygon), or a gazetteer entry, or both.",
-      "type": "object",
-      "properties": {
-        "description": {
-          "title": "Description",
-          "description": "A name or description of this location. This might include the name(s) of the location(s), or might provide a human readable description of the location to be covered. This description may be used in a user-interface.",
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "gazetteer": {
-          "type": "object",
-          "title": "Gazetteer",
-          "description": "A [Gazetteer] of this location",
-          "#ref": "#/definitions/Gazetter"
-        },
-        "uri": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "title": "URI",
-          "description": "A URI to a further description of the activity location. This may be a human readable document with information on the location, or a machine-readable description of the location."
-        }
-      }
-    },
     "Lot": {
       "title": "Lot",
       "description": "A lot is a grouping of items within a tender that can be bid on or awarded together.",
@@ -2188,26 +2335,11 @@
             "$ref": "#/definitions/Classification"
           }
         },
-        "isACentralPurchasingBody": {
-          "title": "Is the organization a central purchasing body?",
-          "description": "A true/false field to indicate whether the organization is a central purchasing body.",
-          "type": [
-            "boolean",
-            "null"
-          ]
-        },
         "bankAccounts": {
           "description": "Banking detalis of the entity as an array of [BankAccount]",
           "type": "array",
           "items": {
             "$ref": "#/definitions/BankAccount"
-          }
-        },
-        "permits": {
-          "description": "Information about set of [Permit] and licenses issued for the organization",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/Permit"
           }
         }
       }
@@ -2379,54 +2511,6 @@
         }
       }
     },
-    "Permit": {
-      "title": "",
-      "description": "",
-      "type": "object",
-      "properties": {
-        "scheme": {
-          "description": "Identifier that uniquely pick out a legal registry consists needed details",
-          "type": "string"
-        },
-        "id": {
-          "description": "Identifier of permit/license in selected scheme",
-          "type": "string"
-        },
-        "description": {
-          "description": "The human readable name of permit/license in selected scheme",
-          "type": "string"
-        },
-        "uri": {
-          "description": "A URI to identify the permit/license",
-          "type": "string"
-        },
-        "permitDetails": {
-          "description": "[PermitDetails] about permit/license",
-          "$ref": "#/definitions/PermitDetails"
-        }
-      }
-    },
-    "PermitDetails": {
-      "title": "",
-      "description": "Details about permit/license",
-      "type": "object",
-      "properties": {
-        "issuedBy": {
-          "description": "[OrganizationReference] on Entity who issued this permit/license",
-          "type": "object",
-          "$ref": "#/definitions/OrganizationReference"
-        },
-        "validityPeriod": {
-          "description": "[Period] of validity of this permit/license. It could be any attributes of 'Period'",
-          "type": "object",
-          "$ref": "#/definitions/Period"
-        },
-        "issuedThought": {
-          "description": "[EconomicActivityReference] to a activity (described in 'mainEconomicActivities') which is covered by this permit/license",
-          "$ref": "#/definitions/Classification"
-        }
-      }
-    },
     "Persone": {
       "title": "",
       "description": "",
@@ -2487,7 +2571,6 @@
       }
     },
     "Planning": {
-      "title": "Planning",
       "description": "Объект используется для описания финансовой основы процесса заключения контракта, а также - ожидаеммого состава и последовательности исполнения будущего договора сторонами",
       "type": "object",
       "properties": {
@@ -3201,21 +3284,6 @@
             "$ref": "#/definitions/RequirementResponse"
           },
           "unqiueItems": true
-        }
-      }
-    },
-    "Submissions": {
-      "title": "",
-      "description": "",
-      "type": "object",
-      "properties": {
-        "details": {
-          "title": "Submissions details",
-          "description": "An array of bids, providing information on the bidders, and where applicable, bid status, bid values and related documents. The extent to which this information can be disclosed varies from jurisdiction to jurisdiction.",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/Submission"
-          }
         }
       }
     },
