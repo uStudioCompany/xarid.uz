@@ -54,7 +54,6 @@
       "type": "string",
       "format": "date-time"
     },
-    
     "awards": {
       "title": "Awards",
       "description": "Массив объектов используется для описания результатов оценки тендерных предложений в данном контрактном процессе: позитивных и негативных",
@@ -100,13 +99,6 @@
           "description": "Полное финансовое значение, закрепляемое данным решением",
           "$ref": "#/definitions/Value"
         },
-        "suppliers": {
-          "description": "Перечень экономических операторов, связных с данным решением/результатом, указанных в виде 'organization references'",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/OrganizationReference"
-          }
-        },
         "documents": {
           "description": "Массив, описывающий документы, относящиеся к данному решению/результату",
           "type": "array",
@@ -129,7 +121,7 @@
       "$defs": {
         "award.id": {
           "type": "string",
-          "format":"uid"
+          "format": "uid"
         },
         "award.internalId": {
           "type": "string"
@@ -181,13 +173,6 @@
             "value": {
               "description": "",
               "$ref": "#/definitions/Value"
-            },
-            "suppliers": {
-              "description": "",
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/OrganizationReference"
-              }
             },
             "documents": {
               "description": "",
