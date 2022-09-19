@@ -224,7 +224,6 @@
       "title": "Amendment",
       "description": "Объект, описывающий факт изменений в 'tender'/'award'/'contract' и связные с таким иззмененим данные",
       "type": "object",
-      "$id": "/definitions/address",
       "properties": {
         "id": {
           "description": "Идентификатор изменения. Должен быть уникальным в рамках массива 'amendment' родительского объекта",
@@ -395,9 +394,75 @@
           "title": "",
           "description": "",
           "properties": {
+            "id": {
+              "description": "",
+              "$ref": "#/definitions/Award/$defs/award.id"
+            },
+            "status": {
+              "description": "",
+              "$ref": "#/definitions/Award/$defs/award.status"
+            },
+            "statusDetails": {
+              "description": "",
+              "$ref": "#/definitions/Award/$defs/award.statusDetails"
+            },
             "internalId": {
               "description": "",
               "$ref": "#/definitions/Award/$defs/award.internalId"
+            },
+            "date": {
+              "description": "",
+              "$ref": "#/definitions/Award/$defs/award.date"
+            },
+            "value": {
+              "description": "",
+              "$ref": "#/definitions/Value"
+            },
+            "items": {
+              "description": "",
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Item"
+              }
+            },
+            "suppliers": {
+              "description": "",
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/OrganizationReference"
+              }
+            },
+            "agreedMetrics": {
+              "description": "",
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Metric"
+              }
+            },
+            "requirementResponses": {
+              "description": "",
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/RequirementResponse"
+              }
+            },
+            "documents": {
+              "description": "",
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Document"
+              }
+            },
+            "relatedLots": {
+              "description": "Массив, описывающий идентификаторы лотов, с которыми связано данное решение/результат",
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Award/$defs/award.relatedLot"
+              }
+            },
+            "relatedBid": {
+              "description": "",
+              "$ref": "#/definitions/Award/$defs/award.relatedBid"
             }
           }
         },
