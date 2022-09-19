@@ -442,7 +442,7 @@
               "description": "",
               "type": "array",
               "items": {
-                "$ref": "#/definitions/requirementResponse"
+                "$ref": "#/definitions/RequirementResponse"
               }
             },
             "documents": {
@@ -456,7 +456,7 @@
               "description": "Массив, описывающий идентификаторы лотов, с которыми связано данное решение/результат",
               "type": "array",
               "items": {
-                "$ref": "#/definitions/Award/$defs/award.relatedLot"
+                "type": "string"
               }
             },
             "relatedBid": {
