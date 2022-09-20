@@ -6,11 +6,11 @@
   "description": "Бизнес-логическое наследование дефиниции 'ocds.award'",
   "properties":{
     "Оценочный лист":{
-      "description":"Решение тендерного комитета",
+      "description":"Лист, сформированный в отношении отдельного тендерного предложения, отражающий ход и суть решениея ЗО в отношении данного предложения",
       "type":"object",
       "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/release-schema.json#/definitions/Award/$defs/cp.awardDecision"
     },
-    "Award.NegativeCan":{
+    "Негативное уведомление":{
       "description":"Уведомление о негативном результате закупки в контексте конкретного лота",
       "type":"object",
       "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/release-schema.json#/definitions/Award/$defs/cp.negativeCan"
