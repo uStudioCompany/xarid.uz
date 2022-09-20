@@ -780,6 +780,7 @@
         },
         "bid.requirementResponse": {
           "description": "Структурированный ответ экономических операторов, подавших данное тендерное предложение, на требование, предписанное тендерным объявлением",
+          "type":"object",
           "$ref": "#/definitions/RequirementResponse/$defs/requirementResponse.instance.bidResponse"
         },
         "bid.item":{
