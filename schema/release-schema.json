@@ -253,76 +253,74 @@
           "$ref": "#/definitions/Award/$defs/award.id"
         },
         "internalId": {
-          "description": "Код/идентификатор решения/результата, описанного данным 'award', вне системы, если существует",
+          "description": "Код/идентификатор данного 'award' вне системы, если существует",
           "$ref": "#/definitions/Award/$defs/award.internalId"
         },
         "description": {
-          "description": "Текстовое описание данного решения/результата",
+          "description": "Текстовое описание данного 'award'",
           "$ref": "#/definitions/Award/$defs/award.description"
         },
         "status": {
-          "description": "Текущий статус данного решения/результата согласно стандартному справочнику допустимых состояний",
-          "$ref": "#/definitions/Award/$defs/award.status",
-          "codelist": "awardStatuses.csv"
+          "description": "Текущий статус данного 'award' согласно стандартному справочнику допустимых состояний",
+          "$ref": "#/definitions/Award/$defs/award.status"
         },
         "statusDetails": {
-          "description": "Дополнительная информация о статусе данного решения/результата",
-          "$ref": "#/definitions/Award/$defs/award.statusDetails",
-          "codelist": "awardStatuseDetails.csv"
+          "description": "Дополнительная информация о статусе данного 'award'",
+          "$ref": "#/definitions/Award/$defs/award.statusDetails"
         },
         "date": {
-          "description": "Дата публикации данного решения/результата",
+          "description": "Дата публикации данного 'award'",
           "$ref": "#/definitions/Award/$defs/award.date"
         },
         "value": {
           "title": "Value",
-          "description": "Полное финансовое значение, закрепляемое данным решением",
+          "description": "Полное финансовое значение, закрепляемое данным 'award'",
           "$ref": "#/definitions/Value"
         },
         "suppliers": {
-          "description": "Перечень экономических операторов, связных с данным решением/результатом, указанных в виде 'organization references'",
+          "description": "Перечень экономических операторов, связных с данным 'award', указанных в виде 'organization references'",
           "type": "array",
           "items": {
             "$ref": "#/definitions/OrganizationReference"
           }
         },
         "items": {
-          "description": "Перечень товарных позиций / линий предмета закупки в рамках данного контрактного процесса, связных с данным решением/результатом,",
+          "description": "Перечень товарных позиций / линий предмета закупки в рамках контрактного процесса, связных с данным 'award'",
           "type": "array",
           "items": {
             "$ref": "#/definitions/Item"
           }
         },
         "documents": {
-          "description": "Массив, описывающий документы, относящиеся к данному решению/результату",
+          "description": "Массив, описывающий документы, относящиеся к данному 'award'",
           "type": "array",
           "items": {
             "$ref": "#/definitions/Document"
           }
         },
         "agreedMetrics": {
-          "description": "",
+          "description": "Метрики, закрепляемые данным 'award'",
           "type": "array",
           "items": {
             "$ref": "#/definitions/Metric"
           }
         },
         "relatedLots": {
-          "description": "Массив, описывающий идентификаторы лотов, с которыми связано данное решение/результат",
+          "description": "Массив, описывающий идентификаторы лотов, связанных с данным 'award'",
           "type": "array",
           "items": {
             "$ref": "#/definitions/Award/$defs/award.relatedLot"
           }
         },
         "requirementResponses": {
-          "description": "Структурированный перечень ответов тендерного комитета, принявшего данное решение, на вопросы, предписанные тендерным объявлением, данные в отношении экономических агентов, связзанных с этим решением и/или их тендерного предложения",
+          "description": "Структурированный перечень ответов тендерного комитета, сформировавшего данный 'award', на вопросы, предписанные тендерным объявлением в отношении экономических агентов, связзанных с этим 'award' и/или их тендерного предложения",
           "type": "array",
           "items": {
             "$ref": "#/definitions/RequirementResponse"
           }
         },
         "relatedBid": {
-          "description": "Если данное решение ассоциированно с конктерным тендерным предложением, данный атрибут используется для указания идентификатора такого тендерного предложения ",
+          "description": "Если данный 'award' ассоциирован с конктерным тендерным предложением, данный атрибут используется для указания идентификатора такого тендерного предложения ",
           "$ref": "#/definitions/Award/$defs/award.relatedBid"
         }
       },
@@ -338,10 +336,12 @@
           "type": "string"
         },
         "award.status": {
-          "type": "string"
+          "type": "string",
+          "codelist": "awardStatuses.csv"
         },
         "award.statusDetails": {
-          "type": "string"
+          "type": "string",
+          "codelist": "awardStatuseDetails.csv"
         },
         "award.date": {
           "type": "string",
