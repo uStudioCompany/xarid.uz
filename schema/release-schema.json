@@ -358,6 +358,10 @@
           "description":"Документ, связанный с данным объектом 'award'",
           "$ref":"#/definitions/Document/$defs/document.instance.genericDocument"
         },
+        "award.metric":{
+          "description":"Документ, связанный с данным объектом 'award'",
+          "$ref":"#/definitions/Metric/$defs/metric.instance.genericMetric"  
+        },
         "cp.instance.awardDecision": {
           "type": "object",
           "description": "",
@@ -1928,39 +1932,75 @@
       }
     },
     "Metric": {
-      "title": "",
       "description": "",
       "type": "object",
       "properties": {
         "id": {
-          "description": "An identifier for this metric. In some cases this may be drawn from a codelist of metrics required for this type of contracting process, or in other instances may be an arbitrary identifier.",
-          "type": "string"
+          "$ref":"#/definitions/Metric/$defs/metric.id"
         },
         "title": {
-          "description": "The title of this metric",
-          "type": "string"
+          "$ref":"#/definitions/Metric/$defs/metric.title"
         },
         "description": {
-          "description": "A short description of the metric. This may include short details of measurement methods.",
-          "type": "string"
+          "$ref":"#/definitions/Metric/$defs/metric.description"
         },
         "relatesTo": {
-          "description": "The schema element that the metric relates. For example observation may be defined against items or against lot.",
-          "type": "string",
-          "codelist": [
-            "item",
-            "tenderer"
-          ]
+          "$ref":"#/definitions/Metric/$defs/metric.relatesTo"
         },
         "relatedItem": {
-          "description": "This field must be populated with the id of the item in this tender section which the metric relates to",
-          "type": "string"
+          "$ref":"#/definitions/Metric/$defs/metric.relatedItem"
         },
         "observations": {
           "type": "array",
           "description": "An array of [Observation]: target or actual values for this metric.",
           "items": {
             "$ref": "#/definitions/Observation"
+          }
+        }
+      },
+      "$defs":{
+        "metric.id": {
+          "description": "An identifier for this metric. In some cases this may be drawn from a codelist of metrics required for this type of contracting process, or in other instances may be an arbitrary identifier.",
+          "type": "string"
+        },
+        "metric.title": {
+          "description": "The title of this metric",
+          "type": "string"
+        },
+        "metric.description": {
+          "description": "A short description of the metric. This may include short details of measurement methods.",
+          "type": "string"
+        },
+        "metric.relatesTo": {
+          "description": "The schema element that the metric relates. For example observation may be defined against items or against lot.",
+          "type": "string",
+          "codelist": ""
+        },
+        "metric.relatedItem": {
+          "description": "This field must be populated with the id of the item in this tender section which the metric relates to",
+          "type": "string"
+        },
+        "metric.observations": {
+          "type": "array",
+          "description": "An array of [Observation]: target or actual values for this metric.",
+          "items": {
+            "$ref": "#/definitions/Observation"
+          }
+        },
+        "metric.instance.genericMetric":{
+          "description":"",
+          "type":"object",
+          "properties":{
+            "id":{
+              "$ref":"#/definitions/Metric/$defs/metric.id"
+            },
+            "observations":{
+              "type":"array",
+              "description":"",
+              "items":{
+                "$ref":"#/definitions/Observation"
+              }
+            }
           }
         }
       }
@@ -2106,12 +2146,8 @@
       }
     },
     "Observation": {
-      "type": "object",
       "title": "Observation",
       "description": "An actual or target observation. Observations should include either a value (for financial metrics) or measure (for other metrics). ",
-      "required": [
-        "id"
-      ],
       "properties": {
         "id": {
           "title": "Identifier",
