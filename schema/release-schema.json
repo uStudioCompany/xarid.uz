@@ -374,7 +374,7 @@
           "description": "Структурированный перечень ответов тендерного комитета, сформировавшего данный 'award', на вопросы, предписанные тендерным объявлением в отношении экономических агентов, связзанных с этим 'award' и/или их тендерного предложения",
           "type": "array",
           "items": {
-            "$ref": "#/definitions/RequirementResponse/$defs/requirementResopnse.instance.awardResponse"
+            "$ref": "#/definitions/RequirementResponse/$defs/requirementResponse.instance.awardResponse"
           }
         },
         "relatedBid": {
@@ -452,7 +452,7 @@
             "requirementResponses": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/RequirementResponse/$defs/requirementResopnse.instance.awardResponse"
+                "$ref": "#/definitions/RequirementResponse/$defs/requirementResponse.instance.awardResponse"
               }
             },
             "documents": {
@@ -780,15 +780,14 @@
         },
         "bid.requirementResponse": {
           "description": "Структурированный перечень ответов экономических операторов, подавших данное тендерное предложение, на вопросы, предписанные тендерным объявлением",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/RequirementResponse/$defs/requirementResopnse.instance.bidResponse"
-          }
+          "$ref": "#/definitions/RequirementResponse/$defs/requirementResponse.instance.bidResponse"
         },
         "bid.item":{
           "description":""
           
-        }
+        },
+        "bid.instance.itemizedBid":{},
+        "bid.instance.nonItemizedBid":{}
       }
     },
     "Budget": {
@@ -3400,7 +3399,7 @@
           "description":"",
           "$ref": "#/definitions/PersonReference/$defs/personReference.instance.genericReference"
         },
-        "requirementResopnse.instance.awardResponse":{
+        "requirementResponse.instance.awardResponse":{
           "description":"",
           "type":"object",
           "properties":{
@@ -3421,7 +3420,7 @@
             }
           }
         },
-        "requirementResopnse.instance.espdResponse":{
+        "requirementResponse.instance.espdResponse":{
           "description":"",
           "type":"object",
           "properties":{
@@ -3439,7 +3438,7 @@
             }  
           }
         },
-        "requirementResopnse.instance.bidResponse":{
+        "requirementResponse.instance.bidResponse":{
           "id": {
               "$ref":"#/definitions/RequirementResponse/$defs/requirementResponse.id"
             },
