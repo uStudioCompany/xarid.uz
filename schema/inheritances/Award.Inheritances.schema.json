@@ -8,12 +8,12 @@
     "Оценочный лист":{
       "description":"Лист, сформированный в отношении отдельного тендерного предложения, отражающий ход и суть решениея ЗО в отношении данного предложения",
       "type":"object",
-      "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/release-schema.json#/definitions/Award/$defs/cp.instance.awardDecision"
+      "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/release-schema.json#/definitions/Award/$defs/award.instance.awardDecision"
     },
     "Негативное уведомление":{
       "description":"Уведомление о негативном результате закупки в контексте конкретного лота",
       "type":"object",
-      "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/release-schema.json#/definitions/Award/$defs/cp.instance.negativeCan"
+      "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/release-schema.json#/definitions/Award/$defs/award.instance.negativeCan"
     }
   }
 }
