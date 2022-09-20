@@ -1333,6 +1333,7 @@
           "description":"Типовой документ в доменной модели",
           "properties":{
             "id": {
+              "description":"Системный идентификатор документа",
               "ref":"#/definitions/Document/$defs/document.id"
             },
             "documentType": {
