@@ -343,7 +343,7 @@
         },
         "award.value":{
           "description": "Полное финансовое значение, связанное с данным объектом 'award'. В случае награждения - данный атритуб описывает полную финансовую стоимость присужденного договора",
-          "$ref": "#/definitions/Value/$defs/value.instance.valueExcludingVAT"
+          "$ref": "#/definitions/Value/$defs/value.instance.valueExtended"
         },
         "award.relatedLot": {
           "type": "string",
@@ -3734,6 +3734,9 @@
         "amount": {
           "$ref":"#/definitions/Value/$defs/value.amount"
         },
+        "amountNet": {
+          "$ref":"#/definitions/Value/$defs/value.amountNet"
+        },
         "currency": {
           "$ref":"#/definitions/Value/$defs/value.currency"
         },
@@ -3743,6 +3746,10 @@
       },
       "$defs":{
         "value.amount": {
+          "description": "Amount as a number.",
+          "type": "number"
+        },
+        "value.amountNet": {
           "description": "Amount as a number.",
           "type": "number"
         },
@@ -3763,6 +3770,24 @@
             },
             "currency": {
               "$ref":"#/definitions/Value/$defs/value.currency"
+            }
+          }
+        },
+        "value.instance.valueExtended":{
+          "description":"",
+          "type":"object",
+          "properties":{
+            "amount": {
+              "$ref":"#/definitions/Value/$defs/value.amount"
+            },
+            "amountNet": {
+              "$ref":"#/definitions/Value/$defs/value.amountNet"
+            },
+            "currency": {
+              "$ref":"#/definitions/Value/$defs/value.currency"
+            },
+            "valueAddedTaxIncluded":{
+              "$ref":"#/definitions/Value/$defs/value.valueAddedTaxIncluded"
             }
           }
         }
