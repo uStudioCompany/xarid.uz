@@ -249,33 +249,25 @@
       "type": "object",
       "properties": {
         "id": {
-          "description": "Идентификатор данного 'award'. Должен быть уникальным в рамках массива 'awards'",
           "$ref": "#/definitions/Award/$defs/award.id"
         },
         "internalId": {
-          "description": "Код/идентификатор данного 'award' вне системы, если существует",
           "$ref": "#/definitions/Award/$defs/award.internalId"
         },
         "description": {
-          "description": "Текстовое описание данного 'award'",
           "$ref": "#/definitions/Award/$defs/award.description"
         },
         "status": {
-          "description": "Текущий статус данного 'award' согласно стандартному справочнику допустимых состояний",
           "$ref": "#/definitions/Award/$defs/award.status"
         },
         "statusDetails": {
-          "description": "Дополнительная информация о статусе данного 'award'",
           "$ref": "#/definitions/Award/$defs/award.statusDetails"
         },
         "date": {
-          "description": "Дата публикации данного 'award'",
           "$ref": "#/definitions/Award/$defs/award.date"
         },
         "value": {
-          "title": "Value",
-          "description": "Полное финансовое значение, закрепляемое данным 'award'",
-          "$ref": "#/definitions/Value"
+          "$ref": "#/definitions/Award/$defs/award.value"
         },
         "documents": {
           "description": "Массив, описывающий документы, относящиеся к данному 'award'",
@@ -312,17 +304,21 @@
       },
       "$defs": {
         "award.id": {
+          "description": "Идентификатор данного объекта 'award'. Уникален в рамках массива 'awards'",
           "type": "string",
           "format": "uid"
         },
         "award.internalId": {
-          "type": "string"
+          "type": "string",
+          "description":"Код/идентификатор данного 'award', присвоеный вне системы, если существует"
         },
         "award.description": {
-          "type": "string"
+          "type": "string",
+          "description": "Текстовое описание данного 'award' (например: описание причины отклонения предложения (в случае отклонения). Берется из справочника причин для отклонений)"
         },
         "award.status": {
           "type": "string",
+          "description":"Код статуса согласно справочника 'Статусы решений', описывающий характер данного объекта 'award'",
           "codelist": "awardStatuses.csv"
         },
         "award.statusDetails": {
@@ -330,8 +326,13 @@
           "codelist": "awardStatuseDetails.csv"
         },
         "award.date": {
+          "description": "Дата формирования данного объекта 'award'",
           "type": "string",
           "format": "date-time"
+        },
+        "awards.value":{
+          "description": "Полное финансовое значение, связанное с данным объектом 'award'. В случае награждения - данный атритуб описывает полную финансовую стоимость присужденного договора",
+          "$ref": "#/definitions/Value"
         },
         "award.relatedLot": {
           "type": "string",
@@ -349,59 +350,51 @@
               "$ref": "#/definitions/Award/$defs/award.id"
             },
             "status": {
-              "description": "",
+              "description": "Код статуса согласно справочника 'Статусы решений', описывающий характер данного уведомления",
               "$ref": "#/definitions/Award/$defs/award.status"
             },
             "statusDetails": {
-              "description": "",
+              "description": "Код статуса согласно справочника 'Детали статуса решений', описывающий характер данного уведомления.",
               "$ref": "#/definitions/Award/$defs/award.statusDetails"
             },
             "description": {
-              "description": "Текстовое описание причины отклонения предложения (в случае отклонения). Берется из справочника причин для отклонений",
+              "description": "Текстовое ",
               "$ref": "#/definitions/Award/$defs/award.description"
             },
             "internalId": {
-              "description": "",
               "$ref": "#/definitions/Award/$defs/award.internalId"
             },
             "date": {
-              "description": "",
               "$ref": "#/definitions/Award/$defs/award.date"
             },
             "value": {
-              "description": "",
               "$ref": "#/definitions/Value"
             },
             "agreedMetrics": {
-              "description": "",
               "type": "array",
               "items": {
                 "$ref": "#/definitions/Metric"
               }
             },
             "requirementResponses": {
-              "description": "",
               "type": "array",
               "items": {
                 "$ref": "#/definitions/RequirementResponse"
               }
             },
             "documents": {
-              "description": "",
               "type": "array",
               "items": {
                 "$ref": "#/definitions/Document"
               }
             },
             "relatedLots": {
-              "description": "Массив, описывающий идентификаторы лотов, с которыми связано данное решение/результат",
               "type": "array",
               "items": {
                 "$ref": "#/definitions/Award/$defs/award.relatedLot"
               }
             },
             "relatedBid": {
-              "description": "",
               "$ref": "#/definitions/Award/$defs/award.relatedBid"
             }
           }
@@ -416,7 +409,6 @@
               "$ref": "#/definitions/Award/$defs/award.id"
             },
             "status": {
-              "description": "Код статуса согласно справочника 'Статусы решений', описывающий характер данного уведомления. В данном случае - по умолчанию 'unsuccessful'",
               "$ref": "#/definitions/Award/$defs/award.status"
             },
             "statusDetails": {
