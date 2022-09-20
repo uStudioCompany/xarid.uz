@@ -291,7 +291,7 @@
           "description": "Метрики, закрепляемые данным 'award'",
           "type": "array",
           "items": {
-            "$ref": "#/definitions/Metric"
+            "$ref": "#/definitions/Award/$defs/award.metric"
           }
         },
         "relatedLots": {
@@ -390,7 +390,7 @@
             "agreedMetrics": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/Metric"
+                "$ref": "#/definitions/Award/$defs/award.metric"
               }
             },
             "requirementResponses": {
