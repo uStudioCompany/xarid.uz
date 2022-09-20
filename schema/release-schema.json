@@ -343,7 +343,7 @@
         },
         "award.value":{
           "description": "Полное финансовое значение, связанное с данным объектом 'award'. В случае награждения - данный атритуб описывает полную финансовую стоимость присужденного договора",
-          "$ref": "#/definitions/Value"
+          "$ref": "#/definitions/Value/$defs/value.instance.valueExcludingVAT"
         },
         "award.relatedLot": {
           "type": "string",
@@ -384,7 +384,7 @@
               "$ref": "#/definitions/Award/$defs/award.date"
             },
             "value": {
-              "$ref": "#/definitions/Value"
+              "$ref": "#/definitions/Award/$defs/award.value"
             },
             "agreedMetrics": {
               "type": "array",
@@ -3728,29 +3728,43 @@
       }
     },
     "Value": {
-      "title": "Value",
       "type": "object",
       "description": "Financial value description",
       "properties": {
         "amount": {
-          "title": "Amount",
-          "description": "Amount as a number.",
-          "type": [
-            "number",
-            "null"
-          ]
+          "$ref":"#/definitions/Value/$defs/value.amount"
         },
         "currency": {
-          "title": "Currency",
-          "description": "The currency for each amount should always be specified using the uppercase 3-letter currency code from ISO4217.",
-          "type": [
-            "string",
-            "null"
-          ]
+          "$ref":"#/definitions/Value/$defs/value.currency"
         },
         "valueAddedTaxIncluded": {
-          "title": "A true/false field to indicate whether the value tax was included",
+          "$ref":"#/definitions/Value/$defs/value.valueAddedTaxIncluded"
+        }
+      },
+      "$defs":{
+        "value.amount": {
+          "description": "Amount as a number.",
+          "type": "number"
+        },
+        "value.currency": {
+          "description": "The currency for each amount should always be specified using the uppercase 3-letter currency code from ISO4217.",
+          "type": "string"
+        },
+        "value.valueAddedTaxIncluded": {
+          "description": "A true/false field to indicate whether the value tax was included",
           "type": "boolean"
+        },
+        "value.instance.valueExcludingVAT":{
+          "description":"",
+          "type":"object",
+          "properties":{
+            "amount": {
+              "$ref":"#/definitions/Value/$defs/value.amount"
+            },
+            "currency": {
+              "$ref":"#/definitions/Value/$defs/value.currency"
+            }
+          }
         }
       }
     }
