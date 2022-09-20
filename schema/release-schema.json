@@ -132,7 +132,7 @@
         "addressDetails": {
           "description": "Детальная информация о кодовой информации, описывающей ключевые адресные данные",
           "type": "object",
-          "$ref": "#/definitions/AddressDetails"
+          "$ref": "#/definitions/AddressDetails/$defs/addressDetails.instance.genericDetails"
         }
       },
       "$defs": {
@@ -159,6 +159,34 @@
         "address.countryName": {
           "description": "Название страны. Например \"Республика Узбекистан\"",
           "type": "string"
+        },
+        "address.instance.genericAddress":{
+          "description": "Объект, структурно описывающий адрессную информацию",
+          "type": "object",
+          "properties": {
+            "streetAddress": {
+              "$ref": "#/definitions/Address/$defs/address.streetAddress"
+            },
+            "locality": {
+              "$ref": "#/definitions/Address/$defs/address.locality"
+            },
+            "region": {
+              "$ref": "#/definitions/Address/$defs/address.region"
+            },
+            "postalCode": {
+              "$ref": "#/definitions/Address/$defs/address.postalCode"
+            },
+            "countryCode": {
+              "$ref": "#/definitions/Address/$defs/address.countryCode"
+            },
+            "countryName": {
+              "$ref": "#/definitions/Address/$defs/address.countryName"
+            },
+            "addressDetails": {
+              "type": "object",
+              "$ref": "#/definitions/AddressDetails/$defs/addressDetails.instance.genericDetails"
+            }  
+          }
         }
       }
     },
@@ -180,17 +208,32 @@
         "addressDetails.countryDetails": {
           "description": "Кодовая классификация страны согласно 'iso-alpha2'",
           "type": "object",
-          "$ref": "#/definitions/Classification"
+          "$ref": "#/definitions/Classification/$defs/classification.instance.genericClassification"
         },
         "addressDetails.regionDetails": {
           "description": "Кодовая классификация региона согласно 'iso-alpha2'",
           "type": "object",
-          "$ref": "#/definitions/Classification"
+          "$ref": "#/definitions/Classification/$defs/classification.instance.genericClassification"
         },
         "addressDetails.localityDetails": {
           "description": "Кодовая классификация населенного пункта согласно 'UN/LOCDE'",
           "type": "object",
-          "$ref": "#/definitions/Classification"
+          "$ref": "#/definitions/Classification/$defs/classification.instance.genericClassification"
+        },
+        "addressDetails.instance.genericDetails":{
+          "description": "Детальная информация о кодовой информации, описывающей ключевые адресные данные",
+          "type": "object",
+          "properties": {
+            "countryDetails": {
+              "$ref": "#/definitions/AddressDetails/$defs/addressDetails.countryDetails"
+            },
+            "regionDetails": {
+              "$ref": "#/definitions/AddressDetails/$defs/addressDetails.regionDetails"
+            },
+            "localityDetails": {
+              "$ref": "#/definitions/AddressDetails/$defs/addressDetails.localityDetails"
+            }
+          }  
         }
       }
     },
@@ -840,35 +883,53 @@
       "type": "object",
       "properties": {
         "scheme": {
-          "description": "Идентификатор схемы классификации (стандарта, справочника, системы), согласно которой классифицируется связный объект",
           "$ref": "#/definitions/Classification/$defs/classification.scheme"
         },
         "id": {
-          "description": "Идентификатор класса в исползуемой схеме, которым классифицируется связный объект",
           "$ref": "#/definitions/Classification/$defs/classification.id"
         },
         "description": {
-          "description": "Тектовое описание класса в исползуемой схеме, которым классифицируется связный объект",
           "$ref": "#/definitions/Classification/$defs/classification.description"
         },
         "uri": {
-          "description": "URL по которому доступно расширенное описание схемы классификации (стандарта, справочника, системы), согласно которой классифицируется связный объект",
-          "$ref": "#/definitions/Classification/$defs/classification.description"
+          "$ref": "#/definitions/Classification/$defs/classification.uri"
         }
       },
       "$defs": {
         "classification.scheme": {
+          "description": "Идентификатор схемы классификации (стандарта, справочника, системы), согласно которой классифицируется связный объект",
           "type": "string"
         },
         "classification.id": {
+          "description": "Идентификатор класса в исползуемой схеме, которым классифицируется связный объект",
           "type": "string"
         },
         "classification.description": {
+          "description": "Тектовое описание класса в исползуемой схеме, которым классифицируется связный объект",
           "type": "string"
         },
         "classification.uri": {
+          "description": "URL по которому доступно расширенное описание схемы классификации (стандарта, справочника, системы), согласно которой классифицируется связный объект",
           "type": "string",
           "format": "uri"
+        },
+        "classification.instance.genericClassification":{
+          "description": "Объект, структурно описывающий классификацию другого объекта",
+          "type": "object",
+          "properties": {
+            "scheme": {
+              "$ref": "#/definitions/Classification/$defs/classification.scheme"
+            },
+            "id": {
+              "$ref": "#/definitions/Classification/$defs/classification.id"
+            },
+            "description": {
+              "$ref": "#/definitions/Classification/$defs/classification.description"
+            },
+            "uri": {
+              "$ref": "#/definitions/Classification/$defs/classification.uri"
+            }
+          }  
         }
       }
     },
