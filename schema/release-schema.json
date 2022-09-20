@@ -2541,6 +2541,40 @@
         }
       }
     },
+    "PersonReference": {
+      "description": "The id and name of the person being referenced",
+      "type": "object",
+      "properties": {
+        "name": {
+          "$ref":"#/definitions/PersonReference/$defs/personReference.name"
+        },
+        "id": {
+          "$ref":"#/definitions/PersonReference/$defs/personReference.id"
+        }
+      },
+      "$defs":{
+        "personReference.name": {
+          "type":  "string",
+          "description": "The name of the person being referenced. This must match the name of an entry in the parties section."
+        },
+        "personReference.id": {
+          "type":  "string",
+          "description": "The id of the person being referenced. This must match the id of an entry in the parties section."
+        },
+        "personReference.instance.genericReference":{
+          "description":"",
+          "type":"object",
+          "properties":{
+            "name": {
+              "$ref":"#/definitions/PersonReference/$defs/personReference.name"
+            },
+            "id": {
+              "$ref":"#/definitions/PersonReference/$defs/personReference.id"
+            }  
+          }
+        }
+      }
+    },
     "PlaceOfPerformance": {
       "title": "Place of Performance",
       "description": "The address, NUTS code and further description of the place where the contract will be performed",
@@ -3071,7 +3105,7 @@
         },
         "requirementResponse.responder":{
           "description":"",
-          "$ref": "#/definitions/OrganizationReference/$defs/organizationReference.instance.genericReference"
+          "$ref": "#/definitions/PersonReference/$defs/personReference.instance.genericReference"
         },
         "requirementResopnse.instance.awardResponse":{
           "description":"",
