@@ -5,7 +5,7 @@
   "title":"Дефиниция Award",
   "description": "Бизнес-логическое наследование дефиниции 'ocds.award'",
   "properties":{
-    "Award.EvaluationDecision":{
+    "Оценочный лист":{
       "description":"Решение тендерного комитета",
       "type":"object",
       "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/release-schema.json#/definitions/Award/$defs/cp.awardDecision"
