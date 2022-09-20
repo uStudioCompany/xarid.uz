@@ -648,47 +648,45 @@
       }
     },
     "BankAccount": {
-      "title": "Bank account",
       "description": "Объект, структурно описывающий банковские реквиизты",
       "type": "object",
       "properties": {
-        "id": {
-          "title": "Id",
-          "description": "Идентификатор записи о банковских реквизитах в рамках профиля организации",
-          "type": "string"
-        },
-        "description": {
-          "title": "Descripption",
-          "description": "Сопроводительно описание группы реквизитов",
-          "type": "string"
-        },
-        "bankName": {
-          "title": "Bank name",
-          "description": "Наименование банка",
-          "type": "string"
-        },
-        "address": {
-          "title": "Address",
-          "description": "Объект, структурно описывающий адрессную информацию реквизитов банка",
-          "$ref": "#/definitions/Address"
-        },
-        "identifier": {
-          "title": "Identifier",
-          "description": "Объект, структурно идентифицирующий банк",
-          "$ref": "#/definitions/Identifier"
-        },
         "accountIdentification": {
-          "title": "Account Identification",
-          "description": "Объект, структурно идентифицирующий счет организации в банке",
-          "$ref": "#/definitions/Classification"
+          "$ref": "#/definitions/BankAccount/$defs/bankAccount.accountIdentification"
         },
         "additionalAccountIndentifiers": {
-          "title": "Additional Account Identifiers",
           "description": "Массив объектов, дополнительно идентифицирующий/описывающих счет организации в банке",
           "type": "array",
           "items": {
-            "$ref": "#/definitions/Classification"
+            "$ref": "#/definitions/BankAccount/$defs/bankAccount.additionalAccountIndentifier"
           }
+        }
+      },
+      "$defs":{
+        "bankAccount.accountIdentification": {
+          "description": "Объект, структурно идентифицирующий счет организации в банке",
+          "$ref": "#/definitions/Classification/$defs/classification.instance.genericClassification"
+        },
+        "bankAccount.additionalAccountIndentifier": {
+          "description": "Объект, дополнительно идентифицирующий/описывающий счет организации в банке",
+          "$ref": "#/definitions/Classification/$defs/classification.instance.genericClassification"
+        },
+        "bankAccount.instance.genericRecord":{
+          "description": "Объект, структурно описывающий банковские реквиизты",
+          "type": "object",
+          "properties": {
+            "accountIdentification": {
+              "description": "Объект, структурно идентифицирующий счет организации в банке",
+              "$ref": "#/definitions/BankAccount/$defs/bankAccount.accountIdentification"
+            },
+            "additionalAccountIndentifier": {
+              "description": "Массив объектов, дополнительно идентифицирующий/описывающих счет организации в банке",
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/BankAccount/$defs/bankAccount.additionalAccountIndentifier"
+              }
+            }
+          }  
         }
       }
     },
