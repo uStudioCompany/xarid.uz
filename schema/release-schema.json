@@ -277,20 +277,6 @@
           "description": "Полное финансовое значение, закрепляемое данным 'award'",
           "$ref": "#/definitions/Value"
         },
-        "suppliers": {
-          "description": "Перечень экономических операторов, связных с данным 'award', указанных в виде 'organization references'",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/OrganizationReference"
-          }
-        },
-        "items": {
-          "description": "Перечень товарных позиций / линий предмета закупки в рамках контрактного процесса, связных с данным 'award'",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/Item"
-          }
-        },
         "documents": {
           "description": "Массив, описывающий документы, относящиеся к данному 'award'",
           "type": "array",
@@ -306,7 +292,7 @@
           }
         },
         "relatedLots": {
-          "description": "Массив, описывающий идентификаторы лотов, связанных с данным 'award'",
+          "description": "Связанные лоты",
           "type": "array",
           "items": {
             "$ref": "#/definitions/Award/$defs/award.relatedLot"
@@ -348,14 +334,14 @@
           "format": "date-time"
         },
         "award.relatedLot": {
-          "type": "string"
+          "type": "string",
+          "description": "Идентификатор лота, с которыми связано данное уведомление"
         },
         "award.relatedBid": {
           "type": "string"
         },
         "cp.awardDecision": {
           "type": "object",
-          "title": "Оценочный лист",
           "description": "",
           "properties": {
             "id": {
@@ -381,20 +367,6 @@
             "value": {
               "description": "",
               "$ref": "#/definitions/Value"
-            },
-            "items": {
-              "description": "",
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/Item"
-              }
-            },
-            "suppliers": {
-              "description": "",
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/OrganizationReference"
-              }
             },
             "agreedMetrics": {
               "description": "",
@@ -447,10 +419,6 @@
               "description": "",
               "$ref": "#/definitions/Award/$defs/award.statusDetails"
             },
-            "description": {
-              "description": "",
-              "$ref": "#/definitions/Award/$defs/award.description"
-            },
             "date": {
               "description": "",
               "$ref": "#/definitions/Award/$defs/award.date"
@@ -460,6 +428,13 @@
               "type": "array",
               "items": {
                 "$ref": "#/definitions/Document"
+              }
+            },
+            "relatedLots": {
+              "description": "Связанные лоты",
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Award/$defs/award.relatedLot"
               }
             }
           }
