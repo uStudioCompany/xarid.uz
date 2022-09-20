@@ -356,6 +356,10 @@
               "description": "",
               "$ref": "#/definitions/Award/$defs/award.statusDetails"
             },
+            "description": {
+              "description": "Текстовое описание причины отклонения предложения (в случае отклонения). Берется из справочника причин для отклонений",
+              "$ref": "#/definitions/Award/$defs/award.description"
+            },
             "internalId": {
               "description": "",
               "$ref": "#/definitions/Award/$defs/award.internalId"
@@ -412,11 +416,11 @@
               "$ref": "#/definitions/Award/$defs/award.id"
             },
             "status": {
-              "description": "",
+              "description": "Код статуса согласно справочника 'Статусы решений', описывающий характер данного уведомления. В данном случае - по умолчанию 'unsuccessful'",
               "$ref": "#/definitions/Award/$defs/award.status"
             },
             "statusDetails": {
-              "description": "",
+              "description": "Код статуса согласно справочника 'Детали статуса решений', описывающий характер данного уведомления.",
               "$ref": "#/definitions/Award/$defs/award.statusDetails"
             },
             "date": {
