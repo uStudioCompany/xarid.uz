@@ -53,13 +53,11 @@
       }
     },
     "tender": {
-      "title": "Tender",
       "description": "Обект описывает тендерную фазу данного контрактного процесса",
       "type": "object",
       "$ref": "#/definitions/Tender"
     },
     "invitations": {
-      "title": "Invitations",
       "description": "Объект описывает перечень приглашений к участию в закупочной фазе процедуры, выпущенные в отнощении экономических агентов, заявивших о своей заинтересованности в участии",
       "type": "array",
       "items": {
@@ -67,12 +65,10 @@
       }
     },
     "bids": {
-      "title": "Bids",
       "description": "Перечень тендерных предложений в рамках данного контрактного процесса",
       "type": "object",
       "properties": {
         "details": {
-          "title": "Bids details",
           "description": "Детальная информация о тендерных предложениях в рамках данного контрактного процесса",
           "type": "array",
           "items": {
@@ -82,7 +78,6 @@
       }
     },
     "awards": {
-      "title": "Awards",
       "description": "Массив объектов используется для описания результатов оценки тендерных предложений в данном контрактном процессе: позитивных и негативных",
       "type": "array",
       "items": {
@@ -90,7 +85,6 @@
       }
     },
     "contracts": {
-      "title": "Contracts",
       "description": "Список контрактов, заключенных в рамках данного контрактного процесса",
       "type": "array",
       "items": {
@@ -98,7 +92,6 @@
       }
     },
     "parties": {
-      "title": "Parties",
       "description": "Информация обо всех сторонах, участвующих в данном контрактном процессе",
       "type": "array",
       "items": {
@@ -106,7 +99,6 @@
       }
     },
     "relatedProcesses": {
-      "title": "Related Processes",
       "description": "Перечень параллельных/предшевствующих процессов, связанных с данным контрактным процессом",
       "type": "array",
       "items": {
@@ -367,7 +359,7 @@
           "description": "",
           "properties": {
             "id": {
-              "description": "",
+              "description": "Системный идентификатор данного оценочного листа",
               "$ref": "#/definitions/Award/$defs/award.id"
             },
             "status": {
