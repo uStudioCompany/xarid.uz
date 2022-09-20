@@ -238,62 +238,88 @@
       }
     },
     "Amendment": {
-      "title": "Amendment",
       "description": "Объект, описывающий факт изменений в 'tender'/'award'/'contract' и связные с таким иззмененим данные",
       "type": "object",
       "properties": {
         "id": {
-          "description": "Идентификатор изменения. Должен быть уникальным в рамках массива 'amendment' родительского объекта",
           "$ref": "#/definitions/Amendment/$defs/amendment.id"
         },
         "date": {
-          "description": "Дата публикации данного изменения",
           "$ref": "#/definitions/Amendment/$defs/amendment.date"
         },
         "status": {
-          "description": "",
           "$ref": "#/definitions/Amendment/$defs/amendment.status"
         },
         "rationale": {
-          "description": "Аргументация внесения изменения",
           "$ref": "#/definitions/Amendment/$defs/amendment.rationale"
         },
         "description": {
-          "description": "Текстовое описание сути изменения",
           "$ref": "#/definitions/Amendment/$defs/amendment.description"
         },
         "amendsReleaseID": {
-          "description": "Идентификатор релиза данных, содержащего данные, обновленные данным изменением",
           "$ref": "#/definitions/Amendment/$defs/amendment.amendsReleaseID"
         },
         "releaseID": {
-          "description": "Идентификатор релиза данных, содержащий первую публикацию данного изменения",
           "$ref": "#/definitions/Amendment/$defs/amendment.releaseID"
         }
       },
       "$defs": {
         "amendment.id": {
+          "description": "Идентификатор изменения. Должен быть уникальным в рамках массива 'amendment' родительского объекта",
           "type": "string"
         },
         "amendment.date": {
+          "description": "Дата публикации данного изменения",
           "type": "string",
           "format": "date-time"
         },
         "amendment.status": {
+          "description": "",
           "type": "string",
-          "codelist": "amendmentStatuses"
+          "codelist": "amendmentStatuses.csv"
         },
         "amendment.rationale": {
+          "description": "Аргументация внесения изменения",
           "type": "string"
         },
         "amendment.description": {
+          "description": "Текстовое описание сути изменения",
           "type": "string"
         },
         "amendment.amendsReleaseID": {
+          "description": "Идентификатор релиза данных, содержащего данные, обновленные данным изменением",
           "type": "string"
         },
         "amendment.releaseID": {
+          "description": "Идентификатор релиза данных, содержащий первую публикацию данного изменения",
           "type": "string"
+        },
+        "amendment.instance.genericAmendment":{
+          "description": "Объект, описывающий факт изменений в 'tender'/'award'/'contract' и связные с таким иззмененим данные",
+          "type": "object",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/Amendment/$defs/amendment.id"
+            },
+            "date": {
+              "$ref": "#/definitions/Amendment/$defs/amendment.date"
+            },
+            "status": {
+              "$ref": "#/definitions/Amendment/$defs/amendment.status"
+            },
+            "rationale": {
+              "$ref": "#/definitions/Amendment/$defs/amendment.rationale"
+            },
+            "description": {
+              "$ref": "#/definitions/Amendment/$defs/amendment.description"
+            },
+            "amendsReleaseID": {
+              "$ref": "#/definitions/Amendment/$defs/amendment.amendsReleaseID"
+            },
+            "releaseID": {
+              "$ref": "#/definitions/Amendment/$defs/amendment.releaseID"
+            }
+          }    
         }
       }
     },
@@ -480,109 +506,144 @@
       }
     },
     "AwardCriteria": {
-      "title": "Award criteria",
       "description": "Информация о применяемых критериях присуждения контракта",
       "type": "object",
       "properties": {
-        "weightingDescription": {
-          "title": "Complicated weighting description",
-          "description": "В случае, если описать логику применяемых криерев невозможно в структурированном виде (с помощью массива 'criteria'), такая логика может быть описана в текстовом виде в данном атрибуте",
-          "type": "string"
-        },
-        "orderRationale": {
-          "title": "Justification for order of importance",
-          "description": "Описание очередности применения и учета описанны критериев присуждения",
-          "type": "string"
-        },
         "criteria": {
-          "title": "Award criteria",
           "description": "Массив, содержащий детальную Информацию о применяемых критериях присуждения контракта",
           "type": "array",
           "items": {
             "$ref": "#/definitions/AwardCriterion"
           }
         }
+      },
+      "$defs":{
+        "awardCriteria.criteria":{
+          "description": "Массив, содержащий детальную Информацию о применяемых критериях присуждения контракта",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AwardCriterion"
+          }
+        }  
       }
     },
     "AwardCriterion": {
-      "title": "Award criterion",
       "description": "Information about the award criterion.",
       "type": "object",
       "properties": {
         "type": {
-          "title": "Type",
+          "$ref":"#/definitions/AwardCriterion/$defs/awardCriterion.type"
+        },
+        "name": {
+          "$ref":"#/definitions/AwardCriterion/$defs/awardCriterion.name"
+        },
+        "description": {
+          "$ref":"#/definitions/AwardCriterion/$defs/awardCriterion.description"
+        },
+        "numbers": {
+          "description": "Метрируемые значения данного критерия",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AwardCriterionNumber/$defs/awardCriterionNumber.instance.genericNumber"
+          }
+        }
+      },
+      "$defs":{
+        "awardCriterion.type": {
           "description": "Аспект тендерного предложения, рассматриваемый данным критерием",
           "type": "string",
           "codelist": "awardCriterionType.csv",
           "openCodelist": true
         },
-        "name": {
-          "title": "Name",
+        "awardCriterion.name": {
           "description": "Наименование критерия",
           "type": "string"
         },
-        "description": {
-          "title": "Description",
+        "awardCriterion.description": {
           "description": "Описание критерия и его сути",
           "type": "string"
         },
-        "numbers": {
-          "title": "Numbers",
-          "description": "Метрируемые значения данного критерия",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/AwardCriterionNumber"
-          }
+        "awardCriterion.Instance.genericCriterion":{
+          "description": "Information about the award criterion.",
+          "type": "object",
+          "properties": {
+            "type": {
+              "$ref":"#/definitions/AwardCriterion/$defs/awardCriterion.type"
+            },
+            "name": {
+              "$ref":"#/definitions/AwardCriterion/$defs/awardCriterion.name"
+            },
+            "description": {
+              "$ref":"#/definitions/AwardCriterion/$defs/awardCriterion.description"
+            },
+            "numbers": {
+              "description": "Метрируемые значения данного критерия",
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/AwardCriterionNumber/$defs/awardCriterionNumber.instance.genericNumber"
+              }
+            }
+          }  
         }
       }
     },
     "AwardCriterionNumber": {
-      "title": "Award criterion number",
       "description": "Информация о метритуемых значениях данного критерия",
       "type": "object",
       "properties": {
         "number": {
-          "title": "Number",
+          "$ref":"#/definitions/AwardCriterionNumber/$defs/awardCriterionNumber.number"
+        },
+        "weight": {
+          "$ref":"#/definitions/AwardCriterionNumber/$defs/awardCriterionNumber.weight"
+        },
+        "fixed": {
+          "$ref":"#/definitions/AwardCriterionNumber/$defs/awardCriterionNumber.fixed"
+        },
+        "threshold": {
+          "$ref":"#/definitions/AwardCriterionNumber/$defs/awardCriterionNumber.threshold"
+        }
+      },
+      "$defs":{
+        "awardCriterionNumber.number": {
           "description": "The number.",
           "type": "number"
         },
-        "weight": {
-          "title": "Weight",
+        "awardCriterionNumber.weight": {
           "description": "Тип веса критерия, в качестве которого применяется его данное метрируемое значение",
           "type": "string",
           "codelist": "criterionWeight.csv",
-          "openCodelist": false,
-          "enum": [
-            "percentageExact",
-            "percentageRangeMiddle",
-            "decimalExact",
-            "decimalRangeMiddle",
-            "pointsExact",
-            "pointsRangeMiddle",
-            "order"
-          ]
+          "openCodelist": false
         },
-        "fixed": {
-          "title": "Fixed",
+        "awardCriterionNumber.fixed": {
           "description": "Объектная область тендерного предложения, к которому применяется данное метритуемое значение критерия",
           "type": "string",
           "codelist": "awardCriterionFixed.csv",
-          "openCodelist": false,
-          "enum": [
-            "total",
-            "unit"
-          ]
+          "openCodelist": false
         },
-        "threshold": {
-          "title": "Threshold",
+        "awardCriterionNumber.threshold": {
           "description": "Способ применения данного метритуемого значения критерия",
           "type": "string",
           "codelist": "criterionThreshold.csv",
-          "openCodelist": false,
-          "enum": [
-            "minimumScore",
-            "maximumBids"
-          ]
+          "openCodelist": false
+        },
+        "awardCriterionNumber.instance.genericNumber":{
+          "description": "Информация о метритуемых значениях данного критерия",
+          "type": "object",
+          "properties": {
+            "number": {
+              "$ref":"#/definitions/AwardCriterionNumber/$defs/awardCriterionNumber.number"
+            },
+            "weight": {
+              "$ref":"#/definitions/AwardCriterionNumber/$defs/awardCriterionNumber.weight"
+            },
+            "fixed": {
+              "$ref":"#/definitions/AwardCriterionNumber/$defs/awardCriterionNumber.fixed"
+            },
+            "threshold": {
+              "$ref":"#/definitions/AwardCriterionNumber/$defs/awardCriterionNumber.threshold"
+            }
+          }  
         }
       }
     },
