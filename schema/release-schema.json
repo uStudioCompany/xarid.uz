@@ -691,23 +691,66 @@
       }
     },
     "Bid": {
-      "title": "Bid",
       "description": "Объект, описывающий тендерное предложение",
       "type": "object",
-      "properties": {
-        "id": {
-          "title": "ID",
+      "properties":{
+        "id":{
+          "$ref":"#/definitions/Bid/$defs/bid.id"
+        },
+        "date":{
+          "$ref":"#/definitions/Bid/$defs/bid.date"
+        },
+        "status":{
+          "$ref":"#/definitions/Bid/$defs/bid.status"
+        },
+        "tenderers":{
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Bid/$defs/bid.tenderer"
+          }  
+        },
+        "value":{
+          "$ref":"#/definitions/Bid/$defs/bid.value"
+        },
+        "items":{
+          "type":"array",
+          "items":{
+            "$ref":"#/definitions/Bid/$defs/bid.item"
+          }
+        },
+        "documents":{
+          "description": "Массив, описывающий документы, связазнные с данным тендерным предложением",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Bid/$defs/bid.document"
+          }
+        },
+        "relatedLots":{
+          "description": "Массив, описывающий идентификаторы лотов, с которыми связано данное тендерное предложение",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Bid/$defs/bid.relatedLot"
+          }
+        },
+        "requirementResponses":{
+          "description": "Структурированный перечень ответов тендерного комитета, сформировавшего данный 'award', на вопросы, предписанные тендерным объявлением в отношении экономических агентов, связзанных с этим 'award' и/или их тендерного предложения",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Bid/$defs/bid.requirementResponse"
+          }
+        }
+      },
+      "$defs": {
+        "bid.id": {
           "description": "Идентификатор тендерного предложения. Должен быть уникальным в рамках массива 'bids'",
           "type": "string"
         },
-        "date": {
-          "title": "Date",
+        "bid.date": {
           "description": "Дата регистрации тендерного предложения",
           "type": "string",
           "format": "date-time"
         },
-        "status": {
-          "title": "Status",
+        "bid.status": {
           "description": "Статус данного предложения согласно стандартного справочника",
           "type": "string",
           "codelist": "bidStatuses.csv",
@@ -718,43 +761,33 @@
             "disqualified"
           ]
         },
-        "tenderers": {
-          "title": "Tenderers",
+        "bid.tenderer": {
           "description": "Перечень экономических операторов, связных с данным тендерным предложением, указанных в виде 'organization references'",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/OrganizationReference"
-          }
+          "$ref": "#/definitions/OrganizationReference/$defs/organizationReference.instance.genericReference"
         },
-        "value": {
+        "bid.value": {
           "title": "Value",
           "description": "Финансовое значение тендерного предложения",
-          "$ref": "#/definitions/Value"
+          "$ref": "#/definitions/Value/$defs/value.instance.valueExcludingVAT"
         },
-        "documents": {
-          "title": "Documents",
+        "bid.document": {
           "description": "Массив, описывающий документы, связазнные с данным тендерным предложением",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/Document"
-          },
-          "uniqueItems": true
+          "$ref": "#/definitions/Document/$defs/document.instance.genericDocument"
         },
-        "relatedLots": {
-          "title": "Related lot(s)",
-          "description": "Массив, описывающий идентификаторы лотов, с которыми связано данное тендерное предложение",
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
+        "bid.relatedLot": {
+          "description":"",
+          "type":"string"
         },
-        "requirementResponses": {
-          "title": "Requirement responses",
+        "bid.requirementResponse": {
           "description": "Структурированный перечень ответов экономических операторов, подавших данное тендерное предложение, на вопросы, предписанные тендерным объявлением",
           "type": "array",
           "items": {
-            "$ref": "#/definitions/RequirementResponse"
+            "$ref": "#/definitions/RequirementResponse/$defs/requirementResopnse.instance.bidResponse"
           }
+        },
+        "bid.item":{
+          "description":""
+          
         }
       }
     },
@@ -764,11 +797,9 @@
       "type": "object",
       "properties": {
         "id": {
-          "description": "Идентификатор статьи бюджета, которая предоставляет средства для этого процесса заключения контракта",
           "$ref": "#/definitions/Budget/$defs/budget.id"
         },
         "description": {
-          "description": "Описание источника финансирования в рамках бюдженой статьи",
           "$ref": "#/definitions/Budget/$defs/budget.description"
         },
         "budgetBreakdown": {
@@ -800,13 +831,14 @@
       },
       "$defs": {
         "budget.id": {
+          "description": "Идентификатор статьи бюджета, которая предоставляет средства для этого процесса заключения контракта",
           "type": "string"
         },
         "budget.description": {
+          "description": "Описание источника финансирования в рамках бюдженой статьи",
           "type": "string"
         },
-        "cp.planning.budget": {
-          "$schema": "http://json-schema.org/draft-07/schema#",
+        "budget.instance.cnPlanning": {
           "type": "object",
           "properties": {
             "budgetBreakdown": {
@@ -1885,72 +1917,94 @@
       "description": "A good, service, or work to be contracted.",
       "properties": {
         "id": {
-          "title": "ID",
           "description": "A local identifier to reference and merge the items by. Must be unique within a given array of items.",
-          "type": [
-            "string",
-            "integer"
-          ]
+          "type": "string"
         },
         "internalId": {
-          "title": "",
           "description": "",
-          "type": [
-            "string",
-            "integer"
-          ]
+          "type": "string"
         },
         "description": {
-          "title": "Description",
           "description": "A description of the goods, services to be provided.",
-          "type": [
-            "string",
-            "null"
-          ]
+          "type": "string"
         },
         "classification": {
-          "title": "Classification",
           "description": "The primary [Classification] for the item",
           "$ref": "#/definitions/Classification"
         },
         "additionalClassifications": {
-          "title": "Additional classifications",
           "description": "An array of additional [Classification] for the item. This may also be used to present codes from an internal classification scheme.",
           "type": "array",
           "items": {
             "$ref": "#/definitions/Classification"
-          },
-          "uniqueItems": true
+          }
         },
         "quantity": {
-          "title": "Quantity",
           "description": "The number of units required",
-          "type": [
-            "number",
-            "null"
-          ]
+          "type": "number"
         },
         "unit": {
-          "title": "Unit",
           "description": "A description of the [Unit] in which the supplies, services or works are provided ",
           "type": "object",
           "$ref": "#/definitions/Unit"
         },
         "relatedLots": {
-          "title": "Related lot(s)",
           "description": "If this item belongs to a lot, provide the identifier(s) of the related lot(s) here.",
           "type": [
             "array"
           ],
           "items": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           }
         },
         "deliveryAddress": {
-          "title": "Delivery Address",
+          "description": "The [Address] to which, or where, goods or services related to this tender, contract or license will be delivered.",
+          "$ref": "#/definitions/Address"
+        }
+      },
+      "$defs":{
+        "id": {
+          "description": "A local identifier to reference and merge the items by. Must be unique within a given array of items.",
+          "type": "string"
+        },
+        "internalId": {
+          "description": "",
+          "type": "string"
+        },
+        "description": {
+          "description": "A description of the goods, services to be provided.",
+          "type": "string"
+        },
+        "classification": {
+          "description": "The primary [Classification] for the item",
+          "$ref": "#/definitions/Classification"
+        },
+        "additionalClassifications": {
+          "description": "An array of additional [Classification] for the item. This may also be used to present codes from an internal classification scheme.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Classification"
+          }
+        },
+        "quantity": {
+          "description": "The number of units required",
+          "type": "number"
+        },
+        "unit": {
+          "description": "A description of the [Unit] in which the supplies, services or works are provided ",
+          "type": "object",
+          "$ref": "#/definitions/Unit"
+        },
+        "relatedLots": {
+          "description": "If this item belongs to a lot, provide the identifier(s) of the related lot(s) here.",
+          "type": [
+            "array"
+          ],
+          "items": {
+            "type": "string"
+          }
+        },
+        "deliveryAddress": {
           "description": "The [Address] to which, or where, goods or services related to this tender, contract or license will be delivered.",
           "$ref": "#/definitions/Address"
         }
@@ -2853,7 +2907,7 @@
             "budget": {
               "description": "test name of the inheritet def",
               "type": "object",
-              "$ref": "#/definitions/Budget/$defs/cp.planning.budget"
+              "$ref": "#/definitions/Budget/$defs/budget.instance.cnPlanning"
             },
             "milestones": {
               "description": "Объект описывает вехи, связанные с планированием исполнения будущего договора",
