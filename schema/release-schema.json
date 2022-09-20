@@ -359,13 +359,13 @@
         },
         "award.metric":{
           "description":"Документ, связанный с данным объектом 'award'",
-          "$ref":"#/definitions/Metric/$defs/metric.instance.genericMetric"  
+          "$ref":"#/definitions/Metric/$defs/metric.instance.awardMetric"  
         },
         "award.requirementResponse":{
           "description":"Документ, связанный с данным объектом 'award'",
           "$ref":"#/definitions/RequirementResponse/$defs/requirementResopnse.instance.awardResponse"  
         },
-        "cp.instance.awardDecision": {
+        "award.instance.awardDecision": {
           "type": "object",
           "description": "",
           "properties": {
@@ -419,7 +419,7 @@
             }
           }
         },
-        "cp.instance.negativeCan": {
+        "award.instance.negativeCan": {
           "type": "object",
           "title": "",
           "description": "",
@@ -1994,14 +1994,7 @@
           "description": "This field must be populated with the id of the item in this tender section which the metric relates to",
           "type": "string"
         },
-        "metric.observations": {
-          "type": "array",
-          "description": "An array of [Observation]: target or actual values for this metric.",
-          "items": {
-            "$ref": "#/definitions/Observation"
-          }
-        },
-        "metric.instance.genericMetric":{
+        "metric.instance.awardMetric":{
           "description":"",
           "type":"object",
           "properties":{
@@ -2012,7 +2005,7 @@
               "type":"array",
               "description":"",
               "items":{
-                "$ref":"#/definitions/Observation"
+                "$ref":"#/definitions/Observation/$defs/observation.instance.awardObservation"
               }
             }
           }
@@ -2137,25 +2130,35 @@
     },
     "MilestoneReference": {
       "type": "object",
-      "title": "Milestone Reference",
       "description": "A block used to reference a milestone, including the ID and title of the milestone being referenced.",
-      "required": [
-        "id"
-      ],
-      "properties": {
+      "properties":{
         "id": {
-          "title": "Milestone ID",
-          "description": "The ID of the milestone being referenced, this must match the ID of a milestone described elsewhere in a release about this contracting process.",
-          "type": "string",
-          "minLength": 1
+          "$ref":"#/definitions/MilestoneReference/$defs/milestoneReference.id"  
         },
         "title": {
-          "title": "Milestone title",
+          "$ref":"#/definitions/MilestoneReference/$defs/milestoneReference.title" 
+        }
+      },
+      "$defs": {
+        "milestoneReference.id": {
+          "description": "The ID of the milestone being referenced, this must match the ID of a milestone described elsewhere in a release about this contracting process.",
+          "type": "string"
+        },
+        "milestoneReference.title": {
           "description": "The title of the milestone being referenced, this must match the title of a milestone described elsewhere in a release about this contracting process.",
-          "type": [
-            "string",
-            "null"
-          ]
+          "type": "string"
+        },
+        "milestoneReference.instance.genericReference":{
+          "type": "object",
+          "description": "A block used to reference a milestone, including the ID and title of the milestone being referenced.",
+          "properties":{
+            "id": {
+              "$ref":"#/definitions/MilestoneReference/$defs/milestoneReference.id"  
+            },
+            "title": {
+              "$ref":"#/definitions/MilestoneReference/$defs/milestoneReference.title" 
+            }
+          }
         }
       }
     },
@@ -2164,23 +2167,40 @@
       "description": "An actual or target observation. Observations should include either a value (for financial metrics) or measure (for other metrics). ",
       "properties": {
         "id": {
-          "title": "Identifier",
-          "description": "A local identifier for this specific observation. This may be an arbitrary identifier, or could be a composite of the metric identifier, and the date and other dimensions of this observation.",
-          "type": "string",
-          "minLength": 1
+          "$ref":"#/definitions/Observation/$defs/observation.id"
         },
         "period": {
-          "title": "Period",
-          "description": "The [Period] over which this observation is measured.",
-          "$ref": "#/definitions/Period"
-        },
-        "value": {
-          "title": "Value",
-          "description": "For financial metrics, the [Value] of this forecast, target or actual observation.",
-          "$ref": "#/definitions/Value"
+          "$ref":"#/definitions/Observation/$defs/observation.period"
         },
         "measure": {
-          "title": "Measure",
+          "$ref":"#/definitions/Observation/$defs/observation.measure"
+        },
+        "unit": {
+          "$ref":"#/definitions/Observation/$defs/observation.unit"
+        },
+        "dimensions": {
+          "$ref":"#/definitions/Observation/$defs/observation.dimensions"
+        },
+        "notes": {
+          "$ref":"#/definitions/Observation/$defs/observation.notes"
+        },
+        "relatedImplementationMilestone": {
+          "$ref":"#/definitions/Observation/$defs/observation.relatedImplementationMilestone"
+        },
+        "relatedRequirementID": {
+          "$ref":"#/definitions/Observation/$defs/observation.relatedRequirementID"
+        }
+      },
+      "$defs":{
+        "observation.id": {
+          "description": "A local identifier for this specific observation. This may be an arbitrary identifier, or could be a composite of the metric identifier, and the date and other dimensions of this observation.",
+          "type": "string"
+        },
+        "observation.period": {
+          "description": "The Period over which this observation is measured.",
+          "$ref": "#/definitions/Period/$defs/period.instance.complete"
+        },
+        "observation.measure": {
           "description": "For non-financial metrics, the measure of this forecast, target or actual observation. Measures may be provided as free text or numerical values.",
           "type": [
             "string",
@@ -2188,34 +2208,80 @@
             "null"
           ]
         },
-        "unit": {
+        "observation.unit": {
           "type": "object",
-          "title": "Unit",
           "description": "Unit",
-          "$ref": "#/definitions/Unit"
+          "$ref": "#/definitions/Unit/$defs/unit.instance.nonFInancialUnit"
         },
-        "dimensions": {
+        "observation.dimensions": {
           "type": "object",
-          "title": "Dimensions",
           "description": "Any number of dimensions can be recorded within this object. Dimensions names should follow the camelCase conventions of OCDS."
         },
-        "notes": {
-          "title": "Notes",
+        "observation.notes": {
           "description": "Any notes on this observation. This may include clarifying information.",
           "type": [
             "string",
             "null"
           ]
         },
-        "relatedImplementationMilestone": {
-          "title": "Related implementation milestone",
+        "observation.relatedImplementationMilestone": {
           "description": "A MilestoneReference to the milestone in the implementation section of OCDS to which this forecast, target or actual observation is related.",
-          "$ref": "#/definitions/MilestoneReference"
+          "$ref": "#/definitions/MilestoneReference/$defs/milestoneReference.instance.genericReference"
         },
-        "relatedRequirementID": {
-          "title": "Related requirement",
-          "description": "The [RequirementReference] of the requirement which the observation is applicable to",
-          "$ref": "#/definitions/RequirementReference"
+        "observation.relatedRequirementID": {
+          "description": "The RequirementReference of the requirement which the observation is applicable to",
+          "$ref": "#/definitions/RequirementReference/$defs/requirementReference.instance.genericReference"
+        },
+        "observation.instance.tenderObservation":{
+          "type":"object",
+          "description":"",
+          "properties":{
+            "id": {
+              "$ref":"#/definitions/Observation/$defs/observation.id"
+            },
+            "period": {
+              "$ref":"#/definitions/Observation/$defs/observation.period"
+            },
+            "measure": {
+              "$ref":"#/definitions/Observation/$defs/observation.measure"
+            },
+            "unit": {
+              "$ref":"#/definitions/Observation/$defs/observation.unit"
+            },
+            "dimensions": {
+              "$ref":"#/definitions/Observation/$defs/observation.dimensions"
+            },
+            "notes": {
+              "$ref":"#/definitions/Observation/$defs/observation.notes"
+            },
+            "relatedRequirementID": {
+              "$ref":"#/definitions/Observation/$defs/observation.relatedRequirementID"
+            }  
+          }
+        },
+        "observation.instance.awardObservation":{
+          "type":"object",
+          "description":"",
+          "properties":{
+            "id": {
+              "$ref":"#/definitions/Observation/$defs/observation.id"
+            },
+            "period": {
+              "$ref":"#/definitions/Observation/$defs/observation.period"
+            },
+            "measure": {
+              "$ref":"#/definitions/Observation/$defs/observation.measure"
+            },
+            "unit": {
+              "$ref":"#/definitions/Observation/$defs/observation.unit"
+            },
+            "dimensions": {
+              "$ref":"#/definitions/Observation/$defs/observation.dimensions"
+            },
+            "notes": {
+              "$ref":"#/definitions/Observation/$defs/observation.notes"
+            } 
+          }
         }
       }
     },
@@ -2467,35 +2533,89 @@
       }
     },
     "Period": {
-      "title": "Period",
-      "descripption": "",
+      "description": "",
       "type": "object",
       "properties": {
         "startDate": {
-          "title": "Start date",
+          "$ref":"#/definitions/Period/$defs/period.startDate"
+        },
+        "endDate": {
+          "$ref":"#/definitions/Period/$defs/period.endDate"
+        },
+        "durationInDays": {
+          "$ref":"#/definitions/Period/$defs/period.durationInDays"
+        },
+        "duration": {
+          "$ref":"#/definitions/Period/$defs/period.duration"
+        }
+      },
+      "$defs":{
+        "period.startDate": {
           "description": "The start date for the period",
           "type": "string",
           "format": "date-time"
         },
-        "endDate": {
-          "title": "End date",
+        "period.endDate": {
           "description": "The end date for the period",
           "type": "string",
           "format": "date-time"
         },
-        "durationInDays": {
+        "period.durationInDays": {
           "description": "The maximum duration of this period in days. Where a start and end date are given, this field is optional, and should reflect the difference between those two days.",
-          "title": "Duration (days)",
-          "type": [
-            "integer",
-            "null"
-          ]
+          "type": "integer"
         },
-        "duration": {
-          "title": "Duration",
-          "description": "The duration of the period reflected in ISO format",
+        "period.duration": {
+         "description": "The duration of the period reflected in ISO format",
           "type": "string",
           "format": "ISO"
+        },
+        "period.instance.startPoint":{
+          "type":"object",
+          "description":"",
+          "properties":{
+            "startDate":{
+              "$ref":"#/definitions/Period/$defs/period.startDate"
+            }
+          }
+        },
+        "period.instance.endPoint":{
+          "type":"object",
+          "description":"",
+          "properties":{
+            "endDate":{
+              "$ref":"#/definitions/Period/$defs/period.endDate"
+            }
+          }
+        },
+        "period.instance.complete":{
+          "type":"object",
+          "description":"",
+          "properties":{
+            "startDate":{
+              "$ref":"#/definitions/Period/$defs/period.startDate"
+            },
+            "endDate":{
+              "$ref":"#/definitions/Period/$defs/period.endDate"
+            }
+          }
+        },
+        "period.instance.durationInDays":{
+          "type":"object",
+          "description":"",
+          "properties":{
+            "durationInDays":{
+              "$ref":"#/definitions/Period/$defs/period.durationInDays"
+            }
+          }
+        },
+        "period.instance.duration":{
+          "type":"object",
+          "description":"",
+          "properties":{
+            "duration":{
+              "$ref":"#/definitions/Period/$defs/period.duration"
+            }
+          }
         }
       }
     },
@@ -3029,21 +3149,36 @@
       }
     },
     "RequirementReference": {
-      "title": "Requirement reference",
       "description": "Used to cross reference a requirement",
       "type": "object",
-      "properties": {
+      "properties":{
         "id": {
-          "title": "Requirement ID",
-          "description": "The id of the requirement which the response is applicable to",
-          "type": "string",
-          "mergeStrategy": "ocdsVersion"
+          "$ref":"#/definitions/RequirementReference/$defs/requirementReference.id"
         },
         "title": {
-          "title": "Requirement title",
+          "$ref":"#/definitions/RequirementReference/$defs/requirementReference.title"
+        }
+      },
+      "$defs": {
+        "requirementReference.id": {
+          "description": "The id of the requirement which the response is applicable to",
+          "type": "string"
+        },
+        "requirementReference.title": {
           "description": "The title of the requirement which the response is applicable to",
-          "type": "string",
-          "mergeStrategy": "ocdsVersion"
+          "type": "string"
+        },
+        "requirementReference.instance.genericReference":{
+          "description": "Used to cross reference a requirement",
+          "type": "object",
+          "properties":{
+            "id": {
+              "$ref":"#/definitions/RequirementReference/$defs/requirementReference.id"
+            },
+            "title": {
+              "$ref":"#/definitions/RequirementReference/$defs/requirementReference.title"
+            }
+          }  
         }
       }
     },
@@ -3088,12 +3223,12 @@
           ]
         },
         "requirementResponse.period": {
-          "description": "The [Period] which the requirement response is applicable to",
-          "$ref": "#/definitions/Period"
+          "description": "The Period which the requirement response is applicable to",
+          "$ref": "#/definitions/Period/$defs/period.instance.complete"
         },
         "requirementResponse.requirement": {
           "description": "The [RequirementReference] of the requirement which the response is applicable to",
-          "$ref": "#/definitions/RequirementReference"
+          "$ref": "#/definitions/RequirementReference/$defs/requirementReference.instance.genericReference"
         },
         "requirementResponse.relatedTenderer": {
           "description": "Where this requirement response relates to a tenderer and is provided by the buyer or procuring entity this field should be used as [OrganizationReference] the entry in the parties section for the tenderer the response relates to.",
@@ -3786,49 +3921,87 @@
       }
     },
     "Unit": {
-      "title": "Unit",
       "description": "A description of the unit in which the supplies, services or works are provided (e.g. hours, kilograms) and the unit-price. For comparability, an established list of units can be used.",
       "type": "object",
-      "properties": {
-        "name": {
-          "title": "Name",
+      "properties":{
+        "name":{
+          "$ref":"#/definitions/Unit/$defs/unit.name"
+        },
+        "value":{
+          "$ref":"#/definitions/Unit/$defs/unit.value"
+        },
+        "scheme":{
+          "$ref":"#/definitions/Unit/$defs/unit.scheme"
+        },
+        "id":{
+          "$ref":"#/definitions/Unit/$defs/unit.id"
+        },
+        "uri":{
+          "$ref":"#/definitions/Unit/$defs/unit.uri"
+        }
+      },
+      "$defs": {
+        "unit.name": {
           "description": "Name of the unit",
-          "type": [
-            "string",
-            "null"
-          ]
+          "type": "string"
         },
-        "value": {
-          "title": "Value",
-          "description": "The monetary [Value] of a single unit.",
-          "$ref": "#/definitions/Value"
+        "unit.value": {
+          "description": "The monetary Value of a single unit.",
+          "$ref": "#/definitions/Value/$defs/value.instance.valueExcludingVAT"
         },
-        "scheme": {
-          "title": "Scheme",
+        "unit.scheme": {
           "description": "The list from which units of measure identifiers are taken. Use of the scheme 'UNCEFACT' for the UN/CEFACT Recommendation 20 list of 'Codes for Units of Measure Used in International Trade' is recommended.",
-          "type": [
-            "string",
-            "null"
-          ],
+          "type": "string",
           "codelist": "unitClassificationScheme.csv",
           "openCodelist": true
         },
-        "id": {
-          "title": "ID",
+        "unit.id": {
           "description": "The identifier from the codelist referenced in the scheme property. For example, with UNCEFACT, this is the value of the 'Common Code' column. From this identifier, applications can look-up the human readable name or symbol for this unit of measure. ",
-          "type": [
-            "string",
-            "null"
-          ]
+          "type": "string"
         },
-        "uri": {
-          "title": "URI",
+        "unit.uri": {
           "description": "If the scheme used provide a machine-readable URI for this unit of measure, this can be given.",
           "format": "uri",
-          "type": [
-            "string",
-            "null"
-          ]
+          "type": "string"
+        },
+        "unit.instance.nonFInancialUnit":{
+          "description":"",
+          "type":"object",
+          "properties":{
+            "name":{
+              "$ref":"#/definitions/Unit/$defs/unit.name"
+            },
+            "scheme":{
+              "$ref":"#/definitions/Unit/$defs/unit.scheme"
+            },
+            "id":{
+              "$ref":"#/definitions/Unit/$defs/unit.id"
+            },
+            "uri":{
+              "$ref":"#/definitions/Unit/$defs/unit.uri"
+            }
+          }
+        },
+        "unit.instance.fInancialUnit":{
+          "description":"",
+          "type":"object",
+          "properties":{
+            "name":{
+              "$ref":"#/definitions/Unit/$defs/unit.name"
+            },
+            "value":{
+              "$ref":"#/definitions/Unit/$defs/unit.value"
+            },
+            "scheme":{
+              "$ref":"#/definitions/Unit/$defs/unit.scheme"
+            },
+            "id":{
+              "$ref":"#/definitions/Unit/$defs/unit.id"
+            },
+            "uri":{
+              "$ref":"#/definitions/Unit/$defs/unit.uri"
+            }
+          }
         }
       }
     },
