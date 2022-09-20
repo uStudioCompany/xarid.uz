@@ -278,20 +278,20 @@
           "$ref": "#/definitions/Award/$defs/award.date"
         },
         "value": {
-          "$ref": "#/definitions/Award/$defs/award.value"
+          "$ref": "#/definitions/Value/$defs/value.instance.valueExtended"
         },
         "documents": {
           "description": "Массив, описывающий документы, относящиеся к данному 'award'",
           "type": "array",
           "items": {
-            "$ref": "#/definitions/Award/$defs/award.document"
+            "$ref": "#/definitions/Document/$defs/document.instance.genericDocument"
           }
         },
         "agreedMetrics": {
           "description": "Метрики, закрепляемые данным 'award'",
           "type": "array",
           "items": {
-            "$ref": "#/definitions/Award/$defs/award.metric"
+            "$ref": "#/definitions/Metric/$defs/metric.instance.awardMetric"
           }
         },
         "relatedLots": {
@@ -305,7 +305,7 @@
           "description": "Структурированный перечень ответов тендерного комитета, сформировавшего данный 'award', на вопросы, предписанные тендерным объявлением в отношении экономических агентов, связзанных с этим 'award' и/или их тендерного предложения",
           "type": "array",
           "items": {
-            "$ref": "#/definitions/Award/$defs/award.requirementResponse"
+            "$ref": "#/definitions/RequirementResponse/$defs/requirementResopnse.instance.awardResponse"
           }
         },
         "relatedBid": {
@@ -341,10 +341,6 @@
           "type": "string",
           "format": "date-time"
         },
-        "award.value":{
-          "description": "Полное финансовое значение, связанное с данным объектом 'award'. В случае награждения - данный атритуб описывает полную финансовую стоимость присужденного договора",
-          "$ref": "#/definitions/Value/$defs/value.instance.valueExtended"
-        },
         "award.relatedLot": {
           "type": "string",
           "description": "Идентификатор лота, с которыми связано данное уведомление"
@@ -352,18 +348,6 @@
         "award.relatedBid": {
           "description": "Если данный 'award' ассоциирован с конктерным тендерным предложением, данный атрибут используется для указания идентификатора такого тендерного предложения ",
           "type": "string"
-        },
-        "award.document":{
-          "description":"Документ, связанный с данным объектом 'award'",
-          "$ref":"#/definitions/Document/$defs/document.instance.genericDocument"
-        },
-        "award.metric":{
-          "description":"Документ, связанный с данным объектом 'award'",
-          "$ref":"#/definitions/Metric/$defs/metric.instance.awardMetric"  
-        },
-        "award.requirementResponse":{
-          "description":"Документ, связанный с данным объектом 'award'",
-          "$ref":"#/definitions/RequirementResponse/$defs/requirementResopnse.instance.awardResponse"  
         },
         "award.instance.awardDecision": {
           "type": "object",
@@ -388,24 +372,24 @@
               "$ref": "#/definitions/Award/$defs/award.date"
             },
             "value": {
-              "$ref": "#/definitions/Award/$defs/award.value"
+              "$ref": "#/definitions/Value/$defs/value.instance.valueExtended"
             },
             "agreedMetrics": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/Award/$defs/award.metric"
+                "$ref": "#/definitions/Metric/$defs/metric.instance.awardMetric"
               }
             },
             "requirementResponses": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/Award/$defs/award.requirementResponse"
+                "$ref": "#/definitions/RequirementResponse/$defs/requirementResopnse.instance.awardResponse"
               }
             },
             "documents": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/Award/$defs/award.document"
+                "$ref": "#/definitions/Document/$defs/document.instance.genericDocument"
               }
             },
             "relatedLots": {
@@ -439,7 +423,7 @@
             "documents": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/Award/$defs/award.document"
+                "$ref": "#/definitions/Document/$defs/document.instance.genericDocument"
               }
             },
             "relatedLots": {
