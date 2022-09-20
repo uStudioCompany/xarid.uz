@@ -513,7 +513,7 @@
           "description": "Массив, содержащий детальную Информацию о применяемых критериях присуждения контракта",
           "type": "array",
           "items": {
-            "$ref": "#/definitions/AwardCriterion"
+            "$ref": "#/definitions/AwardCriterion/$defs/awardCriterion.Instance.genericCriterion"
           }
         }
       },
@@ -522,7 +522,7 @@
           "description": "Массив, содержащий детальную Информацию о применяемых критериях присуждения контракта",
           "type": "array",
           "items": {
-            "$ref": "#/definitions/AwardCriterion"
+            "$ref": "#/definitions/AwardCriterion/$defs/awardCriterion.Instance.genericCriterion"
           }
         }  
       }
