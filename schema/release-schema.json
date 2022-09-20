@@ -284,7 +284,7 @@
           "description": "Массив, описывающий документы, относящиеся к данному 'award'",
           "type": "array",
           "items": {
-            "$ref": "#/definitions/Document"
+            "$ref": "#/definitions/Award/$defs/award.document"
           }
         },
         "agreedMetrics": {
@@ -349,11 +349,16 @@
           "type": "string",
           "description": "Идентификатор лота, с которыми связано данное уведомление"
         },
+        "award.agreedMetric":{},
         "award.relatedBid": {
           "description": "Если данный 'award' ассоциирован с конктерным тендерным предложением, данный атрибут используется для указания идентификатора такого тендерного предложения ",
           "type": "string"
         },
-        "cp.awardDecision": {
+        "award.document":{
+          "description":"Документ, связанный с данным объектом 'award'",
+          "$ref":"#/definitions/Document/$defs/document.instance.genericDocument"
+        },
+        "cp.instance.awardDecision": {
           "type": "object",
           "description": "",
           "properties": {
@@ -407,7 +412,7 @@
             }
           }
         },
-        "cp.negativeCan": {
+        "cp.instance.negativeCan": {
           "type": "object",
           "title": "",
           "description": "",
@@ -1264,57 +1269,77 @@
       }
     },
     "Document": {
-      "title": "Document",
       "description": "Links to, or descriptions of, external documents can be attached at various locations within the standard. Documents may be supporting information, formal notices, downloadable forms, or any other kind of resource that should be made public as part of full open contracting.",
       "type": "object",
       "properties": {
         "id": {
-          "title": "ID",
-          "description": "A local, unique identifier for this document. This field is used to keep track of multiple revisions of a document through the compilation from release to record mechanism.",
-          "type": [
-            "string",
-            "integer"
-          ]
+          "ref":"#/definitions/Document/$defs/document.id"
         },
         "documentType": {
-          "title": "Document type",
-          "description": "A classification of the document described taken from the [Codelists#Document types]. Values from the provided codelist should be used wherever possible, though extended values can be provided if the codelist does not have a relevant code.",
-          "type": [
-            "string",
-            "null"
-          ],
-          "codelist": "http://standard.open-contracting.org/1.1-dev/en/schema/codelists/#document-type",
-          "openCodelist": true
+          "ref":"#/definitions/Document/$defs/document.documentType"
         },
         "title": {
-          "title": "Title",
-          "description": "The document title.",
-          "type": [
-            "string",
-            "null"
-          ]
+          "ref":"#/definitions/Document/$defs/document.title"
         },
         "url": {
-          "title": "URL",
-          "description": " direct link to the document or attachment. The server providing access to this document should be configured to correctly report the document mime type.",
-          "type": [
-            "string",
-            "null"
-          ],
-          "format": "uri"
+          "ref":"#/definitions/Document/$defs/document.url"
         },
         "relatedLots": {
-          "title": "Related lot(s)",
           "description": "If this document relates to a particular lot, provide the identifier(s) of the related lot(s) here.",
           "type": [
             "array"
           ],
           "items": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "ref":"#/definitions/Document/$defs/document.relatedLot"
           }
+        }
+      },
+      "$defs":{
+        "document.id": {
+          "description": "A local, unique identifier for this document. This field is used to keep track of multiple revisions of a document through the compilation from release to record mechanism.",
+          "type": "string"
+        },
+        "document.documentType": {
+          "description": "A classification of the document described taken from the [Codelists#Document types]. Values from the provided codelist should be used wherever possible, though extended values can be provided if the codelist does not have a relevant code.",
+          "type": "string",
+          "codelist": "http://standard.open-contracting.org/1.1-dev/en/schema/codelists/#document-type",
+          "openCodelist": true
+        },
+        "document.title": {
+          "description": "The document title.",
+          "type": "string"
+        },
+        "document.url": {
+          "description": " direct link to the document or attachment. The server providing access to this document should be configured to correctly report the document mime type.",
+          "type": "string",
+          "format": "uri"
+        },
+        "document.relatedLot": {
+          "description": "If this document relates to a particular lot, provide the identifier(s) of the related lot(s) here.",
+          "type": "string"
+        },
+        "document.instance.genericDocument":{
+          "id": {
+            "ref":"#/definitions/Document/$defs/document.id"
+          },
+          "documentType": {
+            "ref":"#/definitions/Document/$defs/document.documentType"
+          },
+          "title": {
+            "ref":"#/definitions/Document/$defs/document.title"
+          },
+          "url": {
+            "ref":"#/definitions/Document/$defs/document.url"
+          },
+          "relatedLots": {
+            "description": "If this document relates to a particular lot, provide the identifier(s) of the related lot(s) here.",
+            "type": [
+              "array"
+            ],
+            "items": {
+              "ref":"#/definitions/Document/$defs/document.relatedLot"
+            }
+          }  
         }
       }
     },
@@ -1904,48 +1929,31 @@
       "type": "object",
       "properties": {
         "id": {
-          "title": "Identifier",
           "description": "An identifier for this metric. In some cases this may be drawn from a codelist of metrics required for this type of contracting process, or in other instances may be an arbitrary identifier.",
-          "type": [
-            "string"
-          ]
+          "type": "string"
         },
         "title": {
-          "title": "Title",
           "description": "The title of this metric",
-          "type": [
-            "string",
-            "null"
-          ]
+          "type": "string"
         },
         "description": {
-          "title": "Description",
           "description": "A short description of the metric. This may include short details of measurement methods.",
-          "type": [
-            "string",
-            "null"
-          ]
+          "type": "string"
         },
         "relatesTo": {
           "description": "The schema element that the metric relates. For example observation may be defined against items or against lot.",
           "type": "string",
-          "enum": [
+          "codelist": [
             "item",
             "tenderer"
-          ],
-          "mergeStrategy": "ocdsVersion"
+          ]
         },
         "relatedItem": {
           "description": "This field must be populated with the id of the item in this tender section which the metric relates to",
-          "type": [
-            "string",
-            "null"
-          ],
-          "mergeStrategy": "ocdsVersion"
+          "type": "string"
         },
         "observations": {
           "type": "array",
-          "title": "Observations",
           "description": "An array of [Observation]: target or actual values for this metric.",
           "items": {
             "$ref": "#/definitions/Observation"
