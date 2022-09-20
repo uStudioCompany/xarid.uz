@@ -1319,27 +1319,31 @@
           "type": "string"
         },
         "document.instance.genericDocument":{
-          "id": {
-            "ref":"#/definitions/Document/$defs/document.id"
-          },
-          "documentType": {
-            "ref":"#/definitions/Document/$defs/document.documentType"
-          },
-          "title": {
-            "ref":"#/definitions/Document/$defs/document.title"
-          },
-          "url": {
-            "ref":"#/definitions/Document/$defs/document.url"
-          },
-          "relatedLots": {
-            "description": "If this document relates to a particular lot, provide the identifier(s) of the related lot(s) here.",
-            "type": [
-              "array"
-            ],
-            "items": {
-              "ref":"#/definitions/Document/$defs/document.relatedLot"
-            }
-          }  
+          "type":"object",
+          "description":"Типовой документ в доменной модели",
+          "properties":{
+            "id": {
+              "ref":"#/definitions/Document/$defs/document.id"
+            },
+            "documentType": {
+              "ref":"#/definitions/Document/$defs/document.documentType"
+            },
+            "title": {
+              "ref":"#/definitions/Document/$defs/document.title"
+            },
+            "url": {
+              "ref":"#/definitions/Document/$defs/document.url"
+            },
+            "relatedLots": {
+              "description": "If this document relates to a particular lot, provide the identifier(s) of the related lot(s) here.",
+              "type": [
+                "array"
+              ],
+              "items": {
+                "ref":"#/definitions/Document/$defs/document.relatedLot"
+              }
+            }  
+          }
         }
       }
     },
