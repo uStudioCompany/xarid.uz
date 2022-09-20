@@ -5,68 +5,40 @@
   "$id": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/release-schema.json",
   "properties": {
     "id": {
-      "title": "Id",
       "description": "Идентификатор этого конкретного релиза. Идентификатор должен быть уникальным в рамках связанного с ним контрактного (определяемого общим идентификатором ocid)",
       "type": "string"
     },
     "ocid": {
-      "title": "ocid",
       "description": "Глобальный уникальный идентификатор данного контрактного процесса заключения контрактов. Состоит из префикса ocid и идентификатора процесса заключения контракта",
       "type": "string"
     },
     "tag": {
-      "title": "Tag",
       "description": "Указатель типа релиза информации согласно стандартной классификации",
       "codelist": "tags.ccv",
       "openCodelist": false,
-      "enum": [
-        "planning",
-        "planningUpdate",
-        "tender",
-        "tenderAmendment",
-        "tenderUpdate",
-        "tenderCancellation",
-        "award",
-        "awardUpdate",
-        "awardCancellation",
-        "contract",
-        "contractUpdate",
-        "contractAmendment",
-        "implementation",
-        "implementationUpdate",
-        "contractTermination"
-      ],
       "type": "string"
     },
     "initiationType": {
-      "title": "Initiation Type",
       "description": "Тип испольуемой инициации",
       "codelist": "initiationType.csv",
       "openCodelist": false,
-      "enum": [
-        "tender"
-      ],
       "type": "string"
     },
     "date": {
-      "title": "Date",
       "description": "Дата публикации данного релиза",
       "type": "string",
       "format": "date-time"
     },
     "planning": {
-      "title": "Planning",
       "description": "Объект используется для описания финансовой основы процесса заключения контракта, а также - ожидаеммого состава и последовательности исполнения будущего договора сторонами",
       "$ref": "#/definitions/Planning"
     },
     "preQualification": {
-      "title": "Prequalification",
       "description": "Объект описывает аспекты стадии предварительнй квалификации экономических агентов, выразивших заинтересовнность в участии в данном контрактном процессе",
       "type": "object",
       "$ref": "#/definitions/PreQualification"
     },
     "submissions": {
-      "title": "Submissions",
       "description": "Объект описывает выражения заинтересованности и/или заявки на участие, полученные от экономических агентов в отношении данного контрактного процесса",
       "type": "object",
       "items": {
@@ -74,7 +46,6 @@
       }
     },
     "qualifications": {
-      "title": "Qualifications",
       "description": "Объект описывает решения тендерного комитета, вынесенные в отношении выражений заинтересованности и/или заявки на участие, полученные от экономических агентов в отношении данного контрактного процесса",
       "type": "array",
       "items": {
@@ -281,6 +252,7 @@
       }
     },
     "Award": {
+      "title":"Оценочный лист",
       "description": "Объект используется для описания результатов оценки тендерных предложений в данном контрактном процессе, а так же рещзультаты тендерной фазы контрактного процесса в целом: позитивные и негативные",
       "type": "object",
       "properties": {
@@ -365,7 +337,7 @@
       "$defs": {
         "award.id": {
           "type": "string",
-          "format":"uid"
+          "format": "uid"
         },
         "award.internalId": {
           "type": "string"
@@ -391,7 +363,7 @@
         },
         "cp.awardDecision": {
           "type": "object",
-          "title": "",
+          "title": "Оценочный лист",
           "description": "",
           "properties": {
             "id": {
