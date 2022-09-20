@@ -305,7 +305,7 @@
           "description": "Структурированный перечень ответов тендерного комитета, сформировавшего данный 'award', на вопросы, предписанные тендерным объявлением в отношении экономических агентов, связзанных с этим 'award' и/или их тендерного предложения",
           "type": "array",
           "items": {
-            "$ref": "#/definitions/RequirementResponse"
+            "$ref": "#/definitions/Award/$defs/award.requirementResponse"
           }
         },
         "relatedBid": {
@@ -361,6 +361,10 @@
           "description":"Документ, связанный с данным объектом 'award'",
           "$ref":"#/definitions/Metric/$defs/metric.instance.genericMetric"  
         },
+        "award.requirementResponse":{
+          "description":"Документ, связанный с данным объектом 'award'",
+          "$ref":"#/definitions/RequirementResponse/$defs/requirementResopnse.instance.awardResponse"  
+        },
         "cp.instance.awardDecision": {
           "type": "object",
           "description": "",
@@ -395,7 +399,7 @@
             "requirementResponses": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/RequirementResponse"
+                "$ref": "#/definitions/Award/$defs/award.requirementResponse"
               }
             },
             "documents": {
@@ -2326,26 +2330,34 @@
       "type": "object",
       "properties": {
         "name": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "description": "The name of the party being referenced. This must match the name of an entry in the parties section.",
-          "title": "Organization name"
+          "$ref":"#/definitions/OrganizationReference/$defs/organizationReference.name"
         },
         "id": {
-          "type": [
-            "string",
-            "integer"
-          ],
-          "description": "The id of the party being referenced. This must match the id of an entry in the parties section.",
-          "title": "Organization ID"
+          "$ref":"#/definitions/OrganizationReference/$defs/organizationReference.id"
         }
       },
-      "required": [
-        "id",
-        "name"
-      ]
+      "$defs":{
+        "organizationReference.name": {
+          "type":  "string",
+          "description": "The name of the party being referenced. This must match the name of an entry in the parties section."
+        },
+        "organizationReference.id": {
+          "type":  "string",
+          "description": "The id of the party being referenced. This must match the id of an entry in the parties section."
+        },
+        "organizationReference.instance.genericReference":{
+          "description":"",
+          "type":"object",
+          "properties":{
+            "name": {
+              "$ref":"#/definitions/OrganizationReference/$defs/organizationReference.name"
+            },
+            "id": {
+              "$ref":"#/definitions/OrganizationReference/$defs/organizationReference.id"
+            }  
+          }
+        }
+      }
     },
     "ParticipationFee": {
       "title": "Participation fee",
@@ -3002,58 +3014,117 @@
       }
     },
     "RequirementResponse": {
-      "title": "Requirement Response",
       "description": "An assertion that responds to a single requirement. A requirement response provides the value for the requirement and may provide the period to which it applies.",
       "type": "object",
       "properties": {
         "id": {
-          "description": "The identifier for this requirement response. It must be unique and cannot change within the Open Contracting Process it is part of (defined by a single ocid).",
-          "type": "string",
-          "mergeStrategy": "overwrite"
-        },
-        "title": {
-          "description": "Requirement response title",
-          "type": [
-            "string",
-            "null"
-          ],
-          "mergeStrategy": "ocdsVersion"
-        },
-        "description": {
-          "description": "Requirement response description",
-          "type": [
-            "string",
-            "null"
-          ],
-          "mergeStrategy": "ocdsVersion"
+          "$ref":"#/definitions/RequirementResponse/$defs/requirementResponse.id"
         },
         "value": {
+          "$ref":"#/definitions/RequirementResponse/$defs/requirementResponse.value"
+        },
+        "period": {
+          "$ref":"#/definitions/RequirementResponse/$defs/requirementResponse.period"
+        },
+        "requirement": {
+          "$ref":"#/definitions/RequirementResponse/$defs/requirementResponse.requirement"
+        },
+        "relatedTenderer": {
+          "$ref":"#/definitions/RequirementResponse/$defs/requirementResponse.relatedTenderer"
+        },
+        "relatedItem": {
+         "$ref":"#/definitions/RequirementResponse/$defs/requirementResponse.relatedItem"
+        },
+        "responder":{
+          "$ref":"#/definitions/RequirementResponse/$defs/requirementResponse.responder"
+        }
+      },
+      "$defs":{
+        "requirementResponse.id": {
+          "description": "The identifier for this requirement response. It must be unique and cannot change within the Open Contracting Process it is part of (defined by a single ocid).",
+          "type": "string"
+        },
+        "requirementResponse.value": {
           "description": "Requirement response value. The value must be of the type defined in the requirement.dataType field",
           "type": [
             "string",
             "integer",
             "number",
             "null"
-          ],
-          "mergeStrategy": "ocdsVersion"
+          ]
         },
-        "period": {
+        "requirementResponse.period": {
           "description": "The [Period] which the requirement response is applicable to",
           "$ref": "#/definitions/Period"
         },
-        "requirement": {
-          "title": "Related requirement",
+        "requirementResponse.requirement": {
           "description": "The [RequirementReference] of the requirement which the response is applicable to",
           "$ref": "#/definitions/RequirementReference"
         },
-        "relatedTenderer": {
-          "title": "Related tenderer",
+        "requirementResponse.relatedTenderer": {
           "description": "Where this requirement response relates to a tenderer and is provided by the buyer or procuring entity this field should be used as [OrganizationReference] the entry in the parties section for the tenderer the response relates to.",
-          "$ref": "#/definitions/OrganizationReference"
+          "$ref": "#/definitions/OrganizationReference/$defs/organizationReference.instance.genericReference"
         },
-        "relatedItem": {
-          "title": "Related Item",
-          "description": "Where this requirement response relates to an item and is provided by the buyer or procuring entity this field should be used to reference the id in the items' section for the item the response relates to."
+        "requirementResponse.relatedItem": {
+          "description": "Where this requirement response relates to an item and is provided by the buyer or procuring entity this field should be used to reference the id in the items' section for the item the response relates to.",
+          "type":"string"
+        },
+        "requirementResponse.responder":{
+          "description":"",
+          "$ref": "#/definitions/OrganizationReference/$defs/organizationReference.instance.genericReference"
+        },
+        "requirementResopnse.instance.awardResponse":{
+          "description":"",
+          "type":"object",
+          "properties":{
+            "id": {
+              "$ref":"#/definitions/RequirementResponse/$defs/requirementResponse.id"
+            },
+            "value": {
+              "$ref":"#/definitions/RequirementResponse/$defs/requirementResponse.value"
+            },
+            "requirement": {
+              "$ref":"#/definitions/RequirementResponse/$defs/requirementResponse.requirement"
+            },
+            "relatedTenderer": {
+              "$ref":"#/definitions/RequirementResponse/$defs/requirementResponse.relatedTenderer"
+            },
+            "responder":{
+              "$ref":"#/definitions/RequirementResponse/$defs/requirementResponse.responder"
+            }
+          }
+        },
+        "requirementResopnse.instance.espdResponse":{
+          "description":"",
+          "type":"object",
+          "properties":{
+            "id": {
+              "$ref":"#/definitions/RequirementResponse/$defs/requirementResponse.id"
+            },
+            "value": {
+              "$ref":"#/definitions/RequirementResponse/$defs/requirementResponse.value"
+            },
+            "requirement": {
+              "$ref":"#/definitions/RequirementResponse/$defs/requirementResponse.requirement"
+            },
+            "relatedTenderer": {
+              "$ref":"#/definitions/RequirementResponse/$defs/requirementResponse.relatedTenderer"
+            }  
+          }
+        },
+        "requirementResopnse.instance.bidResponse":{
+          "id": {
+              "$ref":"#/definitions/RequirementResponse/$defs/requirementResponse.id"
+            },
+            "value": {
+              "$ref":"#/definitions/RequirementResponse/$defs/requirementResponse.value"
+            },
+            "requirement": {
+              "$ref":"#/definitions/RequirementResponse/$defs/requirementResponse.requirement"
+            },
+            "relatedItem": {
+              "$ref":"#/definitions/RequirementResponse/$defs/requirementResponse.relatedItem"
+            }  
         }
       }
     },
