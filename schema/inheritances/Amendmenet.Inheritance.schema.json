@@ -6,7 +6,7 @@
     "cp.planning":{
       "description":"Аспекты плана закупочной процедуры",
       "type":"object",
-      "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/release-schema.json#/definitions/Amendment.test"
+      "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/release-schema.json#/definitions/Address.test"
     }
   }
 }
