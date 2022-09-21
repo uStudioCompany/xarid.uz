@@ -3,5 +3,5 @@
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type":"object",
   "description": "Базовая дефиниция объекта 'Amendment' согласно стандарнта OCDS",
-  "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/release-schema.json#/definitions/Address"
+  "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/release-schema.json#/definitions/Bid"
 }
