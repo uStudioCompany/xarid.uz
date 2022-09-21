@@ -360,7 +360,7 @@
           "description": "Метрики, закрепляемые данным 'award'",
           "type": "array",
           "items": {
-            "$ref": "#/definitions/Metric/$defs/metric.instance.awardMetric"
+            "$ref": "#/definitions/Metric/$defs/metric.instance.nonRequiredMetric"
           }
         },
         "relatedLots": {
@@ -446,7 +446,7 @@
             "agreedMetrics": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/Metric/$defs/metric.instance.awardMetric"
+                "$ref": "#/definitions/Metric/$defs/metric.instance.nonRequiredMetric"
               }
             },
             "requirementResponses": {
@@ -912,15 +912,13 @@
           }
         },
         "forecasts": {
-          "description": "",
           "type": "array",
+          "description":"",
           "items": {
             "$ref": "#/definitions/Metric"
           }
         },
         "amount": {
-          "title": "",
-          "description": "",
           "$ref": "#/definitions/Value"
         }
       },
@@ -933,6 +931,10 @@
           "description": "Описание источника финансирования в рамках бюдженой статьи",
           "type": "string"
         },
+        "budget.forecast":{
+          "description":"",
+          "$ref":"#/definitions/Metric/$defs/metric.instance.nonRequiredMetric"
+        },
         "budget.instance.cnPlanning": {
           "type": "object",
           "properties": {
@@ -940,7 +942,7 @@
               "description": "График оплаты товаров/работ/услуг",
               "type": "array",
               "items": {
-                "$ref": "#/definitions/BudgetBreakdown/$defs/cp.planning.budget.budgetBreakdown"
+                "$ref": "#/definitions/BudgetBreakdown/$defs/budgetBreakdown.instance.cnPlanningBudgetBreakdown"
               }
             }
           }
@@ -998,12 +1000,8 @@
           "description": "Классификации структурной единицы бюджета: должны описываться как \"ключ: значение\" гле ключомм является одно из значений код-листа",
           "type": "object"
         },
-        "cp.planning.budget.budgetBreakdown": {
-          "$schema": "http://json-schema.org/draft-07/schema#",
+        "budgetBreakdown.instance.cnPlanningBudgetBreakdown": {
           "type": "object",
-          "required": [
-            "id"
-          ],
           "properties": {
             "id": {
               "description": "",
@@ -1011,7 +1009,11 @@
             },
             "amount": {
               "description": "Финансовое выражение структурной единицы бюджета",
-              "$ref": "#/definitions/Value"
+              "$ref": "#/definitions/Value/$defs/value.instance.valueExcludingVAT"
+            },
+            "sourceParty":{
+              "description":"",
+              "$ref": "#/definitions/OrganizationReference/$defs/organizationReference.instance.genericReference"
             },
             "classifications": {
               "$ref": "#/definitions/BudgetBreakdown/$defs/budgetBreakdown.classifications"
@@ -1712,7 +1714,6 @@
       }
     },
     "Finance": {
-      "title": "Financing arrangements",
       "description": "This block can be used to model details of each of the parties financing a contract or project. Note: If the finance is syndicated, and all the parties to the syndication are known, this section may be further extended with an array of syndicate partners. No schema for this is currently provided.",
       "type": "object",
       "required": [
@@ -1720,30 +1721,41 @@
       ],
       "properties": {
         "id": {
-          "title": "ID",
-          "description": "An identifier for this financing arrangement.",
-          "type": "string",
-          "minLength": 1
+          "$ref":"#/definitions/Finance/$defs/finance.id"  
         },
         "value": {
-          "title": "Value",
-          "description": "The total value of this finance.",
-          "$ref": "#/definitions/Value"
+          "$ref":"#/definitions/Value"  
         },
         "period": {
-          "title": "Finance period",
-          "description": "What period is covered by this finance.",
-          "$ref": "#/definitions/Period"
+          "$ref":"#/definitions/Period"  
         },
         "classifications": {
-          "title": "Classifications",
+          "$ref":"#/definitions/Finance/$defs/finance.classifications"   
+        },
+        "financingParty": {
+          "$ref":"#/definitions/OrganizationReference"  
+        }
+      },
+      "$defs":{
+        "finance.id": {
+          "description": "An identifier for this financing arrangement.",
+          "type": "string"
+        },
+        "finance.value": {
+          "description": "The total value of this finance.",
+          "$ref": "#/definitions/Value/$defs/value.instance.valueExcludingVAT"
+        },
+        "finance.period": {
+          "description": "What period is covered by this finance.",
+          "$ref": "#/definitions/Period/$defs/period.instance.complete"
+        },
+        "finance.classifications": {
           "description": "Finance classifications must be provided as a set of key-value pairs, where the key is a dimension (or the label of a dimension) used in budget classification, and the value is the value of that dimension for this contracting process or specific contract (depending on the point within an OCDS file at which the classification is provided).",
           "type": "object"
         },
-        "financingParty": {
-          "title": "Financing party",
+        "finance.financingParty": {
           "description": "The party providing this financing arrangement.",
-          "$ref": "#/definitions/OrganizationReference"
+          "$ref": "#/definitions/OrganizationReference/$defs/organizationReference.instance.genericReference"
         }
       }
     },
@@ -2208,12 +2220,6 @@
         "description": {
           "$ref":"#/definitions/Metric/$defs/metric.description"
         },
-        "relatesTo": {
-          "$ref":"#/definitions/Metric/$defs/metric.relatesTo"
-        },
-        "relatedItem": {
-          "$ref":"#/definitions/Metric/$defs/metric.relatedItem"
-        },
         "observations": {
           "type": "array",
           "description": "An array of [Observation]: target or actual values for this metric.",
@@ -2235,16 +2241,7 @@
           "description": "A short description of the metric. This may include short details of measurement methods.",
           "type": "string"
         },
-        "metric.relatesTo": {
-          "description": "The schema element that the metric relates. For example observation may be defined against items or against lot.",
-          "type": "string",
-          "codelist": ""
-        },
-        "metric.relatedItem": {
-          "description": "This field must be populated with the id of the item in this tender section which the metric relates to",
-          "type": "string"
-        },
-        "metric.instance.awardMetric":{
+        "metric.instance.nonRequiredMetric":{
           "description":"",
           "type":"object",
           "properties":{
@@ -2255,7 +2252,23 @@
               "type":"array",
               "description":"",
               "items":{
-                "$ref":"#/definitions/Observation/$defs/observation.instance.awardObservation"
+                "$ref":"#/definitions/Observation/$defs/observation.instance.nonRelatedObservation"
+              }
+            }
+          }
+        },
+        "metric.instance.requiredMetric":{
+          "description":"",
+          "type":"object",
+          "properties":{
+            "id":{
+              "$ref":"#/definitions/Metric/$defs/metric.id"
+            },
+            "observations":{
+              "type":"array",
+              "description":"",
+              "items":{
+                "$ref":"#/definitions/Observation/$defs/observation.instance.nonRelatedObservation"
               }
             }
           }
@@ -2482,7 +2495,7 @@
           "description": "The RequirementReference of the requirement which the observation is applicable to",
           "$ref": "#/definitions/RequirementReference/$defs/requirementReference.instance.genericReference"
         },
-        "observation.instance.tenderObservation":{
+        "observation.instance.requiredObservation":{
           "type":"object",
           "description":"",
           "properties":{
@@ -2509,7 +2522,7 @@
             }  
           }
         },
-        "observation.instance.awardObservation":{
+        "observation.instance.nonRelatedObservation":{
           "type":"object",
           "description":"",
           "properties":{
