@@ -335,20 +335,20 @@
           "$ref": "#/definitions/Award/$defs/award.date"
         },
         "value": {
-          "$ref": "#/definitions/Value/$defs/value.instance.valueExtended"
+          "$ref": "#/definitions/Value"
         },
         "documents": {
           "description": "Массив, описывающий документы, относящиеся к данному 'award'",
           "type": "array",
           "items": {
-            "$ref": "#/definitions/Document/$defs/document.instance.genericDocument"
+            "$ref": "#/definitions/Document"
           }
         },
         "agreedMetrics": {
           "description": "Метрики, закрепляемые данным 'award'",
           "type": "array",
           "items": {
-            "$ref": "#/definitions/Metric/$defs/metric.instance.nonRequiredMetric"
+            "$ref": "#/definitions/Metric"
           }
         },
         "relatedLots": {
@@ -501,7 +501,7 @@
           "description": "Массив, содержащий детальную Информацию о применяемых критериях присуждения контракта",
           "type": "array",
           "items": {
-            "$ref": "#/definitions/AwardCriterion/$defs/awardCriterion.Instance.genericCriterion"
+            "$ref": "#/definitions/AwardCriterion"
           }
         }
       },
@@ -532,7 +532,7 @@
           "description": "Метрируемые значения данного критерия",
           "type": "array",
           "items": {
-            "$ref": "#/definitions/AwardCriterionNumber/$defs/awardCriterionNumber.instance.genericNumber"
+            "$ref": "#/definitions/AwardCriterionNumber"
           }
         }
       },
@@ -640,13 +640,13 @@
       "type": "object",
       "properties": {
         "accountIdentification": {
-          "$ref": "#/definitions/BankAccount/$defs/bankAccount.accountIdentification"
+          "$ref": "#/definitions/Classification"
         },
         "additionalAccountIndentifiers": {
           "description": "Массив объектов, дополнительно идентифицирующий/описывающих счет организации в банке",
           "type": "array",
           "items": {
-            "$ref": "#/definitions/BankAccount/$defs/bankAccount.additionalAccountIndentifier"
+            "$ref": "#/definitions/Classification"
           }
         }
       },
@@ -694,23 +694,23 @@
         "tenderers":{
           "type": "array",
           "items": {
-            "$ref": "#/definitions/Bid/$defs/bid.tenderer"
+            "$ref": "#/definitions/OrganizationReference"
           }  
         },
         "value":{
-          "$ref":"#/definitions/Bid/$defs/bid.value"
+          "$ref":"#/definitions/Value"
         },
         "items":{
           "type":"array",
           "items":{
-            "$ref":"#/definitions/Bid/$defs/bid.item"
+            "$ref":"#/definitions/Item"
           }
         },
         "documents":{
           "description": "Массив, описывающий документы, связазнные с данным тендерным предложением",
           "type": "array",
           "items": {
-            "$ref": "#/definitions/Bid/$defs/bid.document"
+            "$ref": "#/definitions/Document"
           }
         },
         "relatedLots":{
@@ -724,7 +724,7 @@
           "description": "Структурированный перечень ответов тендерного комитета, сформировавшего данный 'award', на вопросы, предписанные тендерным объявлением в отношении экономических агентов, связзанных с этим 'award' и/или их тендерного предложения",
           "type": "array",
           "items": {
-            "$ref": "#/definitions/Bid/$defs/bid.requirementResponse"
+            "$ref": "#/definitions/RequirementResponse"
           }
         }
       },
@@ -749,32 +749,9 @@
             "disqualified"
           ]
         },
-        "bid.tenderer": {
-          "description": "Перечень экономических операторов, связных с данным тендерным предложением, указанных в виде 'organization references'",
-          "$ref": "#/definitions/OrganizationReference/$defs/organizationReference.instance.genericReference"
-        },
-        "bid.value": {
-          "title": "Value",
-          "description": "Финансовое значение тендерного предложения",
-          "$ref": "#/definitions/Value/$defs/value.instance.valueExcludingVAT"
-        },
-        "bid.document": {
-          "description": "Массив, описывающий документы, связазнные с данным тендерным предложением",
-          "$ref": "#/definitions/Document/$defs/document.instance.genericDocument"
-        },
         "bid.relatedLot": {
           "description":"",
           "type":"string"
-        },
-        "bid.requirementResponse": {
-          "description": "Структурированный ответ экономических операторов, подавших данное тендерное предложение, на требование, предписанное тендерным объявлением",
-          "type":"object",
-          "$ref": "#/definitions/RequirementResponse/$defs/requirementResponse.instance.bidResponse"
-        },
-        "bid.item":{
-          "description":"",
-          "type":"object",
-          "$ref":"#/definitions/Item/$defs/item.instance.bidItem"
         },
         "bid.instance.itemizedBid":{
           "description": "Объект, описывающий тендерное предложение",
@@ -792,23 +769,23 @@
             "tenderers":{
               "type": "array",
               "items": {
-                "$ref": "#/definitions/Bid/$defs/bid.tenderer"
+                "$ref": "#/definitions/OrganizationReference/$defs/organizationReference.instance.genericReference"
               }  
             },
             "value":{
-              "$ref":"#/definitions/Bid/$defs/bid.value"
+              "$ref":"#/definitions/Value/$defs/value.instance.valueExcludingVAT"
             },
             "items":{
               "type":"array",
               "items":{
-                "$ref":"#/definitions/Bid/$defs/bid.item"
+                "$ref":"#/definitions/Item/$defs/item.instance.bidItem"
               }
             },
             "documents":{
               "description": "Массив, описывающий документы, связазнные с данным тендерным предложением",
               "type": "array",
               "items": {
-                "$ref": "#/definitions/Bid/$defs/bid.document"
+                "$ref": "#/definitions/Document/$defs/document.instance.genericDocument"
               }
             },
             "relatedLots":{
@@ -822,55 +799,10 @@
               "description": "Структурированный перечень ответов тендерного комитета, сформировавшего данный 'award', на вопросы, предписанные тендерным объявлением в отношении экономических агентов, связзанных с этим 'award' и/или их тендерного предложения",
               "type": "array",
               "items": {
-                "$ref": "#/definitions/Bid/$defs/bid.requirementResponse"
+                "$ref": "#/definitions/RequirementResponse/$defs/requirementResponse.instance.bidResponse"
               }
             }
           }
-        },
-        "bid.instance.nonItemizedBid":{
-          "description": "Объект, описывающий тендерное предложение",
-          "type": "object",
-          "properties":{
-            "id":{
-              "$ref":"#/definitions/Bid/$defs/bid.id"
-            },
-            "date":{
-              "$ref":"#/definitions/Bid/$defs/bid.date"
-            },
-            "status":{
-              "$ref":"#/definitions/Bid/$defs/bid.status"
-            },
-            "tenderers":{
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/Bid/$defs/bid.tenderer"
-              }  
-            },
-            "value":{
-              "$ref":"#/definitions/Bid/$defs/bid.value"
-            },
-            "documents":{
-              "description": "Массив, описывающий документы, связазнные с данным тендерным предложением",
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/Bid/$defs/bid.document"
-              }
-            },
-            "relatedLots":{
-              "description": "Массив, описывающий идентификаторы лотов, с которыми связано данное тендерное предложение",
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/Bid/$defs/bid.relatedLot"
-              }
-            },
-            "requirementResponses":{
-              "description": "Структурированный перечень ответов тендерного комитета, сформировавшего данный 'award', на вопросы, предписанные тендерным объявлением в отношении экономических агентов, связзанных с этим 'award' и/или их тендерного предложения",
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/Bid/$defs/bid.requirementResponse"
-              }
-            }
-          }  
         }
       }
     },
