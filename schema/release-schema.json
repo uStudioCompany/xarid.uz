@@ -132,7 +132,7 @@
         "addressDetails": {
           "description": "Детальная информация о кодовой информации, описывающей ключевые адресные данные",
           "type": "object",
-          "$ref": "#/definitions/AddressDetails/$defs/addressDetails.instance.genericDetails"
+          "$ref": "#/definitions/AddressDetails"
         }
       },
       "$defs": {
@@ -195,43 +195,31 @@
       "type": "object",
       "properties": {
         "countryDetails": {
-          "$ref": "#/definitions/AddressDetails/$defs/addressDetails.countryDetails"
+          "$ref": "#/definitions/Classification"
         },
         "regionDetails": {
-          "$ref": "#/definitions/AddressDetails/$defs/addressDetails.regionDetails"
+          "$ref": "#/definitions/Classification"
         },
         "localityDetails": {
-          "$ref": "#/definitions/AddressDetails/$defs/addressDetails.localityDetails"
+          "$ref": "#/definitions/Classification"
         }
       },
       "$defs":{
-        "addressDetails.countryDetails": {
-          "description": "Кодовая классификация страны согласно 'iso-alpha2'",
-          "type": "object",
-          "$ref": "#/definitions/Classification/$defs/classification.instance.genericClassification"
-        },
-        "addressDetails.regionDetails": {
-          "description": "Кодовая классификация региона согласно 'iso-alpha2'",
-          "type": "object",
-          "$ref": "#/definitions/Classification/$defs/classification.instance.genericClassification"
-        },
-        "addressDetails.localityDetails": {
-          "description": "Кодовая классификация населенного пункта согласно 'UN/LOCDE'",
-          "type": "object",
-          "$ref": "#/definitions/Classification/$defs/classification.instance.genericClassification"
-        },
         "addressDetails.instance.genericDetails":{
           "description": "Детальная информация о кодовой информации, описывающей ключевые адресные данные",
           "type": "object",
           "properties": {
             "countryDetails": {
-              "$ref": "#/definitions/AddressDetails/$defs/addressDetails.countryDetails"
+              "description": "Кодовая классификация страны согласно 'iso-alpha2'",
+              "$ref": "#/definitions/Classification/$defs/classification.instance.genericClassification"
             },
             "regionDetails": {
-              "$ref": "#/definitions/AddressDetails/$defs/addressDetails.regionDetails"
+              "description": "Кодовая классификация региона согласно 'iso-alpha2'",
+              "$ref": "#/definitions/Classification/$defs/classification.instance.genericClassification"
             },
             "localityDetails": {
-              "$ref": "#/definitions/AddressDetails/$defs/addressDetails.localityDetails"
+              "description": "Кодовая классификация населенного пункта согласно 'UN/LOCDE'",
+              "$ref": "#/definitions/Classification/$defs/classification.instance.genericClassification"
             }
           }  
         }
