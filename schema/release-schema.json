@@ -851,10 +851,6 @@
           "description": "Описание источника финансирования в рамках бюдженой статьи",
           "type": "string"
         },
-        "budget.forecast":{
-          "description":"",
-          "$ref":"#/definitions/Metric/$defs/metric.instance.nonRequiredMetric"
-        },
         "budget.instance.cnPlanning": {
           "type": "object",
           "properties": {
@@ -864,6 +860,17 @@
               "items": {
                 "$ref": "#/definitions/BudgetBreakdown/$defs/budgetBreakdown.instance.cnPlanningBudgetBreakdown"
               }
+            },
+            "finance":{
+              "$ref":"#/definitions/Finance/$defs/finance.instance.genericFinance"  
+            }
+          }
+        },
+        "budget.instance.eiPlanning": {
+          "type": "object",
+          "properties": {
+            "amount":{
+              "$ref":"#/definitions/Value/$defs/value.instance.valueExcludingVAT"  
             }
           }
         }
@@ -1636,9 +1643,6 @@
     "Finance": {
       "description": "This block can be used to model details of each of the parties financing a contract or project. Note: If the finance is syndicated, and all the parties to the syndication are known, this section may be further extended with an array of syndicate partners. No schema for this is currently provided.",
       "type": "object",
-      "required": [
-        "id"
-      ],
       "properties": {
         "id": {
           "$ref":"#/definitions/Finance/$defs/finance.id"  
@@ -1661,21 +1665,30 @@
           "description": "An identifier for this financing arrangement.",
           "type": "string"
         },
-        "finance.value": {
-          "description": "The total value of this finance.",
-          "$ref": "#/definitions/Value/$defs/value.instance.valueExcludingVAT"
-        },
-        "finance.period": {
-          "description": "What period is covered by this finance.",
-          "$ref": "#/definitions/Period/$defs/period.instance.complete"
-        },
         "finance.classifications": {
           "description": "Finance classifications must be provided as a set of key-value pairs, where the key is a dimension (or the label of a dimension) used in budget classification, and the value is the value of that dimension for this contracting process or specific contract (depending on the point within an OCDS file at which the classification is provided).",
           "type": "object"
         },
-        "finance.financingParty": {
-          "description": "The party providing this financing arrangement.",
-          "$ref": "#/definitions/OrganizationReference/$defs/organizationReference.instance.genericReference"
+        "finance.instance.genericFinance":{
+          "description":"",
+          "type":"object",
+          "properties":{
+            "id": {
+              "$ref":"#/definitions/Finance/$defs/finance.id"  
+            },
+            "value": {
+              "$ref":"#/definitions/Value/$defs/value.instance.valueExcludingVAT"  
+            },
+            "period": {
+              "$ref":"#/definitions/Period/$defs/period.instance.complete"  
+            },
+            "classifications": {
+              "$ref":"#/definitions/Finance/$defs/finance.classifications"   
+            },
+            "financingParty": {
+              "$ref": "#/definitions/OrganizationReference/$defs/organizationReference.instance.genericReference"  
+            }  
+          }
         }
       }
     },
