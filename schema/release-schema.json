@@ -2757,6 +2757,7 @@
     "Observation": {
       "title": "Observation",
       "description": "An actual or target observation. Observations should include either a value (for financial metrics) or measure (for other metrics). ",
+      "type":"object",
       "properties": {
         "id": {
           "$ref":"#/definitions/Observation/$defs/observation.id"
