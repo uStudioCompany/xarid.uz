@@ -950,12 +950,34 @@
       }
     },
     "BusinessFunction": {
-      "title": "BusinessFunction",
       "description": "Бизнес-функция, определяющая/описываюшая полномочия представителя юридического лица-участника контрактного процесса",
       "type": "object",
       "properties": {
         "type": {
-          "title": "Type",
+          "$ref":"#/definitions/BusinessFunction/$defs/businessFunction.type"  
+        },
+        "jobTitle": {
+          "description": "Описание выполняемой функции",
+          "type": "object",
+          "$ref": "#/definitions/Classification"
+        },
+        "period": {
+          "description": "Период актуальности функции",
+          "type": "object",
+          "$ref": "#/definitions/Period"
+        },
+        "documents": {
+          "descriptiopn": "Массив документов, связанных с описанием/подтверждением данной функции",
+          "type": "array",
+          "items": [
+            {
+              "$ref": "#/definitions/Document"
+            }
+          ]
+        }
+      },
+      "$defs":{
+        "businessFunction.type":{
           "description": "Business function type accodring to the [Codelists#Business function types]",
           "type": "string",
           "codelist": "businessFunctionTypes.csv",
@@ -967,29 +989,35 @@
             "financialEvaluator",
             "legalEvaluator",
             "committeeMember"
-          ]
+          ]  
         },
-        "jobTitle": {
-          "title": "Job title",
-          "description": "Описание выполняемой функции",
+        "businessFunction.instance.genericFunction":{
+          "description": "Бизнес-функция, определяющая/описываюшая полномочия представителя юридического лица-участника контрактного процесса",
           "type": "object",
-          "$ref": "#/definitions/Classification"
-        },
-        "period": {
-          "title": "Period",
-          "description": "Период актуальности функции",
-          "type": "object",
-          "$ref": "#/definitions/Period"
-        },
-        "documents": {
-          "title": "Documents",
-          "descriptiopn": "Массив документов, связанных с описанием/подтверждением данной функции",
-          "type": "array",
-          "items": [
-            {
-              "$ref": "#/definitions/Document"
-            }
-          ]
+          "properties":{
+            "type": {
+              "$ref":"#/definitions/BusinessFunction/$defs/businessFunction.type"  
+            },
+            "jobTitle": {
+              "description": "Описание выполняемой функции",
+              "type": "object",
+              "$ref": "#/definitions/Classification/$defs/classification.instance.genericClassification"
+            },
+            "period": {
+              "description": "Период актуальности функции",
+              "type": "object",
+              "$ref": "#/definitions/Period/$defs/period.instance.startPoint"
+            },
+            "documents": {
+              "descriptiopn": "Массив документов, связанных с описанием/подтверждением данной функции",
+              "type": "array",
+              "items": [
+                {
+                  "$ref": "#/definitions/Document/$defs/document.instance.genericDocument"
+                }
+              ]
+            }    
+          }
         }
       }
     },
@@ -1049,136 +1077,162 @@
       }
     },
     "Coefficient": {
-      "title": "Coefficient",
       "description": "A coefficient applied in case of the value of prescribed attribute matches",
       "type": "object",
       "properties": {
         "id": {
-          "title": "Identifier",
-          "description": "An identifier for this coefficient.",
-          "type": [
-            "integer",
-            "string"
-          ]
+          "$ref":"#/definitions/Coefficient/$defs/coefficient.id"
         },
         "value": {
-          "title": "Requirement value",
-          "description": "Value of related 'requirement' or one of available 'options' if applicable received through 'requirementResponse'",
-          "type": [
-            "integer",
-            "number",
-            "null"
-          ]
+          "$ref":"#/definitions/Coefficient/$defs/coefficient.value"
         },
         "minValue": {
-          "title": "Inducative minimum requirement value",
-          "description": "Indicative minimum value of related 'requirement' or one of available 'options' if applicable received through 'requirementResponse'",
-          "type": [
-            "integer",
-            "number",
-            "null"
-          ]
+          "$ref":"#/definitions/Coefficient/$defs/coefficient.minValue"
         },
         "maxValue": {
-          "title": "Indicative maximum value",
-          "description": "Indicative maximum value of related 'requirement' or one of available 'options' if applicable received through 'requirementResponse'",
-          "type": [
-            "integer",
-            "number",
-            "null"
-          ]
+          "$ref":"#/definitions/Coefficient/$defs/coefficient.maxValue"
         },
         "period": {
-          "title": "Period",
           "description": "Used to specify a particular [Period] the conversion and its coefficients are applies to",
           "$ref": "#/definitions/Period"
         },
         "coefficient": {
-          "title": "Coefficient",
+          "$ref":"#/definitions/Coefficient/$defs/coefficient.coefficient"
+        }
+      },
+      "$defs":{
+        "coefficient.id": {
+          "description": "An identifier for this coefficient.",
+          "type":  "string"
+        },
+        "coefficient.value": {
+          "description": "Value of related 'requirement' or one of available 'options' if applicable received through 'requirementResponse'",
+          "type": "number"
+        },
+        "coefficient.minValue": {
+          "description": "Indicative minimum value of related 'requirement' or one of available 'options' if applicable received through 'requirementResponse'",
+          "type": "number"
+        },
+        "coefficient.maxValue": {
+          "description": "Indicative maximum value of related 'requirement' or one of available 'options' if applicable received through 'requirementResponse'",
+          "type": "number"
+        },
+        "coefficient.coefficient": {
           "description": "Precise value that has to be applied for conversion in specific case",
-          "type": [
-            "integer",
-            "number",
-            "null"
-          ]
+          "type": "number"
+        },
+        "coefficient.instance.genericCoefficient":{
+          "description": "A coefficient applied in case of the value of prescribed attribute matches",
+          "type": "object",
+          "properties":{
+            "id":{
+              "$ref":"#/definitions/Coefficient/$defs/coefficient.id"
+            },
+            "value":{
+              "$ref":"#/definitions/Coefficient/$defs/coefficient.value"
+            },
+            "minValue":{
+              "$ref":"#/definitions/Coefficient/$defs/coefficient.minValue"
+            },
+            "maxValue":{
+              "$ref":"#/definitions/Coefficient/$defs/coefficient.maxValue"
+            },
+            "period":{
+              "description": "Used to specify a particular [Period] the conversion and its coefficients are applies to",
+              "$ref": "#/definitions/Period/$defs/period.instance.complete"
+            },
+            "coefficient":{
+              "$ref":"#/definitions/Coefficient/$defs/coefficient.coefficient"
+            }
+          }
         }
       }
     },
     "ContactPoint": {
-      "title": "Contact point",
       "description": "ОБъект описывающий физическое лицо-предствителя либо департамент, представляющий юридическое лицо в рамках контрактного процесса. ",
       "type": "object",
       "properties": {
         "id": {
-          "title": "ID",
+          "$ref":"#/definitions/ContactPoint/$defs/contactPoint.id"
+        },
+        "name": {
+          "$ref":"#/definitions/ContactPoint/$defs/contactPoint.name"
+        },
+        "email": {
+          "$ref":"#/definitions/ContactPoint/$defs/contactPoint.email"
+        },
+        "telephone": {
+          "$ref":"#/definitions/ContactPoint/$defs/contactPoint.telephone"
+        }
+      },
+      "$defs": {
+        "contactPoint.id": {
           "description": "Легальный идентификатор физического лица / код департамента",
           "type": "string"
         },
-        "name": {
-          "title": "Name",
+        "contactPoint.name": {
           "description": "Имя физического лица / название департамента",
           "type": "string"
         },
-        "email": {
-          "title": "Email",
+        "contactPoint.email": {
           "description": "Адрес электронной почты физизческого лица / департамента",
           "type": "string"
         },
-        "telephone": {
-          "title": "Telephone",
+        "contactPoint.telephone": {
           "description": "Контакный номер телефона физического лица / департамента",
           "type": "string"
+        },
+        "contactPoint.instance.genericPoint":{
+          "description": "ОБъект описывающий физическое лицо-предствителя либо департамент, представляющий юридическое лицо в рамках контрактного процесса. ",
+          "type": "object",
+          "properties": {
+            "id": {
+              "$ref":"#/definitions/ContactPoint/$defs/contactPoint.id"
+            },
+            "name": {
+              "$ref":"#/definitions/ContactPoint/$defs/contactPoint.name"
+            },
+            "email": {
+              "$ref":"#/definitions/ContactPoint/$defs/contactPoint.email"
+            },
+            "telephone": {
+              "$ref":"#/definitions/ContactPoint/$defs/contactPoint.telephone"
+            }  
+          }    
         }
       }
     },
     "Contract": {
-      "title": "Contract",
       "description": "Объект, описывающий контракт, заключенный в результате контрактного процесса",
       "type": "object",
       "properties": {
         "id": {
-          "title": "Contract ID",
-          "description": "The identifier for this contract. It must be unique and cannot change within its Open Contracting Process (defined by a single ocid).",
-          "type": "string"
+          "$ref":"#/definitions/Contract/$defs/contract.id"  
         },
         "internalId": {
-          "title": "",
-          "description": "",
-          "type": "string"
+          "$ref":"#/definitions/Contract/$defs/contract.internalId"
         },
         "awardID": {
-          "title": "Award ID",
-          "description": "The award.id against which this contract is being issued.",
-          "type": "string"
+          "$ref":"#/definitions/Contract/$defs/contract.awardID"
         },
         "extendsContractID": {
-          "title": "Extends contract ID",
-          "description": "If this contract extends or amends a previously issued contract, then the contract.id value for the extended/amended contract can be provided here.",
-          "type": "string"
+          "$ref":"#/definitions/Contract/$defs/contract.extendsContractID"
         },
         "description": {
-          "title": "Contract description",
-          "description": "Contract description",
-          "type": "string"
+          "$ref":"#/definitions/Contract/$defs/contract.description"
         },
         "status": {
-          "title": "Contract status",
-          "description": "The current status of the contract drawn from the codelist",
-          "type": "string"
+          "$ref":"#/definitions/Contract/$defs/contract.status"
         },
         "statusDetails": {
-          "title": "",
-          "description": "",
-          "type": "string"
+          "$ref":"#/definitions/Contract/$defs/contract.statusDetails"
         },
         "buyer": {
-          "title": "",
           "description": "",
           "type": "object",
           "$ref": "#/definitions/OrganizationReference"
         },
         "suppliers": {
-          "title": "",
           "description": "",
           "type": "array",
           "items": {
@@ -1186,17 +1240,14 @@
           }
         },
         "period": {
-          "title": "Period",
           "description": "The start and end date for the contract.",
           "$ref": "#/definitions/Period"
         },
         "value": {
-          "title": "Value",
           "description": "The total value of this contract. A negative value indicates that the contract will involve payments from the supplier to the buyer (commonly used in concession contracts).",
           "$ref": "#/definitions/Value"
         },
         "items": {
-          "title": "Items contracted",
           "description": "The goods, services, and any intangible outcomes in this contract. Note: If the items are the same as the award do not repeat.",
           "type": "array",
           "items": {
@@ -1204,19 +1255,12 @@
           }
         },
         "dateSigned": {
-          "title": "Date signed",
-          "description": "The date the contract was signed. In the case of multiple signatures, the date of the last signature.",
-          "type": "string",
-          "format": "date-time"
+          "$ref":"#/definitions/Contract/$defs/contract.dateSigned"  
         },
         "date": {
-          "title": "",
-          "description": "",
-          "type": "string",
-          "format": "date-time"
+          "$ref":"#/definitions/Contract/$defs/contract.date"  
         },
         "documents": {
-          "title": "Documents",
           "description": "All documents and attachments related to the contract, including any notices.",
           "type": "array",
           "items": {
@@ -1224,12 +1268,10 @@
           }
         },
         "implementation": {
-          "title": "Implementation",
           "description": "Information related to the implementation of the contract in accordance with the obligations laid out therein.",
           "$ref": "#/definitions/Implementation"
         },
         "relatedProcesses": {
-          "title": "Related processes",
           "description": "If this process is followed by one or more contracting processes, represented under a separate open contracting identifier (ocid) then details of the related process can be provided here. This is commonly used to point to subcontracts, or to renewal and replacement processes for this contract.",
           "type": "array",
           "items": {
@@ -1237,23 +1279,13 @@
           }
         },
         "milestones": {
-          "title": "Contract milestones",
           "description": "A list of milestones associated with the finalisation of this contract.",
           "type": "array",
           "items": {
             "$ref": "#/definitions/Milestone"
           }
         },
-        "amendments": {
-          "title": "Amendments",
-          "description": "A contract amendment is a formal change to, or extension of, a contract, and generally involves the publication of a new contract notice/release, or some other documents detailing the change. The rationale and a description of the changes made can be provided here.",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/Amendment"
-          }
-        },
         "agreedMetrics": {
-          "title": "Agreed metrics",
           "description": "Any target metrics set out as part of the contract documents.",
           "type": "array",
           "items": {
@@ -1261,7 +1293,6 @@
           }
         },
         "finance": {
-          "title": "Finance",
           "description": "An array with details of each source of finance arranged for this contract.",
           "type": "array",
           "items": {
@@ -1269,37 +1300,207 @@
           }
         },
         "contractTerms": {
-          "title": "Contract terms",
           "description": "Information about the terms governing the future contracts from the procedure.",
           "$ref": "#/definitions/ContractTerms"
+        }
+      },
+      "$defs":{
+        "contract.id": {
+          "description": "The identifier for this contract. It must be unique and cannot change within its Open Contracting Process (defined by a single ocid).",
+          "type": "string"
+        },
+        "contract.internalId": {
+          "description": "",
+          "type": "string"
+        },
+        "contract.awardID": {
+          "description": "The award.id against which this contract is being issued.",
+          "type": "string"
+        },
+        "contract.extendsContractID": {
+          "description": "If this contract extends or amends a previously issued contract, then the contract.id value for the extended/amended contract can be provided here.",
+          "type": "string"
+        },
+        "contract.description": {
+          "description": "Contract description",
+          "type": "string"
+        },
+        "contract.status": {
+          "description": "The current status of the contract drawn from the codelist",
+          "type": "string"
+        },
+        "contract.statusDetails": {
+          "description": "",
+          "type": "string"
+        },
+        "contract.dateSigned": {
+          "description": "The date the contract was signed. In the case of multiple signatures, the date of the last signature.",
+          "type": "string",
+          "format": "date-time"
+        },
+        "contract.date": {
+          "description": "",
+          "type": "string",
+          "format": "date-time"
+        },
+        "contract.instance.regularContract":{
+          "type":"object",
+          "description":"",
+          "properties":{
+            "id": {
+              "$ref":"#/definitions/Contract/$defs/contract.id"  
+            },
+            "internalId": {
+              "$ref":"#/definitions/Contract/$defs/contract.internalId"
+            },
+            "awardID": {
+              "$ref":"#/definitions/Contract/$defs/contract.awardID"
+            },
+            "extendsContractID": {
+              "$ref":"#/definitions/Contract/$defs/contract.extendsContractID"
+            },
+            "description": {
+              "$ref":"#/definitions/Contract/$defs/contract.description"
+            },
+            "status": {
+              "$ref":"#/definitions/Contract/$defs/contract.status"
+            },
+            "statusDetails": {
+              "$ref":"#/definitions/Contract/$defs/contract.statusDetails"
+            },
+            "buyer": {
+              "description": "",
+              "type": "object",
+              "$ref": "#/definitions/OrganizationReference/$defs/organizationReference.instance.genericReference"
+            },
+            "suppliers": {
+              "description": "",
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/OrganizationReference/$defs/organizationReference.instance.genericReference"
+              }
+            },
+            "period": {
+              "description": "The start and end date for the contract.",
+              "oneOf":[
+                {
+                  "$ref": "#/definitions/Period/$defs/period.instance.complete"
+                },
+                {
+                  "$ref": "#/definitions/Period/$defs/period.instance.durationInDays"
+                }
+              ]
+            },
+            "value": {
+              "description": "The total value of this contract. A negative value indicates that the contract will involve payments from the supplier to the buyer (commonly used in concession contracts).",
+              "$ref": "#/definitions/Value/$defs/value.instance.valueExtended"
+            },
+            "items": {
+              "description": "The goods, services, and any intangible outcomes in this contract. Note: If the items are the same as the award do not repeat.",
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Item/$defs/item.instance.contractItem"
+              }
+            },
+            "dateSigned": {
+              "$ref":"#/definitions/Contract/$defs/contract.dateSigned"    
+            },
+            "date": {
+              "$ref":"#/definitions/Contract/$defs/contract.date"  
+            },
+            "documents": {
+              "description": "All documents and attachments related to the contract, including any notices.",
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Document/$defs/document.instance.genericDocument"
+              }
+            },
+            "implementation": {
+              "description": "Information related to the implementation of the contract in accordance with the obligations laid out therein.",
+              "$ref": "#/definitions/Implementation/$defs/implemantation.instance.regularContractImplementation"
+            },
+            "relatedProcesses": {
+              "description": "If this process is followed by one or more contracting processes, represented under a separate open contracting identifier (ocid) then details of the related process can be provided here. This is commonly used to point to subcontracts, or to renewal and replacement processes for this contract.",
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/RelatedProcess/$defs/relatedProcess.instance.genericProcess"
+              }
+            },
+            "milestones": {
+              "description": "A list of milestones associated with the finalisation of this contract.",
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Milestone/$defs/milestone.instance.noPeriodMilestone"
+              }
+            },
+            "agreedMetrics": {
+              "description": "Any target metrics set out as part of the contract documents.",
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Metric/$defs/metric.instance.nonRequiredMetric"
+              }
+            },
+            "finance": {
+              "description": "An array with details of each source of finance arranged for this contract.",
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Finance/$defs/finance.instance.genericFinance"
+              }
+            },
+            "contractTerms": {
+              "description": "Information about the terms governing the future contracts from the procedure.",
+              "$ref": "#/definitions/ContractTerms/$defs/contractTerms.instance.genericTerms"
+            }    
+          }
         }
       }
     },
     "ContractTerms": {
-      "title": "Contract terms",
       "description": "Information about the terms governing the future contracts.",
       "type": "object",
       "properties": {
         "performanceTerms": {
-          "title": "Terms performance",
-          "description": "The main information about the performance of the contract (e.g. intermediary deliverables, compensation for damages, intellectual property rights).",
-          "type": [
-            "string",
-            "null"
-          ]
+          "$ref":"#/definitions/ContractTerms/$defs/contractTerms.performanceTerms"
         },
         "financialTerms": {
-          "title": "Financial terms",
-          "description": "The main information about financing and payment and/or reference to any provisions that govern them.",
-          "type": [
-            "string",
-            "null"
-          ],
-          "minLength": 1
+          "$ref":"#/definitions/ContractTerms/$defs/contractTerms.financialTerms"
         },
         "financialTermsDetails": {
-          "title": "",
-          "description": ""
+          "type":"array",
+          "items":{
+            "$ref":"#/definitions/FinancialTermsDetail"
+          }
+        }
+      },
+      "$defs":{
+        "contractTerms.performanceTerms": {
+          "description": "The main information about the performance of the contract (e.g. intermediary deliverables, compensation for damages, intellectual property rights).",
+          "type": "string"
+        },
+        "contractTerms.financialTerms": {
+          "description": "The main information about financing and payment and/or reference to any provisions that govern them.",
+          "type": "string"
+        },
+        "contractTerms.financialTermsDetails": {
+          "description": "",
+          "type":"string",
+          "items":{
+            "$ref":"#/definitions/FinancialTermsDetail/$defs/financialTermsDetail.instance.genericDetail"
+          }
+        },
+        "contractTerms.instance.genericTerms":{
+          "performanceTerms": {
+            "$ref":"#/definitions/ContractTerms/$defs/contractTerms.performanceTerms"
+          },
+          "financialTerms": {
+            "$ref":"#/definitions/ContractTerms/$defs/contractTerms.financialTerms"
+          },
+          "financialTermsDetails": {
+            "type":"array",
+            "items":{
+              "$ref":"#/definitions/FinancialTermsDetail/$defs/financialTermsDetail.instance.genericDetail"
+            }
+          }  
         }
       }
     },
@@ -1693,41 +1894,115 @@
       }
     },
     "FinancialProgressBreakdown": {
-      "title": "Financial progress breakdown",
       "description": "This section allows a detailed breakdown of financial progress to be provided, each covering a particular periods, or allocating financial progress against particular funding sources and fiscal classifications.",
       "type": "object",
       "properties": {
         "id": {
-          "title": "Identifier",
-          "description": "An identifier for this particular financial progress breakdown entry.",
-          "type": [
-            "string",
-            "integer"
-          ]
+          "$ref":"#/definitions/FinancialProgressBreakdown/$defs/financialProgressBreakdown.id"
         },
         "description": {
-          "title": "Description",
-          "description": "A short free text description of this financial progress breakdown. This may be displayed in user interfaces to help users interpret this entry. This may be automatically generated from structured data or may be manually entered.",
-          "type": [
-            "string",
-            "null"
-          ]
+          "$ref":"#/definitions/FinancialProgressBreakdown/$defs/financialProgressBreakdown.description"
         },
         "period": {
           "$ref": "#/definitions/Period",
-          "title": "Budget period",
           "description": "The [Period] covered by this financial progress breakdown entry. This information may also be duplicated using classifications where relevant."
         },
         "classifications": {
-          "title": "Budget classifications",
-          "description": "Budget [Classification] must be provided as a set of key-value pairs, where the key is a dimension (or the label of a dimension) used in budget classification, and the value is the value of that dimension for this contracting process or specific contract (depending on the point within an OCDS file at which the classification is provided).",
-          "type": "object",
-          "$ref": "#/definitions/Classification"
+          "$ref":"#/definitions/FinancialProgressBreakdown/$defs/financialProgressBreakdown.classifications"
         },
         "measures": {
-          "title": "measures",
+          "$ref":"#/definitions/FinancialProgressBreakdown/$defs/financialProgressBreakdown.measures"
+        }
+      },
+      "$defs":{
+        "financialProgressBreakdown.id": {
+          "description": "An identifier for this particular financial progress breakdown entry.",
+          "type": "string"
+        },
+        "financialProgressBreakdown.description": {
+          "description": "A short free text description of this financial progress breakdown. This may be displayed in user interfaces to help users interpret this entry. This may be automatically generated from structured data or may be manually entered.",
+          "type": "string"
+        },
+        "financialProgressBreakdown.measures": {
           "description": "Measures must be provided as a set of key-value pairs, where the key should be the name of the measure used within a related Fiscal Data Package dataset or other budget and spending dataset. The value is the value of this measure when last updated, and must be provided as a number in the same default currency as any aggregate reported budget or spending figures.",
           "type": "object"
+        },
+        "financialProgressBreakdown.classifications": {
+          "description": "Budget [Classification] must be provided as a set of key-value pairs, where the key is a dimension (or the label of a dimension) used in budget classification, and the value is the value of that dimension for this contracting process or specific contract (depending on the point within an OCDS file at which the classification is provided).",
+          "type": "object"
+        },
+        "financialProgressBreakdown.instance.contractFinancialBreakdown":{
+          "type":"object",
+          "description":"",
+          "properties":{
+            "id": {
+              "$ref":"#/definitions/FinancialProgressBreakdown/$defs/financialProgressBreakdown.id"
+            },
+            "description": {
+              "$ref":"#/definitions/FinancialProgressBreakdown/$defs/financialProgressBreakdown.description"
+            },
+            "period": {
+              "$ref": "#/definitions/Period/$defs/period.instance.complete"
+            },
+            "classifications": {
+              "$ref":"#/definitions/FinancialProgressBreakdown/$defs/financialProgressBreakdown.classifications"
+            },
+            "measures": {
+              "$ref":"#/definitions/FinancialProgressBreakdown/$defs/financialProgressBreakdown.measures"
+            }
+          }
+        }
+      }
+    },
+    "FinancialTermsDetail":{
+      "description":"",
+      "type":"object",
+      "properties":{
+        "id":{
+          "$ref":"#/definitions/FinancialTermsDetail/$defs/financialTermsDetail.id"
+        },
+        "measure":{
+          "$ref":"#/definitions/FinancialTermsDetail/$defs/financialTermsDetail.measure"
+        },
+        "period":{
+          "description":"",
+          "$ref":"#/definitions/Period"
+        },
+        "classifications":{
+          "$ref":"#/definitions/FinancialTermsDetail/$defs/financialTermsDetail.classifications"
+        }
+      },
+      "$defs":{
+        "financialTermsDetail.id":{
+          "description":"",
+          "type":"string"
+        },
+        "financialTermsDetail.measure":{
+          "description":"",
+          "type":"string"
+        },
+        "financialTermsDetail.classifications":{
+          "description":"",
+          "type":"object"
+        },
+        "financialTermsDetail.instance.genericDetail":{
+          "type":"object",
+          "description":"",
+          "properties":{
+            "id":{
+              "$ref":"#/definitions/FinancialTermsDetail/$defs/financialTermsDetail.id"
+            },
+            "measure":{
+              "$ref":"#/definitions/FinancialTermsDetail/$defs/financialTermsDetail.measure"
+            },
+            "period":{
+              "description":"",
+              "$ref":"#/definitions/Period/$defs/period.instance.complete"
+            },
+            "classifications":{
+              "$ref":"#/definitions/FinancialTermsDetail/$defs/financialTermsDetail.classifications"
+            }  
+          }
         }
       }
     },
@@ -1809,53 +2084,41 @@
     },
     "Implementation": {
       "type": "object",
-      "title": "Implementation",
       "description": "Information during the performance / implementation stage of the contract.",
       "properties": {
         "transactions": {
-          "title": "Transactions",
           "description": "A list of the spending transactions made against this contract as an array of [Transaction]",
           "type": "array",
           "items": {
             "$ref": "#/definitions/Transaction"
-          },
-          "uniqueItems": true
+          }
         },
         "milestones": {
-          "title": "Milestones",
           "description": "A list of milestones associated with the implementation as an array of [Milestone]",
           "type": "array",
           "items": {
             "$ref": "#/definitions/Milestone"
-          },
-          "uniqueItems": true
+          }
         },
         "documents": {
-          "title": "Documents",
           "description": "Documents and reports that are part of the implementation as an array on [Document]",
           "type": "array",
           "items": {
             "$ref": "#/definitions/Document"
-          },
-          "uniqueItems": true
+          }
         },
         "financialProgress": {
-          "title": "Financial progress",
           "description": "The financial progress section allows high-level and detailed information on amounts committed or spent to date for this particular contract. This may be used alongside the transactions section, which allows for details of each individual payment to be recorded.",
           "type": "object",
           "properties": {
             "totalSpend": {
-              "title": "Total spend",
               "description": "The total spend on this contract at the date of last update published as [Value]",
               "$ref": "#/definitions/Value"
             },
             "measures": {
-              "title": "Measures",
-              "description": "An aggregated financial progress figures for this contract. Measures must be provided as a set of key-value pairs, where the key should be the name of the measure used within a related Fiscal Data Package dataset or other budget and spending dataset. The value is the value of this measure when last updated, and must be provided as a number in the same default currency as any aggregate reported budget or spending figures.",
-              "type": "object"
+              "$ref":"#/definitions/Implementation/$defs/implementation.financialProgress.measures"
             },
             "breakdown": {
-              "title": "Financial progress breakdown",
               "description": "This section contains a breakdown of financial progress, allowing various measures (amount invoiced, amount accrued, amount paid etc.) to be disaggregated by source, period and budget classification. Publishes as an array of [FinancialProgressBreakdown]",
               "type": "array",
               "items": {
@@ -1865,58 +2128,135 @@
           }
         },
         "endDate": {
-          "title": "End date",
-          "description": "The date when contract implementation ended. This must only be provided when contract implementation is complete. Where `implementation/endDate` varies from the anticipated `contract/period/endDate` an explanation of the variance should be provided in `implementation/endDateDetails`.",
-          "format": "date-time",
-          "type": [
-            "string",
-            "null"
-          ]
+          "$ref":"#/definitions/Implementation/$defs/implementation.endDate"
         },
         "endDateDetails": {
-          "title": "End date details",
-          "description": "Details related to the endDate. This may be a justification for the contract's completion date being different than in the original contract.",
-          "type": [
-            "string",
-            "null"
-          ]
+          "$ref":"#/definitions/Implementation/$defs/implementation.endDateDetails"
         },
         "finalValue": {
           "$ref": "#/definitions/Value",
-          "title": "Final value",
           "description": "The total value of all payments for a completed contract. This should only be provided when the final payment has been recorded. If `implementation/transactions` are used for this contract, this field should equal the sum of the `transaction/value/amount` fields. Where `finalValue/amount` varies from `contract/value/amount` an explanation of the variance should be provided in `finalValueDetails`. Publishes as [Value]"
         },
         "finalValueDetails": {
-          "title": "Final  value details",
-          "description": "Details related to the final value. This may be a justification for the completed contract's value being different than in the original contract.",
-          "type": [
-            "string",
-            "null"
-          ]
+          "$ref":"#/definitions/Implementation/$defs/implementation.finalValueDetails"
         },
         "performanceFailures": {
-          "title": "Performance failure disclosures",
           "description": "An array of [PerformanceFailure] disclosures, detailing performance failures for different periods and categories.",
           "type": "array",
           "items": {
             "$ref": "#/definitions/PerformanceFailure"
-          },
-          "uniqueItems": true
+          }
         },
         "metrics": {
           "type": "array",
-          "title": "Metrics",
           "description": "Reported results from the delivery of the contracted goods, works or services described with an array of [Metrics]",
           "items": {
             "$ref": "#/definitions/Metric"
-          },
-          "uniqueItems": true
+          }
         },
         "status": {
-          "title": "Implementation status",
+          "$ref":"#/definitions/Implementation/$defs/implementation.status"
+        }
+      },
+      "$defs":{
+        "implementation.financialProgress.measures": {
+          "description": "An aggregated financial progress figures for this contract. Measures must be provided as a set of key-value pairs, where the key should be the name of the measure used within a related Fiscal Data Package dataset or other budget and spending dataset. The value is the value of this measure when last updated, and must be provided as a number in the same default currency as any aggregate reported budget or spending figures.",
+          "type": "object"
+        },
+        "implementation.endDate": {
+          "description": "The date when contract implementation ended. This must only be provided when contract implementation is complete. Where `implementation/endDate` varies from the anticipated `contract/period/endDate` an explanation of the variance should be provided in `implementation/endDateDetails`.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "implementation.endDateDetails": {
+          "description": "Details related to the endDate. This may be a justification for the contract's completion date being different than in the original contract.",
+          "type": "string"
+        },
+        "implementation.finalValueDetails": {
+          "description": "Details related to the final value. This may be a justification for the completed contract's value being different than in the original contract.",
+          "type": "string"
+        },
+        "implementation.status": {
           "descrition": "The current status of the contract implementation based on the implementationStatuscodelist.",
           "type": "string",
           "codelist": "https://extensions.open-contracting.org/en/extensions/implementationStatus/master/codelists/"
+        },
+        "implemantation.instance.regularContractImplementation":{
+          "type":"object",
+          "description":"",
+          "properties":{
+            "transactions": {
+              "description": "A list of the spending transactions made against this contract as an array of [Transaction]",
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Transaction/$defs/transaction.instance.contractTransaction"
+              }
+            },
+            "milestones": {
+              "description": "A list of milestones associated with the implementation as an array of [Milestone]",
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Milestone/$defs/milestone.instance.noPeriodMilestone"
+              }
+            },
+            "documents": {
+              "description": "Documents and reports that are part of the implementation as an array on [Document]",
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Document/$defs/document.instance.genericDocument"
+              }
+            },
+            "financialProgress": {
+              "description": "The financial progress section allows high-level and detailed information on amounts committed or spent to date for this particular contract. This may be used alongside the transactions section, which allows for details of each individual payment to be recorded.",
+              "type": "object",
+              "properties": {
+                "totalSpend": {
+                  "description": "The total spend on this contract at the date of last update published as [Value]",
+                  "$ref": "#/definitions/Value/$defs/value.instance.valueExtended"
+                },
+                "measures": {
+                  "$ref":"#/definitions/Implementation/$defs/implementation.financialProgress.measures"
+                },
+                "breakdown": {
+                  "description": "This section contains a breakdown of financial progress, allowing various measures (amount invoiced, amount accrued, amount paid etc.) to be disaggregated by source, period and budget classification. Publishes as an array of [FinancialProgressBreakdown]",
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/FinancialProgressBreakdown/$defs/financialProgressBreakdown.instance.contractFinancialBreakdown"
+                  }
+                }
+              }
+            },
+            "endDate": {
+              "$ref":"#/definitions/Implementation/$defs/implementation.endDate"
+            },
+            "endDateDetails": {
+              "$ref":"#/definitions/Implementation/$defs/implementation.endDateDetails"
+            },
+            "finalValue": {
+              "$ref": "#/definitions/Value/$defs/value.instance.valueExtended",
+              "description": ""
+            },
+            "finalValueDetails": {
+              "$ref":"#/definitions/Implementation/$defs/implementation.finalValueDetails"
+            },
+            "performanceFailures": {
+              "description": "An array of [PerformanceFailure] disclosures, detailing performance failures for different periods and categories.",
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/PerformanceFailure/$defs/performanceFailure.instance.contractPerformanceFailure"
+              }
+            },
+            "metrics": {
+              "type": "array",
+              "description": "Reported results from the delivery of the contracted goods, works or services described with an array of [Metrics]",
+              "items": {
+                "$ref": "#/definitions/Metric/$defs/metric.instance.nonRequiredMetric"
+              }
+            },
+            "status": {
+              "$ref":"#/definitions/Implementation/$defs/implementation.status"
+            }    
+          }
         }
       }
     },
@@ -1965,13 +2305,13 @@
           "$ref": "#/definitions/Item/$defs/item.description"
         },
         "classification": {
-          "$ref": "#/definitions/Item/$defs/item.classification"
+          "$ref": "#/definitions/Classification"
         },
         "additionalClassifications": {
           "description": "An array of additional [Classification] for the item. This may also be used to present codes from an internal classification scheme.",
           "type": "array",
           "items": {
-            "$ref": "#/definitions/Item/$defs/item.additionalClassification"
+            "$ref": "#/definitions/Classification"
           }
         },
         "quantity": {
@@ -1980,7 +2320,7 @@
         "unit": {
           "description": "A description of the [Unit] in which the supplies, services or works are provided ",
           "type": "object",
-          "$ref": "#/definitions/Item/$defs/item.unit"
+          "$ref": "#/definitions/Unit"
         },
         "relatedLots": {
           "description": "If this item belongs to a lot, provide the identifier(s) of the related lot(s) here.",
@@ -1990,7 +2330,7 @@
           }
         },
         "deliveryAddress": {
-          "$ref": "#/definitions/Item/$defs/item.deliveryAddress"
+          "$ref": "#/definitions/Address"
         }
       },
       "$defs":{
@@ -2006,22 +2346,9 @@
           "description": "A description of the goods, services to be provided.",
           "type": "string"
         },
-        "item.classification": {
-          "description": "The primary [Classification] for the item",
-          "$ref": "#/definitions/Classification/$defs/classification.instance.genericClassification"
-        },
-        "item.additionalClassification": {
-          "description": "An array of additional [Classification] for the item. This may also be used to present codes from an internal classification scheme.",
-          "$ref": "#/definitions/Classification/$defs/classification.instance.genericClassification"
-        },
         "item.quantity": {
           "description": "The number of units required",
           "type": "number"
-        },
-        "item.unit": {
-          "description": "A description of the [Unit] in which the supplies, services or works are provided ",
-          "type": "object",
-          "$ref": "#/definitions/Unit/$defs/unit.instance.financialUnit"
         },
         "item.relatedLot": {
           "description": "If this item belongs to a lot, provide the identifier(s) of the related lot(s) here.",
@@ -2031,6 +2358,7 @@
           "description": "The [Address] to which, or where, goods or services related to this tender, contract or license will be delivered.",
           "$ref": "#/definitions/Address/$defs/address.instance.genericAddress"
         },
+        
         "item.instance.bidItem":{
           "type": "object",
           "description": "A good, service, or work to be contracted.",
@@ -2041,7 +2369,40 @@
             "unit": {
               "description": "A description of the [Unit] in which the supplies, services or works are provided ",
               "type": "object",
-              "$ref": "#/definitions/Item/$defs/item.unit"
+              "$ref": "#/definitions/Unit/$defs/unit.instance.financialUnit"
+            }
+          }    
+        },
+        "item.instance.contractItem":{
+          "type": "object",
+          "description": "A good, service, or work to be contracted.",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/Item/$defs/item.id"
+            },
+            "unit": {
+              "description": "A description of the [Unit] in which the supplies, services or works are provided ",
+              "type": "object",
+              "$ref": "#/definitions/Unit/$defs/unit.instance.financialUnit"
+            },
+            "internalId": {
+              "$ref": "#/definitions/Item/$defs/item.internalId"
+            },
+            "description": {
+              "$ref": "#/definitions/Item/$defs/item.description"
+            },
+            "classification": {
+              "$ref": "#/definitions/Classification/$defs/classification.instance.genericClassification"
+            },
+            "additionalClassifications": {
+              "description": "An array of additional [Classification] for the item. This may also be used to present codes from an internal classification scheme.",
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Classification/$defs/classification.instance.genericClassification"
+              }
+            },
+            "quantity": {
+              "$ref": "#/definitions/Item/$defs/item.quantity"
             }
           }    
         }
@@ -2214,113 +2575,148 @@
       "type": "object",
       "properties": {
         "id": {
-          "title": "ID",
-          "description": "A local identifier for this milestone, unique within this block. This field is used to keep track of multiple revisions of a milestone through the compilation from release to record mechanism.",
-          "type": [
-            "string",
-            "integer"
-          ]
+          "$ref":"#/definitions/Milestone/$defs/milestone.id"
         },
         "title": {
-          "title": "Title",
-          "description": "Milestone title",
-          "type": [
-            "string",
-            "null"
-          ]
+          "$ref":"#/definitions/Milestone/$defs/milestone.title"
         },
         "type": {
-          "title": "Milestone type",
-          "description": "The type of milestone, drawn from an extended [Codelists#Milestone types].",
-          "type": [
-            "string",
-            "null"
-          ],
-          "codelist": "(http://standard.open-contracting.org/1.1-dev/en/schema/codelists/#milestone-type)",
-          "opencodelist": true
+          "$ref":"#/definitions/Milestone/$defs/milestone.type"
         },
         "description": {
-          "title": "Description",
-          "description": "A description of the milestone.",
-          "type": [
-            "string",
-            "null"
-          ]
+          "$ref":"#/definitions/Milestone/$defs/milestone.description"
         },
         "code": {
-          "title": "Milestone code",
-          "description": "Milestone codes can be used to track specific events that take place for a particular kind of contracting process. For example, a code of 'approvalLetter' could be used to allow applications to understand this milestone represents the date an approvalLetter is due or signed. Milestone codes is an open codelist, and codes should be agreed amoungst data producers and the applications using that data.",
-          "type": [
-            "string",
-            "null"
-          ]
+          "$ref":"#/definitions/Milestone/$defs/milestone.code"
         },
         "dueDate": {
-          "title": "Due date",
-          "description": "The date the milestone is due.",
-          "type": [
-            "string",
-            "null"
-          ],
-          "format": "date-time"
+          "$ref":"#/definitions/Milestone/$defs/milestone.dueDate"
         },
         "dateMet": {
-          "format": "date-time",
-          "title": "Date met",
-          "description": "The date on which the milestone was met.",
-          "type": [
-            "string",
-            "null"
-          ]
+          "$ref":"#/definitions/Milestone/$defs/milestone.dateMet"
         },
         "period": {
-          "title": "",
           "description": "",
           "$ref": "#/definitions/Period"
         },
         "dateModified": {
-          "title": "Date modified",
-          "description": "The date the milestone was last reviewed or modified and the status was altered or confirmed to still be correct.",
-          "type": [
-            "string",
-            "null"
-          ],
-          "format": "date-time"
+          "$ref":"#/definitions/Milestone/$defs/milestone.dateModified"
         },
         "status": {
-          "title": "Status",
+          "$ref":"#/definitions/Milestone/$defs/milestone.status"
+        },
+        "relatedLots": {
+          "description": "If this milestone relates to a particular lot, provide the identifier(s) of the related lot(s) here.",
+          "type":  "array",
+          "items": {
+            "$ref": "#/definitions/Milestone/$defs/milestone.relatedLot"
+          }
+        },
+        "relatedParties": {
+          "description": "Parties that have a relationship with the milestone as an array of [OrganizationReference]",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OrganizationReference/$defs/organizationReference.instance.genericReference"
+          }
+        }
+      },
+      "$defs":{
+        "milestone.id": {
+          "description": "A local identifier for this milestone, unique within this block. This field is used to keep track of multiple revisions of a milestone through the compilation from release to record mechanism.",
+          "type": "string"
+        },
+        "milestone.title": {
+          "description": "Milestone title",
+          "type": "string"
+        },
+        "milestone.type": {
+          "description": "The type of milestone, drawn from an extended [Codelists#Milestone types].",
+          "type": "string",
+          "codelist": "(http://standard.open-contracting.org/1.1-dev/en/schema/codelists/#milestone-type)",
+          "opencodelist": true
+        },
+        "milestone.description": {
+          "description": "A description of the milestone.",
+          "type": "string"
+        },
+        "milestone.code": {
+          "description": "Milestone codes can be used to track specific events that take place for a particular kind of contracting process. For example, a code of 'approvalLetter' could be used to allow applications to understand this milestone represents the date an approvalLetter is due or signed. Milestone codes is an open codelist, and codes should be agreed amoungst data producers and the applications using that data.",
+          "type": "string"
+        },
+        "milestone.dueDate": {
+          "description": "The date the milestone is due.",
+          "type": "string",
+          "format": "date-time"
+        },
+        "milestone.dateMet": {
+          "format": "date-time",
+          "description": "The date on which the milestone was met.",
+          "type": "string"
+        },
+        "milestone.period": {
+          "description": "",
+          "$ref": "#/definitions/Period/$defs/period.instance.complete"
+        },
+        "milestone.dateModified": {
+          "description": "The date the milestone was last reviewed or modified and the status was altered or confirmed to still be correct.",
+          "type": "string",
+          "format": "date-time"
+        },
+        "milestone.status": {
           "description": "The status drawn from the codelist",
           "type": "string",
           "openCodelist": false
         },
-        "relatedLots": {
-          "title": "Related lot(s)",
+        "milestone.relatedLot": {
           "description": "If this milestone relates to a particular lot, provide the identifier(s) of the related lot(s) here.",
-          "type": [
-            "array"
-          ],
-          "items": {
-            "type": [
-              "string",
-              "null"
-            ]
-          }
+          "type": "string"
         },
-        "relatedParties": {
-          "title": "Related Parties",
-          "description": "Parties that have a relationship with the milestone as an array of [OrganizationReference]",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/OrganizationReference"
+        "milestone.instance.noPeriodMilestone":{
+          "type":"object",
+          "description":"",
+          "properties":{
+            "id": {
+              "$ref":"#/definitions/Milestone/$defs/milestone.id"
+            },
+            "title": {
+              "$ref":"#/definitions/Milestone/$defs/milestone.title"
+            },
+            "type": {
+              "$ref":"#/definitions/Milestone/$defs/milestone.type"
+            },
+            "description": {
+              "$ref":"#/definitions/Milestone/$defs/milestone.description"
+            },
+            "code": {
+              "$ref":"#/definitions/Milestone/$defs/milestone.code"
+            },
+            "dueDate": {
+              "$ref":"#/definitions/Milestone/$defs/milestone.dueDate"
+            },
+            "dateMet": {
+              "$ref":"#/definitions/Milestone/$defs/milestone.dateMet"
+            },
+            "dateModified": {
+              "$ref":"#/definitions/Milestone/$defs/milestone.dateModified"
+            },
+            "status": {
+              "$ref":"#/definitions/Milestone/$defs/milestone.status"
+            },
+            "relatedLots": {
+              "description": "If this milestone relates to a particular lot, provide the identifier(s) of the related lot(s) here.",
+              "type":  "array",
+              "items": {
+                "$ref": "#/definitions/Milestone/$defs/milestone.relatedLot"
+              }
+            },
+            "relatedParties": {
+              "description": "Parties that have a relationship with the milestone as an array of [OrganizationReference]",
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/OrganizationReference/$defs/organizationReference.instance.genericReference"
+              }
+            }
           }
-        },
-        "additionalInformation": {
-          "title": "Additional information",
-          "description": "Additional information about the milestone",
-          "type": [
-            "string",
-            "integer"
-          ]
         }
       }
     },
@@ -2666,65 +3062,83 @@
     },
     "PerformanceFailure": {
       "type": "object",
-      "title": "Performance failure disclosure",
       "description": "Details of the performance failures for a given period and category. Details of the associated penalties and abatements provided for in the contract, imposed and paid can also be provided.",
-      "required": [
-        "id"
-      ],
       "properties": {
         "id": {
-          "title": "Identifier",
-          "description": "A local identifier for this specific category and period of performance failure. This field is used to keep track of revisions of a charge across multiple OCDS releases.",
-          "type": "string"
+          "$ref":"#/definitions/PerformanceFailure/$defs/performanceFailure.id"
         },
         "period": {
-          "title": "Performance failure [Period]",
           "description": "The reporting period for these performance failures.",
-          "type": [
-            "object",
-            "null"
-          ],
           "$ref": "#/definitions/Period"
         },
         "category": {
-          "title": "Performance failure category",
-          "description": "The category into which these performance failures fall.",
-          "type": [
-            "string",
-            "null"
-          ]
+          "$ref":"#/definitions/PerformanceFailure/$defs/performanceFailure.category"
         },
         "events": {
-          "title": "Number of events",
-          "description": "The number of performance failures for the given period and category.",
-          "type": [
-            "number",
-            "null"
-          ]
+          "$ref":"#/definitions/PerformanceFailure/$defs/performanceFailure.events"
         },
         "penaltyContracted": {
-          "title": "Contracted penalty",
-          "description": "A free text description of the penalty or abatement provided for in the contract for this period, category and number of performance failures.",
-          "type": [
-            "string",
-            "null"
-          ]
+          "$ref":"#/definitions/PerformanceFailure/$defs/performanceFailure.penaltyContracted"
         },
         "penaltyImposed": {
-          "title": "Penalty imposed",
-          "description": "A free text description of the penalty or abatement imposed for this period, category and number of performance failures.",
-          "type": [
-            "string",
-            "null"
-          ]
+          "$ref":"#/definitions/PerformanceFailure/$defs/performanceFailure.penaltyImposed"
         },
         "penaltyPaid": {
-          "title": "Penalty paid",
+          "$ref":"#/definitions/PerformanceFailure/$defs/performanceFailure.penaltyPaid"
+        }
+      },
+      "$defs":{
+        "performanceFailure.id": {
+          "description": "A local identifier for this specific category and period of performance failure. This field is used to keep track of revisions of a charge across multiple OCDS releases.",
+          "type": "string"
+        },
+        "performanceFailure.category": {
+          "description": "The category into which these performance failures fall.",
+          "type": "string"
+        },
+        "performanceFailure.events": {
+          "description": "The number of performance failures for the given period and category.",
+          "type": "string"
+        },
+        "performanceFailure.penaltyContracted": {
+          "description": "A free text description of the penalty or abatement provided for in the contract for this period, category and number of performance failures.",
+          "type": "string"
+        },
+        "performanceFailure.penaltyImposed": {
+          "description": "A free text description of the penalty or abatement imposed for this period, category and number of performance failures.",
+          "type": "string"
+        },
+        "performanceFailure.penaltyPaid": {
           "description": "A yes/no field indicating whether the penalty imposed for this period, category and number of performance failures has been paid.",
-          "type": [
-            "boolean",
-            "null"
-          ]
+          "type":  "boolean"
+        },
+        "performanceFailure.instance.contractPerformanceFailure":{
+          "type":"object",
+          "description":"",
+          "properties":{
+            "id": {
+              "$ref":"#/definitions/PerformanceFailure/$defs/performanceFailure.id"
+            },
+            "period": {
+              "description": "The reporting period for these performance failures.",
+              "$ref": "#/definitions/Period/$defs/period.instance.complete"
+            },
+            "category": {
+              "$ref":"#/definitions/PerformanceFailure/$defs/performanceFailure.category"
+            },
+            "events": {
+              "$ref":"#/definitions/PerformanceFailure/$defs/performanceFailure.events"
+            },
+            "penaltyContracted": {
+              "$ref":"#/definitions/PerformanceFailure/$defs/performanceFailure.penaltyContracted"
+            },
+            "penaltyImposed": {
+              "$ref":"#/definitions/PerformanceFailure/$defs/performanceFailure.penaltyImposed"
+            },
+            "penaltyPaid": {
+              "$ref":"#/definitions/PerformanceFailure/$defs/performanceFailure.penaltyPaid"
+            } 
+          }
         }
       }
     },
@@ -3183,49 +3597,78 @@
       "title": "Related Process",
       "properties": {
         "uri": {
-          "format": "uri",
-          "description": "A URI pointing to an OCDS release or record for the related process. This should be a machine-readable release or record package containing the relevant ocid.",
-          "title": "Related process URI",
-          "type": [
-            "string",
-            "null"
-          ]
+          "$ref": "#/definitions/RelatedProcess/$defs/relatedProcess.uri"
         },
         "id": {
-          "type": [
-            "string"
-          ],
-          "description": "A local identifier for this relationship, unique within this array."
+          "$ref": "#/definitions/RelatedProcess/$defs/relatedProcess.id"
         },
         "relationship": {
           "items": {
-            "type": "string"
+            "$ref": "#/definitions/RelatedProcess/$defs/relatedProcess.relationship"
           },
           "description": "Specify the type of relationship using the [Codelists#Related processes relationships] codelist",
-          "title": "Relationship",
-          "type": [
-            "array",
-            "null"
-          ],
+          "type": "array",
           "codelist": "http://standard.open-contracting.org/1.1-dev/en/schema/codelists/#related-process",
           "opencodelist": true
         },
         "title": {
-          "description": "The title of the related process, where possible this field should match the tender/title field in the related process.",
-          "title": "Related process title",
-          "type": [
-            "string",
-            "null"
-          ]
+          "$ref": "#/definitions/RelatedProcess/$defs/relatedProcess.title"
         },
         "scheme": {
-          "title": "Scheme",
+          "$ref": "#/definitions/RelatedProcess/$defs/relatedProcess.scheme"
+        }
+      },
+      "$defs":{
+        "relatedProcess.uri": {
+          "format": "uri",
+          "description": "A URI pointing to an OCDS release or record for the related process. This should be a machine-readable release or record package containing the relevant ocid.",
+          "type": "string"
+        },
+        "relatedProcess.id": {
+          "type": "string",
+          "description": "A local identifier for this relationship, unique within this array."
+        },
+        "relatedProcess.relationship": {
+          "description": "Specify the type of relationship using the [Codelists#Related processes relationships] codelist",
+          "type": "string"
+        },
+        "relatedProcess.title": {
+          "description": "The title of the related process, where possible this field should match the tender/title field in the related process.",
+          "type": "string"
+        },
+        "relatedProcess.scheme": {
           "description": "The identification scheme used by this cross-reference from the related process scheme codelist codelist. When cross-referencing information also published using OCDS, an Open Contracting ID (ocid) should be used.",
           "type": "string",
           "enum": [
-            "ocid",
-            "ppid"
+            "ocid"
           ]
+        },
+        "relatedProcess.instance.genericProcess":{
+          "description":"",
+          "type":"object",
+          "propeprties":{
+            "uri": {
+              "$ref": "#/definitions/RelatedProcess/$defs/relatedProcess.uri"
+            },
+            "id": {
+              "$ref": "#/definitions/RelatedProcess/$defs/relatedProcess.id"
+            },
+            "relationship": {
+              "items": {
+                "$ref": "#/definitions/RelatedProcess/$defs/relatedProcess.relationship"
+              },
+              "description": "Specify the type of relationship using the [Codelists#Related processes relationships] codelist",
+              "type": "array",
+              "codelist": "http://standard.open-contracting.org/1.1-dev/en/schema/codelists/#related-process",
+              "opencodelist": true
+            },
+            "title": {
+              "$ref": "#/definitions/RelatedProcess/$defs/relatedProcess.title"
+            },
+            "scheme": {
+              "$ref": "#/definitions/RelatedProcess/$defs/relatedProcess.scheme"
+            }  
+          }
         }
       }
     },
@@ -4057,66 +4500,86 @@
     },
     "Transaction": {
       "type": "object",
-      "title": "Transaction information",
       "description": "A spending transaction related to the contracting process. Draws upon the data models of the Fiscal Data Package (http://fiscal.dataprotocols.org/) and the International Aid Transpareny Initiative (http://iatistandard.org/activity-standard/iati-activities/iati-activity/transaction/) and should be used to cross-reference to more detailed information held using a Fiscal Data Package, IATI file, or to provide enough information to allow a user to manually or automatically cross-reference with some other published source of transactional spending data.",
-      "required": [
-        "id"
-      ],
       "properties": {
         "id": {
-          "title": "ID",
-          "description": "A unique identifier for this transaction. This identifier should be possible to cross-reference against the provided data source. For IATI this is the transaction reference.",
-          "type": [
-            "string",
-            "integer"
-          ]
+          "$ref":"#/definitions/Transaction/$defs/transaction.id"  
         },
         "source": {
-          "title": "Data source",
-          "description": "Used to point either to a corresponding Fiscal Data Package, IATI file, or machine or human-readable source where users can find further information on the budget line item identifiers, or project identifiers, provided here.",
-          "type": [
-            "string",
-            "null"
-          ],
-          "format": "uri"
+          "$ref":"#/definitions/Transaction/$defs/transaction.source"   
         },
         "date": {
-          "title": "Date",
-          "description": "The date of the transaction",
-          "type": [
-            "string",
-            "null"
-          ],
-          "format": "date-time"
+          "$ref":"#/definitions/Transaction/$defs/transaction.date"   
         },
         "value": {
           "$ref": "#/definitions/Value",
-          "title": "Value",
           "description": "The [Value] of the transaction."
         },
         "payer": {
           "$ref": "#/definitions/OrganizationReference",
-          "title": "Payer",
           "description": "An [OrganizationReference] for the organization from which the funds in this transaction originate."
         },
         "payee": {
           "$ref": "#/definitions/OrganizationReference",
-          "title": "Payee",
           "description": "An [OrganizationReference] for the organization which receives the funds in this transaction."
         },
         "uri": {
-          "title": "Linked spending information",
-          "description": "A URI pointing directly to a machine-readable record about this spending transaction.",
-          "type": [
-            "string",
-            "null"
-          ],
-          "format": "uri"
+          "$ref":"#/definitions/Transaction/$defs/transaction.uri"   
         },
         "relatedImplementationMilestone": {
-          "title": "Related implementation milestone",
           "description": "A MilestoneReference to the milestone in the implementation section of OCDS to which this forecast, target or actual observation is related.",
           "$ref": "#/definitions/MilestoneReference"
+        }
+      },
+      "$defs":{
+        "transaction.id": {
+          "description": "A unique identifier for this transaction. This identifier should be possible to cross-reference against the provided data source. For IATI this is the transaction reference.",
+          "type": "string"
+        },
+        "transaction.source": {
+          "description": "Used to point either to a corresponding Fiscal Data Package, IATI file, or machine or human-readable source where users can find further information on the budget line item identifiers, or project identifiers, provided here.",
+          "type": "string",
+          "format": "uri"
+        },
+        "transaction.date": {
+          "description": "The date of the transaction",
+          "type": "string",
+          "format": "date-time"
+        },
+       "transaction.uri": {
+          "description": "A URI pointing directly to a machine-readable record about this spending transaction.",
+          "type": "string",
+          "format": "uri"
+        },
+        "transaction.instance.contractTransaction":{
+          "id": {
+            "$ref":"#/definitions/Transaction/$defs/transaction.id"  
+          },
+          "source": {
+            "$ref":"#/definitions/Transaction/$defs/transaction.source"   
+          },
+          "date": {
+            "$ref":"#/definitions/Transaction/$defs/transaction.date"   
+          },
+          "value": {
+            "$ref": "#/definitions/Value/$defs/value.instance.valueExtended",
+            "description": "The [Value] of the transaction."
+          },
+          "payer": {
+            "$ref": "#/definitions/OrganizationReference/$defs/organizationReference.instance.genericReference",
+            "description": "An [OrganizationReference] for the organization from which the funds in this transaction originate."
+          },
+          "payee": {
+            "$ref": "#/definitions/OrganizationReference/$defs/organizationReference.instance.genericReference",
+            "description": "An [OrganizationReference] for the organization which receives the funds in this transaction."
+          },
+          "uri": {
+            "$ref":"#/definitions/Transaction/$defs/transaction.uri"   
+          },
+          "relatedImplementationMilestone": {
+            "description": "A MilestoneReference to the milestone in the implementation section of OCDS to which this forecast, target or actual observation is related.",
+            "$ref": "#/definitions/MilestoneReference/$defs/milestoneReference.instance.genericReference"
+          }
         }
       }
     },
