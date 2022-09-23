@@ -3,15 +3,6 @@
   "type":"object",
   "$id":"https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/release-schema.json",
   "properties":{
-    "planning":{
-      "title":"Структура объекта planning",
-      "description":"Объект описывает индикативы, исползуемые для планирования исполнения будущего договора",
-      "type":"object",
-      "properties":{
-        "allOf":[
-          {"$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/release-schema.json#/definitions/Planning/$defs/planning.instance.cpPlanning"}
-        ]
-      }
-    }
+    "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/release-schema.json#/definitions/Planning/$defs/planning.instance.cpPlanning"
   }
 }
