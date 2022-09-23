@@ -4,6 +4,8 @@
   "$id":"https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/release-schema.json",
   "properties":{
     "planning":{
+      "title":"План закупочного проекта (план-график)",
+      "description":"Данная часть данных проекта формируется, начиная с этапа планирования закупки. Структура блока описывается таким способом",
       "type":"object",
       "properties":{
         "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/release-schema.json#/definitions/Planning/$defs/planning.instance.cpPlanning/properties"
