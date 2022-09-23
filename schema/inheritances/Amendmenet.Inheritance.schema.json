@@ -8,7 +8,7 @@
     "Регулярный закупочный контракт":{
       "description":"Лист, сформированный в отношении отдельного тендерного предложения, отражающий ход и суть решениея ЗО в отношении данного предложения",
       "type":"object",
-      "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/release-schema.json#/definitions/Contract/$defs/contract.instance.regularContract"
+      "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/release-schema.json#/definitions/Contract/$defs/criterion.instance.genericCriterion"
     }
   }
 }
