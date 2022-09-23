@@ -3546,7 +3546,7 @@
         }
       },
       "$defs": {
-        "cp.planning": {
+        "planning.instance.cpPlanning": {
           "type": "object",
           "properties": {
             "budget": {
@@ -3558,14 +3558,38 @@
               "description": "Объект описывает вехи, связанные с планированием исполнения будущего договора",
               "type": "array",
               "items": {
-                "$ref": "#/definitions/Milestone"
+                "$ref": "#/definitions/Milestone/$defs/milestone.instance.noPeriodMilestone"
               }
             },
             "forecasts": {
               "description": "Объект описывает индикативы, исползуемые для планирования исполнения будущего договора",
               "type": "array",
               "items": {
-                "$ref": "#/definitions/Metric"
+                "$ref": "#/definitions/Metric/$defs/metric.instance.nonRequiredMetric"
+              }
+            }
+          }
+        },
+        "planning.instance.eiPlanning": {
+          "type": "object",
+          "properties": {
+            "budget": {
+              "description": "test name of the inheritet def",
+              "type": "object",
+              "$ref": "#/definitions/Budget/$defs/budget.instance.cnPlanning"
+            },
+            "forecasts": {
+              "description": "Объект описывает индикативы, исползуемые для планирования исполнения будущего договора",
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Metric/$defs/metric.instance.nonRequiredMetric"
+              }
+            },
+            "items": {
+              "description": "",
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Item/$defs/item.instance.contractItem"
               }
             }
           }
