@@ -7,19 +7,10 @@
       "title":"Структура объекта planning",
       "description":"Объект описывает индикативы, исползуемые для планирования исполнения будущего договора",
       "type":"object",
-      "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/release-schema.json#/definitions/Planning/$defs/planning.instance.cpPlanning"
-    },
-    "tender":{
-      "title":"",
-      "description":"",
-      "type": "object",
-      "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/release-schema.json#/definitions/Tender"  
-    },
-    "parties":{
-      "type":"array",
-      "description":"",
-      "items":{
-        "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/release-schema.json#/definitions/Organization"
+      "properties":{
+        "allOf":[
+          {"$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/release-schema.json#/definitions/Planning/$defs/planning.instance.cpPlanning"}
+        ]
       }
     }
   }
