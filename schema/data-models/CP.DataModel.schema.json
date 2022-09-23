@@ -1,7 +1,7 @@
 {
-  "id":"",
-  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "type":"object",
+  "$id":"https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/release-schema.json",
   "title":"",
   "description": "",
   "properties":{
@@ -9,23 +9,14 @@
       "title":"",
       "description":"",
       "type":"object",
-      "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/inheritances-schema.json#/definitions/Planning.ProcedurePlan"
+      "$ref": "#/definitions/Planning/$defs/planning.instance.cpPlanning"
     },
     "tender":{
       "title":"",
       "description":"",
       "type": "object",
       "properties":{
-        "meta-data":{
-          "title":"",
-          "description":"",
-          "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/inheritances-schema.json#/definitions/Tender.MetaData"
-        },
-        "contractNotice":{
-          "title":"",
-          "description":"",
-          "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/inheritances-schema.json#/definitions/Tender.ProcedureContractNotice"
-        }
+        "$ref":"#/definitions/Tender"  
       }
       
     },
@@ -34,7 +25,7 @@
       "description":"",
       "type":"array",
       "items":{
-        
+        "$ref":"#/definitions/Organization"  
       }
     }
   }
