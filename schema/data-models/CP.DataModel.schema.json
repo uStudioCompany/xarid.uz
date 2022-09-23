@@ -9,23 +9,20 @@
       "title":"",
       "description":"",
       "type":"object",
-      "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/release-schema.json#/definitions/Planning/$defs/planning.instance.cpPlanning"
+      "$ref": "#/definitions/Planning/$defs/planning.instance.cpPlanning"
     },
     "tender":{
       "title":"",
       "description":"",
       "type": "object",
-      "properties":{
-        "$ref":"https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/release-schema.json#/definitions/Tender"  
-      }
-      
+      "$ref":"#/definitions/Tender"  
     },
     "parties":{
       "title":"",
       "description":"",
       "type":"array",
       "items":{
-        "$ref":"https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/release-schema.json#/definitions/Organization"  
+        "$ref":"#/definitions/Organization"  
       }
     }
   }
