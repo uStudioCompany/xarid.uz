@@ -2147,23 +2147,16 @@
       "type": "object",
       "properties": {
         "scheme": {
-          "description": "Organization identifiers be drawn from an existing identification scheme. This field is used to indicate the scheme or codelist in which the identifier will be found. This value should be drawn from the Organization Identification",
-          "type": "string",
-          "codelist": "http://standard.open-contracting.org/1.1-dev/en/schema/codelists/#organization-identifier-scheme",
-          "openCodelist": true
+          "$ref":"#/definitions/Identifier/$defs/identifier.scheme"
         },
         "id": {
-          "description": "The identifier of the organization in the selected scheme.",
-          "type": "string"
+          "$ref":"#/definitions/Identifier/$defs/identifier.id"
         },
         "legalName": {
-          "description": "The legally registered name of the organization.",
-          "type": "string"
+          "$ref":"#/definitions/Identifier/$defs/identifier.legalName"
         },
         "uri": {
-          "description": "A URI to identify the organization, such as those provided by Open Corporates (http://www.opencorporates.com) or some other relevant URI provider. This is not for listing the website of the organization: that can be done through the url field of the Organization contact point.",
-          "type": "string",
-          "format": "uri"
+          "$ref":"#/definitions/Identifier/$defs/identifier.uri"
         }
       },
       "$defs": {
@@ -2186,7 +2179,24 @@
           "type": "string",
           "format": "uri"
         },
-        "identifier.instance.genericIdentifier": {}
+        "identifier.instance.genericIdentifier": {
+          "description":"",
+          "type":"object",
+          "properties":{
+            "scheme": {
+              "$ref":"#/definitions/Identifier/$defs/identifier.scheme"
+            },
+            "id": {
+              "$ref":"#/definitions/Identifier/$defs/identifier.id"
+            },
+            "legalName": {
+              "$ref":"#/definitions/Identifier/$defs/identifier.legalName"
+            },
+            "uri": {
+              "$ref":"#/definitions/Identifier/$defs/identifier.uri"
+            } 
+          }
+        }
       }
     },
     "Implementation": {
@@ -3055,38 +3065,25 @@
       }
     },
     "Organization": {
-      "title": "Organization",
       "description": "An organization.",
       "type": "object",
       "properties": {
         "name": {
-          "title": "Common name",
-          "description": "A common name for this organization or participant in the contracting process. The identifier object provides an space for the formal legal name, and so this may either repeat that value, or could provide the common name by which this organization is known. This field could also include details of the department or sub-unit involved in this contracting process.",
-          "type": [
-            "string",
-            "null"
-          ]
+          "$ref":"#/definitions/Organization/$defs/organization.name"
         },
         "id": {
-          "type": [
-            "string"
-          ],
-          "description": "The ID used for cross-referencing to this party from other sections of the release. This field may be built with the following structure {identifier.scheme}-{identifier.id}(-{department-identifier}).",
-          "title": "Entity ID"
+          "$ref":"#/definitions/Organization/$defs/organization.id"
         },
         "identifier": {
-          "title": "Primary identifier",
           "description": "The primary [Identifier] for this organization. Identifiers that uniquely pick out a legal entity should be preferred. Consult the [organization identifier guidance](http://standard.open-contracting.org/1.1-dev/en/schema/identifiers/) for the preferred scheme and identifier to use.",
           "$ref": "#/definitions/Identifier"
         },
         "additionalIdentifiers": {
-          "title": "Additional identifiers",
           "description": "Any additional / supplemental [Identifier] for the organization. This could be used to provide an internally used identifier for this organization in addition to the primary legal entity identifier.",
           "type": "array",
           "items": {
             "$ref": "#/definitions/Identifier"
-          },
-          "uniqueItems": true
+          }
         },
         "address": {
           "desciption": "This may be the legally registered [Address] of the organization, or may be a correspondence address for this particular contracting process",
@@ -3113,33 +3110,99 @@
           }
         },
         "roles": {
-          "title": "Entity roles",
           "description": "The party's role(s) in the contracting process. Role(s) should be taken from the [Codelists#Party RoleS]. Values from the provided codelist should be used wherever possible, though extended values can be provided if the codelist does not have a relevant code.",
           "type": "array",
           "items": {
-            "type": "string"
-          },
+            "$ref":"#/definitions/Organization/$defs/organization.role"
+          }
+        },
+        "details": {
+          "description": "Any of [OrganizationDetails] for this entity",
+          "type":  "object",
+          "$ref": "#/definitions/OrganizationDetails"
+        }
+      },
+      "$defs":{
+        "organization.name": {
+          "description": "A common name for this organization or participant in the contracting process. The identifier object provides an space for the formal legal name, and so this may either repeat that value, or could provide the common name by which this organization is known. This field could also include details of the department or sub-unit involved in this contracting process.",
+          "type": "string"
+        },
+        "organization.id": {
+          "type": "string",
+          "description": "The ID used for cross-referencing to this party from other sections of the release. This field may be built with the following structure {identifier.scheme}-{identifier.id}(-{department-identifier})."
+        },
+        "organization.role": {
+          "description": "The party's role(s) in the contracting process. Role(s) should be taken from the [Codelists#Party RoleS]. Values from the provided codelist should be used wherever possible, though extended values can be provided if the codelist does not have a relevant code.",
+          "type": "string",
           "codelist": "http://standard.open-contracting.org/1.1-dev/en/schema/codelists/#party-role",
           "openCodelist": true
         },
-        "details": {
-          "title": "Details",
-          "description": "Any of [OrganizationDetails] for this entity",
-          "type": [
-            "object",
-            "null"
-          ],
-          "$ref": "#/definitions/OrganizationDetails"
+        "orrganization.instance.genericOrganization":{
+          "description":"",
+          "type":"object",
+          "properties":{
+            "name": {
+              "$ref":"#/definitions/Organization/$defs/organization.name"
+            },
+            "id": {
+              "$ref":"#/definitions/Organization/$defs/organization.id"
+            },
+            "identifier": {
+              "description": "The primary [Identifier] for this organization. Identifiers that uniquely pick out a legal entity should be preferred. Consult the [organization identifier guidance](http://standard.open-contracting.org/1.1-dev/en/schema/identifiers/) for the preferred scheme and identifier to use.",
+              "$ref": "#/definitions/Identifier/$defs/identifier.instance.genericIdentifier"
+            },
+            "additionalIdentifiers": {
+              "description": "Any additional / supplemental [Identifier] for the organization. This could be used to provide an internally used identifier for this organization in addition to the primary legal entity identifier.",
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Identifier/$defs/identifier.instance.genericIdentifier"
+              }
+            },
+            "address": {
+              "desciption": "This may be the legally registered [Address] of the organization, or may be a correspondence address for this particular contracting process",
+              "type": "object",
+              "$ref": "#/definitions/Address/$defs/address.instance.genericAddress"
+            },
+            "contactPoint": {
+              "description": "[Contact point] details that can be used for this party",
+              "type": "object",
+              "$ref": "#/definitions/ContactPoint/$defs/contactPoint.instance.genericPoint"
+            },
+            "additionalContactPoints": {
+              "description": "Additional [Contact point] (or many of them) details that can be used for this party",
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ContactPoint/$defs/contactPoint.instance.genericPoint"
+              }
+            },
+            "persones": {
+              "description": "List of persones associated with this organization described with [Persone] array",
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Persone/$defs/persone.instance.genericPersone"
+              }
+            },
+            "roles": {
+              "description": "The party's role(s) in the contracting process. Role(s) should be taken from the [Codelists#Party RoleS]. Values from the provided codelist should be used wherever possible, though extended values can be provided if the codelist does not have a relevant code.",
+              "type": "array",
+              "items": {
+                "$ref":"#/definitions/Organization/$defs/organization.role"
+              }
+            },
+            "details": {
+              "description": "Any of [OrganizationDetails] for this entity",
+              "type":  "object",
+              "$ref": "#/definitions/OrganizationDetails"
+            }  
+          }
         }
       }
     },
     "OrganizationDetails": {
-      "title": "Details",
       "description": "",
       "type": "object",
       "properties": {
         "scale": {
-          "title": "Scale",
           "description": "For commercial organization's additional classification information about parties can be provided using [Codelists#Party scale codes] ",
           "type": "string"
         },
@@ -3155,6 +3218,52 @@
           "type": "array",
           "items": {
             "$ref": "#/definitions/BankAccount"
+          }
+        }
+      },
+      "$defs":{
+        "scale.inscance.eoDetails":{
+          "type":"object",
+          "description":"",
+          "properties":{
+            "scale": {
+              "description": "For commercial organization's additional classification information about parties can be provided using [Codelists#Party scale codes] ",
+              "type": "string"
+            },
+            "classifications": {
+              "decription": "Any additional classifications for both buyers and sellerd, described as ab array of [Classification]",
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Classification/$defs/classification.instance.genericClassification"
+              }
+            },
+            "bankAccounts": {
+              "description": "Banking detalis of the entity as an array of [BankAccount]",
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/BankAccount/$defs/bankAccount.instance.genericRecord"
+              }
+            }  
+          }
+        },
+        "scale.instance.caDetails":{
+          "type":"object",
+          "description":"",
+          "properties":{
+            "classifications": {
+              "decription": "Any additional classifications for both buyers and sellerd, described as ab array of [Classification]",
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Classification/$defs/classification.instance.genericClassification"
+              }
+            },
+            "bankAccounts": {
+              "description": "Banking detalis of the entity as an array of [BankAccount]",
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/BankAccount/$defs/bankAccount.instance.genericRecord"
+              }
+            }
           }
         }
       }
@@ -3195,24 +3304,13 @@
       }
     },
     "ParticipationFee": {
-      "title": "Participation fee",
       "type": "object",
       "properties": {
         "type": {
-          "title": "Fee type",
           "description": "A fees applicable to bidders wishing to participate in the tender process. Fees may apply for access to bidding documents, for the submission of bids or there may be a win fee payable by the successful bidder.",
-          "type": [
-            "array",
-            "null"
-          ],
+          "type": "array",
           "items": {
-            "type": "string",
-            "enum": [
-              "document",
-              "deposit",
-              "submission",
-              "win"
-            ]
+            "$ref":"#/definitions/ParticipationFee/$defs/participationFee.feeType"
           }
         },
         "value": {
@@ -3220,19 +3318,60 @@
           "$ref": "#/definitions/Value"
         },
         "description": {
-          "title": "Description",
+          "$ref":"#/definitions/ParticipationFee/$defs/participationFee.description"
+        },
+        "methodOfPayment": {
+          "description": "Optional information about the way in which fees can be paid.",
+          "type": "array",
+          "items": {
+            "$ref":"#/definitions/ParticipationFee/$defs/participationFee.methodOfPaymentItem"
+          }
+        }
+      },
+      "$defs":{
+        "participationFee.feeType": {
+          "description": "A fees applicable to bidders wishing to participate in the tender process. Fees may apply for access to bidding documents, for the submission of bids or there may be a win fee payable by the successful bidder.",
+          "type": "string",
+          "enum": [
+            "document",
+            "deposit",
+            "submission",
+            "win"
+          ]
+        },
+        "participationFee.description": {
           "description": "Optional information about the way in which fees are levied, or the exact nature of the fees.",
           "type": "string"
         },
-        "methodOfPayment": {
-          "title": "Method(s) of payment",
+        "participationFee.methodOfPaymentItem": {
           "description": "Optional information about the way in which fees can be paid.",
-          "type": [
-            "array",
-            "null"
-          ],
-          "items": {
-            "type": "string"
+          "type": "string"
+        },
+        "participationFee.instance.genericFee":{
+          "type":"object",
+          "description":"",
+          "properties":{
+            "type": {
+              "description": "A fees applicable to bidders wishing to participate in the tender process. Fees may apply for access to bidding documents, for the submission of bids or there may be a win fee payable by the successful bidder.",
+              "type": "array",
+              "items": {
+                "$ref":"#/definitions/ParticipationFee/$defs/participationFee.feeType"
+              }
+            },
+            "value": {
+              "description": "Fee [Value]",
+              "$ref": "#/definitions/Value/$defs/value.instance.indicatedVAT"
+            },
+            "description": {
+              "$ref":"#/definitions/ParticipationFee/$defs/participationFee.description"
+            },
+            "methodOfPayment": {
+              "description": "Optional information about the way in which fees can be paid.",
+              "type": "array",
+              "items": {
+                "$ref":"#/definitions/ParticipationFee/$defs/participationFee.methodOfPaymentItem"
+              }
+            }  
           }
         }
       }
@@ -3407,32 +3546,23 @@
       }
     },
     "Persone": {
-      "title": "",
       "description": "",
       "type": "object",
       "properties": {
         "id": {
-          "title": "",
-          "description": "",
-          "type": "string"
+          "$ref":"#/definitions/Persone/$defs/persone.id"
         },
         "title": {
-          "title": "",
-          "description": "",
-          "type": "object"
+          "$ref":"#/definitions/Persone/$defs/persone.title"
         },
         "name": {
-          "title": "",
-          "description": "",
-          "type": "object"
+          "$ref":"#/definitions/Persone/$defs/persone.name"
         },
         "email": {
-          "description": "The e-mail address of the contact point/person.",
-          "type": "string"
+          "$ref":"#/definitions/Persone/$defs/persone.email"
         },
         "telephone": {
-          "description": "The telephone number of the contact point/person. This should include the international dialling code.",
-          "type": "string"
+          "$ref":"#/definitions/Persone/$defs/persone.telephone"
         },
         "identifier": {
           "description": "The legal [Identifier] of this person according to local identification scheme",
@@ -3444,6 +3574,61 @@
           "type": "array",
           "items": {
             "$ref": "#/definitions/BusinessFunction"
+          }
+        }
+      },
+      "$defs":{
+        "persone.id": {
+          "description": "",
+          "type": "string"
+        },
+        "persone.title": {
+          "description": "",
+          "type": "object"
+        },
+        "persone.name": {
+          "description": "",
+          "type": "object"
+        },
+        "persone.email": {
+          "description": "The e-mail address of the contact point/person.",
+          "type": "string"
+        },
+        "persone.telephone": {
+          "description": "The telephone number of the contact point/person. This should include the international dialling code.",
+          "type": "string"
+        },
+        "persone.instance.genericPersone":{
+          "type":"object",
+          "description":"",
+          "properties":{
+            "id": {
+              "$ref":"#/definitions/Persone/$defs/persone.id"
+            },
+            "title": {
+              "$ref":"#/definitions/Persone/$defs/persone.title"
+            },
+            "name": {
+              "$ref":"#/definitions/Persone/$defs/persone.name"
+            },
+            "email": {
+              "$ref":"#/definitions/Persone/$defs/persone.email"
+            },
+            "telephone": {
+              "$ref":"#/definitions/Persone/$defs/persone.telephone"
+            },
+            "identifier": {
+              "description": "The legal [Identifier] of this person according to local identification scheme",
+              "type": "object",
+              "$ref": "#/definitions/Identifier/$defs/identifier.instance.genericIdentifier"
+            },
+            "businessFunctions": {
+              "description": "A set of persones' [BusinessFunction]",
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/BusinessFunction/$defs/businessFunction.instance.genericFunction"
+              }
+            }
           }
         }
       }
@@ -5074,6 +5259,21 @@
         "value.valueAddedTaxIncluded": {
           "description": "A true/false field to indicate whether the value tax was included",
           "type": "boolean"
+        },
+        "value.instance.indicatedVAT": {
+          "description": "",
+          "type": "object",
+          "properties": {
+            "amount": {
+              "$ref": "#/definitions/Value/$defs/value.amount"
+            },
+            "currency": {
+              "$ref": "#/definitions/Value/$defs/value.currency"
+            },
+            "valueAddedTaxIncluded": {
+              "$ref": "#/definitions/Value/$defs/value.valueAddedTaxIncluded"
+            }
+          }
         },
         "value.instance.valueExcludingVAT": {
           "description": "",
