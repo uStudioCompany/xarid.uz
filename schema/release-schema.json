@@ -1598,59 +1598,65 @@
       "type": "object",
       "properties": {
         "id": {
-          "description": "The identifier for this criterion. It must be unique and cannot change within the Open Contracting Process it is part of (defined by a single ocid).",
-          "type": [
-            "string",
-            "integer"
-          ],
-          "mergeStrategy": "overwrite"
+          "$ref":"#/definitions/Criterion/$defs/criterion.id"
         },
         "title": {
-          "description": "Criterion title",
-          "type": [
-            "string",
-            "null"
-          ],
-          "mergeStrategy": "ocdsVersion"
+          "$ref":"#/definitions/Criterion/$defs/criterion.title"
         },
         "description": {
-          "description": "Criterion description",
-          "type": [
-            "string",
-            "null"
-          ],
-          "mergeStrategy": "ocdsVersion"
+          "$ref":"#/definitions/Criterion/$defs/criterion.description"
         },
         "source": {
+          "$ref":"#/definitions/Criterion/$defs/criterion.source"
+        },
+        "classification": {
+          "description": "",
+          "type": "object",
+          "$ref": "#/definitions/Classification"
+        },
+        "relatesTo": {
+          "$ref":"#/definitions/Criterion/$defs/criterion.relatesTo"
+        },
+        "relatedItem": {
+          "$ref":"#/definitions/Criterion/$defs/criterion.relatedItem"
+        },
+        "requirementGroups": {
+          "description": "A list of [RequirementGroup] for this Criterion. A criterion is satisfied by one or more requirement groups being met. A requirement group is met when all requirements in the group are satisfied.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/RequirementGroup"
+          }
+        }
+      },
+      "$defs":{
+        "criterion.id": {
+          "description": "The identifier for this criterion. It must be unique and cannot change within the Open Contracting Process it is part of (defined by a single ocid).",
+          "type":"string"
+        },
+        "criterion.title": {
+          "description": "Criterion title",
+          "type":"string"
+        },
+        "criterion.description": {
+          "description": "Criterion description",
+          "type":"string"
+        },
+        "criterion.source": {
           "description": "Source of response to the requirements specificed in the criterion, for example responses may be submitted by tenderers or by an assessment committee at the procuringEntity.",
           "type": "string",
           "enum": [
             "tenderer",
             "buyer",
             "procuringEntity"
-          ],
-          "mergeStrategy": "ocdsVersion"
+          ]
         },
-        "classification": {
-          "title": "",
-          "description": "",
-          "type": "object",
-          "$ref": "#/definitions/Classification"
-        },
-        "status": {
-          "title": "",
+        "criterion.status": {
           "description": "",
           "type": "string",
           "codelist": "",
           "openCodelist": false
         },
-        "dateModified": {
-          "title": "",
-          "description": "",
-          "type": "string",
-          "format": "date-time"
-        },
-        "relatesTo": {
+        "criterion.relatesTo": {
           "description": "The schema element that the criterion judges, evaluates or assesses. For example criterion may be defined against items or against bidders.",
           "type": "string",
           "enum": [
@@ -1659,19 +1665,44 @@
             "tenderer"
           ]
         },
-        "relatedItem": {
+        "criterion.relatedItem": {
           "description": "Where relatesTo = \"item\" this field must be populated with the id of the item in this tender section which the criterion relates to. Where relatesTo <> \"item\" this field should be omitted",
-          "type": [
-            "string",
-            "null"
-          ]
+          "type":"string"
         },
-        "requirementGroups": {
-          "title": "Requirement groups",
-          "description": "A list of [RequirementGroup] for this Criterion. A criterion is satisfied by one or more requirement groups being met. A requirement group is met when all requirements in the group are satisfied.",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/RequirementGroup"
+        "criterion.instance.genericCriterion":{
+          "description":"",
+          "type":"object",
+          "properties":{
+            "id": {
+              "$ref":"#/definitions/Criterion/$defs/criterion.id"
+            },
+            "title": {
+              "$ref":"#/definitions/Criterion/$defs/criterion.title"
+            },
+            "description": {
+              "$ref":"#/definitions/Criterion/$defs/criterion.description"
+            },
+            "source": {
+              "$ref":"#/definitions/Criterion/$defs/criterion.source"
+            },
+            "classification": {
+              "description": "",
+              "type": "object",
+              "$ref": "#/definitions/Classification/$defs/classification.instance.genericClassification"
+            },
+            "relatesTo": {
+              "$ref":"#/definitions/Criterion/$defs/criterion.relatesTo"
+            },
+            "relatedItem": {
+              "$ref":"#/definitions/Criterion/$defs/criterion.relatedItem"
+            },
+            "requirementGroups": {
+              "description": "A list of [RequirementGroup] for this Criterion. A criterion is satisfied by one or more requirement groups being met. A requirement group is met when all requirements in the group are satisfied.",
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/RequirementGroup/$defs/requirementGroup.instance.genericGroup"
+              }
+            }  
           }
         }
       }
@@ -1850,34 +1881,64 @@
       "type": "object",
       "properties": {
         "id": {
-          "title": "Identifier",
-          "description": "Unique identifier for this evidence",
-          "type": "string"
+          "$ref":"#/definitions/Evidence/$defs/evidence.id"
         },
-        "attribute": {
-          "title": "Attribute",
-          "descrpption": "The attribute of the object indicated with criterion.source for wich the value an exepcted will be considered as an evidence",
-          "type": "string"
+        "type": {
+          "$ref":"#/definitions/Evidence/$defs/evidence.type"
         },
-        "value": {
-          "title": "Value",
-          "description": "Value which is expected as an evidence",
-          "type": [
-            "string",
-            "number",
-            "integer",
-            "boolean"
-          ]
+        "title": {
+          "$ref":"#/definitions/Evidence/$defs/evidence.title"
         },
-        "relatesTo": {
-          "title": "Relates to",
-          "description": "Where several evidences are expected to satisfy this evidence, the related tye of the source has to be specified here",
-          "type": "string"
+        "description": {
+          "$ref":"#/definitions/Evidence/$defs/evidence.description"
         },
-        "relatedItem": {
-          "title": "Related Item ID",
-          "description": "Where 'relatesTo' is used, the precise unique id of the source has to be specified here",
-          "type": "string"
+        "relatedDocument": {
+          "title": "",
+          "description": "",
+          "$ref": "#/definitions/Document"
+        }
+      },
+      "$defs":{
+        "evidence.id": {
+          "title": "",
+          "description": "",
+          "type": ""
+        },
+        "evidence.type": {
+          "title": "",
+          "description": "",
+          "type": "string",
+          "codelist": "evidenceTypes.csv",
+          "opencodelist": true
+        },
+        "evidence.title": {
+          "title": "",
+          "description": "",
+          "type": ""
+        },
+        "evidence.description": {
+          "title": "",
+          "description": "",
+          "type": ""
+        },
+        "evidence.instance.genericEvidence":{
+          "id": {
+            "$ref":"#/definitions/Evidence/$defs/evidence.id"
+          },
+          "type": {
+            "$ref":"#/definitions/Evidence/$defs/evidence.type"
+          },
+          "title": {
+            "$ref":"#/definitions/Evidence/$defs/evidence.title"
+          },
+          "description": {
+            "$ref":"#/definitions/Evidence/$defs/evidence.description"
+          },
+          "relatedDocument": {
+            "title": "",
+            "description": "",
+            "$ref": "#/definitions/Document/$defs/document.instance.genericDocument"
+          }  
         }
       }
     },
@@ -3719,112 +3780,179 @@
       "type": "object",
       "properties": {
         "id": {
-          "description": "The identifier for this requirement. It must be unique and cannot change within the Open Contracting Process it is part of (defined by a single ocid).",
-          "type": "string",
-          "mergeStrategy": "overwrite"
+          "$ref":"#/definitions/Requirement/$defs/requirement.id"
         },
         "title": {
-          "description": "Requirement title",
-          "type": [
-            "string",
-            "null"
-          ],
-          "mergeStrategy": "ocdsVersion"
+          "$ref":"#/definitions/Requirement/$defs/requirement.title"
         },
         "description": {
-          "description": "Requirement description",
-          "type": [
-            "string",
-            "null"
-          ],
-          "mergeStrategy": "ocdsVersion"
+          "$ref":"#/definitions/Requirement/$defs/requirement.description"
         },
         "dataType": {
-          "description": "Requirement description",
-          "type": [
-            "string",
-            "null"
-          ],
-          "enum": [
-            "string",
-            "date-time",
-            "number",
-            "integer"
-          ],
-          "mergeStrategy": "ocdsVersion"
+          "$ref":"#/definitions/Requirement/$defs/requirement.dataType"
         },
         "expectedValue": {
-          "description": "Used to state the requirement when the response must be particular value",
-          "type": [
-            "string",
-            "integer",
-            "number",
-            "null"
-          ],
-          "mergeStrategy": "ocdsVersion"
+          "$ref":"#/definitions/Requirement/$defs/requirement.expectedValue"
         },
         "minValue": {
-          "description": "Used to state the lower bound of the requirement when the response must be within a certain range",
-          "type": [
-            "integer",
-            "number",
-            "null"
-          ],
-          "mergeStrategy": "ocdsVersion"
+          "$ref":"#/definitions/Requirement/$defs/requirement.minValue"
         },
         "maxValue": {
-          "description": "Used to state the upper bound of the requirement when the response must be within a certain range",
-          "type": [
-            "integer",
-            "number",
-            "null"
-          ],
-          "mergeStrategy": "ocdsVersion"
+          "$ref":"#/definitions/Requirement/$defs/requirement.maxValue"
         },
         "period": {
           "description": "Used to specify a particular [Period] the requirement applies to, for example the bidder's turnover in a given year",
           "$ref": "#/definitions/Period"
         },
+        "status": {
+          "$ref":"#/definitions/Requirement/$defs/requirement.status"
+        },
+        "dateModified": {
+          "$ref":"#/definitions/Requirement/$defs/requirement.dateModified"
+        },
         "eligibleEvidences": {
-          "title": "Eligible evidences",
           "description": "Any [Evidance] that will be accepted as a proof of sasisfaction of sepcific requirement ",
           "type": "array",
           "items": {
             "$ref": "#/definitions/Evidence"
           }
         }
+      },
+      "$defs":{
+        "requirement.id": {
+          "description": "The identifier for this requirement. It must be unique and cannot change within the Open Contracting Process it is part of (defined by a single ocid).",
+          "type": "string"
+        },
+        "requirement.title": {
+          "description": "Requirement title",
+          "type": "string"
+        },
+        "requirement.description": {
+          "description": "Requirement description",
+          "type": "string"
+        },
+        "requirement.dataType": {
+          "description": "Requirement description",
+          "type": "string",
+          "enum": [
+            "string",
+            "date-time",
+            "number",
+            "integer"
+          ]
+        },
+        "requirement.expectedValue": {
+          "description": "Used to state the requirement when the response must be particular value",
+          "type": "number"
+        },
+        "requirement.minValue": {
+          "description": "Used to state the lower bound of the requirement when the response must be within a certain range",
+          "type": "number"
+        },
+        "requirement.maxValue": {
+          "description": "Used to state the upper bound of the requirement when the response must be within a certain range",
+          "type": "number"
+        },
+        "requirement.status": {
+          "description": "",
+          "type": "string",
+          "codelist": "",
+          "openCodelist": false
+        },
+        "requirement.dateModified": {
+          "description": "",
+          "type": "string",
+          "format": "date-time"
+        },
+        "requirement.instance.genericRequirement":{
+          "id": {
+            "$ref":"#/definitions/Requirement/$defs/requirement.id"
+          },
+          "title": {
+            "$ref":"#/definitions/Requirement/$defs/requirement.title"
+          },
+          "description": {
+            "$ref":"#/definitions/Requirement/$defs/requirement.description"
+          },
+          "dataType": {
+            "$ref":"#/definitions/Requirement/$defs/requirement.dataType"
+          },
+          "expectedValue": {
+            "$ref":"#/definitions/Requirement/$defs/requirement.expectedValue"
+          },
+          "minValue": {
+            "$ref":"#/definitions/Requirement/$defs/requirement.minValue"
+          },
+          "maxValue": {
+            "$ref":"#/definitions/Requirement/$defs/requirement.maxValue"
+          },
+          "period": {
+            "description": "Used to specify a particular [Period] the requirement applies to, for example the bidder's turnover in a given year",
+            "$ref": "#/definitions/Period/$defs/period.instance.complete"
+          },
+          "status": {
+            "$ref":"#/definitions/Requirement/$defs/requirement.status"
+          },
+          "dateModified": {
+            "$ref":"#/definitions/Requirement/$defs/requirement.dateModified"
+          },
+          "eligibleEvidences": {
+            "description": "Any [Evidance] that will be accepted as a proof of sasisfaction of sepcific requirement ",
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/Evidence/$defs/evidence.instance.genericEvidence"
+            }
+          }  
+        }
       }
     },
     "RequirementGroup": {
-      "title": "Requirement group",
       "description": "A requirement group is a set of requirements that must be fulfilled together to validate a criterion.",
       "type": "object",
       "properties": {
         "id": {
-          "description": "The identifier for this requirement group. It must be unique and cannot change within the Open Contracting Process it is part of (defined by a single ocid). ",
-          "type": "string",
-          "mergeStrategy": "overwrite"
+          "$ref":"#/definitions/RequirementGroup/$defs/requirementGroup.id"
         },
         "description": {
-          "description": "Requirement group description",
-          "type": [
-            "string",
-            "null"
-          ],
-          "mergeStrategy": "ocdsVersion"
+          "$ref":"#/definitions/RequirementGroup/$defs/requirementGroup.description"
         },
         "requirements": {
           "title": "Requirements",
           "description": "A list of any [Requirement] which must all be satisified for the requirement group to be met.",
           "type": "array",
-          "mergeStrategy": "arrayMergeById",
-          "mergeOptions": {
-            "idRef": "id"
-          },
           "items": {
             "$ref": "#/definitions/Requirement"
-          },
-          "uniqueItems": true
+          }
+        }
+      },
+      "$defs":{
+        "requirementGroup.id": {
+          "description": "The identifier for this requirement group. It must be unique and cannot change within the Open Contracting Process it is part of (defined by a single ocid). ",
+          "type": "string"
+        },
+        "requirementGroup.description": {
+          "description": "Requirement group description",
+          "type": "string"
+        },
+        "requirementGroup.instance.genericGroup":{
+          "description":"",
+          "type":"object",
+          "properties":{
+            "id": {
+              "$ref":"#/definitions/RequirementGroup/$defs/requirementGroup.id"
+            },
+            "description": {
+              "$ref":"#/definitions/RequirementGroup/$defs/requirementGroup.description"
+            },
+            "requirements": {
+              "title": "Requirements",
+              "description": "A list of any [Requirement] which must all be satisified for the requirement group to be met.",
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Requirement/$defs/requirement.instance.genericRequirement"
+              }
+            }  
+          }
         }
       }
     },
@@ -3886,6 +4014,13 @@
         },
         "responder":{
           "$ref":"#/definitions/RequirementResponse/$defs/requirementResponse.responder"
+        },
+        "evidences":{
+          "description":"",
+          "type":"array",
+          "items":{
+            "$ref":"#/definitions/Evidence"
+          }
         }
       },
       "$defs":{
