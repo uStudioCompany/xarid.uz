@@ -13,7 +13,7 @@
     },
     "parties":{
       "type":"array",
-      "description:"",
+      "description":"",
       "items":{
         "$ref":"#/definitions/Organization"
       }
