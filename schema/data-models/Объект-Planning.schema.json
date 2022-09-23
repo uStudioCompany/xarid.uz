@@ -10,6 +10,13 @@
       "description":"Объект описывает индикативы, исползуемые для планирования исполнения будущего договора",
       "type":"object",
       "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/release-schema.json#/definitions/Planning/$defs/planning.instance.cpPlanning"
+    },
+    "parties":{
+      "type":"array",
+      "description:"",
+      "items":{
+        "$ref":"#/definitions/Organization"
+      }
     }
   }
 }
