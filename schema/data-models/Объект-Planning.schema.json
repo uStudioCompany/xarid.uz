@@ -2,8 +2,6 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "type":"object",
   "$id":"https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/release-schema.json",
-  "title":"План закупочного проекта (план-график)",
-  "description": "Данная часть данных проекта формируется, начиная с этапа планирования закупки. Структура блока описывается таким способом",
   "properties":{
     "planning":{
       "title":"Структура объекта planning",
