@@ -1509,15 +1509,36 @@
       "description": "Conversion is used to describe conversions and its coefficients applicable for specific value received for requirement or observation",
       "properties": {
         "id": {
-          "title": "Identifier",
-          "description": "An identifier for this conversion.",
-          "type": [
-            "integer",
-            "string"
-          ]
+          "$ref":"#/definitions/Conversion/$defs/conversion.id"
         },
         "relatesTo": {
-          "title": "Related schema element",
+          "$ref":"#/definitions/Conversion/$defs/conversion.id"
+        },
+        "relatedItem": {
+          "$ref":"#/definitions/Conversion/$defs/conversion.id"
+        },
+        "rationale": {
+          "description": "The free-text rationale of using of this conversion",
+          "type": "string"
+        },
+        "description": {
+          "description": "Free text description of this conversion could be shared here",
+          "type": "string"
+        },
+        "coefficients": {
+          "description": "A list of any applicable [Coefficient] for this conversion",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Coefficient"
+          }
+        }
+      },
+      "$defs":{
+        "conversion.id": {
+          "description": "An identifier for this conversion.",
+          "type": "string"
+        },
+        "conversion.relatesTo": {
           "description": "The schema element that the conversion applies. For example, the conversion may be defined against a requirement or against a metric.",
           "type": "string",
           "openCodelist": false,
@@ -1527,27 +1548,46 @@
             "observation"
           ]
         },
-        "relatedItem": {
-          "title": "Related item",
+        "conversion.relatedItem": {
           "description": "Where 'relatesTo' is not empty this field must be populated with the id of the item in this tender section which the conversion relates to.",
           "type": "string"
         },
-        "rationale": {
-          "title": "Conversion rationale",
+        "conversion.rationale": {
           "description": "The free-text rationale of using of this conversion",
           "type": "string"
         },
-        "description": {
-          "title": "Conversion Details",
+        "conversion.description": {
           "description": "Free text description of this conversion could be shared here",
           "type": "string"
         },
-        "coefficients": {
-          "title": "Coefficients",
-          "description": "A list of any applicable [Coefficient] for this conversion",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/Coefficient"
+        "conversion.instance.genericConversion":{
+          "description":"",
+          "type":"object",
+          "properties":{
+            "id": {
+              "$ref":"#/definitions/Conversion/$defs/conversion.id"
+            },
+            "relatesTo": {
+              "$ref":"#/definitions/Conversion/$defs/conversion.id"
+            },
+            "relatedItem": {
+              "$ref":"#/definitions/Conversion/$defs/conversion.id"
+            },
+            "rationale": {
+              "description": "The free-text rationale of using of this conversion",
+              "type": "string"
+            },
+            "description": {
+              "description": "Free text description of this conversion could be shared here",
+              "type": "string"
+            },
+            "coefficients": {
+              "description": "A list of any applicable [Coefficient] for this conversion",
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Coefficient/$defs/coefficient.instance.genericCoefficient"
+              }
+            }
           }
         }
       }
