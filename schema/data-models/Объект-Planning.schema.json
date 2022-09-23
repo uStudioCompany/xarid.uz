@@ -11,11 +11,17 @@
       "type":"object",
       "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/release-schema.json#/definitions/Planning/$defs/planning.instance.cpPlanning"
     },
+    "tender":{
+      "title":"",
+      "description":"",
+      "type": "object",
+      "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/release-schema.json#/definitions/Tender"  
+    },
     "parties":{
       "type":"array",
       "description":"",
       "items":{
-        "$ref":"https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/release-schema.json#/definitions/Organization"
+        "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/release-schema.json#/definitions/Organization"
       }
     }
   }
