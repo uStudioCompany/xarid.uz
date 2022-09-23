@@ -11,7 +11,7 @@
       }
     },
     "parties":{
-      "description":"",
+      "description":"Перечень организаций-сторон закупочного процесса",
       "type":"array",
       "items":{
         "$ref":"https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/release-schema.json#/definitions/Organization/$defs/organization.instance.genericOrganization"
