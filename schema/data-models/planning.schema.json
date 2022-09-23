@@ -3,6 +3,6 @@
   "type":"object",
   "$id":"https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/release-schema.json",
   "properties":{
-    "$ref": "#/definitions/Planning/$defs/planning.instance.cpPlanning/properties"
+    "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/release-schema.json#/definitions/Planning/$defs/planning.instance.cpPlanning/properties"
   }
 }
