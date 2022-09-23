@@ -5,14 +5,7 @@
   "properties":{
     "planning":{
       "type":"object",
-      "properties":{
-        "allOf":[
-          {
-            "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/release-schema.json#/definitions/Planning/$defs/planning.instance.cpPlanning/properties"
-        
-          }
-        ]
-      }
+      "properties":"$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/release-schema.json#/definitions/Planning/$defs/planning.instance.cpPlanning/properties"
     }
   }
 }
