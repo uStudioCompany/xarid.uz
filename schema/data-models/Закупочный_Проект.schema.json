@@ -9,6 +9,13 @@
       "properties":{
         "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/release-schema.json#/definitions/Planning/$defs/planning.instance.cpPlanning/properties"
       }
+    },
+    "parties":{
+      "description":"",
+      "type":"array",
+      "items":{
+        "$ref":"https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/release-schema.json#/definitions/Organization/$defs/organization.instance.genericOrganization"
+      }
     }
   }
 }
