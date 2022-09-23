@@ -3138,7 +3138,7 @@
           "openCodelist": true
         },
         "organization.instance.genericOrganization":{
-          "description":"",
+          "description":"Детальные данные об организации-стороне закупочного процесса",
           "type":"object",
           "properties":{
             "name": {
