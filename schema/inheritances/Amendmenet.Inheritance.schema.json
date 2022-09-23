@@ -3,10 +3,10 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "type":"object",
   "properties":{
-    "cp.planning":{
+    "regular contract":{
       "description":"Аспекты плана закупочной процедуры",
       "type":"object",
-      "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/release-schema.json#/definitions/Unit/$defs/unit.instance.financialUnit"
+      "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/release-schema.json#/definitions/Contract/$defs/contract.instance.regularContract"
     }
   }
 }
