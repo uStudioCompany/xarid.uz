@@ -5,15 +5,10 @@
   "title":"Дефиниция Award",
   "description": "Бизнес-логическое наследование дефиниции 'ocds.award'",
   "properties":{
-    "Оценочный лист":{
+    "Регулярный закупочный контракт":{
       "description":"Лист, сформированный в отношении отдельного тендерного предложения, отражающий ход и суть решениея ЗО в отношении данного предложения",
       "type":"object",
-      "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/release-schema.json#/definitions/Award/$defs/award.instance.awardDecision"
-    },
-    "Негативное уведомление":{
-      "description":"Уведомление о негативном результате закупки в контексте конкретного лота",
-      "type":"object",
-      "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/release-schema.json#/definitions/Award/$defs/award.instance.negativeCan"
+      "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/release-schema.json#/definitions/Contract/$defs/contract.instance.regularContract"
     }
   }
 }
