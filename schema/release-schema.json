@@ -160,7 +160,7 @@
           "description": "Название страны. Например \"Республика Узбекистан\"",
           "type": "string"
         },
-        "address.instance.genericAddress":{
+        "address.instance.genericAddress": {
           "description": "Объект, структурно описывающий адрессную информацию",
           "type": "object",
           "properties": {
@@ -185,7 +185,7 @@
             "addressDetails": {
               "type": "object",
               "$ref": "#/definitions/AddressDetails/$defs/addressDetails.instance.genericDetails"
-            }  
+            }
           }
         }
       }
@@ -204,8 +204,8 @@
           "$ref": "#/definitions/Classification"
         }
       },
-      "$defs":{
-        "addressDetails.instance.genericDetails":{
+      "$defs": {
+        "addressDetails.instance.genericDetails": {
           "description": "Детальная информация о кодовой информации, описывающей ключевые адресные данные",
           "type": "object",
           "properties": {
@@ -221,7 +221,7 @@
               "description": "Кодовая классификация населенного пункта согласно 'UN/LOCDE'",
               "$ref": "#/definitions/Classification/$defs/classification.instance.genericClassification"
             }
-          }  
+          }
         }
       }
     },
@@ -282,7 +282,7 @@
           "description": "Идентификатор релиза данных, содержащий первую публикацию данного изменения",
           "type": "string"
         },
-        "amendment.instance.genericAmendment":{
+        "amendment.instance.genericAmendment": {
           "description": "Объект, описывающий факт изменений в 'tender'/'award'/'contract' и связные с таким иззмененим данные",
           "type": "object",
           "properties": {
@@ -307,12 +307,12 @@
             "releaseID": {
               "$ref": "#/definitions/Amendment/$defs/amendment.releaseID"
             }
-          }    
+          }
         }
       }
     },
     "Award": {
-      "title":"Оценочный лист",
+      "title": "Оценочный лист",
       "description": "Объект используется для описания результатов оценки тендерных предложений в данном контрактном процессе, а так же рещзультаты тендерной фазы контрактного процесса в целом: позитивные и негативные",
       "type": "object",
       "properties": {
@@ -377,7 +377,7 @@
         },
         "award.internalId": {
           "type": "string",
-          "description":"Код/идентификатор данного 'award', присвоеный вне системы, если существует"
+          "description": "Код/идентификатор данного 'award', присвоеный вне системы, если существует"
         },
         "award.description": {
           "type": "string",
@@ -385,7 +385,7 @@
         },
         "award.status": {
           "type": "string",
-          "description":"Код статуса согласно справочника 'Статусы решений', описывающий характер данного объекта 'award'",
+          "description": "Код статуса согласно справочника 'Статусы решений', описывающий характер данного объекта 'award'",
           "codelist": "awardStatuses.csv"
         },
         "award.statusDetails": {
@@ -505,14 +505,14 @@
           }
         }
       },
-      "$defs":{
-        "awardCriteria.criteria":{
+      "$defs": {
+        "awardCriteria.criteria": {
           "description": "Массив, содержащий детальную Информацию о применяемых критериях присуждения контракта",
           "type": "array",
           "items": {
             "$ref": "#/definitions/AwardCriterion/$defs/awardCriterion.Instance.genericCriterion"
           }
-        }  
+        }
       }
     },
     "AwardCriterion": {
@@ -520,13 +520,13 @@
       "type": "object",
       "properties": {
         "type": {
-          "$ref":"#/definitions/AwardCriterion/$defs/awardCriterion.type"
+          "$ref": "#/definitions/AwardCriterion/$defs/awardCriterion.type"
         },
         "name": {
-          "$ref":"#/definitions/AwardCriterion/$defs/awardCriterion.name"
+          "$ref": "#/definitions/AwardCriterion/$defs/awardCriterion.name"
         },
         "description": {
-          "$ref":"#/definitions/AwardCriterion/$defs/awardCriterion.description"
+          "$ref": "#/definitions/AwardCriterion/$defs/awardCriterion.description"
         },
         "numbers": {
           "description": "Метрируемые значения данного критерия",
@@ -536,7 +536,7 @@
           }
         }
       },
-      "$defs":{
+      "$defs": {
         "awardCriterion.type": {
           "description": "Аспект тендерного предложения, рассматриваемый данным критерием",
           "type": "string",
@@ -551,18 +551,18 @@
           "description": "Описание критерия и его сути",
           "type": "string"
         },
-        "awardCriterion.Instance.genericCriterion":{
+        "awardCriterion.Instance.genericCriterion": {
           "description": "Information about the award criterion.",
           "type": "object",
           "properties": {
             "type": {
-              "$ref":"#/definitions/AwardCriterion/$defs/awardCriterion.type"
+              "$ref": "#/definitions/AwardCriterion/$defs/awardCriterion.type"
             },
             "name": {
-              "$ref":"#/definitions/AwardCriterion/$defs/awardCriterion.name"
+              "$ref": "#/definitions/AwardCriterion/$defs/awardCriterion.name"
             },
             "description": {
-              "$ref":"#/definitions/AwardCriterion/$defs/awardCriterion.description"
+              "$ref": "#/definitions/AwardCriterion/$defs/awardCriterion.description"
             },
             "numbers": {
               "description": "Метрируемые значения данного критерия",
@@ -571,7 +571,7 @@
                 "$ref": "#/definitions/AwardCriterionNumber/$defs/awardCriterionNumber.instance.genericNumber"
               }
             }
-          }  
+          }
         }
       }
     },
@@ -580,19 +580,19 @@
       "type": "object",
       "properties": {
         "number": {
-          "$ref":"#/definitions/AwardCriterionNumber/$defs/awardCriterionNumber.number"
+          "$ref": "#/definitions/AwardCriterionNumber/$defs/awardCriterionNumber.number"
         },
         "weight": {
-          "$ref":"#/definitions/AwardCriterionNumber/$defs/awardCriterionNumber.weight"
+          "$ref": "#/definitions/AwardCriterionNumber/$defs/awardCriterionNumber.weight"
         },
         "fixed": {
-          "$ref":"#/definitions/AwardCriterionNumber/$defs/awardCriterionNumber.fixed"
+          "$ref": "#/definitions/AwardCriterionNumber/$defs/awardCriterionNumber.fixed"
         },
         "threshold": {
-          "$ref":"#/definitions/AwardCriterionNumber/$defs/awardCriterionNumber.threshold"
+          "$ref": "#/definitions/AwardCriterionNumber/$defs/awardCriterionNumber.threshold"
         }
       },
-      "$defs":{
+      "$defs": {
         "awardCriterionNumber.number": {
           "description": "The number.",
           "type": "number"
@@ -615,23 +615,23 @@
           "codelist": "criterionThreshold.csv",
           "openCodelist": false
         },
-        "awardCriterionNumber.instance.genericNumber":{
+        "awardCriterionNumber.instance.genericNumber": {
           "description": "Информация о метритуемых значениях данного критерия",
           "type": "object",
           "properties": {
             "number": {
-              "$ref":"#/definitions/AwardCriterionNumber/$defs/awardCriterionNumber.number"
+              "$ref": "#/definitions/AwardCriterionNumber/$defs/awardCriterionNumber.number"
             },
             "weight": {
-              "$ref":"#/definitions/AwardCriterionNumber/$defs/awardCriterionNumber.weight"
+              "$ref": "#/definitions/AwardCriterionNumber/$defs/awardCriterionNumber.weight"
             },
             "fixed": {
-              "$ref":"#/definitions/AwardCriterionNumber/$defs/awardCriterionNumber.fixed"
+              "$ref": "#/definitions/AwardCriterionNumber/$defs/awardCriterionNumber.fixed"
             },
             "threshold": {
-              "$ref":"#/definitions/AwardCriterionNumber/$defs/awardCriterionNumber.threshold"
+              "$ref": "#/definitions/AwardCriterionNumber/$defs/awardCriterionNumber.threshold"
             }
-          }  
+          }
         }
       }
     },
@@ -650,7 +650,7 @@
           }
         }
       },
-      "$defs":{
+      "$defs": {
         "bankAccount.accountIdentification": {
           "description": "Объект, структурно идентифицирующий счет организации в банке",
           "$ref": "#/definitions/Classification/$defs/classification.instance.genericClassification"
@@ -659,7 +659,7 @@
           "description": "Объект, дополнительно идентифицирующий/описывающий счет организации в банке",
           "$ref": "#/definitions/Classification/$defs/classification.instance.genericClassification"
         },
-        "bankAccount.instance.genericRecord":{
+        "bankAccount.instance.genericRecord": {
           "description": "Объект, структурно описывающий банковские реквиизты",
           "type": "object",
           "properties": {
@@ -674,53 +674,53 @@
                 "$ref": "#/definitions/BankAccount/$defs/bankAccount.additionalAccountIndentifier"
               }
             }
-          }  
+          }
         }
       }
     },
     "Bid": {
       "description": "Объект, описывающий тендерное предложение",
       "type": "object",
-      "properties":{
-        "id":{
-          "$ref":"#/definitions/Bid/$defs/bid.id"
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/Bid/$defs/bid.id"
         },
-        "date":{
-          "$ref":"#/definitions/Bid/$defs/bid.date"
+        "date": {
+          "$ref": "#/definitions/Bid/$defs/bid.date"
         },
-        "status":{
-          "$ref":"#/definitions/Bid/$defs/bid.status"
+        "status": {
+          "$ref": "#/definitions/Bid/$defs/bid.status"
         },
-        "tenderers":{
+        "tenderers": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/OrganizationReference"
-          }  
-        },
-        "value":{
-          "$ref":"#/definitions/Value"
-        },
-        "items":{
-          "type":"array",
-          "items":{
-            "$ref":"#/definitions/Item"
           }
         },
-        "documents":{
+        "value": {
+          "$ref": "#/definitions/Value"
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Item"
+          }
+        },
+        "documents": {
           "description": "Массив, описывающий документы, связазнные с данным тендерным предложением",
           "type": "array",
           "items": {
             "$ref": "#/definitions/Document"
           }
         },
-        "relatedLots":{
+        "relatedLots": {
           "description": "Массив, описывающий идентификаторы лотов, с которыми связано данное тендерное предложение",
           "type": "array",
           "items": {
             "$ref": "#/definitions/Bid/$defs/bid.relatedLot"
           }
         },
-        "requirementResponses":{
+        "requirementResponses": {
           "description": "Структурированный перечень ответов тендерного комитета, сформировавшего данный 'award', на вопросы, предписанные тендерным объявлением в отношении экономических агентов, связзанных с этим 'award' и/или их тендерного предложения",
           "type": "array",
           "items": {
@@ -750,52 +750,52 @@
           ]
         },
         "bid.relatedLot": {
-          "description":"",
-          "type":"string"
+          "description": "",
+          "type": "string"
         },
-        "bid.instance.itemizedBid":{
+        "bid.instance.itemizedBid": {
           "description": "Объект, описывающий тендерное предложение",
           "type": "object",
-          "properties":{
-            "id":{
-              "$ref":"#/definitions/Bid/$defs/bid.id"
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/Bid/$defs/bid.id"
             },
-            "date":{
-              "$ref":"#/definitions/Bid/$defs/bid.date"
+            "date": {
+              "$ref": "#/definitions/Bid/$defs/bid.date"
             },
-            "status":{
-              "$ref":"#/definitions/Bid/$defs/bid.status"
+            "status": {
+              "$ref": "#/definitions/Bid/$defs/bid.status"
             },
-            "tenderers":{
+            "tenderers": {
               "type": "array",
               "items": {
                 "$ref": "#/definitions/OrganizationReference/$defs/organizationReference.instance.genericReference"
-              }  
-            },
-            "value":{
-              "$ref":"#/definitions/Value/$defs/value.instance.valueExcludingVAT"
-            },
-            "items":{
-              "type":"array",
-              "items":{
-                "$ref":"#/definitions/Item/$defs/item.instance.bidItem"
               }
             },
-            "documents":{
+            "value": {
+              "$ref": "#/definitions/Value/$defs/value.instance.valueExcludingVAT"
+            },
+            "items": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Item/$defs/item.instance.bidItem"
+              }
+            },
+            "documents": {
               "description": "Массив, описывающий документы, связазнные с данным тендерным предложением",
               "type": "array",
               "items": {
                 "$ref": "#/definitions/Document/$defs/document.instance.genericDocument"
               }
             },
-            "relatedLots":{
+            "relatedLots": {
               "description": "Массив, описывающий идентификаторы лотов, с которыми связано данное тендерное предложение",
               "type": "array",
               "items": {
                 "$ref": "#/definitions/Bid/$defs/bid.relatedLot"
               }
             },
-            "requirementResponses":{
+            "requirementResponses": {
               "description": "Структурированный перечень ответов тендерного комитета, сформировавшего данный 'award', на вопросы, предписанные тендерным объявлением в отношении экономических агентов, связзанных с этим 'award' и/или их тендерного предложения",
               "type": "array",
               "items": {
@@ -833,7 +833,7 @@
         },
         "forecasts": {
           "type": "array",
-          "description":"",
+          "description": "",
           "items": {
             "$ref": "#/definitions/Metric"
           }
@@ -861,16 +861,16 @@
                 "$ref": "#/definitions/BudgetBreakdown/$defs/budgetBreakdown.instance.cnPlanningBudgetBreakdown"
               }
             },
-            "finance":{
-              "$ref":"#/definitions/Finance/$defs/finance.instance.genericFinance"  
+            "finance": {
+              "$ref": "#/definitions/Finance/$defs/finance.instance.genericFinance"
             }
           }
         },
         "budget.instance.eiPlanning": {
           "type": "object",
           "properties": {
-            "amount":{
-              "$ref":"#/definitions/Value/$defs/value.instance.valueExcludingVAT"  
+            "amount": {
+              "$ref": "#/definitions/Value/$defs/value.instance.valueExcludingVAT"
             }
           }
         }
@@ -938,8 +938,8 @@
               "description": "Финансовое выражение структурной единицы бюджета",
               "$ref": "#/definitions/Value/$defs/value.instance.valueExcludingVAT"
             },
-            "sourceParty":{
-              "description":"",
+            "sourceParty": {
+              "description": "",
               "$ref": "#/definitions/OrganizationReference/$defs/organizationReference.instance.genericReference"
             },
             "classifications": {
@@ -954,7 +954,7 @@
       "type": "object",
       "properties": {
         "type": {
-          "$ref":"#/definitions/BusinessFunction/$defs/businessFunction.type"  
+          "$ref": "#/definitions/BusinessFunction/$defs/businessFunction.type"
         },
         "jobTitle": {
           "description": "Описание выполняемой функции",
@@ -976,8 +976,8 @@
           ]
         }
       },
-      "$defs":{
-        "businessFunction.type":{
+      "$defs": {
+        "businessFunction.type": {
           "description": "Business function type accodring to the [Codelists#Business function types]",
           "type": "string",
           "codelist": "businessFunctionTypes.csv",
@@ -989,14 +989,14 @@
             "financialEvaluator",
             "legalEvaluator",
             "committeeMember"
-          ]  
+          ]
         },
-        "businessFunction.instance.genericFunction":{
+        "businessFunction.instance.genericFunction": {
           "description": "Бизнес-функция, определяющая/описываюшая полномочия представителя юридического лица-участника контрактного процесса",
           "type": "object",
-          "properties":{
+          "properties": {
             "type": {
-              "$ref":"#/definitions/BusinessFunction/$defs/businessFunction.type"  
+              "$ref": "#/definitions/BusinessFunction/$defs/businessFunction.type"
             },
             "jobTitle": {
               "description": "Описание выполняемой функции",
@@ -1016,7 +1016,7 @@
                   "$ref": "#/definitions/Document/$defs/document.instance.genericDocument"
                 }
               ]
-            }    
+            }
           }
         }
       }
@@ -1056,7 +1056,7 @@
           "type": "string",
           "format": "uri"
         },
-        "classification.instance.genericClassification":{
+        "classification.instance.genericClassification": {
           "description": "Объект, структурно описывающий классификацию другого объекта",
           "type": "object",
           "properties": {
@@ -1072,7 +1072,7 @@
             "uri": {
               "$ref": "#/definitions/Classification/$defs/classification.uri"
             }
-          }  
+          }
         }
       }
     },
@@ -1081,29 +1081,29 @@
       "type": "object",
       "properties": {
         "id": {
-          "$ref":"#/definitions/Coefficient/$defs/coefficient.id"
+          "$ref": "#/definitions/Coefficient/$defs/coefficient.id"
         },
         "value": {
-          "$ref":"#/definitions/Coefficient/$defs/coefficient.value"
+          "$ref": "#/definitions/Coefficient/$defs/coefficient.value"
         },
         "minValue": {
-          "$ref":"#/definitions/Coefficient/$defs/coefficient.minValue"
+          "$ref": "#/definitions/Coefficient/$defs/coefficient.minValue"
         },
         "maxValue": {
-          "$ref":"#/definitions/Coefficient/$defs/coefficient.maxValue"
+          "$ref": "#/definitions/Coefficient/$defs/coefficient.maxValue"
         },
         "period": {
           "description": "Used to specify a particular [Period] the conversion and its coefficients are applies to",
           "$ref": "#/definitions/Period"
         },
         "coefficient": {
-          "$ref":"#/definitions/Coefficient/$defs/coefficient.coefficient"
+          "$ref": "#/definitions/Coefficient/$defs/coefficient.coefficient"
         }
       },
-      "$defs":{
+      "$defs": {
         "coefficient.id": {
           "description": "An identifier for this coefficient.",
-          "type":  "string"
+          "type": "string"
         },
         "coefficient.value": {
           "description": "Value of related 'requirement' or one of available 'options' if applicable received through 'requirementResponse'",
@@ -1121,28 +1121,28 @@
           "description": "Precise value that has to be applied for conversion in specific case",
           "type": "number"
         },
-        "coefficient.instance.genericCoefficient":{
+        "coefficient.instance.genericCoefficient": {
           "description": "A coefficient applied in case of the value of prescribed attribute matches",
           "type": "object",
-          "properties":{
-            "id":{
-              "$ref":"#/definitions/Coefficient/$defs/coefficient.id"
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/Coefficient/$defs/coefficient.id"
             },
-            "value":{
-              "$ref":"#/definitions/Coefficient/$defs/coefficient.value"
+            "value": {
+              "$ref": "#/definitions/Coefficient/$defs/coefficient.value"
             },
-            "minValue":{
-              "$ref":"#/definitions/Coefficient/$defs/coefficient.minValue"
+            "minValue": {
+              "$ref": "#/definitions/Coefficient/$defs/coefficient.minValue"
             },
-            "maxValue":{
-              "$ref":"#/definitions/Coefficient/$defs/coefficient.maxValue"
+            "maxValue": {
+              "$ref": "#/definitions/Coefficient/$defs/coefficient.maxValue"
             },
-            "period":{
+            "period": {
               "description": "Used to specify a particular [Period] the conversion and its coefficients are applies to",
               "$ref": "#/definitions/Period/$defs/period.instance.complete"
             },
-            "coefficient":{
-              "$ref":"#/definitions/Coefficient/$defs/coefficient.coefficient"
+            "coefficient": {
+              "$ref": "#/definitions/Coefficient/$defs/coefficient.coefficient"
             }
           }
         }
@@ -1153,16 +1153,16 @@
       "type": "object",
       "properties": {
         "id": {
-          "$ref":"#/definitions/ContactPoint/$defs/contactPoint.id"
+          "$ref": "#/definitions/ContactPoint/$defs/contactPoint.id"
         },
         "name": {
-          "$ref":"#/definitions/ContactPoint/$defs/contactPoint.name"
+          "$ref": "#/definitions/ContactPoint/$defs/contactPoint.name"
         },
         "email": {
-          "$ref":"#/definitions/ContactPoint/$defs/contactPoint.email"
+          "$ref": "#/definitions/ContactPoint/$defs/contactPoint.email"
         },
         "telephone": {
-          "$ref":"#/definitions/ContactPoint/$defs/contactPoint.telephone"
+          "$ref": "#/definitions/ContactPoint/$defs/contactPoint.telephone"
         }
       },
       "$defs": {
@@ -1182,23 +1182,23 @@
           "description": "Контакный номер телефона физического лица / департамента",
           "type": "string"
         },
-        "contactPoint.instance.genericPoint":{
+        "contactPoint.instance.genericPoint": {
           "description": "ОБъект описывающий физическое лицо-предствителя либо департамент, представляющий юридическое лицо в рамках контрактного процесса. ",
           "type": "object",
           "properties": {
             "id": {
-              "$ref":"#/definitions/ContactPoint/$defs/contactPoint.id"
+              "$ref": "#/definitions/ContactPoint/$defs/contactPoint.id"
             },
             "name": {
-              "$ref":"#/definitions/ContactPoint/$defs/contactPoint.name"
+              "$ref": "#/definitions/ContactPoint/$defs/contactPoint.name"
             },
             "email": {
-              "$ref":"#/definitions/ContactPoint/$defs/contactPoint.email"
+              "$ref": "#/definitions/ContactPoint/$defs/contactPoint.email"
             },
             "telephone": {
-              "$ref":"#/definitions/ContactPoint/$defs/contactPoint.telephone"
-            }  
-          }    
+              "$ref": "#/definitions/ContactPoint/$defs/contactPoint.telephone"
+            }
+          }
         }
       }
     },
@@ -1207,25 +1207,25 @@
       "type": "object",
       "properties": {
         "id": {
-          "$ref":"#/definitions/Contract/$defs/contract.id"  
+          "$ref": "#/definitions/Contract/$defs/contract.id"
         },
         "internalId": {
-          "$ref":"#/definitions/Contract/$defs/contract.internalId"
+          "$ref": "#/definitions/Contract/$defs/contract.internalId"
         },
         "awardID": {
-          "$ref":"#/definitions/Contract/$defs/contract.awardID"
+          "$ref": "#/definitions/Contract/$defs/contract.awardID"
         },
         "extendsContractID": {
-          "$ref":"#/definitions/Contract/$defs/contract.extendsContractID"
+          "$ref": "#/definitions/Contract/$defs/contract.extendsContractID"
         },
         "description": {
-          "$ref":"#/definitions/Contract/$defs/contract.description"
+          "$ref": "#/definitions/Contract/$defs/contract.description"
         },
         "status": {
-          "$ref":"#/definitions/Contract/$defs/contract.status"
+          "$ref": "#/definitions/Contract/$defs/contract.status"
         },
         "statusDetails": {
-          "$ref":"#/definitions/Contract/$defs/contract.statusDetails"
+          "$ref": "#/definitions/Contract/$defs/contract.statusDetails"
         },
         "buyer": {
           "description": "",
@@ -1255,10 +1255,10 @@
           }
         },
         "dateSigned": {
-          "$ref":"#/definitions/Contract/$defs/contract.dateSigned"  
+          "$ref": "#/definitions/Contract/$defs/contract.dateSigned"
         },
         "date": {
-          "$ref":"#/definitions/Contract/$defs/contract.date"  
+          "$ref": "#/definitions/Contract/$defs/contract.date"
         },
         "documents": {
           "description": "All documents and attachments related to the contract, including any notices.",
@@ -1304,7 +1304,7 @@
           "$ref": "#/definitions/ContractTerms"
         }
       },
-      "$defs":{
+      "$defs": {
         "contract.id": {
           "description": "The identifier for this contract. It must be unique and cannot change within its Open Contracting Process (defined by a single ocid).",
           "type": "string"
@@ -1343,30 +1343,30 @@
           "type": "string",
           "format": "date-time"
         },
-        "contract.instance.regularContract":{
-          "type":"object",
-          "description":"",
-          "properties":{
+        "contract.instance.regularContract": {
+          "type": "object",
+          "description": "",
+          "properties": {
             "id": {
-              "$ref":"#/definitions/Contract/$defs/contract.id"  
+              "$ref": "#/definitions/Contract/$defs/contract.id"
             },
             "internalId": {
-              "$ref":"#/definitions/Contract/$defs/contract.internalId"
+              "$ref": "#/definitions/Contract/$defs/contract.internalId"
             },
             "awardID": {
-              "$ref":"#/definitions/Contract/$defs/contract.awardID"
+              "$ref": "#/definitions/Contract/$defs/contract.awardID"
             },
             "extendsContractID": {
-              "$ref":"#/definitions/Contract/$defs/contract.extendsContractID"
+              "$ref": "#/definitions/Contract/$defs/contract.extendsContractID"
             },
             "description": {
-              "$ref":"#/definitions/Contract/$defs/contract.description"
+              "$ref": "#/definitions/Contract/$defs/contract.description"
             },
             "status": {
-              "$ref":"#/definitions/Contract/$defs/contract.status"
+              "$ref": "#/definitions/Contract/$defs/contract.status"
             },
             "statusDetails": {
-              "$ref":"#/definitions/Contract/$defs/contract.statusDetails"
+              "$ref": "#/definitions/Contract/$defs/contract.statusDetails"
             },
             "buyer": {
               "description": "",
@@ -1382,7 +1382,7 @@
             },
             "period": {
               "description": "The start and end date for the contract.",
-              "oneOf":[
+              "oneOf": [
                 {
                   "$ref": "#/definitions/Period/$defs/period.instance.complete"
                 },
@@ -1403,10 +1403,10 @@
               }
             },
             "dateSigned": {
-              "$ref":"#/definitions/Contract/$defs/contract.dateSigned"    
+              "$ref": "#/definitions/Contract/$defs/contract.dateSigned"
             },
             "date": {
-              "$ref":"#/definitions/Contract/$defs/contract.date"  
+              "$ref": "#/definitions/Contract/$defs/contract.date"
             },
             "documents": {
               "description": "All documents and attachments related to the contract, including any notices.",
@@ -1450,7 +1450,7 @@
             "contractTerms": {
               "description": "Information about the terms governing the future contracts from the procedure.",
               "$ref": "#/definitions/ContractTerms/$defs/contractTerms.instance.genericTerms"
-            }    
+            }
           }
         }
       }
@@ -1460,19 +1460,19 @@
       "type": "object",
       "properties": {
         "performanceTerms": {
-          "$ref":"#/definitions/ContractTerms/$defs/contractTerms.performanceTerms"
+          "$ref": "#/definitions/ContractTerms/$defs/contractTerms.performanceTerms"
         },
         "financialTerms": {
-          "$ref":"#/definitions/ContractTerms/$defs/contractTerms.financialTerms"
+          "$ref": "#/definitions/ContractTerms/$defs/contractTerms.financialTerms"
         },
         "financialTermsDetails": {
-          "type":"array",
-          "items":{
-            "$ref":"#/definitions/FinancialTermsDetail"
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/FinancialTermsDetail"
           }
         }
       },
-      "$defs":{
+      "$defs": {
         "contractTerms.performanceTerms": {
           "description": "The main information about the performance of the contract (e.g. intermediary deliverables, compensation for damages, intellectual property rights).",
           "type": "string"
@@ -1483,24 +1483,32 @@
         },
         "contractTerms.financialTermsDetails": {
           "description": "",
-          "type":"string",
-          "items":{
-            "$ref":"#/definitions/FinancialTermsDetail/$defs/financialTermsDetail.instance.genericDetail"
+          "type": "string",
+          "items": {
+            "$ref": "#/definitions/FinancialTermsDetail/$defs/financialTermsDetail.instance.genericDetail"
           }
         },
-        "contractTerms.instance.genericTerms":{
+        "contractTerms.instance.genericTerms": {
           "performanceTerms": {
-            "$ref":"#/definitions/ContractTerms/$defs/contractTerms.performanceTerms"
+            "$ref": "#/definitions/ContractTerms/$defs/contractTerms.performanceTerms"
           },
           "financialTerms": {
-            "$ref":"#/definitions/ContractTerms/$defs/contractTerms.financialTerms"
+            "$ref": "#/definitions/ContractTerms/$defs/contractTerms.financialTerms"
           },
           "financialTermsDetails": {
-            "type":"array",
-            "items":{
-              "$ref":"#/definitions/FinancialTermsDetail/$defs/financialTermsDetail.instance.genericDetail"
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/FinancialTermsDetail/$defs/financialTermsDetail.instance.genericDetail"
             }
-          }  
+          }
+        },
+        "contractTerms.instance.tenderLotTerms": {
+          "financialTermsDetails": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/FinancialTermsDetail/$defs/financialTermsDetail.instance.genericDetail"
+            }
+          }
         }
       }
     },
@@ -1509,13 +1517,13 @@
       "description": "Conversion is used to describe conversions and its coefficients applicable for specific value received for requirement or observation",
       "properties": {
         "id": {
-          "$ref":"#/definitions/Conversion/$defs/conversion.id"
+          "$ref": "#/definitions/Conversion/$defs/conversion.id"
         },
         "relatesTo": {
-          "$ref":"#/definitions/Conversion/$defs/conversion.id"
+          "$ref": "#/definitions/Conversion/$defs/conversion.id"
         },
         "relatedItem": {
-          "$ref":"#/definitions/Conversion/$defs/conversion.id"
+          "$ref": "#/definitions/Conversion/$defs/conversion.id"
         },
         "rationale": {
           "description": "The free-text rationale of using of this conversion",
@@ -1533,7 +1541,7 @@
           }
         }
       },
-      "$defs":{
+      "$defs": {
         "conversion.id": {
           "description": "An identifier for this conversion.",
           "type": "string"
@@ -1560,18 +1568,18 @@
           "description": "Free text description of this conversion could be shared here",
           "type": "string"
         },
-        "conversion.instance.genericConversion":{
-          "description":"",
-          "type":"object",
-          "properties":{
+        "conversion.instance.genericConversion": {
+          "description": "",
+          "type": "object",
+          "properties": {
             "id": {
-              "$ref":"#/definitions/Conversion/$defs/conversion.id"
+              "$ref": "#/definitions/Conversion/$defs/conversion.id"
             },
             "relatesTo": {
-              "$ref":"#/definitions/Conversion/$defs/conversion.id"
+              "$ref": "#/definitions/Conversion/$defs/conversion.id"
             },
             "relatedItem": {
-              "$ref":"#/definitions/Conversion/$defs/conversion.id"
+              "$ref": "#/definitions/Conversion/$defs/conversion.id"
             },
             "rationale": {
               "description": "The free-text rationale of using of this conversion",
@@ -1598,16 +1606,16 @@
       "type": "object",
       "properties": {
         "id": {
-          "$ref":"#/definitions/Criterion/$defs/criterion.id"
+          "$ref": "#/definitions/Criterion/$defs/criterion.id"
         },
         "title": {
-          "$ref":"#/definitions/Criterion/$defs/criterion.title"
+          "$ref": "#/definitions/Criterion/$defs/criterion.title"
         },
         "description": {
-          "$ref":"#/definitions/Criterion/$defs/criterion.description"
+          "$ref": "#/definitions/Criterion/$defs/criterion.description"
         },
         "source": {
-          "$ref":"#/definitions/Criterion/$defs/criterion.source"
+          "$ref": "#/definitions/Criterion/$defs/criterion.source"
         },
         "classification": {
           "description": "",
@@ -1615,10 +1623,10 @@
           "$ref": "#/definitions/Classification"
         },
         "relatesTo": {
-          "$ref":"#/definitions/Criterion/$defs/criterion.relatesTo"
+          "$ref": "#/definitions/Criterion/$defs/criterion.relatesTo"
         },
         "relatedItem": {
-          "$ref":"#/definitions/Criterion/$defs/criterion.relatedItem"
+          "$ref": "#/definitions/Criterion/$defs/criterion.relatedItem"
         },
         "requirementGroups": {
           "description": "A list of [RequirementGroup] for this Criterion. A criterion is satisfied by one or more requirement groups being met. A requirement group is met when all requirements in the group are satisfied.",
@@ -1628,18 +1636,18 @@
           }
         }
       },
-      "$defs":{
+      "$defs": {
         "criterion.id": {
           "description": "The identifier for this criterion. It must be unique and cannot change within the Open Contracting Process it is part of (defined by a single ocid).",
-          "type":"string"
+          "type": "string"
         },
         "criterion.title": {
           "description": "Criterion title",
-          "type":"string"
+          "type": "string"
         },
         "criterion.description": {
           "description": "Criterion description",
-          "type":"string"
+          "type": "string"
         },
         "criterion.source": {
           "description": "Source of response to the requirements specificed in the criterion, for example responses may be submitted by tenderers or by an assessment committee at the procuringEntity.",
@@ -1667,23 +1675,23 @@
         },
         "criterion.relatedItem": {
           "description": "Where relatesTo = \"item\" this field must be populated with the id of the item in this tender section which the criterion relates to. Where relatesTo <> \"item\" this field should be omitted",
-          "type":"string"
+          "type": "string"
         },
-        "criterion.instance.genericCriterion":{
-          "description":"",
-          "type":"object",
-          "properties":{
+        "criterion.instance.genericCriterion": {
+          "description": "",
+          "type": "object",
+          "properties": {
             "id": {
-              "$ref":"#/definitions/Criterion/$defs/criterion.id"
+              "$ref": "#/definitions/Criterion/$defs/criterion.id"
             },
             "title": {
-              "$ref":"#/definitions/Criterion/$defs/criterion.title"
+              "$ref": "#/definitions/Criterion/$defs/criterion.title"
             },
             "description": {
-              "$ref":"#/definitions/Criterion/$defs/criterion.description"
+              "$ref": "#/definitions/Criterion/$defs/criterion.description"
             },
             "source": {
-              "$ref":"#/definitions/Criterion/$defs/criterion.source"
+              "$ref": "#/definitions/Criterion/$defs/criterion.source"
             },
             "classification": {
               "description": "",
@@ -1691,10 +1699,10 @@
               "$ref": "#/definitions/Classification/$defs/classification.instance.genericClassification"
             },
             "relatesTo": {
-              "$ref":"#/definitions/Criterion/$defs/criterion.relatesTo"
+              "$ref": "#/definitions/Criterion/$defs/criterion.relatesTo"
             },
             "relatedItem": {
-              "$ref":"#/definitions/Criterion/$defs/criterion.relatedItem"
+              "$ref": "#/definitions/Criterion/$defs/criterion.relatedItem"
             },
             "requirementGroups": {
               "description": "A list of [RequirementGroup] for this Criterion. A criterion is satisfied by one or more requirement groups being met. A requirement group is met when all requirements in the group are satisfied.",
@@ -1702,7 +1710,7 @@
               "items": {
                 "$ref": "#/definitions/RequirementGroup/$defs/requirementGroup.instance.genericGroup"
               }
-            }  
+            }
           }
         }
       }
@@ -1712,19 +1720,19 @@
       "type": "object",
       "properties": {
         "id": {
-          "ref":"#/definitions/Document/$defs/document.id"
+          "ref": "#/definitions/Document/$defs/document.id"
         },
         "documentType": {
-          "ref":"#/definitions/Document/$defs/document.documentType"
+          "ref": "#/definitions/Document/$defs/document.documentType"
         },
         "title": {
-          "ref":"#/definitions/Document/$defs/document.title"
+          "ref": "#/definitions/Document/$defs/document.title"
         },
         "description": {
-          "ref":"#/definitions/Document/$defs/document.description"
+          "ref": "#/definitions/Document/$defs/document.description"
         },
         "url": {
-          "ref":"#/definitions/Document/$defs/document.url"
+          "ref": "#/definitions/Document/$defs/document.url"
         },
         "relatedLots": {
           "description": "If this document relates to a particular lot, provide the identifier(s) of the related lot(s) here.",
@@ -1732,11 +1740,11 @@
             "array"
           ],
           "items": {
-            "ref":"#/definitions/Document/$defs/document.relatedLot"
+            "ref": "#/definitions/Document/$defs/document.relatedLot"
           }
         }
       },
-      "$defs":{
+      "$defs": {
         "document.id": {
           "description": "A local, unique identifier for this document. This field is used to keep track of multiple revisions of a document through the compilation from release to record mechanism.",
           "type": "string"
@@ -1751,7 +1759,7 @@
           "description": "The document title.",
           "type": "string"
         },
-        "document.description":{
+        "document.description": {
           "description": "The document description",
           "type": "string"
         },
@@ -1764,25 +1772,25 @@
           "description": "If this document relates to a particular lot, provide the identifier(s) of the related lot(s) here.",
           "type": "string"
         },
-        "document.instance.genericDocument":{
-          "type":"object",
-          "description":"Типовой документ в доменной модели",
-          "properties":{
+        "document.instance.genericDocument": {
+          "type": "object",
+          "description": "Типовой документ в доменной модели",
+          "properties": {
             "id": {
-              "description":"Системный идентификатор документа",
-              "ref":"#/definitions/Document/$defs/document.id"
+              "description": "Системный идентификатор документа",
+              "ref": "#/definitions/Document/$defs/document.id"
             },
             "documentType": {
-              "ref":"#/definitions/Document/$defs/document.documentType"
+              "ref": "#/definitions/Document/$defs/document.documentType"
             },
             "title": {
-              "ref":"#/definitions/Document/$defs/document.title"
+              "ref": "#/definitions/Document/$defs/document.title"
             },
-            "description":{
-              "ref":"#/definitions/Document/$defs/document.description"
+            "description": {
+              "ref": "#/definitions/Document/$defs/document.description"
             },
             "url": {
-              "ref":"#/definitions/Document/$defs/document.url"
+              "ref": "#/definitions/Document/$defs/document.url"
             },
             "relatedLots": {
               "description": "If this document relates to a particular lot, provide the identifier(s) of the related lot(s) here.",
@@ -1790,9 +1798,9 @@
                 "array"
               ],
               "items": {
-                "ref":"#/definitions/Document/$defs/document.relatedLot"
+                "ref": "#/definitions/Document/$defs/document.relatedLot"
               }
-            }  
+            }
           }
         }
       }
@@ -1803,75 +1811,102 @@
       "type": "object",
       "properties": {
         "id": {
-          "title": "Identifier",
-          "description": "A unique identifier for the enquiry.",
-          "type": [
-            "string",
-            "null"
-          ]
+          "$ref": "#/definitions/Enquiry/$defs/enquiry.id"
         },
         "date": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "title": "Date",
-          "description": "The date the enquiry was received or processed.",
-          "format": "date-time"
+          "$ref": "#/definitions/Enquiry/$defs/enquiry.date"
         },
         "author": {
-          "title": "Question author",
           "description": "The [OrganizationReference] of the party asking this question.",
           "$ref": "#/definitions/OrganizationReference"
         },
         "title": {
-          "title": "Question title",
-          "description": "The subject line of the question.",
-          "type": [
-            "string",
-            "null"
-          ]
+          "$ref": "#/definitions/Enquiry/$defs/enquiry.title"
         },
         "description": {
-          "title": "Description",
-          "description": "The body of the question.",
-          "type": [
-            "string",
-            "null"
-          ]
+          "$ref": "#/definitions/Enquiry/$defs/enquiry.description"
         },
         "answer": {
-          "title": "Answer",
-          "description": "The answer to this question, when available.",
-          "type": [
-            "string",
-            "null"
-          ]
+          "$ref": "#/definitions/Enquiry/$defs/enquiry.answer"
         },
         "dateAnswered": {
-          "title": "Date answered",
-          "description": "The date the answer to the question was provided.",
-          "type": [
-            "string",
-            "null"
-          ],
-          "format": "date-time"
+          "$ref": "#/definitions/Enquiry/$defs/enquiry.dateAnswered"
         },
         "relatedItem": {
-          "title": "Related item",
-          "description": "If this question relates to a specific line-item, this field contains the line-item identifier.",
-          "type": [
-            "string",
-            "null"
-          ]
+          "$ref": "#/definitions/Enquiry/$defs/enquiry.relatedItem"
         },
         "relatedLot": {
-          "title": "Related lot",
+          "$ref": "#/definitions/Enquiry/$defs/enquiry.relatedLot"
+        }
+      },
+      "$defs": {
+        "enquiry.id": {
+          "description": "A unique identifier for the enquiry.",
+          "type": "string"
+        },
+        "enquiry.date": {
+          "type": "string",
+          "description": "The date the enquiry was received or processed.",
+          "format": "date-time"
+        },
+        "enquiry.title": {
+          "description": "The subject line of the question.",
+          "type": "string"
+        },
+        "enquiry.description": {
+          "description": "The body of the question.",
+          "type": "string"
+        },
+        "enquiry.answer": {
+          "description": "The answer to this question, when available.",
+          "type": "string"
+        },
+        "enquiry.dateAnswered": {
+          "description": "The date the answer to the question was provided.",
+          "type": "string",
+          "format": "date-time"
+        },
+        "enquiry.relatedItem": {
+          "description": "If this question relates to a specific line-item, this field contains the line-item identifier.",
+          "type": "string"
+        },
+        "enquiry.relatedLot": {
           "description": "Where lots are used, if this question relates to a specific lot, this field contains the lot identifier.",
-          "type": [
-            "string",
-            "null"
-          ]
+          "type": "string"
+        },
+        "enquiry.instance.genericEnquiry": {
+          "description": "",
+          "type": "object",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/Enquiry/$defs/enquiry.id"
+            },
+            "date": {
+              "$ref": "#/definitions/Enquiry/$defs/enquiry.date"
+            },
+            "author": {
+              "description": "The [OrganizationReference] of the party asking this question.",
+              "$ref": "#/definitions/OrganizationReference/$defs/organizationReference.instance.genericReference"
+            },
+            "title": {
+              "$ref": "#/definitions/Enquiry/$defs/enquiry.title"
+            },
+            "description": {
+              "$ref": "#/definitions/Enquiry/$defs/enquiry.description"
+            },
+            "answer": {
+              "$ref": "#/definitions/Enquiry/$defs/enquiry.answer"
+            },
+            "dateAnswered": {
+              "$ref": "#/definitions/Enquiry/$defs/enquiry.dateAnswered"
+            },
+            "relatedItem": {
+              "$ref": "#/definitions/Enquiry/$defs/enquiry.relatedItem"
+            },
+            "relatedLot": {
+              "$ref": "#/definitions/Enquiry/$defs/enquiry.relatedLot"
+            }
+          }
         }
       }
     },
@@ -1881,16 +1916,16 @@
       "type": "object",
       "properties": {
         "id": {
-          "$ref":"#/definitions/Evidence/$defs/evidence.id"
+          "$ref": "#/definitions/Evidence/$defs/evidence.id"
         },
         "type": {
-          "$ref":"#/definitions/Evidence/$defs/evidence.type"
+          "$ref": "#/definitions/Evidence/$defs/evidence.type"
         },
         "title": {
-          "$ref":"#/definitions/Evidence/$defs/evidence.title"
+          "$ref": "#/definitions/Evidence/$defs/evidence.title"
         },
         "description": {
-          "$ref":"#/definitions/Evidence/$defs/evidence.description"
+          "$ref": "#/definitions/Evidence/$defs/evidence.description"
         },
         "relatedDocument": {
           "title": "",
@@ -1898,7 +1933,7 @@
           "$ref": "#/definitions/Document"
         }
       },
-      "$defs":{
+      "$defs": {
         "evidence.id": {
           "title": "",
           "description": "",
@@ -1921,24 +1956,24 @@
           "description": "",
           "type": ""
         },
-        "evidence.instance.genericEvidence":{
+        "evidence.instance.genericEvidence": {
           "id": {
-            "$ref":"#/definitions/Evidence/$defs/evidence.id"
+            "$ref": "#/definitions/Evidence/$defs/evidence.id"
           },
           "type": {
-            "$ref":"#/definitions/Evidence/$defs/evidence.type"
+            "$ref": "#/definitions/Evidence/$defs/evidence.type"
           },
           "title": {
-            "$ref":"#/definitions/Evidence/$defs/evidence.title"
+            "$ref": "#/definitions/Evidence/$defs/evidence.title"
           },
           "description": {
-            "$ref":"#/definitions/Evidence/$defs/evidence.description"
+            "$ref": "#/definitions/Evidence/$defs/evidence.description"
           },
           "relatedDocument": {
             "title": "",
             "description": "",
             "$ref": "#/definitions/Document/$defs/document.instance.genericDocument"
-          }  
+          }
         }
       }
     },
@@ -1947,22 +1982,22 @@
       "type": "object",
       "properties": {
         "id": {
-          "$ref":"#/definitions/Finance/$defs/finance.id"  
+          "$ref": "#/definitions/Finance/$defs/finance.id"
         },
         "value": {
-          "$ref":"#/definitions/Value"  
+          "$ref": "#/definitions/Value"
         },
         "period": {
-          "$ref":"#/definitions/Period"  
+          "$ref": "#/definitions/Period"
         },
         "classifications": {
-          "$ref":"#/definitions/Finance/$defs/finance.classifications"   
+          "$ref": "#/definitions/Finance/$defs/finance.classifications"
         },
         "financingParty": {
-          "$ref":"#/definitions/OrganizationReference"  
+          "$ref": "#/definitions/OrganizationReference"
         }
       },
-      "$defs":{
+      "$defs": {
         "finance.id": {
           "description": "An identifier for this financing arrangement.",
           "type": "string"
@@ -1971,25 +2006,25 @@
           "description": "Finance classifications must be provided as a set of key-value pairs, where the key is a dimension (or the label of a dimension) used in budget classification, and the value is the value of that dimension for this contracting process or specific contract (depending on the point within an OCDS file at which the classification is provided).",
           "type": "object"
         },
-        "finance.instance.genericFinance":{
-          "description":"",
-          "type":"object",
-          "properties":{
+        "finance.instance.genericFinance": {
+          "description": "",
+          "type": "object",
+          "properties": {
             "id": {
-              "$ref":"#/definitions/Finance/$defs/finance.id"  
+              "$ref": "#/definitions/Finance/$defs/finance.id"
             },
             "value": {
-              "$ref":"#/definitions/Value/$defs/value.instance.valueExcludingVAT"  
+              "$ref": "#/definitions/Value/$defs/value.instance.valueExcludingVAT"
             },
             "period": {
-              "$ref":"#/definitions/Period/$defs/period.instance.complete"  
+              "$ref": "#/definitions/Period/$defs/period.instance.complete"
             },
             "classifications": {
-              "$ref":"#/definitions/Finance/$defs/finance.classifications"   
+              "$ref": "#/definitions/Finance/$defs/finance.classifications"
             },
             "financingParty": {
-              "$ref": "#/definitions/OrganizationReference/$defs/organizationReference.instance.genericReference"  
-            }  
+              "$ref": "#/definitions/OrganizationReference/$defs/organizationReference.instance.genericReference"
+            }
           }
         }
       }
@@ -1999,23 +2034,23 @@
       "type": "object",
       "properties": {
         "id": {
-          "$ref":"#/definitions/FinancialProgressBreakdown/$defs/financialProgressBreakdown.id"
+          "$ref": "#/definitions/FinancialProgressBreakdown/$defs/financialProgressBreakdown.id"
         },
         "description": {
-          "$ref":"#/definitions/FinancialProgressBreakdown/$defs/financialProgressBreakdown.description"
+          "$ref": "#/definitions/FinancialProgressBreakdown/$defs/financialProgressBreakdown.description"
         },
         "period": {
           "$ref": "#/definitions/Period",
           "description": "The [Period] covered by this financial progress breakdown entry. This information may also be duplicated using classifications where relevant."
         },
         "classifications": {
-          "$ref":"#/definitions/FinancialProgressBreakdown/$defs/financialProgressBreakdown.classifications"
+          "$ref": "#/definitions/FinancialProgressBreakdown/$defs/financialProgressBreakdown.classifications"
         },
         "measures": {
-          "$ref":"#/definitions/FinancialProgressBreakdown/$defs/financialProgressBreakdown.measures"
+          "$ref": "#/definitions/FinancialProgressBreakdown/$defs/financialProgressBreakdown.measures"
         }
       },
-      "$defs":{
+      "$defs": {
         "financialProgressBreakdown.id": {
           "description": "An identifier for this particular financial progress breakdown entry.",
           "type": "string"
@@ -2032,155 +2067,126 @@
           "description": "Budget [Classification] must be provided as a set of key-value pairs, where the key is a dimension (or the label of a dimension) used in budget classification, and the value is the value of that dimension for this contracting process or specific contract (depending on the point within an OCDS file at which the classification is provided).",
           "type": "object"
         },
-        "financialProgressBreakdown.instance.contractFinancialBreakdown":{
-          "type":"object",
-          "description":"",
-          "properties":{
+        "financialProgressBreakdown.instance.contractFinancialBreakdown": {
+          "type": "object",
+          "description": "",
+          "properties": {
             "id": {
-              "$ref":"#/definitions/FinancialProgressBreakdown/$defs/financialProgressBreakdown.id"
+              "$ref": "#/definitions/FinancialProgressBreakdown/$defs/financialProgressBreakdown.id"
             },
             "description": {
-              "$ref":"#/definitions/FinancialProgressBreakdown/$defs/financialProgressBreakdown.description"
+              "$ref": "#/definitions/FinancialProgressBreakdown/$defs/financialProgressBreakdown.description"
             },
             "period": {
               "$ref": "#/definitions/Period/$defs/period.instance.complete"
             },
             "classifications": {
-              "$ref":"#/definitions/FinancialProgressBreakdown/$defs/financialProgressBreakdown.classifications"
+              "$ref": "#/definitions/FinancialProgressBreakdown/$defs/financialProgressBreakdown.classifications"
             },
             "measures": {
-              "$ref":"#/definitions/FinancialProgressBreakdown/$defs/financialProgressBreakdown.measures"
+              "$ref": "#/definitions/FinancialProgressBreakdown/$defs/financialProgressBreakdown.measures"
             }
           }
         }
       }
     },
-    "FinancialTermsDetail":{
-      "description":"",
-      "type":"object",
-      "properties":{
-        "id":{
-          "$ref":"#/definitions/FinancialTermsDetail/$defs/financialTermsDetail.id"
+    "FinancialTermsDetail": {
+      "description": "",
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/FinancialTermsDetail/$defs/financialTermsDetail.id"
         },
-        "measure":{
-          "$ref":"#/definitions/FinancialTermsDetail/$defs/financialTermsDetail.measure"
+        "measure": {
+          "$ref": "#/definitions/FinancialTermsDetail/$defs/financialTermsDetail.measure"
         },
-        "period":{
-          "description":"",
-          "$ref":"#/definitions/Period"
+        "period": {
+          "description": "",
+          "$ref": "#/definitions/Period"
         },
-        "classifications":{
-          "$ref":"#/definitions/FinancialTermsDetail/$defs/financialTermsDetail.classifications"
+        "classifications": {
+          "$ref": "#/definitions/FinancialTermsDetail/$defs/financialTermsDetail.classifications"
         }
       },
-      "$defs":{
-        "financialTermsDetail.id":{
-          "description":"",
-          "type":"string"
+      "$defs": {
+        "financialTermsDetail.id": {
+          "description": "",
+          "type": "string"
         },
-        "financialTermsDetail.measure":{
-          "description":"",
-          "type":"string"
+        "financialTermsDetail.measure": {
+          "description": "",
+          "type": "string"
         },
-        "financialTermsDetail.classifications":{
-          "description":"",
-          "type":"object"
+        "financialTermsDetail.classifications": {
+          "description": "",
+          "type": "object"
         },
-        "financialTermsDetail.instance.genericDetail":{
-          "type":"object",
-          "description":"",
-          "properties":{
-            "id":{
-              "$ref":"#/definitions/FinancialTermsDetail/$defs/financialTermsDetail.id"
+        "financialTermsDetail.instance.genericDetail": {
+          "type": "object",
+          "description": "",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/FinancialTermsDetail/$defs/financialTermsDetail.id"
             },
-            "measure":{
-              "$ref":"#/definitions/FinancialTermsDetail/$defs/financialTermsDetail.measure"
+            "measure": {
+              "$ref": "#/definitions/FinancialTermsDetail/$defs/financialTermsDetail.measure"
             },
-            "period":{
-              "description":"",
-              "$ref":"#/definitions/Period/$defs/period.instance.complete"
+            "period": {
+              "description": "",
+              "$ref": "#/definitions/Period/$defs/period.instance.complete"
             },
-            "classifications":{
-              "$ref":"#/definitions/FinancialTermsDetail/$defs/financialTermsDetail.classifications"
-            }  
-          }
-        }
-      }
-    },
-    "Gazetter": {
-      "type": [
-        "object",
-        "null"
-      ],
-      "title": "Gazetteer",
-      "description": "A gazetteer is a geographical index or directory. The specific gazetteer used should be specified in scheme, and one or more codes from that gazetteer used in identifier.",
-      "properties": {
-        "scheme": {
-          "title": "Gazetteer scheme",
-          "description": "The entry of the selected gazetteer in the gazetteers codelist. The codelist provides details of services, where available, that can resolve a gazetteer entry to provide location names.",
-          "type": [
-            "string",
-            "null"
-          ],
-          "codelist": "locationGazetteers.csv",
-          "openCodelist": true
-        },
-        "identifiers": {
-          "title": "Identifiers",
-          "description": "An array of one or more codes drawn from the gazetteer indicated in scheme.",
-          "type": [
-            "array",
-            "null"
-          ],
-          "items": {
-            "type": [
-              "string"
-            ]
+            "classifications": {
+              "$ref": "#/definitions/FinancialTermsDetail/$defs/financialTermsDetail.classifications"
+            }
           }
         }
       }
     },
     "Identifier": {
-      "title": "Identifier",
       "description": "",
       "type": "object",
       "properties": {
         "scheme": {
-          "title": "Scheme",
           "description": "Organization identifiers be drawn from an existing identification scheme. This field is used to indicate the scheme or codelist in which the identifier will be found. This value should be drawn from the Organization Identification",
-          "type": [
-            "string",
-            "null"
-          ],
+          "type": "string",
           "codelist": "http://standard.open-contracting.org/1.1-dev/en/schema/codelists/#organization-identifier-scheme",
           "openCodelist": true
         },
         "id": {
-          "title": "ID",
           "description": "The identifier of the organization in the selected scheme.",
-          "type": [
-            "string",
-            "integer",
-            "null"
-          ]
+          "type": "string"
         },
         "legalName": {
-          "title": "Legal Name",
           "description": "The legally registered name of the organization.",
-          "type": [
-            "string",
-            "null"
-          ]
+          "type": "string"
         },
         "uri": {
-          "title": "URI",
           "description": "A URI to identify the organization, such as those provided by Open Corporates (http://www.opencorporates.com) or some other relevant URI provider. This is not for listing the website of the organization: that can be done through the url field of the Organization contact point.",
-          "type": [
-            "string",
-            "null"
-          ],
+          "type": "string",
           "format": "uri"
         }
+      },
+      "$defs": {
+        "identifier.scheme": {
+          "description": "Organization identifiers be drawn from an existing identification scheme. This field is used to indicate the scheme or codelist in which the identifier will be found. This value should be drawn from the Organization Identification",
+          "type": "string",
+          "codelist": "http://standard.open-contracting.org/1.1-dev/en/schema/codelists/#organization-identifier-scheme",
+          "openCodelist": true
+        },
+        "identifier.id": {
+          "description": "The identifier of the organization in the selected scheme.",
+          "type": "string"
+        },
+        "identifier.legalName": {
+          "description": "The legally registered name of the organization.",
+          "type": "string"
+        },
+        "identifier.uri": {
+          "description": "A URI to identify the organization, such as those provided by Open Corporates (http://www.opencorporates.com) or some other relevant URI provider. This is not for listing the website of the organization: that can be done through the url field of the Organization contact point.",
+          "type": "string",
+          "format": "uri"
+        },
+        "identifier.instance.genericIdentifier": {}
       }
     },
     "Implementation": {
@@ -2217,7 +2223,7 @@
               "$ref": "#/definitions/Value"
             },
             "measures": {
-              "$ref":"#/definitions/Implementation/$defs/implementation.financialProgress.measures"
+              "$ref": "#/definitions/Implementation/$defs/implementation.financialProgress.measures"
             },
             "breakdown": {
               "description": "This section contains a breakdown of financial progress, allowing various measures (amount invoiced, amount accrued, amount paid etc.) to be disaggregated by source, period and budget classification. Publishes as an array of [FinancialProgressBreakdown]",
@@ -2229,17 +2235,17 @@
           }
         },
         "endDate": {
-          "$ref":"#/definitions/Implementation/$defs/implementation.endDate"
+          "$ref": "#/definitions/Implementation/$defs/implementation.endDate"
         },
         "endDateDetails": {
-          "$ref":"#/definitions/Implementation/$defs/implementation.endDateDetails"
+          "$ref": "#/definitions/Implementation/$defs/implementation.endDateDetails"
         },
         "finalValue": {
           "$ref": "#/definitions/Value",
           "description": "The total value of all payments for a completed contract. This should only be provided when the final payment has been recorded. If `implementation/transactions` are used for this contract, this field should equal the sum of the `transaction/value/amount` fields. Where `finalValue/amount` varies from `contract/value/amount` an explanation of the variance should be provided in `finalValueDetails`. Publishes as [Value]"
         },
         "finalValueDetails": {
-          "$ref":"#/definitions/Implementation/$defs/implementation.finalValueDetails"
+          "$ref": "#/definitions/Implementation/$defs/implementation.finalValueDetails"
         },
         "performanceFailures": {
           "description": "An array of [PerformanceFailure] disclosures, detailing performance failures for different periods and categories.",
@@ -2256,10 +2262,10 @@
           }
         },
         "status": {
-          "$ref":"#/definitions/Implementation/$defs/implementation.status"
+          "$ref": "#/definitions/Implementation/$defs/implementation.status"
         }
       },
-      "$defs":{
+      "$defs": {
         "implementation.financialProgress.measures": {
           "description": "An aggregated financial progress figures for this contract. Measures must be provided as a set of key-value pairs, where the key should be the name of the measure used within a related Fiscal Data Package dataset or other budget and spending dataset. The value is the value of this measure when last updated, and must be provided as a number in the same default currency as any aggregate reported budget or spending figures.",
           "type": "object"
@@ -2282,10 +2288,10 @@
           "type": "string",
           "codelist": "https://extensions.open-contracting.org/en/extensions/implementationStatus/master/codelists/"
         },
-        "implemantation.instance.regularContractImplementation":{
-          "type":"object",
-          "description":"",
-          "properties":{
+        "implemantation.instance.regularContractImplementation": {
+          "type": "object",
+          "description": "",
+          "properties": {
             "transactions": {
               "description": "A list of the spending transactions made against this contract as an array of [Transaction]",
               "type": "array",
@@ -2316,7 +2322,7 @@
                   "$ref": "#/definitions/Value/$defs/value.instance.valueExtended"
                 },
                 "measures": {
-                  "$ref":"#/definitions/Implementation/$defs/implementation.financialProgress.measures"
+                  "$ref": "#/definitions/Implementation/$defs/implementation.financialProgress.measures"
                 },
                 "breakdown": {
                   "description": "This section contains a breakdown of financial progress, allowing various measures (amount invoiced, amount accrued, amount paid etc.) to be disaggregated by source, period and budget classification. Publishes as an array of [FinancialProgressBreakdown]",
@@ -2328,17 +2334,17 @@
               }
             },
             "endDate": {
-              "$ref":"#/definitions/Implementation/$defs/implementation.endDate"
+              "$ref": "#/definitions/Implementation/$defs/implementation.endDate"
             },
             "endDateDetails": {
-              "$ref":"#/definitions/Implementation/$defs/implementation.endDateDetails"
+              "$ref": "#/definitions/Implementation/$defs/implementation.endDateDetails"
             },
             "finalValue": {
               "$ref": "#/definitions/Value/$defs/value.instance.valueExtended",
               "description": ""
             },
             "finalValueDetails": {
-              "$ref":"#/definitions/Implementation/$defs/implementation.finalValueDetails"
+              "$ref": "#/definitions/Implementation/$defs/implementation.finalValueDetails"
             },
             "performanceFailures": {
               "description": "An array of [PerformanceFailure] disclosures, detailing performance failures for different periods and categories.",
@@ -2355,39 +2361,63 @@
               }
             },
             "status": {
-              "$ref":"#/definitions/Implementation/$defs/implementation.status"
-            }    
+              "$ref": "#/definitions/Implementation/$defs/implementation.status"
+            }
           }
         }
       }
     },
     "Invitation": {
-      "title": "Invitation",
       "description": "",
       "type": "object",
       "properties": {
         "id": {
-          "title": "",
-          "description": "",
-          "type": "string"
+          "$ref": "#/definitions/Invitation/$defs/invitation.id"
         },
         "date": {
-          "title": "",
-          "description": "",
-          "type": "string",
-          "format": "date-time"
+          "$ref": "#/definitions/Invitation/$defs/invitation.date"
         },
         "relatedQualification": {
-          "title": "",
-          "description": "",
-          "type": "string"
+          "$ref": "#/definitions/Invitation/$defs/invitation.relatedQualification"
         },
         "tenderers": {
-          "title": "",
           "description": "",
           "type": "array",
           "items": {
             "$ref": "#/definitions/OrganizationReference"
+          }
+        }
+      },
+      "$defs": {
+        "invitation.id": {
+          "description": "",
+          "type": "string"
+        },
+        "invitation.date": {
+          "description": "",
+          "type": "string",
+          "format": "date-time"
+        },
+        "invitation.relatedQualification": {
+          "description": "",
+          "type": "string"
+        },
+        "invitation.instance.genericInvitation": {
+          "id": {
+            "$ref": "#/definitions/Invitation/$defs/invitation.id"
+          },
+          "date": {
+            "$ref": "#/definitions/Invitation/$defs/invitation.date"
+          },
+          "relatedQualification": {
+            "$ref": "#/definitions/Invitation/$defs/invitation.relatedQualification"
+          },
+          "tenderers": {
+            "description": "",
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/OrganizationReference/$defs/organizationReference.instance.genericReference"
+            }
           }
         }
       }
@@ -2434,7 +2464,7 @@
           "$ref": "#/definitions/Address"
         }
       },
-      "$defs":{
+      "$defs": {
         "item.id": {
           "description": "A local identifier to reference and merge the items by. Must be unique within a given array of items.",
           "type": "string"
@@ -2455,12 +2485,7 @@
           "description": "If this item belongs to a lot, provide the identifier(s) of the related lot(s) here.",
           "type": "string"
         },
-        "item.deliveryAddress": {
-          "description": "The [Address] to which, or where, goods or services related to this tender, contract or license will be delivered.",
-          "$ref": "#/definitions/Address/$defs/address.instance.genericAddress"
-        },
-        
-        "item.instance.bidItem":{
+        "item.instance.bidItem": {
           "type": "object",
           "description": "A good, service, or work to be contracted.",
           "properties": {
@@ -2472,9 +2497,9 @@
               "type": "object",
               "$ref": "#/definitions/Unit/$defs/unit.instance.financialUnit"
             }
-          }    
+          }
         },
-        "item.instance.contractItem":{
+        "item.instance.contractItem": {
           "type": "object",
           "description": "A good, service, or work to be contracted.",
           "properties": {
@@ -2505,100 +2530,150 @@
             "quantity": {
               "$ref": "#/definitions/Item/$defs/item.quantity"
             }
-          }    
+          }
         }
       }
     },
     "Lot": {
-      "title": "Lot",
       "description": "A lot is a grouping of items within a tender that can be bid on or awarded together.",
       "properties": {
         "id": {
-          "title": "Lot ID",
-          "type": "string",
-          "description": "A local identifier for this lot, such as a lot number. This is used in relatedLot references at the item, document and award level."
+          "$ref": "#/definitions/Lot/$defs/lot.id"
         },
         "internalId": {
-          "title": "",
-          "description": "",
-          "type": [
-            "string",
-            "integer"
-          ]
+          "$ref": "#/definitions/Lot/$defs/lot.internalId"
         },
         "title": {
-          "title": "Title",
-          "type": [
-            "string",
-            "null"
-          ],
-          "description": "A title for this lot."
+          "$ref": "#/definitions/Lot/$defs/lot.title"
         },
         "description": {
-          "title": "Description",
-          "description": "A description of this lot.",
-          "type": [
-            "string",
-            "null"
-          ]
+          "$ref": "#/definitions/Lot/$defs/lot.description"
         },
         "status": {
-          "title": "Lot Status",
-          "description": "The current status of the process related to this lot based on the [Codelists#Tender statuses",
-          "type": [
-            "string",
-            "null"
-          ],
-          "codelist": "http://ocds.open-contracting.org/standard/r/1__0__0/en/schema/codelists#tender-status",
-          "openCodelist": false
+          "$ref": "#/definitions/Lot/$defs/lot.status"
         },
         "statusDetails": {
-          "title": "Lot Status",
-          "description": "The current status of the process related to this lot based on the [Codelists#Tender statuses",
-          "type": [
-            "string",
-            "null"
-          ]
+          "$ref": "#/definitions/Lot/$defs/lot.statusDetails"
         },
         "value": {
-          "title": "Lot value",
           "$ref": "#/definitions/Value",
           "description": "The maximum estimated [Value] of this lot."
         },
         "placeOfPerformance": {
-          "title": "Place of Performance",
           "description": "The address, NUTS code and further description of the place where the contract will be performed - [PlaceOfPerformance]",
           "$ref": "#/definitions/PlaceOfPerformance"
         },
         "classification": {
-          "title": "",
           "description": "",
           "$ref": "#/definitions/Classification"
         },
         "secondStage": {
-          "title": "Second stage",
           "description": "Information about the second stage of a two-stage procedure (e.g. a restricted procedure, a competitive procedure with negotiation, a competitive dialogue or an innovation partnership).",
           "$ref": "#/definitions/SecondStage"
         },
         "submissionTerms": {
-          "title": "Submission terms",
           "description": "Information about the submission terms to describe how, when and where the tenderers need to submit their bids for the lot.",
           "$ref": "#/definitions/SubmissionTerms"
         },
         "selectionCriteria": {
-          "title": "Selection criteria",
           "description": "Information about the conditions for participation in a lot.",
           "$ref": "#/definitions/SelectionCriteria"
         },
         "contractTerms": {
-          "title": "Contract terms",
           "description": "Information about the terms governing the future contracts for the lot.",
           "$ref": "#/definitions/ContractTerms"
         },
         "awardCriteria": {
-          "title": "Award criteria",
           "description": "Information about the award criteria for the lot.",
           "$ref": "#/definitions/AwardCriteria"
+        }
+      },
+      "$defs": {
+        "lot.id": {
+          "type": "string",
+          "description": "A local identifier for this lot, such as a lot number. This is used in relatedLot references at the item, document and award level."
+        },
+        "lot.internalId": {
+          "description": "",
+          "type": "string"
+        },
+        "lot.title": {
+          "type": "string",
+          "description": "A title for this lot."
+        },
+        "lot.description": {
+          "description": "A description of this lot.",
+          "type": "string"
+        },
+        "lot.status": {
+          "description": "The current status of the process related to this lot based on the [Codelists#Tender statuses",
+          "type": "string",
+          "codelist": "http://ocds.open-contracting.org/standard/r/1__0__0/en/schema/codelists#tender-status",
+          "openCodelist": false
+        },
+        "lot.statusDetails": {
+          "description": "The current status of the process related to this lot based on the [Codelists#Tender statuses",
+          "type": "string"
+        },
+        "lot.value": {
+          "$ref": "#/definitions/Value",
+          "description": "The maximum estimated [Value] of this lot."
+        },
+        "lot.instance.tenderLot": {
+          "description": "",
+          "type": "object",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/Lot/$defs/lot.id"
+            },
+            "internalId": {
+              "$ref": "#/definitions/Lot/$defs/lot.internalId"
+            },
+            "title": {
+              "$ref": "#/definitions/Lot/$defs/lot.title"
+            },
+            "description": {
+              "$ref": "#/definitions/Lot/$defs/lot.description"
+            },
+            "status": {
+              "$ref": "#/definitions/Lot/$defs/lot.status"
+            },
+            "statusDetails": {
+              "$ref": "#/definitions/Lot/$defs/lot.statusDetails"
+            },
+            "value": {
+              "$ref": "#/definitions/Value/$defs/value.instance.valueExcludingVAT",
+              "description": "The maximum estimated [Value] of this lot."
+            },
+            "placeOfPerformance": {
+              "description": "The address, NUTS code and further description of the place where the contract will be performed - [PlaceOfPerformance]",
+              "$ref": "#/definitions/PlaceOfPerformance/$defs/placeOfPerformance.instance.genericPlace"
+            },
+            "classification": {
+              "description": "",
+              "$ref": "#/definitions/Classification/$defs/classification.instance.genericClassification"
+            },
+            "secondStage": {
+              "description": "Information about the second stage of a two-stage procedure (e.g. a restricted procedure, a competitive procedure with negotiation, a competitive dialogue or an innovation partnership).",
+              "$ref": "#/definitions/SecondStage/$defs/secondStage.instance.genericSecondStage"
+            },
+            "submissionTerms": {
+              "description": "Information about the submission terms to describe how, when and where the tenderers need to submit their bids for the lot.",
+              "$ref": "#/definitions/SubmissionTerms/$defs/submissionTerms.tenderLotTerms"
+            },
+            "selectionCriteria": {
+              "description": "Information about the conditions for participation in a lot.",
+              "$ref": "#/definitions/SelectionCriteria/$defs/selectionCriteria.instance.genericCriteria"
+            },
+            "contractTerms": {
+              "description": "Information about the terms governing the future contracts for the lot.",
+              "$ref": "#/definitions/ContractTerms/$defs/contractTerms.instance.tenderLotTerms"
+            },
+            "awardCriteria": {
+              "description": "Information about the award criteria for the lot.",
+              "$ref": "#/definitions/AwardCriteria/$defs/awardCriteria.criteria"
+            }
+          }
         }
       }
     },
@@ -2607,13 +2682,13 @@
       "type": "object",
       "properties": {
         "id": {
-          "$ref":"#/definitions/Metric/$defs/metric.id"
+          "$ref": "#/definitions/Metric/$defs/metric.id"
         },
         "title": {
-          "$ref":"#/definitions/Metric/$defs/metric.title"
+          "$ref": "#/definitions/Metric/$defs/metric.title"
         },
         "description": {
-          "$ref":"#/definitions/Metric/$defs/metric.description"
+          "$ref": "#/definitions/Metric/$defs/metric.description"
         },
         "observations": {
           "type": "array",
@@ -2623,7 +2698,7 @@
           }
         }
       },
-      "$defs":{
+      "$defs": {
         "metric.id": {
           "description": "An identifier for this metric. In some cases this may be drawn from a codelist of metrics required for this type of contracting process, or in other instances may be an arbitrary identifier.",
           "type": "string"
@@ -2636,34 +2711,34 @@
           "description": "A short description of the metric. This may include short details of measurement methods.",
           "type": "string"
         },
-        "metric.instance.nonRequiredMetric":{
-          "description":"",
-          "type":"object",
-          "properties":{
-            "id":{
-              "$ref":"#/definitions/Metric/$defs/metric.id"
+        "metric.instance.nonRequiredMetric": {
+          "description": "",
+          "type": "object",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/Metric/$defs/metric.id"
             },
-            "observations":{
-              "type":"array",
-              "description":"",
-              "items":{
-                "$ref":"#/definitions/Observation/$defs/observation.instance.nonRelatedObservation"
+            "observations": {
+              "type": "array",
+              "description": "",
+              "items": {
+                "$ref": "#/definitions/Observation/$defs/observation.instance.nonRelatedObservation"
               }
             }
           }
         },
-        "metric.instance.requiredMetric":{
-          "description":"",
-          "type":"object",
-          "properties":{
-            "id":{
-              "$ref":"#/definitions/Metric/$defs/metric.id"
+        "metric.instance.requiredMetric": {
+          "description": "",
+          "type": "object",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/Metric/$defs/metric.id"
             },
-            "observations":{
-              "type":"array",
-              "description":"",
-              "items":{
-                "$ref":"#/definitions/Observation/$defs/observation.instance.nonRelatedObservation"
+            "observations": {
+              "type": "array",
+              "description": "",
+              "items": {
+                "$ref": "#/definitions/Observation/$defs/observation.instance.nonRelatedObservation"
               }
             }
           }
@@ -2676,39 +2751,39 @@
       "type": "object",
       "properties": {
         "id": {
-          "$ref":"#/definitions/Milestone/$defs/milestone.id"
+          "$ref": "#/definitions/Milestone/$defs/milestone.id"
         },
         "title": {
-          "$ref":"#/definitions/Milestone/$defs/milestone.title"
+          "$ref": "#/definitions/Milestone/$defs/milestone.title"
         },
         "type": {
-          "$ref":"#/definitions/Milestone/$defs/milestone.type"
+          "$ref": "#/definitions/Milestone/$defs/milestone.type"
         },
         "description": {
-          "$ref":"#/definitions/Milestone/$defs/milestone.description"
+          "$ref": "#/definitions/Milestone/$defs/milestone.description"
         },
         "code": {
-          "$ref":"#/definitions/Milestone/$defs/milestone.code"
+          "$ref": "#/definitions/Milestone/$defs/milestone.code"
         },
         "dueDate": {
-          "$ref":"#/definitions/Milestone/$defs/milestone.dueDate"
+          "$ref": "#/definitions/Milestone/$defs/milestone.dueDate"
         },
         "dateMet": {
-          "$ref":"#/definitions/Milestone/$defs/milestone.dateMet"
+          "$ref": "#/definitions/Milestone/$defs/milestone.dateMet"
         },
         "period": {
           "description": "",
           "$ref": "#/definitions/Period"
         },
         "dateModified": {
-          "$ref":"#/definitions/Milestone/$defs/milestone.dateModified"
+          "$ref": "#/definitions/Milestone/$defs/milestone.dateModified"
         },
         "status": {
-          "$ref":"#/definitions/Milestone/$defs/milestone.status"
+          "$ref": "#/definitions/Milestone/$defs/milestone.status"
         },
         "relatedLots": {
           "description": "If this milestone relates to a particular lot, provide the identifier(s) of the related lot(s) here.",
-          "type":  "array",
+          "type": "array",
           "items": {
             "$ref": "#/definitions/Milestone/$defs/milestone.relatedLot"
           }
@@ -2721,7 +2796,7 @@
           }
         }
       },
-      "$defs":{
+      "$defs": {
         "milestone.id": {
           "description": "A local identifier for this milestone, unique within this block. This field is used to keep track of multiple revisions of a milestone through the compilation from release to record mechanism.",
           "type": "string"
@@ -2772,40 +2847,40 @@
           "description": "If this milestone relates to a particular lot, provide the identifier(s) of the related lot(s) here.",
           "type": "string"
         },
-        "milestone.instance.noPeriodMilestone":{
-          "type":"object",
-          "description":"",
-          "properties":{
+        "milestone.instance.noPeriodMilestone": {
+          "type": "object",
+          "description": "",
+          "properties": {
             "id": {
-              "$ref":"#/definitions/Milestone/$defs/milestone.id"
+              "$ref": "#/definitions/Milestone/$defs/milestone.id"
             },
             "title": {
-              "$ref":"#/definitions/Milestone/$defs/milestone.title"
+              "$ref": "#/definitions/Milestone/$defs/milestone.title"
             },
             "type": {
-              "$ref":"#/definitions/Milestone/$defs/milestone.type"
+              "$ref": "#/definitions/Milestone/$defs/milestone.type"
             },
             "description": {
-              "$ref":"#/definitions/Milestone/$defs/milestone.description"
+              "$ref": "#/definitions/Milestone/$defs/milestone.description"
             },
             "code": {
-              "$ref":"#/definitions/Milestone/$defs/milestone.code"
+              "$ref": "#/definitions/Milestone/$defs/milestone.code"
             },
             "dueDate": {
-              "$ref":"#/definitions/Milestone/$defs/milestone.dueDate"
+              "$ref": "#/definitions/Milestone/$defs/milestone.dueDate"
             },
             "dateMet": {
-              "$ref":"#/definitions/Milestone/$defs/milestone.dateMet"
+              "$ref": "#/definitions/Milestone/$defs/milestone.dateMet"
             },
             "dateModified": {
-              "$ref":"#/definitions/Milestone/$defs/milestone.dateModified"
+              "$ref": "#/definitions/Milestone/$defs/milestone.dateModified"
             },
             "status": {
-              "$ref":"#/definitions/Milestone/$defs/milestone.status"
+              "$ref": "#/definitions/Milestone/$defs/milestone.status"
             },
             "relatedLots": {
               "description": "If this milestone relates to a particular lot, provide the identifier(s) of the related lot(s) here.",
-              "type":  "array",
+              "type": "array",
               "items": {
                 "$ref": "#/definitions/Milestone/$defs/milestone.relatedLot"
               }
@@ -2824,12 +2899,12 @@
     "MilestoneReference": {
       "type": "object",
       "description": "A block used to reference a milestone, including the ID and title of the milestone being referenced.",
-      "properties":{
+      "properties": {
         "id": {
-          "$ref":"#/definitions/MilestoneReference/$defs/milestoneReference.id"  
+          "$ref": "#/definitions/MilestoneReference/$defs/milestoneReference.id"
         },
         "title": {
-          "$ref":"#/definitions/MilestoneReference/$defs/milestoneReference.title" 
+          "$ref": "#/definitions/MilestoneReference/$defs/milestoneReference.title"
         }
       },
       "$defs": {
@@ -2841,15 +2916,15 @@
           "description": "The title of the milestone being referenced, this must match the title of a milestone described elsewhere in a release about this contracting process.",
           "type": "string"
         },
-        "milestoneReference.instance.genericReference":{
+        "milestoneReference.instance.genericReference": {
           "type": "object",
           "description": "A block used to reference a milestone, including the ID and title of the milestone being referenced.",
-          "properties":{
+          "properties": {
             "id": {
-              "$ref":"#/definitions/MilestoneReference/$defs/milestoneReference.id"  
+              "$ref": "#/definitions/MilestoneReference/$defs/milestoneReference.id"
             },
             "title": {
-              "$ref":"#/definitions/MilestoneReference/$defs/milestoneReference.title" 
+              "$ref": "#/definitions/MilestoneReference/$defs/milestoneReference.title"
             }
           }
         }
@@ -2858,34 +2933,34 @@
     "Observation": {
       "title": "Observation",
       "description": "An actual or target observation. Observations should include either a value (for financial metrics) or measure (for other metrics). ",
-      "type":"object",
+      "type": "object",
       "properties": {
         "id": {
-          "$ref":"#/definitions/Observation/$defs/observation.id"
+          "$ref": "#/definitions/Observation/$defs/observation.id"
         },
         "period": {
-          "$ref":"#/definitions/Observation/$defs/observation.period"
+          "$ref": "#/definitions/Observation/$defs/observation.period"
         },
         "measure": {
-          "$ref":"#/definitions/Observation/$defs/observation.measure"
+          "$ref": "#/definitions/Observation/$defs/observation.measure"
         },
         "unit": {
-          "$ref":"#/definitions/Observation/$defs/observation.unit"
+          "$ref": "#/definitions/Observation/$defs/observation.unit"
         },
         "dimensions": {
-          "$ref":"#/definitions/Observation/$defs/observation.dimensions"
+          "$ref": "#/definitions/Observation/$defs/observation.dimensions"
         },
         "notes": {
-          "$ref":"#/definitions/Observation/$defs/observation.notes"
+          "$ref": "#/definitions/Observation/$defs/observation.notes"
         },
         "relatedImplementationMilestone": {
-          "$ref":"#/definitions/Observation/$defs/observation.relatedImplementationMilestone"
+          "$ref": "#/definitions/Observation/$defs/observation.relatedImplementationMilestone"
         },
         "relatedRequirementID": {
-          "$ref":"#/definitions/Observation/$defs/observation.relatedRequirementID"
+          "$ref": "#/definitions/Observation/$defs/observation.relatedRequirementID"
         }
       },
-      "$defs":{
+      "$defs": {
         "observation.id": {
           "description": "A local identifier for this specific observation. This may be an arbitrary identifier, or could be a composite of the metric identifier, and the date and other dimensions of this observation.",
           "type": "string"
@@ -2926,55 +3001,55 @@
           "description": "The RequirementReference of the requirement which the observation is applicable to",
           "$ref": "#/definitions/RequirementReference/$defs/requirementReference.instance.genericReference"
         },
-        "observation.instance.requiredObservation":{
-          "type":"object",
-          "description":"",
-          "properties":{
+        "observation.instance.requiredObservation": {
+          "type": "object",
+          "description": "",
+          "properties": {
             "id": {
-              "$ref":"#/definitions/Observation/$defs/observation.id"
+              "$ref": "#/definitions/Observation/$defs/observation.id"
             },
             "period": {
-              "$ref":"#/definitions/Observation/$defs/observation.period"
+              "$ref": "#/definitions/Observation/$defs/observation.period"
             },
             "measure": {
-              "$ref":"#/definitions/Observation/$defs/observation.measure"
+              "$ref": "#/definitions/Observation/$defs/observation.measure"
             },
             "unit": {
-              "$ref":"#/definitions/Observation/$defs/observation.unit"
+              "$ref": "#/definitions/Observation/$defs/observation.unit"
             },
             "dimensions": {
-              "$ref":"#/definitions/Observation/$defs/observation.dimensions"
+              "$ref": "#/definitions/Observation/$defs/observation.dimensions"
             },
             "notes": {
-              "$ref":"#/definitions/Observation/$defs/observation.notes"
+              "$ref": "#/definitions/Observation/$defs/observation.notes"
             },
             "relatedRequirementID": {
-              "$ref":"#/definitions/Observation/$defs/observation.relatedRequirementID"
-            }  
+              "$ref": "#/definitions/Observation/$defs/observation.relatedRequirementID"
+            }
           }
         },
-        "observation.instance.nonRelatedObservation":{
-          "type":"object",
-          "description":"",
-          "properties":{
+        "observation.instance.nonRelatedObservation": {
+          "type": "object",
+          "description": "",
+          "properties": {
             "id": {
-              "$ref":"#/definitions/Observation/$defs/observation.id"
+              "$ref": "#/definitions/Observation/$defs/observation.id"
             },
             "period": {
-              "$ref":"#/definitions/Observation/$defs/observation.period"
+              "$ref": "#/definitions/Observation/$defs/observation.period"
             },
             "measure": {
-              "$ref":"#/definitions/Observation/$defs/observation.measure"
+              "$ref": "#/definitions/Observation/$defs/observation.measure"
             },
             "unit": {
-              "$ref":"#/definitions/Observation/$defs/observation.unit"
+              "$ref": "#/definitions/Observation/$defs/observation.unit"
             },
             "dimensions": {
-              "$ref":"#/definitions/Observation/$defs/observation.dimensions"
+              "$ref": "#/definitions/Observation/$defs/observation.dimensions"
             },
             "notes": {
-              "$ref":"#/definitions/Observation/$defs/observation.notes"
-            } 
+              "$ref": "#/definitions/Observation/$defs/observation.notes"
+            }
           }
         }
       }
@@ -3090,31 +3165,31 @@
       "type": "object",
       "properties": {
         "name": {
-          "$ref":"#/definitions/OrganizationReference/$defs/organizationReference.name"
+          "$ref": "#/definitions/OrganizationReference/$defs/organizationReference.name"
         },
         "id": {
-          "$ref":"#/definitions/OrganizationReference/$defs/organizationReference.id"
+          "$ref": "#/definitions/OrganizationReference/$defs/organizationReference.id"
         }
       },
-      "$defs":{
+      "$defs": {
         "organizationReference.name": {
-          "type":  "string",
+          "type": "string",
           "description": "The name of the party being referenced. This must match the name of an entry in the parties section."
         },
         "organizationReference.id": {
-          "type":  "string",
+          "type": "string",
           "description": "The id of the party being referenced. This must match the id of an entry in the parties section."
         },
-        "organizationReference.instance.genericReference":{
-          "description":"",
-          "type":"object",
-          "properties":{
+        "organizationReference.instance.genericReference": {
+          "description": "",
+          "type": "object",
+          "properties": {
             "name": {
-              "$ref":"#/definitions/OrganizationReference/$defs/organizationReference.name"
+              "$ref": "#/definitions/OrganizationReference/$defs/organizationReference.name"
             },
             "id": {
-              "$ref":"#/definitions/OrganizationReference/$defs/organizationReference.id"
-            }  
+              "$ref": "#/definitions/OrganizationReference/$defs/organizationReference.id"
+            }
           }
         }
       }
@@ -3167,29 +3242,29 @@
       "description": "Details of the performance failures for a given period and category. Details of the associated penalties and abatements provided for in the contract, imposed and paid can also be provided.",
       "properties": {
         "id": {
-          "$ref":"#/definitions/PerformanceFailure/$defs/performanceFailure.id"
+          "$ref": "#/definitions/PerformanceFailure/$defs/performanceFailure.id"
         },
         "period": {
           "description": "The reporting period for these performance failures.",
           "$ref": "#/definitions/Period"
         },
         "category": {
-          "$ref":"#/definitions/PerformanceFailure/$defs/performanceFailure.category"
+          "$ref": "#/definitions/PerformanceFailure/$defs/performanceFailure.category"
         },
         "events": {
-          "$ref":"#/definitions/PerformanceFailure/$defs/performanceFailure.events"
+          "$ref": "#/definitions/PerformanceFailure/$defs/performanceFailure.events"
         },
         "penaltyContracted": {
-          "$ref":"#/definitions/PerformanceFailure/$defs/performanceFailure.penaltyContracted"
+          "$ref": "#/definitions/PerformanceFailure/$defs/performanceFailure.penaltyContracted"
         },
         "penaltyImposed": {
-          "$ref":"#/definitions/PerformanceFailure/$defs/performanceFailure.penaltyImposed"
+          "$ref": "#/definitions/PerformanceFailure/$defs/performanceFailure.penaltyImposed"
         },
         "penaltyPaid": {
-          "$ref":"#/definitions/PerformanceFailure/$defs/performanceFailure.penaltyPaid"
+          "$ref": "#/definitions/PerformanceFailure/$defs/performanceFailure.penaltyPaid"
         }
       },
-      "$defs":{
+      "$defs": {
         "performanceFailure.id": {
           "description": "A local identifier for this specific category and period of performance failure. This field is used to keep track of revisions of a charge across multiple OCDS releases.",
           "type": "string"
@@ -3212,34 +3287,34 @@
         },
         "performanceFailure.penaltyPaid": {
           "description": "A yes/no field indicating whether the penalty imposed for this period, category and number of performance failures has been paid.",
-          "type":  "boolean"
+          "type": "boolean"
         },
-        "performanceFailure.instance.contractPerformanceFailure":{
-          "type":"object",
-          "description":"",
-          "properties":{
+        "performanceFailure.instance.contractPerformanceFailure": {
+          "type": "object",
+          "description": "",
+          "properties": {
             "id": {
-              "$ref":"#/definitions/PerformanceFailure/$defs/performanceFailure.id"
+              "$ref": "#/definitions/PerformanceFailure/$defs/performanceFailure.id"
             },
             "period": {
               "description": "The reporting period for these performance failures.",
               "$ref": "#/definitions/Period/$defs/period.instance.complete"
             },
             "category": {
-              "$ref":"#/definitions/PerformanceFailure/$defs/performanceFailure.category"
+              "$ref": "#/definitions/PerformanceFailure/$defs/performanceFailure.category"
             },
             "events": {
-              "$ref":"#/definitions/PerformanceFailure/$defs/performanceFailure.events"
+              "$ref": "#/definitions/PerformanceFailure/$defs/performanceFailure.events"
             },
             "penaltyContracted": {
-              "$ref":"#/definitions/PerformanceFailure/$defs/performanceFailure.penaltyContracted"
+              "$ref": "#/definitions/PerformanceFailure/$defs/performanceFailure.penaltyContracted"
             },
             "penaltyImposed": {
-              "$ref":"#/definitions/PerformanceFailure/$defs/performanceFailure.penaltyImposed"
+              "$ref": "#/definitions/PerformanceFailure/$defs/performanceFailure.penaltyImposed"
             },
             "penaltyPaid": {
-              "$ref":"#/definitions/PerformanceFailure/$defs/performanceFailure.penaltyPaid"
-            } 
+              "$ref": "#/definitions/PerformanceFailure/$defs/performanceFailure.penaltyPaid"
+            }
           }
         }
       }
@@ -3249,19 +3324,19 @@
       "type": "object",
       "properties": {
         "startDate": {
-          "$ref":"#/definitions/Period/$defs/period.startDate"
+          "$ref": "#/definitions/Period/$defs/period.startDate"
         },
         "endDate": {
-          "$ref":"#/definitions/Period/$defs/period.endDate"
+          "$ref": "#/definitions/Period/$defs/period.endDate"
         },
         "durationInDays": {
-          "$ref":"#/definitions/Period/$defs/period.durationInDays"
+          "$ref": "#/definitions/Period/$defs/period.durationInDays"
         },
         "duration": {
-          "$ref":"#/definitions/Period/$defs/period.duration"
+          "$ref": "#/definitions/Period/$defs/period.duration"
         }
       },
-      "$defs":{
+      "$defs": {
         "period.startDate": {
           "description": "The start date for the period",
           "type": "string",
@@ -3277,55 +3352,55 @@
           "type": "integer"
         },
         "period.duration": {
-         "description": "The duration of the period reflected in ISO format",
+          "description": "The duration of the period reflected in ISO format",
           "type": "string",
           "format": "ISO"
         },
-        "period.instance.startPoint":{
-          "type":"object",
-          "description":"",
-          "properties":{
-            "startDate":{
-              "$ref":"#/definitions/Period/$defs/period.startDate"
+        "period.instance.startPoint": {
+          "type": "object",
+          "description": "",
+          "properties": {
+            "startDate": {
+              "$ref": "#/definitions/Period/$defs/period.startDate"
             }
           }
         },
-        "period.instance.endPoint":{
-          "type":"object",
-          "description":"",
-          "properties":{
-            "endDate":{
-              "$ref":"#/definitions/Period/$defs/period.endDate"
+        "period.instance.endPoint": {
+          "type": "object",
+          "description": "",
+          "properties": {
+            "endDate": {
+              "$ref": "#/definitions/Period/$defs/period.endDate"
             }
           }
         },
-        "period.instance.complete":{
-          "type":"object",
-          "description":"",
-          "properties":{
-            "startDate":{
-              "$ref":"#/definitions/Period/$defs/period.startDate"
+        "period.instance.complete": {
+          "type": "object",
+          "description": "",
+          "properties": {
+            "startDate": {
+              "$ref": "#/definitions/Period/$defs/period.startDate"
             },
-            "endDate":{
-              "$ref":"#/definitions/Period/$defs/period.endDate"
+            "endDate": {
+              "$ref": "#/definitions/Period/$defs/period.endDate"
             }
           }
         },
-        "period.instance.durationInDays":{
-          "type":"object",
-          "description":"",
-          "properties":{
-            "durationInDays":{
-              "$ref":"#/definitions/Period/$defs/period.durationInDays"
+        "period.instance.durationInDays": {
+          "type": "object",
+          "description": "",
+          "properties": {
+            "durationInDays": {
+              "$ref": "#/definitions/Period/$defs/period.durationInDays"
             }
           }
         },
-        "period.instance.duration":{
-          "type":"object",
-          "description":"",
-          "properties":{
-            "duration":{
-              "$ref":"#/definitions/Period/$defs/period.duration"
+        "period.instance.duration": {
+          "type": "object",
+          "description": "",
+          "properties": {
+            "duration": {
+              "$ref": "#/definitions/Period/$defs/period.duration"
             }
           }
         }
@@ -3378,49 +3453,65 @@
       "type": "object",
       "properties": {
         "name": {
-          "$ref":"#/definitions/PersonReference/$defs/personReference.name"
+          "$ref": "#/definitions/PersonReference/$defs/personReference.name"
         },
         "id": {
-          "$ref":"#/definitions/PersonReference/$defs/personReference.id"
+          "$ref": "#/definitions/PersonReference/$defs/personReference.id"
         }
       },
-      "$defs":{
+      "$defs": {
         "personReference.name": {
-          "type":  "string",
+          "type": "string",
           "description": "The name of the person being referenced. This must match the name of an entry in the parties section."
         },
         "personReference.id": {
-          "type":  "string",
+          "type": "string",
           "description": "The id of the person being referenced. This must match the id of an entry in the parties section."
         },
-        "personReference.instance.genericReference":{
-          "description":"",
-          "type":"object",
-          "properties":{
+        "personReference.instance.genericReference": {
+          "description": "",
+          "type": "object",
+          "properties": {
             "name": {
-              "$ref":"#/definitions/PersonReference/$defs/personReference.name"
+              "$ref": "#/definitions/PersonReference/$defs/personReference.name"
             },
             "id": {
-              "$ref":"#/definitions/PersonReference/$defs/personReference.id"
-            }  
+              "$ref": "#/definitions/PersonReference/$defs/personReference.id"
+            }
           }
         }
       }
     },
     "PlaceOfPerformance": {
-      "title": "Place of Performance",
       "description": "The address, NUTS code and further description of the place where the contract will be performed",
       "type": "object",
       "properties": {
         "address": {
-          "title": "address",
           "description": "[Address] for the place of performance of the contract.",
           "$ref": "#/definitions/Address"
         },
         "description": {
-          "title": "description",
+          "$ref":"#/definitions/PlaceOfPerformance/$defs/placeOfPerformance.description"
+        }
+      },
+      "$defs": {
+        "placeOfPerformance.description": {
           "type": "string",
           "description": "Further description of the place of performance of the contract. Required by EU."
+        },
+        "placeOfPerformance.instance.genericPlace": {
+          "description": "",
+          "type": "object",
+          "properties": {
+            "address": {
+              "description": "",
+              "$ref": "#/definitions/Address/$defs/address.instance.genericAddress"
+            },
+            "description": {
+              "description": "",
+              "$ref": "#/definitions/PlaceOfPerformance/$defs/placeOfPerformance.description"
+            }
+          }
         }
       }
     },
@@ -3720,7 +3811,7 @@
           "$ref": "#/definitions/RelatedProcess/$defs/relatedProcess.scheme"
         }
       },
-      "$defs":{
+      "$defs": {
         "relatedProcess.uri": {
           "format": "uri",
           "description": "A URI pointing to an OCDS release or record for the related process. This should be a machine-readable release or record package containing the relevant ocid.",
@@ -3745,10 +3836,10 @@
             "ocid"
           ]
         },
-        "relatedProcess.instance.genericProcess":{
-          "description":"",
-          "type":"object",
-          "propeprties":{
+        "relatedProcess.instance.genericProcess": {
+          "description": "",
+          "type": "object",
+          "propeprties": {
             "uri": {
               "$ref": "#/definitions/RelatedProcess/$defs/relatedProcess.uri"
             },
@@ -3769,7 +3860,7 @@
             },
             "scheme": {
               "$ref": "#/definitions/RelatedProcess/$defs/relatedProcess.scheme"
-            }  
+            }
           }
         }
       }
@@ -3780,35 +3871,35 @@
       "type": "object",
       "properties": {
         "id": {
-          "$ref":"#/definitions/Requirement/$defs/requirement.id"
+          "$ref": "#/definitions/Requirement/$defs/requirement.id"
         },
         "title": {
-          "$ref":"#/definitions/Requirement/$defs/requirement.title"
+          "$ref": "#/definitions/Requirement/$defs/requirement.title"
         },
         "description": {
-          "$ref":"#/definitions/Requirement/$defs/requirement.description"
+          "$ref": "#/definitions/Requirement/$defs/requirement.description"
         },
         "dataType": {
-          "$ref":"#/definitions/Requirement/$defs/requirement.dataType"
+          "$ref": "#/definitions/Requirement/$defs/requirement.dataType"
         },
         "expectedValue": {
-          "$ref":"#/definitions/Requirement/$defs/requirement.expectedValue"
+          "$ref": "#/definitions/Requirement/$defs/requirement.expectedValue"
         },
         "minValue": {
-          "$ref":"#/definitions/Requirement/$defs/requirement.minValue"
+          "$ref": "#/definitions/Requirement/$defs/requirement.minValue"
         },
         "maxValue": {
-          "$ref":"#/definitions/Requirement/$defs/requirement.maxValue"
+          "$ref": "#/definitions/Requirement/$defs/requirement.maxValue"
         },
         "period": {
           "description": "Used to specify a particular [Period] the requirement applies to, for example the bidder's turnover in a given year",
           "$ref": "#/definitions/Period"
         },
         "status": {
-          "$ref":"#/definitions/Requirement/$defs/requirement.status"
+          "$ref": "#/definitions/Requirement/$defs/requirement.status"
         },
         "dateModified": {
-          "$ref":"#/definitions/Requirement/$defs/requirement.dateModified"
+          "$ref": "#/definitions/Requirement/$defs/requirement.dateModified"
         },
         "eligibleEvidences": {
           "description": "Any [Evidance] that will be accepted as a proof of sasisfaction of sepcific requirement ",
@@ -3818,7 +3909,7 @@
           }
         }
       },
-      "$defs":{
+      "$defs": {
         "requirement.id": {
           "description": "The identifier for this requirement. It must be unique and cannot change within the Open Contracting Process it is part of (defined by a single ocid).",
           "type": "string"
@@ -3864,37 +3955,37 @@
           "type": "string",
           "format": "date-time"
         },
-        "requirement.instance.genericRequirement":{
+        "requirement.instance.genericRequirement": {
           "id": {
-            "$ref":"#/definitions/Requirement/$defs/requirement.id"
+            "$ref": "#/definitions/Requirement/$defs/requirement.id"
           },
           "title": {
-            "$ref":"#/definitions/Requirement/$defs/requirement.title"
+            "$ref": "#/definitions/Requirement/$defs/requirement.title"
           },
           "description": {
-            "$ref":"#/definitions/Requirement/$defs/requirement.description"
+            "$ref": "#/definitions/Requirement/$defs/requirement.description"
           },
           "dataType": {
-            "$ref":"#/definitions/Requirement/$defs/requirement.dataType"
+            "$ref": "#/definitions/Requirement/$defs/requirement.dataType"
           },
           "expectedValue": {
-            "$ref":"#/definitions/Requirement/$defs/requirement.expectedValue"
+            "$ref": "#/definitions/Requirement/$defs/requirement.expectedValue"
           },
           "minValue": {
-            "$ref":"#/definitions/Requirement/$defs/requirement.minValue"
+            "$ref": "#/definitions/Requirement/$defs/requirement.minValue"
           },
           "maxValue": {
-            "$ref":"#/definitions/Requirement/$defs/requirement.maxValue"
+            "$ref": "#/definitions/Requirement/$defs/requirement.maxValue"
           },
           "period": {
             "description": "Used to specify a particular [Period] the requirement applies to, for example the bidder's turnover in a given year",
             "$ref": "#/definitions/Period/$defs/period.instance.complete"
           },
           "status": {
-            "$ref":"#/definitions/Requirement/$defs/requirement.status"
+            "$ref": "#/definitions/Requirement/$defs/requirement.status"
           },
           "dateModified": {
-            "$ref":"#/definitions/Requirement/$defs/requirement.dateModified"
+            "$ref": "#/definitions/Requirement/$defs/requirement.dateModified"
           },
           "eligibleEvidences": {
             "description": "Any [Evidance] that will be accepted as a proof of sasisfaction of sepcific requirement ",
@@ -3902,7 +3993,7 @@
             "items": {
               "$ref": "#/definitions/Evidence/$defs/evidence.instance.genericEvidence"
             }
-          }  
+          }
         }
       }
     },
@@ -3911,10 +4002,10 @@
       "type": "object",
       "properties": {
         "id": {
-          "$ref":"#/definitions/RequirementGroup/$defs/requirementGroup.id"
+          "$ref": "#/definitions/RequirementGroup/$defs/requirementGroup.id"
         },
         "description": {
-          "$ref":"#/definitions/RequirementGroup/$defs/requirementGroup.description"
+          "$ref": "#/definitions/RequirementGroup/$defs/requirementGroup.description"
         },
         "requirements": {
           "title": "Requirements",
@@ -3925,7 +4016,7 @@
           }
         }
       },
-      "$defs":{
+      "$defs": {
         "requirementGroup.id": {
           "description": "The identifier for this requirement group. It must be unique and cannot change within the Open Contracting Process it is part of (defined by a single ocid). ",
           "type": "string"
@@ -3934,15 +4025,15 @@
           "description": "Requirement group description",
           "type": "string"
         },
-        "requirementGroup.instance.genericGroup":{
-          "description":"",
-          "type":"object",
-          "properties":{
+        "requirementGroup.instance.genericGroup": {
+          "description": "",
+          "type": "object",
+          "properties": {
             "id": {
-              "$ref":"#/definitions/RequirementGroup/$defs/requirementGroup.id"
+              "$ref": "#/definitions/RequirementGroup/$defs/requirementGroup.id"
             },
             "description": {
-              "$ref":"#/definitions/RequirementGroup/$defs/requirementGroup.description"
+              "$ref": "#/definitions/RequirementGroup/$defs/requirementGroup.description"
             },
             "requirements": {
               "title": "Requirements",
@@ -3951,7 +4042,7 @@
               "items": {
                 "$ref": "#/definitions/Requirement/$defs/requirement.instance.genericRequirement"
               }
-            }  
+            }
           }
         }
       }
@@ -3959,12 +4050,12 @@
     "RequirementReference": {
       "description": "Used to cross reference a requirement",
       "type": "object",
-      "properties":{
+      "properties": {
         "id": {
-          "$ref":"#/definitions/RequirementReference/$defs/requirementReference.id"
+          "$ref": "#/definitions/RequirementReference/$defs/requirementReference.id"
         },
         "title": {
-          "$ref":"#/definitions/RequirementReference/$defs/requirementReference.title"
+          "$ref": "#/definitions/RequirementReference/$defs/requirementReference.title"
         }
       },
       "$defs": {
@@ -3976,17 +4067,17 @@
           "description": "The title of the requirement which the response is applicable to",
           "type": "string"
         },
-        "requirementReference.instance.genericReference":{
+        "requirementReference.instance.genericReference": {
           "description": "Used to cross reference a requirement",
           "type": "object",
-          "properties":{
+          "properties": {
             "id": {
-              "$ref":"#/definitions/RequirementReference/$defs/requirementReference.id"
+              "$ref": "#/definitions/RequirementReference/$defs/requirementReference.id"
             },
             "title": {
-              "$ref":"#/definitions/RequirementReference/$defs/requirementReference.title"
+              "$ref": "#/definitions/RequirementReference/$defs/requirementReference.title"
             }
-          }  
+          }
         }
       }
     },
@@ -3995,35 +4086,35 @@
       "type": "object",
       "properties": {
         "id": {
-          "$ref":"#/definitions/RequirementResponse/$defs/requirementResponse.id"
+          "$ref": "#/definitions/RequirementResponse/$defs/requirementResponse.id"
         },
         "value": {
-          "$ref":"#/definitions/RequirementResponse/$defs/requirementResponse.value"
+          "$ref": "#/definitions/RequirementResponse/$defs/requirementResponse.value"
         },
         "period": {
-          "$ref":"#/definitions/RequirementResponse/$defs/requirementResponse.period"
+          "$ref": "#/definitions/RequirementResponse/$defs/requirementResponse.period"
         },
         "requirement": {
-          "$ref":"#/definitions/RequirementResponse/$defs/requirementResponse.requirement"
+          "$ref": "#/definitions/RequirementResponse/$defs/requirementResponse.requirement"
         },
         "relatedTenderer": {
-          "$ref":"#/definitions/RequirementResponse/$defs/requirementResponse.relatedTenderer"
+          "$ref": "#/definitions/RequirementResponse/$defs/requirementResponse.relatedTenderer"
         },
         "relatedItem": {
-         "$ref":"#/definitions/RequirementResponse/$defs/requirementResponse.relatedItem"
+          "$ref": "#/definitions/RequirementResponse/$defs/requirementResponse.relatedItem"
         },
-        "responder":{
-          "$ref":"#/definitions/RequirementResponse/$defs/requirementResponse.responder"
+        "responder": {
+          "$ref": "#/definitions/RequirementResponse/$defs/requirementResponse.responder"
         },
-        "evidences":{
-          "description":"",
-          "type":"array",
-          "items":{
-            "$ref":"#/definitions/Evidence"
+        "evidences": {
+          "description": "",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Evidence"
           }
         }
       },
-      "$defs":{
+      "$defs": {
         "requirementResponse.id": {
           "description": "The identifier for this requirement response. It must be unique and cannot change within the Open Contracting Process it is part of (defined by a single ocid).",
           "type": "string"
@@ -4051,312 +4142,394 @@
         },
         "requirementResponse.relatedItem": {
           "description": "Where this requirement response relates to an item and is provided by the buyer or procuring entity this field should be used to reference the id in the items' section for the item the response relates to.",
-          "type":"string"
+          "type": "string"
         },
-        "requirementResponse.responder":{
-          "description":"",
+        "requirementResponse.responder": {
+          "description": "",
           "$ref": "#/definitions/PersonReference/$defs/personReference.instance.genericReference"
         },
-        "requirementResponse.instance.awardResponse":{
-          "description":"",
-          "type":"object",
-          "properties":{
+        "requirementResponse.instance.awardResponse": {
+          "description": "",
+          "type": "object",
+          "properties": {
             "id": {
-              "$ref":"#/definitions/RequirementResponse/$defs/requirementResponse.id"
+              "$ref": "#/definitions/RequirementResponse/$defs/requirementResponse.id"
             },
             "value": {
-              "$ref":"#/definitions/RequirementResponse/$defs/requirementResponse.value"
+              "$ref": "#/definitions/RequirementResponse/$defs/requirementResponse.value"
             },
             "requirement": {
-              "$ref":"#/definitions/RequirementResponse/$defs/requirementResponse.requirement"
+              "$ref": "#/definitions/RequirementResponse/$defs/requirementResponse.requirement"
             },
             "relatedTenderer": {
-              "$ref":"#/definitions/RequirementResponse/$defs/requirementResponse.relatedTenderer"
+              "$ref": "#/definitions/RequirementResponse/$defs/requirementResponse.relatedTenderer"
             },
-            "responder":{
-              "$ref":"#/definitions/RequirementResponse/$defs/requirementResponse.responder"
+            "responder": {
+              "$ref": "#/definitions/RequirementResponse/$defs/requirementResponse.responder"
             }
           }
         },
-        "requirementResponse.instance.espdResponse":{
-          "description":"",
-          "type":"object",
-          "properties":{
+        "requirementResponse.instance.espdResponse": {
+          "description": "",
+          "type": "object",
+          "properties": {
             "id": {
-              "$ref":"#/definitions/RequirementResponse/$defs/requirementResponse.id"
+              "$ref": "#/definitions/RequirementResponse/$defs/requirementResponse.id"
             },
             "value": {
-              "$ref":"#/definitions/RequirementResponse/$defs/requirementResponse.value"
+              "$ref": "#/definitions/RequirementResponse/$defs/requirementResponse.value"
             },
             "requirement": {
-              "$ref":"#/definitions/RequirementResponse/$defs/requirementResponse.requirement"
+              "$ref": "#/definitions/RequirementResponse/$defs/requirementResponse.requirement"
             },
             "relatedTenderer": {
-              "$ref":"#/definitions/RequirementResponse/$defs/requirementResponse.relatedTenderer"
-            }  
+              "$ref": "#/definitions/RequirementResponse/$defs/requirementResponse.relatedTenderer"
+            }
           }
         },
-        "requirementResponse.instance.bidResponse":{
-          "description":"",
-          "type":"object",
-          "properties":{
+        "requirementResponse.instance.bidResponse": {
+          "description": "",
+          "type": "object",
+          "properties": {
             "id": {
-              "$ref":"#/definitions/RequirementResponse/$defs/requirementResponse.id"
+              "$ref": "#/definitions/RequirementResponse/$defs/requirementResponse.id"
             },
             "value": {
-              "$ref":"#/definitions/RequirementResponse/$defs/requirementResponse.value"
+              "$ref": "#/definitions/RequirementResponse/$defs/requirementResponse.value"
             },
             "requirement": {
-              "$ref":"#/definitions/RequirementResponse/$defs/requirementResponse.requirement"
+              "$ref": "#/definitions/RequirementResponse/$defs/requirementResponse.requirement"
             },
             "relatedItem": {
-              "$ref":"#/definitions/RequirementResponse/$defs/requirementResponse.relatedItem"
+              "$ref": "#/definitions/RequirementResponse/$defs/requirementResponse.relatedItem"
             }
           }
         }
       }
     },
     "SecondStage": {
-      "title": "Second stage",
       "description": "Information about the second stage of a two-stage procedure (e.g. a restricted procedure, a competitive procedure with negotiation, a competitive dialogue or an innovation partnership).",
       "type": "object",
       "properties": {
         "minimumCandidates": {
-          "title": "Minimum number of candidates",
-          "description": "The minimum number of candidates to be invited for the second stage of the procedure. If there is an exact limit on the number of candidates, set `minimumCandidates` and `maximumCandidates` to the same number.",
-          "type": [
-            "number",
-            "null"
-          ]
+          "$ref": "#/definitions/SecondStage/$defs/secondStage.minimumCandidates"
         },
         "maximumCandidates": {
-          "title": "Maximum number of candidates",
-          "description": "The maximum number of candidates to be invited for the second stage of the procedure. If there is an exact limit on the number of candidates, set `minimumCandidates` and `maximumCandidates` to the same number.",
-          "type": [
-            "number",
-            "null"
-          ]
+          "$ref": "#/definitions/SecondStage/$defs/secondStage.maximumCandidates"
         },
         "successiveReduction": {
-          "title": "Successive reduction",
-          "description": "The procedure will take place in successive stages. In each stage, some participants might be eliminated.",
-          "type": [
-            "boolean",
-            "null"
-          ]
+          "$ref": "#/definitions/SecondStage/$defs/secondStage.successiveReduction"
         },
         "noNegotiationNecessary": {
-          "title": "No negotiation necessary",
-          "description": "The buyer or procuring entity reserves the right to award the contract on the basis of the initial bids without any further negotiations.",
-          "type": [
-            "boolean",
-            "null"
-          ]
+          "$ref": "#/definitions/SecondStage/$defs/secondStage.noNegotiationNecessary"
         },
         "invitationDate": {
-          "title": "Invitation date",
+          "$ref": "#/definitions/SecondStage/$defs/secondStage.invitationDate"
+        }
+      },
+      "$defs": {
+        "secondStage.minimumCandidates": {
+          "description": "The minimum number of candidates to be invited for the second stage of the procedure. If there is an exact limit on the number of candidates, set `minimumCandidates` and `maximumCandidates` to the same number.",
+          "type": "number"
+        },
+        "secondStage.maximumCandidates": {
+          "description": "The maximum number of candidates to be invited for the second stage of the procedure. If there is an exact limit on the number of candidates, set `minimumCandidates` and `maximumCandidates` to the same number.",
+          "type": "number"
+        },
+        "secondStage.successiveReduction": {
+          "description": "The procedure will take place in successive stages. In each stage, some participants might be eliminated.",
+          "type": "boolean"
+        },
+        "secondStage.noNegotiationNecessary": {
+          "description": "The buyer or procuring entity reserves the right to award the contract on the basis of the initial bids without any further negotiations.",
+          "type": "boolean"
+        },
+        "secondStage.invitationDate": {
           "description": "The estimated date of dispatch of the invitations to participate or to submit bids.",
-          "type": [
-            "string",
-            "null"
-          ],
+          "type": "string",
           "format": "date-time"
+        },
+        "secondStage.instance.genericSecondStage": {
+          "type": "object",
+          "description": "",
+          "properties": {
+            "minimumCandidates": {
+              "$ref": "#/definitions/SecondStage/$defs/secondStage.minimumCandidates"
+            },
+            "maximumCandidates": {
+              "$ref": "#/definitions/SecondStage/$defs/secondStage.maximumCandidates"
+            }
+          }
         }
       }
     },
     "SelectionCriteria": {
-      "title": "Selection criteria",
       "description": "Information about conditions for participation.",
       "type": "object",
       "properties": {
         "criteria": {
-          "title": "Selection criteria",
           "description": "The selection criteria.",
           "type": "array",
           "items": {
             "$ref": "#/definitions/SelectionCriterion"
-          },
-          "wholeListMerge": true,
-          "uniqueItems": true,
-          "minItems": 1
+          }
         },
         "description": {
-          "title": "Description",
+          "$ref": "#/definitions/SelectionCriteria/$defs/selectionCriteria.description"
+        }
+      },
+      "$defs": {
+        "selectionCriteria.description": {
           "description": "The description of the criteria used to select the economic operators who will be allowed to bid.",
-          "type": [
-            "string",
-            "null"
-          ]
+          "type": "string"
+        },
+        "selectionCriteria.instance.genericCriteria": {
+          "type": "object",
+          "description": "",
+          "properties": {
+            "criteria": {
+              "description": "The selection criteria.",
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/SelectionCriterion/$defs/selectionCriterion.instance.genericCriterion"
+              }
+            },
+            "description": {
+              "$ref": "#/definitions/SelectionCriteria/$defs/selectionCriteria.description"
+            }
+          }
         }
       }
     },
     "SelectionCriterion": {
-      "title": "Selection criterion",
       "description": "Information about the selection criterion.",
       "type": "object",
       "properties": {
         "type": {
-          "title": "Type",
-          "description": "The type of the criterion.",
+          "$ref": "#/definitions/SelectionCriterion/$defs/selectionCriterion.type"
+        },
+        "description": {
+          "$ref": "#/definitions/SelectionCriterion/$defs/selectionCriterion.description"
+        },
+        "minimum": {
+          "$ref": "#/definitions/SelectionCriterion/$defs/selectionCriterion.minimum"
+        },
+        "appliesTo": {
+          "description": "Whether the criterion applies to suppliers, subcontractors, or both.",
           "type": [
-            "string",
-            "null"
+            "array"
           ],
+          "items": {
+            "$ref": "#/definitions/SelectionCriterion/$defs/selectionCriterion.appliesToItem"
+          }
+        }
+      },
+      "$defs": {
+        "selectionCriterion.type": {
+          "description": "The type of the criterion.",
+          "type": "string",
           "enum": [
             "technical",
             "economic",
             "suitability",
-            "other",
-            null
+            "other"
           ],
           "codelist": "selectionCriterionType.csv",
           "openCodelist": false
         },
-        "description": {
-          "title": "Description",
+        "selectionCriterion.description": {
           "description": "The description of the criterion.",
-          "type": [
-            "string",
-            "null"
-          ],
-          "minLength": 1
+          "type": "string"
         },
-        "minimum": {
-          "title": "Minimum value or level",
+        "selectionCriterion.minimum": {
           "description": "The minimum value or level of compliance a candidate needs to meet in order to participate.",
-          "type": [
-            "string",
-            "null"
-          ],
-          "minLength": 1
+          "type": "string"
         },
-        "appliesTo": {
-          "title": "Applies to",
+        "selectionCriterion.appliesToItem": {
           "description": "Whether the criterion applies to suppliers, subcontractors, or both.",
-          "type": [
-            "array",
-            "null"
+          "type": "string",
+          "enum": [
+            "supplier",
+            "subcontractor"
           ],
-          "items": {
-            "type": "string",
-            "enum": [
-              "supplier",
-              "subcontractor"
-            ]
-          },
           "codelist": "appliesTo.csv",
           "openCodelist": false
+        },
+        "selectionCriterion.instance.genericCriterion": {
+          "type": "object",
+          "description": "",
+          "properties": {
+            "type": {
+              "$ref": "#/definitions/SelectionCriterion/$defs/selectionCriterion.type"
+            },
+            "description": {
+              "$ref": "#/definitions/SelectionCriterion/$defs/selectionCriterion.description"
+            },
+            "minimum": {
+              "$ref": "#/definitions/SelectionCriterion/$defs/selectionCriterion.minimum"
+            },
+            "appliesTo": {
+              "description": "Whether the criterion applies to suppliers, subcontractors, or both.",
+              "type": [
+                "array"
+              ],
+              "items": {
+                "$ref": "#/definitions/SelectionCriterion/$defs/selectionCriterion.appliesToItem"
+              }
+            }
+          }
         }
       }
     },
     "Submission": {
-      "title": "Submission",
       "description": "For representing a bid in response to the tender or qualification stage in this contracting process.",
       "type": "object",
       "properties": {
         "id": {
-          "title": "ID",
-          "description": "A local identifier for this bid",
-          "type": [
-            "string"
-          ]
+          "$ref": "#/definitions/Submission/$defs/submission.id"
         },
         "date": {
-          "title": "Date",
-          "description": "The date when this bid was received.",
-          "type": [
-            "string",
-            "null"
-          ],
-          "format": "date-time"
+          "$ref": "#/definitions/Submission/$defs/submission.date"
         },
         "status": {
-          "title": "Status",
-          "description": "The status of the bid, drawn from the bidStatus codelist",
-          "type": [
-            "string",
-            "null"
-          ],
-          "codelist": "",
-          "openCodelist": false
+          "$ref": "#/definitions/Submission/$defs/submission.status"
         },
         "statusDetails": {
-          "title": "Status details",
-          "description": "Additional details of an award status.",
-          "type": "string",
-          "codelist": "",
-          "openCodelist": false
+          "$ref": "#/definitions/Submission/$defs/submission.statusDetails"
         },
         "candidates": {
-          "title": "Tenderer",
           "description": "The [OrganizationReference] for party, or parties, responsible for this bid. This should provide a name and identifier, cross-referenced to an entry in the parties array at the top level of the release.",
-          "type": [
-            "array",
-            "null"
-          ],
+          "type": "array",
           "items": {
             "$ref": "#/definitions/OrganizationReference"
           }
         },
         "documents": {
-          "title": "Documents",
           "description": "Any [Document] and attachment related to the bid and its evaluation.",
           "type": "array",
           "items": {
             "$ref": "#/definitions/Document"
-          },
-          "uniqueItems": true
+          }
         },
         "requirementResponses": {
-          "TODO": "ADD REQUIREMENT RESPONSE SECTION TO REQUIREMENTS EXTENSION",
-          "type": "array",
-          "mergeStrategy": "arrayMergeById",
           "description": "A set of [RequirementResponse] relevant to the requirements requested under Contract Notice",
-          "mergeOptions": {
-            "idRef": "id"
-          },
           "items": {
             "$ref": "#/definitions/RequirementResponse"
-          },
-          "unqiueItems": true
+          }
+        }
+      },
+      "$defs": {
+        "submission.id": {
+          "description": "A local identifier for this bid",
+          "type": "string"
+        },
+        "submission.date": {
+          "description": "The date when this bid was received.",
+          "type": "string",
+          "format": "date-time"
+        },
+        "submission.status": {
+          "description": "The status of the bid, drawn from the bidStatus codelist",
+          "type": "string",
+          "codelist": "",
+          "openCodelist": false
+        },
+        "submission.statusDetails": {
+          "description": "Additional details of an award status.",
+          "type": "string",
+          "codelist": "",
+          "openCodelist": false
+        },
+        "submission.instance.genericSubmission": {
+          "type": "object",
+          "description": "",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/Submission/$defs/submission.id"
+            },
+            "date": {
+              "$ref": "#/definitions/Submission/$defs/submission.date"
+            },
+            "status": {
+              "$ref": "#/definitions/Submission/$defs/submission.status"
+            },
+            "statusDetails": {
+              "$ref": "#/definitions/Submission/$defs/submission.statusDetails"
+            },
+            "candidates": {
+              "description": "The [OrganizationReference] for party, or parties, responsible for this bid. This should provide a name and identifier, cross-referenced to an entry in the parties array at the top level of the release.",
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/OrganizationReference/$defs/organizationReference.instance.genericReference"
+              }
+            },
+            "documents": {
+              "description": "Any [Document] and attachment related to the bid and its evaluation.",
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Document/$defs/document.instance.genericDocument"
+              }
+            },
+            "requirementResponses": {
+              "description": "A set of [RequirementResponse] relevant to the requirements requested under Contract Notice",
+              "items": {
+                "$ref": "#/definitions/RequirementResponse/$defs/requirementResponse.instance.espdResponse"
+              }
+            }
+          }
         }
       }
     },
     "SubmissionTerms": {
-      "title": "Submission terms",
       "description": "Information about the submission terms to describe how, when and where the tenderers need to submit their bids.",
       "type": "object",
       "properties": {
         "languages": {
-          "title": "Submission language",
-          "description": "One or more languages in which bids or requests to participate can be submitted, using either two-letter [ISO639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes), or extended [BCP47 language tags](http://www.w3.org/International/articles/language-tags/). The use of lowercase two-letter codes from [ISO639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) is recommended.",
-          "type": [
-            "array",
-            "null"
-          ],
+          "type": "array",
           "items": {
-            "type": "string",
-            "minLength": 1
-          },
-          "minItems": 1,
-          "uniqueItems": true
+            "$ref": "#/definitions/SubmissionTerms/$defs/submissionTerms.language"
+          }
         },
         "bidValidityPeriod": {
-          "title": "Bid validity period",
           "description": "The period, from the bid submission deadline, for which bids must remain valid.",
           "$ref": "#/definitions/Period"
         },
         "depositsGuarantees": {
-          "title": "Deposits and guarantees",
           "description": "Information about the deposits or guarantees required from the tenderers.",
-          "type": [
-            "string",
-            "null"
-          ],
-          "minLength": 1
+          "type": "string"
         }
       },
-      "minProperties": 1
+      "$defs": {
+        "submissionTerms.language": {
+          "description": "One or more languages in which bids or requests to participate can be submitted.",
+          "type": "string"
+        },
+        "submissionTerms.depositsGuarantees": {
+          "description": "Information about the deposits or guarantees required from the tenderers.",
+          "type": "string"
+        },
+        "submissionTerms.tenderLotTerms": {
+          "description": "",
+          "type": "object",
+          "properties": {
+            "languages": {
+              "description": "One or more languages in which bids or requests to participate can be submitted, using either two-letter ",
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/SubmissionTerms/$defs/submissionTerms.language"
+              }
+            },
+            "bidValidityPeriod": {
+              "description": "The period, from the bid submission deadline, for which bids must remain valid.",
+              "$ref": "#/definitions/Period/$defs/period.instance.durationInDays"
+            },
+            "depositsGuarantees": {
+              "description": "Information about the deposits or guarantees required from the tenderers.",
+              "type": "string"
+            }
+          }
+        }
+      }
     },
     "Tender": {
       "title": "",
@@ -4679,13 +4852,13 @@
       "description": "A spending transaction related to the contracting process. Draws upon the data models of the Fiscal Data Package (http://fiscal.dataprotocols.org/) and the International Aid Transpareny Initiative (http://iatistandard.org/activity-standard/iati-activities/iati-activity/transaction/) and should be used to cross-reference to more detailed information held using a Fiscal Data Package, IATI file, or to provide enough information to allow a user to manually or automatically cross-reference with some other published source of transactional spending data.",
       "properties": {
         "id": {
-          "$ref":"#/definitions/Transaction/$defs/transaction.id"  
+          "$ref": "#/definitions/Transaction/$defs/transaction.id"
         },
         "source": {
-          "$ref":"#/definitions/Transaction/$defs/transaction.source"   
+          "$ref": "#/definitions/Transaction/$defs/transaction.source"
         },
         "date": {
-          "$ref":"#/definitions/Transaction/$defs/transaction.date"   
+          "$ref": "#/definitions/Transaction/$defs/transaction.date"
         },
         "value": {
           "$ref": "#/definitions/Value",
@@ -4700,14 +4873,14 @@
           "description": "An [OrganizationReference] for the organization which receives the funds in this transaction."
         },
         "uri": {
-          "$ref":"#/definitions/Transaction/$defs/transaction.uri"   
+          "$ref": "#/definitions/Transaction/$defs/transaction.uri"
         },
         "relatedImplementationMilestone": {
           "description": "A MilestoneReference to the milestone in the implementation section of OCDS to which this forecast, target or actual observation is related.",
           "$ref": "#/definitions/MilestoneReference"
         }
       },
-      "$defs":{
+      "$defs": {
         "transaction.id": {
           "description": "A unique identifier for this transaction. This identifier should be possible to cross-reference against the provided data source. For IATI this is the transaction reference.",
           "type": "string"
@@ -4722,20 +4895,20 @@
           "type": "string",
           "format": "date-time"
         },
-       "transaction.uri": {
+        "transaction.uri": {
           "description": "A URI pointing directly to a machine-readable record about this spending transaction.",
           "type": "string",
           "format": "uri"
         },
-        "transaction.instance.contractTransaction":{
+        "transaction.instance.contractTransaction": {
           "id": {
-            "$ref":"#/definitions/Transaction/$defs/transaction.id"  
+            "$ref": "#/definitions/Transaction/$defs/transaction.id"
           },
           "source": {
-            "$ref":"#/definitions/Transaction/$defs/transaction.source"   
+            "$ref": "#/definitions/Transaction/$defs/transaction.source"
           },
           "date": {
-            "$ref":"#/definitions/Transaction/$defs/transaction.date"   
+            "$ref": "#/definitions/Transaction/$defs/transaction.date"
           },
           "value": {
             "$ref": "#/definitions/Value/$defs/value.instance.valueExtended",
@@ -4750,7 +4923,7 @@
             "description": "An [OrganizationReference] for the organization which receives the funds in this transaction."
           },
           "uri": {
-            "$ref":"#/definitions/Transaction/$defs/transaction.uri"   
+            "$ref": "#/definitions/Transaction/$defs/transaction.uri"
           },
           "relatedImplementationMilestone": {
             "description": "A MilestoneReference to the milestone in the implementation section of OCDS to which this forecast, target or actual observation is related.",
@@ -4762,21 +4935,21 @@
     "Unit": {
       "description": "A description of the unit in which the supplies, services or works are provided (e.g. hours, kilograms) and the unit-price. For comparability, an established list of units can be used.",
       "type": "object",
-      "properties":{
-        "name":{
-          "$ref":"#/definitions/Unit/$defs/unit.name"
+      "properties": {
+        "name": {
+          "$ref": "#/definitions/Unit/$defs/unit.name"
         },
-        "value":{
-          "$ref":"#/definitions/Unit/$defs/unit.value"
+        "value": {
+          "$ref": "#/definitions/Unit/$defs/unit.value"
         },
-        "scheme":{
-          "$ref":"#/definitions/Unit/$defs/unit.scheme"
+        "scheme": {
+          "$ref": "#/definitions/Unit/$defs/unit.scheme"
         },
-        "id":{
-          "$ref":"#/definitions/Unit/$defs/unit.id"
+        "id": {
+          "$ref": "#/definitions/Unit/$defs/unit.id"
         },
-        "uri":{
-          "$ref":"#/definitions/Unit/$defs/unit.uri"
+        "uri": {
+          "$ref": "#/definitions/Unit/$defs/unit.uri"
         }
       },
       "$defs": {
@@ -4803,42 +4976,42 @@
           "format": "uri",
           "type": "string"
         },
-        "unit.instance.nonFinancialUnit":{
-          "description":"",
-          "type":"object",
-          "properties":{
-            "name":{
-              "$ref":"#/definitions/Unit/$defs/unit.name"
+        "unit.instance.nonFinancialUnit": {
+          "description": "",
+          "type": "object",
+          "properties": {
+            "name": {
+              "$ref": "#/definitions/Unit/$defs/unit.name"
             },
-            "scheme":{
-              "$ref":"#/definitions/Unit/$defs/unit.scheme"
+            "scheme": {
+              "$ref": "#/definitions/Unit/$defs/unit.scheme"
             },
-            "id":{
-              "$ref":"#/definitions/Unit/$defs/unit.id"
+            "id": {
+              "$ref": "#/definitions/Unit/$defs/unit.id"
             },
-            "uri":{
-              "$ref":"#/definitions/Unit/$defs/unit.uri"
+            "uri": {
+              "$ref": "#/definitions/Unit/$defs/unit.uri"
             }
           }
         },
-        "unit.instance.financialUnit":{
-          "description":"",
-          "type":"object",
-          "properties":{
-            "name":{
-              "$ref":"#/definitions/Unit/$defs/unit.name"
+        "unit.instance.financialUnit": {
+          "description": "",
+          "type": "object",
+          "properties": {
+            "name": {
+              "$ref": "#/definitions/Unit/$defs/unit.name"
             },
-            "value":{
-              "$ref":"#/definitions/Unit/$defs/unit.value"
+            "value": {
+              "$ref": "#/definitions/Unit/$defs/unit.value"
             },
-            "scheme":{
-              "$ref":"#/definitions/Unit/$defs/unit.scheme"
+            "scheme": {
+              "$ref": "#/definitions/Unit/$defs/unit.scheme"
             },
-            "id":{
-              "$ref":"#/definitions/Unit/$defs/unit.id"
+            "id": {
+              "$ref": "#/definitions/Unit/$defs/unit.id"
             },
-            "uri":{
-              "$ref":"#/definitions/Unit/$defs/unit.uri"
+            "uri": {
+              "$ref": "#/definitions/Unit/$defs/unit.uri"
             }
           }
         }
@@ -4849,19 +5022,19 @@
       "description": "Financial value description",
       "properties": {
         "amount": {
-          "$ref":"#/definitions/Value/$defs/value.amount"
+          "$ref": "#/definitions/Value/$defs/value.amount"
         },
         "amountNet": {
-          "$ref":"#/definitions/Value/$defs/value.amountNet"
+          "$ref": "#/definitions/Value/$defs/value.amountNet"
         },
         "currency": {
-          "$ref":"#/definitions/Value/$defs/value.currency"
+          "$ref": "#/definitions/Value/$defs/value.currency"
         },
         "valueAddedTaxIncluded": {
-          "$ref":"#/definitions/Value/$defs/value.valueAddedTaxIncluded"
+          "$ref": "#/definitions/Value/$defs/value.valueAddedTaxIncluded"
         }
       },
-      "$defs":{
+      "$defs": {
         "value.amount": {
           "description": "Amount as a number.",
           "type": "number"
@@ -4878,33 +5051,33 @@
           "description": "A true/false field to indicate whether the value tax was included",
           "type": "boolean"
         },
-        "value.instance.valueExcludingVAT":{
-          "description":"",
-          "type":"object",
-          "properties":{
+        "value.instance.valueExcludingVAT": {
+          "description": "",
+          "type": "object",
+          "properties": {
             "amount": {
-              "$ref":"#/definitions/Value/$defs/value.amount"
+              "$ref": "#/definitions/Value/$defs/value.amount"
             },
             "currency": {
-              "$ref":"#/definitions/Value/$defs/value.currency"
+              "$ref": "#/definitions/Value/$defs/value.currency"
             }
           }
         },
-        "value.instance.valueExtended":{
-          "description":"",
-          "type":"object",
-          "properties":{
+        "value.instance.valueExtended": {
+          "description": "",
+          "type": "object",
+          "properties": {
             "amount": {
-              "$ref":"#/definitions/Value/$defs/value.amount"
+              "$ref": "#/definitions/Value/$defs/value.amount"
             },
             "amountNet": {
-              "$ref":"#/definitions/Value/$defs/value.amountNet"
+              "$ref": "#/definitions/Value/$defs/value.amountNet"
             },
             "currency": {
-              "$ref":"#/definitions/Value/$defs/value.currency"
+              "$ref": "#/definitions/Value/$defs/value.currency"
             },
-            "valueAddedTaxIncluded":{
-              "$ref":"#/definitions/Value/$defs/value.valueAddedTaxIncluded"
+            "valueAddedTaxIncluded": {
+              "$ref": "#/definitions/Value/$defs/value.valueAddedTaxIncluded"
             }
           }
         }
