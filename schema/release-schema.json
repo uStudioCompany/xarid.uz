@@ -3137,7 +3137,7 @@
           "codelist": "http://standard.open-contracting.org/1.1-dev/en/schema/codelists/#party-role",
           "openCodelist": true
         },
-        "orrganization.instance.genericOrganization":{
+        "organization.instance.genericOrganization":{
           "description":"",
           "type":"object",
           "properties":{
