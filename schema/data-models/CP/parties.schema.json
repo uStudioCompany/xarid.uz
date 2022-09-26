@@ -3,6 +3,7 @@
   "type":"array",
   "$id":"https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/release-schema.json",
   "items":{
+     "type":"object",
      "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/release-schema.json#/definitions/Organization/$defs/organization.instance.genericOrganization/properties"
   }
 }
