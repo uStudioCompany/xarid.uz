@@ -5,6 +5,8 @@
   "properties":{
     "allOf":[
       { 
+        "description":"meta",
+        "type":"object",
         "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/release-schema.json#/definitions/Tender/$defs/tender.instance.tenderMeta/properties"    
       }
     ]
