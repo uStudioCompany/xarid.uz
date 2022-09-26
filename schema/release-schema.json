@@ -5058,7 +5058,31 @@
           ],
           "openCodelist": false
         },
-        "tender.statusDetails": {}
+        "tender.statusDetails": {},
+        "tender.instance.tenderMeta":{
+          "type":"object",
+          "description":"",
+          "properties":{
+            "id": {
+              "$ref":"#/definitions/Tender/$defs/tender.id"
+            },
+            "internalId": {
+              "$ref":"#/definitions/Tender/$defs/tender.internalId"
+            },
+            "title": {
+              "$ref":"#/definitions/Tender/$defs/tender.title"
+            },
+            "description": {
+              "$ref":"#/definitions/Tender/$defs/tender.description"
+            },
+            "status": {
+              "$ref":"#/definitions/Tender/$defs/tender.status"
+            },
+            "statusDetails": {
+              "$ref":"#/definitions/Tender/$defs/tender.statusDetails"
+            }  
+          }
+        }
       }
     },
     "Transaction": {
@@ -5313,4 +5337,4 @@
       }
     }
   }
-}v
+}
