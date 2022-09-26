@@ -5,6 +5,7 @@
   "properties":[
     {
       "title":"мета-данные",
+      "description":"Набор верхнеуровневых данных закупочного процесса в рамках проекта",
       "type":"object",
       "properties":{
         "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/release-schema.json#/definitions/Tender/$defs/tender.instance.tenderMeta/properties"
