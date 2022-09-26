@@ -12,7 +12,7 @@
       { 
         "description":"meta",
         "type":"object",
-        "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/release-schema.json#/definitions/Tende"    
+        "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/release-schema.json#/definitions/Tender"    
       }
     ]
   }
