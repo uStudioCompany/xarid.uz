@@ -2,15 +2,14 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "type":"object",
   "$id":"https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/release-schema.json",
-  "properties":{
-    "Мета-данные":{
+  "allOf":[
+    {
       "title":"мета-данные",
       "description":"Набор верхнеуровневых данных закупочного процесса в рамках проекта",
       "type":"object",
       "properties":{
         "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/release-schema.json#/definitions/Tender/$defs/tender.instance.tenderMeta/properties"
       }
-    },
-    "Структура предмета закупки в рамках процедуры (лоты)":{}
-  } 
+    }
+  ] 
 }
