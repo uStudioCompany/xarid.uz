@@ -1,7 +1,7 @@
 # Metric
 ## Дефиниция OCDS
 [](/schema/definitions/Metric.schema.json)
-### Типы объекта `Metric` 
+### Тип объекта Metric`
 Набор значений, досуптимых для атрибута `metrics[].id`
 [](/schema/definitions/codelists/awardStatuses.csv)
 ## Наследование в бизнес-логике
