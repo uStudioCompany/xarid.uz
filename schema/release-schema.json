@@ -5246,7 +5246,7 @@
               "type":"array",
               "description":"",
               "items":{
-                "$ref":"#/definitions/Item/$defs/item.instance.cpTenderItemTarget"    
+                "$ref":"#/definitions/Metric/$defs/metric.instance.cpTenderItemTarget"    
               }
             },
             "lots":{
@@ -5256,7 +5256,7 @@
                 "type":"object",
                 "properties":{
                   "lot.meta":{
-                    "$ref":"lot.instance.tenderLotMeta/properties"
+                    "$ref":"#/definitions/Lot/$defs/lot.instance.tenderLotMeta/properties"
                   }
                 }
               }
