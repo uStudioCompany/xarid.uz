@@ -1,0 +1,8 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type":"object",
+  "description":"Объект-наследник дефиниции 'Document', применяемый для описания документа в рамках закупочного процесса",
+  "properties":{
+    "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/release-schema.json#/definitions/Document/$defs/document.instance.genericDocument/properties"    
+  }
+}
