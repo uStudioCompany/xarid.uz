@@ -2819,7 +2819,7 @@
           }
         },
         "metric.instance.cpTenderItemTarget":{
-          "description": "",
+          "description": "Объект-наследник дефиниции 'Metric', применяемый для описание спецификации предметов закупочного проекта",
           "type": "object",
           "properties": {
             "id": {
