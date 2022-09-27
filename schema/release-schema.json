@@ -3089,6 +3089,15 @@
             "monthNumber":{}
           }
         },
+        "observation.cpTenderItemTargetObservationDimensions": {
+          "type": "object",
+          "description": "Any number of dimensions can be recorded within this object. Dimensions names should follow the camelCase conventions of OCDS.",
+          "properties":{
+            "relatedItem":{},
+            "attributeId":{},
+            "attributeName":{}
+          }
+        },
         "observation.notes": {
           "description": "Any notes on this observation. This may include clarifying information.",
           "type": [
@@ -3196,8 +3205,7 @@
               "$ref": "#/definitions/Observation/$defs/observation.unit"
             },
             "dimensions": {
-              "$ref": "#/definitions/Observation/$defs/observation.dimensions",
-              "description":"'relatedItem','attributeId','attributeName'"
+              "$ref": "#/definitions/Observation/$defs/observation.observation.cpTenderItemTargetObservationDimensions"
             },
             "notes": {
               "$ref": "#/definitions/Observation/$defs/observation.notes"
@@ -5247,6 +5255,18 @@
               "description":"",
               "items":{
                 "$ref":"#/definitions/Metric/$defs/metric.instance.cpTenderItemTarget"    
+              }
+            },
+            "lots":{
+              "type":"array",
+              "description":"",
+              "items":{
+                "type":"object",
+                "properties":{
+                  "lot.meta":{
+                    "$ref":"#/definitions/Lot/$defs/lot.instance.tenderLotMeta"
+                  }
+                }
               }
             }
           }
