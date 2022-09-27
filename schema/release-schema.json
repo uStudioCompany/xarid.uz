@@ -3288,7 +3288,7 @@
           "openCodelist": true
         },
         "organization.instance.genericOrganization":{
-          "description":"Детальные данные об организации-стороне закупочного процесса",
+          "description":"Объект-наследник дефиниции 'Organization', применяемый для описания любой организации участника закупочного процесса",
           "type":"object",
           "properties":{
             "name": {
@@ -5233,16 +5233,16 @@
             },
             "statusDetails": {
               "$ref":"#/definitions/Tender/$defs/tender.statusDetails"
-            }  
+            },
+            "mainProcurementCategory":{
+              "$ref":"#/definitions/Tender/$defs/tender.mainProcurementCategory"
+            }
           }
         },
         "tender.instance.cpTenderSubject":{
           "description":"",
           "type":"object",
           "properties":{
-            "mainProcurementCategory":{
-              "$ref":"#/definitions/Tender/$defs/tender.mainProcurementCategory"
-            },
             "items":{
               "type":"array",
               "description":"",
