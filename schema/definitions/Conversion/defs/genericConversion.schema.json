@@ -1,0 +1,8 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type":"object",
+  "description":"Объект-наследник дефиниции 'Conversion', применяемый для описания коєффициентов критериев закупочного процесса и их конверсий",
+  "properties":{
+    "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/release-schema.json#/definitions/Conversion/$defs/conversion.instance.genericConversion/properties"    
+  }
+}
