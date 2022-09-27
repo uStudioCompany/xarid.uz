@@ -1,9 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "type":"array",
-  "$id":"https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/release-schema.json",
   "items":{
      "type":"object",
-     "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/release-schema.json#/definitions/Organization/$defs/organization.instance.genericOrganization"
+     "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/definitions/Organization/defs/parties%5B*%5D.schema.json"
   }
 }
