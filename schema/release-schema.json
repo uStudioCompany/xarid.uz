@@ -856,13 +856,14 @@
           "description":"Объект-наследник дефиниции 'Budget', применяемый для описания источников финансирования и графика платежей в рамках плана закупочного проекта",
           "properties": {
             "budgetBreakdown": {
-              "description": "График оплаты товаров/работ/услуг",
+              "description": "График оплаты товаров/работ/услуг, предполагаеммый графиком данного закупочного проекта",
               "type": "array",
               "items": {
                 "$ref": "#/definitions/BudgetBreakdown/$defs/budgetBreakdown.instance.cnPlanningBudgetBreakdown"
               }
             },
             "finance": {
+              "description": "Источники финансирования, задействованные закупаюзщей организацией для реализации данного закупочного проекта",
               "$ref": "#/definitions/Finance/$defs/finance.instance.genericFinance"
             }
           }
