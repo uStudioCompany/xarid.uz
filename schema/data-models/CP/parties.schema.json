@@ -1,6 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "type":"array",
+  "description":"Организации-участники закупочного проекта всех ролей"
   "items":{
      "type":"object",
      "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/definitions/Organization/defs/genericOrganization.schema.json"
