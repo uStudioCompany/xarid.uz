@@ -3,6 +3,6 @@
   "type":"object",
   "description":"Объект-наследник дефиниции 'Planning', применяемый для описания плана закупочного проекта",
   "properties":{
-    "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/release-schema.json#/definitions/Planning/$defs/planning.instance.cpPlanning/properties"    
+    "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/release-schema.json#/definitions/Planning/$defs/planning.instance.cpPlanning"    
   }
 }
