@@ -3091,8 +3091,7 @@
               "$ref": "#/definitions/Observation/$defs/observation.id"
             },
             "period": {
-              "$ref": "#/definitions/Observation/$defs/observation.period",
-              "description":"'relatedItem','monthNumnber'"
+              "$ref": "#/definitions/Observation/$defs/observation.period"
             },
             "measure": {
               "$ref": "#/definitions/Observation/$defs/observation.measure"
@@ -3101,7 +3100,8 @@
               "$ref": "#/definitions/Observation/$defs/observation.unit"
             },
             "dimensions": {
-              "$ref": "#/definitions/Observation/$defs/observation.dimensions"
+              "$ref": "#/definitions/Observation/$defs/observation.dimensions",
+              "description":"'relatedItem','monthNumnber'"
             },
             "notes": {
               "$ref": "#/definitions/Observation/$defs/observation.notes"
