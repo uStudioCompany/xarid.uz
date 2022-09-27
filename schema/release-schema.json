@@ -1716,7 +1716,7 @@
               "description": "A list of RequirementGroup for this Criterion. A criterion is satisfied by one or more requirement groups being met. A requirement group is met when all requirements in the group are satisfied.",
               "type": "array",
               "items": {
-                "type":"string"
+                "$ref": "#/definitions/RequirementGroup/$defs/requirementGroup.instance.genericGroup"
               }
             }
           }
