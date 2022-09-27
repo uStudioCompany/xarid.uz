@@ -3887,6 +3887,7 @@
           "descirption":"Объект-наследник дефиниции 'Planning', применяемый для описания плана закупочного проекта",
           "properties": {
             "budget": {
+              "description":"Описание источников финансирования и графика платежей в рамках плана закупочного проекта",
               "type": "object",
               "$ref": "#/definitions/Budget/$defs/budget.instance.cnPlanning"
             },
