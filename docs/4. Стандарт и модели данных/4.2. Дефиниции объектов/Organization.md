@@ -5,4 +5,4 @@
 Набор значений, досуптимых для атрибута `organization.roles[]`
 [](/schema/definitions/codelists/partyRoles.csv)
 ## Наследование в бизнес-логике
-[](/schema/definitions/Organization/defs/parties[*].schema.json)
+[](/schema/definitions/Organization/defs/genericOrganization.json)
