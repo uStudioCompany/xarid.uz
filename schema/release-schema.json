@@ -3116,33 +3116,6 @@
           "description": "The RequirementReference of the requirement which the observation is applicable to",
           "$ref": "#/definitions/RequirementReference/$defs/requirementReference.instance.genericReference"
         },
-        "observation.instance.requiredObservation": {
-          "type": "object",
-          "description": "",
-          "properties": {
-            "id": {
-              "$ref": "#/definitions/Observation/$defs/observation.id"
-            },
-            "period": {
-              "$ref": "#/definitions/Observation/$defs/observation.period"
-            },
-            "measure": {
-              "$ref": "#/definitions/Observation/$defs/observation.measure"
-            },
-            "unit": {
-              "$ref": "#/definitions/Observation/$defs/observation.unit"
-            },
-            "dimensions": {
-              "$ref": "#/definitions/Observation/$defs/observation.dimensions"
-            },
-            "notes": {
-              "$ref": "#/definitions/Observation/$defs/observation.notes"
-            },
-            "relatedRequirementID": {
-              "$ref": "#/definitions/Observation/$defs/observation.relatedRequirementID"
-            }
-          }
-        },
         "observation.instance.nonRelatedObservation": {
           "type": "object",
           "description": "",
@@ -3212,6 +3185,9 @@
             },
             "notes": {
               "$ref": "#/definitions/Observation/$defs/observation.notes"
+            },
+            "relatedRequirementID": {
+              "$ref": "#/definitions/Observation/$defs/observation.relatedRequirementID"
             }
           }
         }
