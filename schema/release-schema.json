@@ -2610,10 +2610,6 @@
           "description": "",
           "$ref": "#/definitions/Classification"
         },
-        "secondStage": {
-          "description": "Information about the second stage of a two-stage procedure (e.g. a restricted procedure, a competitive procedure with negotiation, a competitive dialogue or an innovation partnership).",
-          "$ref": "#/definitions/SecondStage"
-        },
         "submissionTerms": {
           "description": "Information about the submission terms to describe how, when and where the tenderers need to submit their bids for the lot.",
           "$ref": "#/definitions/SubmissionTerms"
@@ -2662,7 +2658,7 @@
           "$ref": "#/definitions/Value",
           "description": "The maximum estimated [Value] of this lot."
         },
-        "lot.instance.tenderLotMeta": {
+        "lot.instance.tenderLot": {
           "description": "",
           "type": "object",
           "properties": {
@@ -2687,23 +2683,7 @@
             "classification": {
               "description": "",
               "$ref": "#/definitions/Classification/$defs/classification.instance.genericClassification"
-            }
-          }
-        },
-        "lot.instance.lotSecondStage":{
-          "description": "",
-          "type": "object",
-          "properties":{
-            "secondStage": {
-              "description": "Information about the second stage of a two-stage procedure (e.g. a restricted procedure, a competitive procedure with negotiation, a competitive dialogue or an innovation partnership).",
-              "$ref": "#/definitions/SecondStage/$defs/secondStage.instance.genericSecondStage"
-            }
-          }  
-        },
-        "lot.instance.lotTerms":{
-          "description": "",
-          "type": "object",
-          "properties":{
+            },
             "submissionTerms": {
               "description": "Information about the submission terms to describe how, when and where the tenderers need to submit their bids for the lot.",
               "$ref": "#/definitions/SubmissionTerms/$defs/submissionTerms.tenderLotTerms"
@@ -5258,7 +5238,7 @@
                 "type":"object",
                 "properties":{
                   "lot.meta":{
-                    "$ref":"#/definitions/Lot/$defs/lot.instance.tenderLotMeta"
+                    "$ref":"#/definitions/Lot/$defs/lot.instance.tenderLot"
                   }
                 }
               }
