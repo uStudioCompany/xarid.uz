@@ -856,7 +856,6 @@
           "description":"Объект-наследник дефиниции 'Budget', применяемый для описания источников финансирования и графика платежей в рамках плана закупочного проекта",
           "properties": {
             "budgetBreakdown": {
-              "description": "График оплаты товаров/работ/услуг, предполагаеммый графиком данного закупочного проекта",
               "type": "array",
               "items": {
                 "$ref": "#/definitions/BudgetBreakdown/$defs/budgetBreakdown.instance.cnPlanningBudgetBreakdown"
@@ -3888,19 +3887,16 @@
           "descirption":"Объект-наследник дефиниции 'Planning', применяемый для описания плана закупочного проекта",
           "properties": {
             "budget": {
-              "description": "test name of the inheritet def",
               "type": "object",
               "$ref": "#/definitions/Budget/$defs/budget.instance.cnPlanning"
             },
             "milestones": {
-              "description": "Объект описывает вехи, связанные с планированием исполнения будущего договора",
               "type": "array",
               "items": {
                 "$ref": "#/definitions/Milestone/$defs/milestone.instance.noPeriodMilestone"
               }
             },
             "forecasts": {
-              "description": "Объект описывает индикативы, используемые для планирования исполнения будущего договора",
               "type": "array",
               "items": {
                 "$ref": "#/definitions/Metric/$defs/metric.instance.cpPlanningMetric"
