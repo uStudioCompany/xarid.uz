@@ -2121,7 +2121,31 @@
         },
         "financialTermsDetail.classifications": {
           "description": "",
-          "type": "object"
+          "type": "object",
+          "properties":{
+            "eventType":{
+              "description":"",
+              "type":"string",
+              "enum":[
+                "FinancialTermsDetail",
+                "postPayment",
+                "performanceFailureFee",
+                "paymentFailureFee",
+                "qualityFailurePenalty",
+                "forceMajeure"
+              ],
+              "codelist":"financialEventType.csv"
+            },
+            "relatesTo":{
+              "description":"",
+              "type":"string",
+              "enum":[
+                "lot",
+                "item"
+              ],
+              "codelist":"financialTermRelatesTo.csv"
+            }
+          }
         },
         "financialTermsDetail.instance.genericDetail": {
           "type": "object",
