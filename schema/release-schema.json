@@ -4372,6 +4372,13 @@
             },
             "description": {
               "$ref": "#/definitions/RequirementGroup/$defs/requirementGroup.description"
+            },
+            "requirements": {
+              "description": "A list of any [Requirement] which must all be satisified for the requirement group to be met.",
+              "type": "array",
+              "items": {
+                "type":"string"
+              }
             }
           }
         }
