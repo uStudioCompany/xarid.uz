@@ -1482,32 +1482,33 @@
           "description": "The main information about financing and payment and/or reference to any provisions that govern them.",
           "type": "string"
         },
-        "contractTerms.financialTermsDetails": {
-          "description": "",
-          "type": "string",
-          "items": {
-            "$ref": "#/definitions/FinancialTermsDetail/$defs/financialTermsDetail.instance.genericDetail"
-          }
-        },
         "contractTerms.instance.genericTerms": {
-          "performanceTerms": {
-            "$ref": "#/definitions/ContractTerms/$defs/contractTerms.performanceTerms"
-          },
-          "financialTerms": {
-            "$ref": "#/definitions/ContractTerms/$defs/contractTerms.financialTerms"
-          },
-          "financialTermsDetails": {
-            "type": "array",
-            "items": {
-              "$ref": "#/definitions/FinancialTermsDetail/$defs/financialTermsDetail.instance.genericDetail"
+          "description":"",
+          "type":"object",
+          "properties":{
+            "performanceTerms": {
+              "$ref": "#/definitions/ContractTerms/$defs/contractTerms.performanceTerms"
+            },
+            "financialTerms": {
+              "$ref": "#/definitions/ContractTerms/$defs/contractTerms.financialTerms"
+            },
+            "financialTermsDetails": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/FinancialTermsDetail/$defs/financialTermsDetail.instance.genericDetail"
+              }
             }
           }
         },
         "contractTerms.instance.tenderLotTerms": {
-          "financialTermsDetails": {
-            "type": "array",
-            "items": {
-              "$ref": "#/definitions/FinancialTermsDetail/$defs/financialTermsDetail.instance.genericDetail"
+          "description":"",
+          "type":"object",
+          "properties":{
+            "financialTermsDetails": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/FinancialTermsDetail/$defs/financialTermsDetail.instance.genericDetail"
+              }
             }
           }
         }
