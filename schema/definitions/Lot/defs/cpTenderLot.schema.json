@@ -3,6 +3,6 @@
   "type":"object",
   "description":"Объект-наследник дефиниции 'Lot', применяемый для описания лота закупочного процесса с учетом всех связанных атрибутов",
   "properties":{
-    "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/release-schema.json#/definitions/Lot/$defs/lot.instance.cpTenderLotlot.instance.cpTenderLot/properties"    
+    "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/release-schema.json#/definitions/Lot/$defs/lot.instance.cpTenderLot/properties"    
   }
 }
