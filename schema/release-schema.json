@@ -1711,13 +1711,6 @@
             },
             "relatedItem": {
               "$ref": "#/definitions/Criterion/$defs/criterion.relatedItem"
-            },
-            "requirementGroups": {
-              "description": "A list of [RequirementGroup] for this Criterion. A criterion is satisfied by one or more requirement groups being met. A requirement group is met when all requirements in the group are satisfied.",
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/RequirementGroup/$defs/requirementGroup.instance.genericGroup"
-              }
             }
           }
         }
@@ -4372,6 +4365,13 @@
             },
             "description": {
               "$ref": "#/definitions/RequirementGroup/$defs/requirementGroup.description"
+            },
+            "requirements": {
+              "description": "A list of any [Requirement] which must all be satisified for the requirement group to be met.",
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Requirement/$defs/requirement.instance.genericRequirement"
+              }
             }
           }
         }
