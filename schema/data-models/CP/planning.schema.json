@@ -1,5 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "type":"object",
+  "description":"План закупочного проекта: источники финансирования, графики поставок и платежей"
   "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/definitions/Planning/defs/cpPlanning.schema.json"
 }
