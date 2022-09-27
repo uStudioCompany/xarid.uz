@@ -1,7 +1,7 @@
 # Organization
 ## Дефиниция OCDS
 [](/schema/definitions/Organization/Organization.schema.json)
-### Тип объекта Metric`
+### Роли организаций`
 Набор значений, досуптимых для атрибута `organization.roles[]`
 [](/schema/definitions/codelists/partyRoles.csv)
 ## Наследование в бизнес-логике
