@@ -1716,7 +1716,7 @@
               "description": "A list of RequirementGroup for this Criterion. A criterion is satisfied by one or more requirement groups being met. A requirement group is met when all requirements in the group are satisfied.",
               "type": "array",
               "items": {
-                "type":"string"
+                "$ref": "#/definitions/RequirementGroup/$defs/requirementGroup.instance.genericGroup"
               }
             }
           }
@@ -4372,13 +4372,6 @@
             },
             "description": {
               "$ref": "#/definitions/RequirementGroup/$defs/requirementGroup.description"
-            },
-            "requirements": {
-              "description": "A list of any [Requirement] which must all be satisified for the requirement group to be met.",
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/Requirement/$defs/requirement.instance.genericRequirement"
-              }
             }
           }
         }
@@ -4911,28 +4904,10 @@
           "$ref": "#/definitions/Value"
         },
         "procurementMethod": {
-          "title": "Procurement method",
-          "description": "Specify tendering method against the [method codelist](http://standard.open-contracting.org/1.1-dev/en/schema/codelists/#method) as per [GPA definitions](http://www.wto.org/english/docs_e/legal_e/rev-gpr-94_01_e.htm) of Open, Selective, Limited",
-          "type": [
-            "string",
-            "null"
-          ],
-          "enum": [
-            "open",
-            "selective",
-            "limited",
-            null
-          ],
-          "codelist": "method.csv",
-          "openCodelist": false
+          "$ref":"#/definitions/Tender/$defs/tender.procurementMethod"
         },
         "procurementMethodDetails": {
-          "title": "Procurement method details",
-          "description": "Additional detail on the procurement method used. This field may be used to provide the local name of the particular procurement method used.",
-          "type": [
-            "string",
-            "null"
-          ]
+          "$ref":"#/definitions/Tender/$defs/tender.procurementMethodDetails"
         },
         "mainProcurementCategory": {
           "$ref":"#/definitions/Tender/$defs/tender.mainProcurementCategory"
@@ -5176,6 +5151,26 @@
           ],
           "codelist": "procurementCategory.csv",
           "openCodelist": false
+        },
+        "tender.procurementMethod": {
+          "title": "Procurement method",
+          "description": "Specify tendering method against the [method codelist](http://standard.open-contracting.org/1.1-dev/en/schema/codelists/#method) as per [GPA definitions](http://www.wto.org/english/docs_e/legal_e/rev-gpr-94_01_e.htm) of Open, Selective, Limited",
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            "open",
+            "selective",
+            "limited"
+          ],
+          "codelist": "method.csv",
+          "openCodelist": false
+        },
+        "tender.procurementMethodDetails": {
+          "title": "Procurement method details",
+          "description": "Additional detail on the procurement method used. This field may be used to provide the local name of the particular procurement method used.",
+          "type":  "string"
         },
         "tender.awardCriteria": {
           "title": "Award criteria",
