@@ -1,6 +1,6 @@
 # Metric
 ## Дефиниция OCDS
-[](/schema/definitions/Metric.schema.json)
+[](/schema/definitions/Metric/Metric.schema.json)
 ### Тип объекта Metric`
 Набор значений, досуптимых для атрибута `metrics[].id`
 [](/schema/definitions/codelists/awardStatuses.csv)
