@@ -3205,7 +3205,7 @@
               "$ref": "#/definitions/Observation/$defs/observation.unit"
             },
             "dimensions": {
-              "$ref": "#/definitions/Observation/$defs/observation.observation.cpTenderItemTargetObservationDimensions"
+              "$ref": "#/definitions/Observation/$defs/observation.cpTenderItemTargetObservationDimensions"
             },
             "notes": {
               "$ref": "#/definitions/Observation/$defs/observation.notes"
@@ -5255,6 +5255,18 @@
               "description":"",
               "items":{
                 "$ref":"#/definitions/Metric/$defs/metric.instance.cpTenderItemTarget"    
+              }
+            },
+            "lots":{
+              "type":"array",
+              "description":"",
+              "items":{
+                "type":"object",
+                "properties":{
+                  "lot.meta":{
+                    "$ref":"#/definitions/Lot/$defs/lot.instance.tenderLotMeta"
+                  }
+                }
               }
             }
           }
