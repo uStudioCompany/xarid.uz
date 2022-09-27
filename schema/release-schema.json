@@ -5256,7 +5256,7 @@
                 "type":"object",
                 "properties":{
                   "lot.meta":{
-                    "$ref":"#/definitions/Lot/$defs/lot.instance.tenderLotMeta/properties"
+                    "$ref":"#/definitions/Lot/$defs/lot.instance.tenderLotMeta"
                   }
                 }
               }
