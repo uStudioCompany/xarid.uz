@@ -3890,12 +3890,6 @@
               "type": "object",
               "$ref": "#/definitions/Budget/$defs/budget.instance.cnPlanning"
             },
-            "milestones": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/Milestone/$defs/milestone.instance.noPeriodMilestone"
-              }
-            },
             "forecasts": {
               "type": "array",
               "items": {
