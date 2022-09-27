@@ -3883,6 +3883,7 @@
       "$defs": {
         "planning.instance.cpPlanning": {
           "type": "object",
+          "descirption":"Объект-наследник дефиниции 'Planning', применяемый для описания плана закупочного проекта",
           "properties": {
             "budget": {
               "description": "test name of the inheritet def",
