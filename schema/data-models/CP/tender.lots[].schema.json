@@ -3,6 +3,6 @@
   "description":"Лоты закупочного проекта",
   "type":"array",
   "items":{
-    "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/definitions/Lot/defs/cpTenderLot.schema.json" 
+    "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/definitions/Lot/$defs/cpTenderLot.schema.json" 
   }
 }
