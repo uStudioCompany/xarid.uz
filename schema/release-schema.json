@@ -2671,9 +2671,6 @@
             "title": {
               "$ref": "#/definitions/Lot/$defs/lot.title"
             },
-            "description": {
-              "$ref": "#/definitions/Lot/$defs/lot.description"
-            },
             "status": {
               "$ref": "#/definitions/Lot/$defs/lot.status"
             },
@@ -5210,38 +5207,6 @@
             },
             "mainProcurementCategory":{
               "$ref":"#/definitions/Tender/$defs/tender.mainProcurementCategory"
-            }
-          }
-        },
-        "tender.instance.cpTenderSubject":{
-          "description":"",
-          "type":"object",
-          "properties":{
-            "items":{
-              "type":"array",
-              "description":"",
-              "items":{
-                "$ref":"#/definitions/Item/$defs/item.instance.cpTenderItem"    
-              }
-            },
-            "targets":{
-              "type":"array",
-              "description":"",
-              "items":{
-                "$ref":"#/definitions/Metric/$defs/metric.instance.cpTenderItemTarget"    
-              }
-            },
-            "lots":{
-              "type":"array",
-              "description":"",
-              "items":{
-                "type":"object",
-                "properties":{
-                  "lot.meta":{
-                    "$ref":"#/definitions/Lot/$defs/lot.instance.cpTenderLot"
-                  }
-                }
-              }
             }
           }
         }
