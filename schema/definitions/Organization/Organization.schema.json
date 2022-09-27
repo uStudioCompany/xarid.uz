@@ -3,7 +3,7 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "type":"object",
   "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/release-schema.json#/definitions/Organization",
-  "properties":{
+  "$defs":{
     "Нативная организация":{
       "description": "Объект, применямый для описания организации в общем виде",
       "$ref":"https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/release-schema.json#/definitions/Organization/$defs/organization.instance.genericOrganization"
