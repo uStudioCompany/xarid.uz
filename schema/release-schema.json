@@ -1684,6 +1684,35 @@
         "criterion.relatedItem": {
           "description": "Where relatesTo = \"item\" this field must be populated with the id of the item in this tender section which the criterion relates to. Where relatesTo <> \"item\" this field should be omitted",
           "type": "string"
+        },
+        "criterion.instance.genericCriterion": {
+          "description": "",
+          "type": "object",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/Criterion/$defs/criterion.id"
+            },
+            "title": {
+              "$ref": "#/definitions/Criterion/$defs/criterion.title"
+            },
+            "description": {
+              "$ref": "#/definitions/Criterion/$defs/criterion.description"
+            },
+            "source": {
+              "$ref": "#/definitions/Criterion/$defs/criterion.source"
+            },
+            "classification": {
+              "description": "",
+              "type": "object",
+              "$ref": "#/definitions/Classification/$defs/classification.instance.genericClassification"
+            },
+            "relatesTo": {
+              "$ref": "#/definitions/Criterion/$defs/criterion.relatesTo"
+            },
+            "relatedItem": {
+              "$ref": "#/definitions/Criterion/$defs/criterion.relatedItem"
+            }
+          }
         }
       }
     },
