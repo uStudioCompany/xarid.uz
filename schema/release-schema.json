@@ -5250,7 +5250,16 @@
               }
             },
             "lots":{
-              
+              "type":"array",
+              "description":"",
+              "items":{
+                "type":"object",
+                "properties":{
+                  "lot.meta":{
+                    "$ref":"lot.instance.tenderLotMeta/properties"
+                  }
+                }
+              }
             }
           }
         }
