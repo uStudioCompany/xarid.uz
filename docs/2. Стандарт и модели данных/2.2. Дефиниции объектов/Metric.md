@@ -5,4 +5,4 @@
 Набор значений, досуптимых для атрибута `metrics[].id`
 [](/schema/definitions/codelists/awardStatuses.csv)
 ## Наследование в бизнес-логике
-[](/schema/definitions/Metric/defs/tender.targets[].schema.json)
+[](/schema/definitions/Metric/defs/cpTenderItemTarget.schema.json)
