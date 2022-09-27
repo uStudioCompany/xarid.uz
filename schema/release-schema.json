@@ -508,9 +508,15 @@
       "$defs": {
         "awardCriteria.criteria": {
           "description": "Массив, содержащий детальную Информацию о применяемых критериях присуждения контракта",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/AwardCriterion/$defs/awardCriterion.Instance.genericCriterion"
+          "type": "object",
+          "properties":{
+            "criteria":{
+              "type":"array",
+              "description":"",
+              "items": {
+                "$ref": "#/definitions/AwardCriterion/$defs/awardCriterion.Instance.genericCriterion"
+              }
+            }
           }
         }
       }
@@ -2728,6 +2734,7 @@
             },
             "awardCriteria": {
               "description": "Information about the award criteria for the lot.",
+              
               "$ref": "#/definitions/AwardCriteria/$defs/awardCriteria.criteria"
             }
           }
