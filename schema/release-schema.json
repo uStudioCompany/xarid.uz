@@ -2658,7 +2658,7 @@
           "$ref": "#/definitions/Value",
           "description": "The maximum estimated [Value] of this lot."
         },
-        "lot.instance.tenderLot": {
+        "lot.instance.cpTenderLot": {
           "description": "",
           "type": "object",
           "properties": {
@@ -5238,7 +5238,7 @@
                 "type":"object",
                 "properties":{
                   "lot.meta":{
-                    "$ref":"#/definitions/Lot/$defs/lot.instance.tenderLot"
+                    "$ref":"#/definitions/Lot/$defs/lot.instance.cpTenderLot"
                   }
                 }
               }
