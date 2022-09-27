@@ -1965,22 +1965,25 @@
           "type": ""
         },
         "evidence.instance.genericEvidence": {
-          "id": {
-            "$ref": "#/definitions/Evidence/$defs/evidence.id"
-          },
-          "type": {
-            "$ref": "#/definitions/Evidence/$defs/evidence.type"
-          },
-          "title": {
-            "$ref": "#/definitions/Evidence/$defs/evidence.title"
-          },
-          "description": {
-            "$ref": "#/definitions/Evidence/$defs/evidence.description"
-          },
-          "relatedDocument": {
-            "title": "",
-            "description": "",
-            "$ref": "#/definitions/Document/$defs/document.instance.genericDocument"
+          "description":"",
+          "type":"object",
+          "properties":{
+            "id": {
+              "$ref": "#/definitions/Evidence/$defs/evidence.id"
+            },
+            "type": {
+              "$ref": "#/definitions/Evidence/$defs/evidence.type"
+            },
+            "title": {
+              "$ref": "#/definitions/Evidence/$defs/evidence.title"
+            },
+            "description": {
+              "$ref": "#/definitions/Evidence/$defs/evidence.description"
+            },
+            "relatedDocument": {
+              "description": "",
+              "$ref": "#/definitions/Document/$defs/document.instance.genericDocument"
+            }
           }
         }
       }
@@ -5184,7 +5187,6 @@
           "type":  "string"
         },
         "tender.awardCriteria": {
-          "title": "Award criteria",
           "description": "Specify the award criteria for the procurement, using the [award criteria codelist](http://standard.open-contracting.org/1.1-dev/en/schema/codelists/#award-criteria)",
           "type": [
             "string",
@@ -5192,6 +5194,10 @@
           ],
           "codelist": "awardCriteria.csv",
           "openCodelist": true
+        },
+        "tender.secondStage":{
+          "description":"",
+          "$ref":"#/definitions/SecondStage/$defs/secondStage.instance.genericSecondStage"
         },
         "tender.awardCriteriaDetails": {
           "title": "Award criteria details",
