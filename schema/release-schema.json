@@ -2752,6 +2752,23 @@
               }
             }
           }
+        },
+        "metric.instance.cpPlanningMetric":{
+          "description": "",
+          "type": "object",
+          "properties": {
+            "id": {
+              "description":"В контексте описания контрактного процесса применяются метрики, идентифицированные следующимми значениями из код-листа \"Типы объектов метрик\":\n'deliveryEstimate' - \n 'deliverySchedule' - ",
+              "$ref": "#/definitions/Metric/$defs/metric.id"
+            },
+            "observations": {
+              "type": "array",
+              "description": "",
+              "items": {
+                "$ref": "#/definitions/Observation/$defs/observation.instance.nonRelatedObservation"
+              }
+            }
+          }
         }
       }
     },
@@ -3747,10 +3764,10 @@
               }
             },
             "forecasts": {
-              "description": "Объект описывает индикативы, исползуемые для планирования исполнения будущего договора. В контексте описания контрактного процесса применяются метрики, идентифицированные следующимми значениями из код-листа \"Типы объектов метрик\":\n'deliveryEstimate' - \n 'deliverySchedule' - ",
+              "description": "Объект описывает индикативы, используемые для планирования исполнения будущего договора",
               "type": "array",
               "items": {
-                "$ref": "#/definitions/Metric/$defs/metric.instance.nonRequiredMetric"
+                "$ref": "#/definitions/Metric/$defs/metric.instance.cpPlanningMetric"
               }
             }
           }
