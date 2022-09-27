@@ -3,6 +3,6 @@
   "type":"array",
   "items":{
      "type":"object",
-     "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/definitions/Organization/defs/parties%5B*%5D.schema.json"
+     "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/definitions/Organization/defs/genericOrganization.schema.json"
   }
 }
