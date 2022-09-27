@@ -1,6 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "description":"Лоты закупочного проекта",
-  "type":"object",
-   "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/definitions/Lot/defs/cpTenderLot.shema.json"    
+  "type":"array",
+  "items":{
+    "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/definitions/Lot/defs/cpTenderLot.shema.json" 
+  }
 }
