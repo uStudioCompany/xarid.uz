@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "type":"object",
-  "$id":"https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/release-schema.json",
+  "description": "Объект-наследник дефиниции 'Metric', применяемый для описание спецификации предметов закупочного проекта",
   "properties":{
     "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/release-schema.json#/definitions/Metric/$defs/metric.instance.cpTenderItemTarget/properties"    
   }
