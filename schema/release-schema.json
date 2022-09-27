@@ -4939,23 +4939,10 @@
           "$ref":"#/definitions/Tender/$defs/tender.mainProcurementCategory"
         },
         "awardCriteria": {
-          "title": "Award criteria",
-          "description": "Specify the award criteria for the procurement, using the [award criteria codelist](http://standard.open-contracting.org/1.1-dev/en/schema/codelists/#award-criteria)",
-          "type": [
-            "string",
-            "null"
-          ],
-          "codelist": "awardCriteria.csv",
-          "openCodelist": true
+          "$ref":"#/definitions/Tender/$defs/tender.awardCriteria"
         },
         "awardCriteriaDetails": {
-          "title": "Award criteria details",
-          "description": "Any detailed or further information on the award or selection criteria.",
-          "type": "string",
-          "enum": [
-            "automated",
-            "manual"
-          ]
+          "$ref":"#/definitions/Tender/$defs/tender.awardCriteriaDetails"
         },
         "submissionMethod": {
           "title": "Submission method",
@@ -5191,6 +5178,25 @@
           "codelist": "procurementCategory.csv",
           "openCodelist": false
         },
+        "tender.awardCriteria": {
+          "title": "Award criteria",
+          "description": "Specify the award criteria for the procurement, using the [award criteria codelist](http://standard.open-contracting.org/1.1-dev/en/schema/codelists/#award-criteria)",
+          "type": [
+            "string",
+            "null"
+          ],
+          "codelist": "awardCriteria.csv",
+          "openCodelist": true
+        },
+        "tender.awardCriteriaDetails": {
+          "title": "Award criteria details",
+          "description": "Any detailed or further information on the award or selection criteria.",
+          "type": "string",
+          "enum": [
+            "automated",
+            "manual"
+          ]
+        },
         "tender.instance.cpTenderMeta":{
           "type":"object",
           "description":"Набор верхнеуровневых данных закупочного процесса в рамках проекта",
@@ -5215,6 +5221,12 @@
             },
             "mainProcurementCategory":{
               "$ref":"#/definitions/Tender/$defs/tender.mainProcurementCategory"
+            },
+            "awardCriteria": {
+              "$ref":"#/definitions/Tender/$defs/tender.awardCriteria"
+            },
+            "awardCriteriaDetails": {
+              "$ref":"#/definitions/Tender/$defs/tender.awardCriteriaDetails"
             }
           }
         }
