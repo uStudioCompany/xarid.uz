@@ -1,0 +1,8 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description":"Объект-наследник дефиниции 'Budget', применяемый для описания источников финансирования и графика платежей в рамках плана закупочного проектаа",
+  "type":"object",
+  "properties":{
+    "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/release-schema.json#/definitions/Budget/$defs/budget.instance.cnPlanning/properties"
+  }
+}
