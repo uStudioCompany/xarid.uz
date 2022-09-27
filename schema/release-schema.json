@@ -5248,18 +5248,6 @@
               "items":{
                 "$ref":"#/definitions/Metric/$defs/metric.instance.cpTenderItemTarget"    
               }
-            },
-            "lots":{
-              "type":"array",
-              "description":"",
-              "items":{
-                "type":"object",
-                "properties":{
-                  "lot.meta":{
-                    "$ref":"#/definitions/Lot/$defs/lot.instance.tenderLotMeta"
-                  }
-                }
-              }
             }
           }
         }
