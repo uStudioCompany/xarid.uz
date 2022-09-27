@@ -1,0 +1,5 @@
+code,name,description
+deliveryEstimate,,Срок исполнения договора. Количество дней после заключения контракта
+deliverySchedule,,График поставки по договору
+itemCharacteristics,,Перечень свойств товара
+itemSpecifications,,Перечень спецификаций товаров
