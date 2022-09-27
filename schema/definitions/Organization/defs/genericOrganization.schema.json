@@ -4,6 +4,6 @@
   "description":"Объект-наследник дефиниции 'Organization', применяемый для описания любой организации участника закупочного процесса",
   "$id":"https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/release-schema.json",
   "properties":{
-    "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/release-schema.json#/definitions/Organization/$defs/organization.instance.genericOrganization/properties"    
+    "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/release-schema.json#/definitions/Organization/$defs/organization.instance.genericOrganization"    
   }
 }
