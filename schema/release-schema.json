@@ -3101,7 +3101,7 @@
             },
             "dimensions": {
               "$ref": "#/definitions/Observation/$defs/observation.dimensions",
-              "description":"'relatedItem','monthNumnber'"
+              "description":"'relatedItem','monthNumber'"
             },
             "notes": {
               "$ref": "#/definitions/Observation/$defs/observation.notes"
@@ -4853,14 +4853,7 @@
           ]
         },
         "mainProcurementCategory": {
-          "title": "Procurement category",
-          "description": "The primary category describing the object of this contracting process from the [procurementCategory](http://standard.open-contracting.org/1.1-dev/en/schema/codelists/#procurement-category) codelist (e.g. supplies, works, services, consultingServices or mixed).",
-          "type": [
-            "string",
-            "null"
-          ],
-          "codelist": "procurementCategory.csv",
-          "openCodelist": false
+          "$ref":"#/definitions/Tender/$defs/tender.mainProcurementCategory"
         },
         "awardCriteria": {
           "title": "Award criteria",
@@ -5105,7 +5098,17 @@
           "openCodelist": false
         },
         "tender.statusDetails": {},
-        "tender.instance.tenderMeta":{
+        "tender.mainProcurementCategory": {
+          "title": "Procurement category",
+          "description": "The primary category describing the object of this contracting process from the [procurementCategory](http://standard.open-contracting.org/1.1-dev/en/schema/codelists/#procurement-category) codelist (e.g. supplies, works, services, consultingServices or mixed).",
+          "type": [
+            "string",
+            "null"
+          ],
+          "codelist": "procurementCategory.csv",
+          "openCodelist": false
+        },
+        "tender.instance.cpTenderMeta":{
           "type":"object",
           "description":"Набор верхнеуровневых данных закупочного процесса в рамках проекта",
           "properties":{
@@ -5127,6 +5130,13 @@
             "statusDetails": {
               "$ref":"#/definitions/Tender/$defs/tender.statusDetails"
             }  
+          }
+        },
+        "tender.instance.cpTender.cpTenderSubject":{
+          "description":"",
+          "type":"object",
+          "properties":{
+            "$ref":"#/definitions/Tender/$defs/tender.mainProcurementCategory"  
           }
         }
       }
