@@ -932,7 +932,25 @@
         },
         "budgetBreakdown.classifications": {
           "description": "Классификации структурной единицы бюджета: должны описываться как \"ключ: значение\" гле ключомм является одно из значений код-листа",
-          "type": "object"
+          "type": "object",
+          "properties":{
+            "expenseCode":{
+              "description":"",
+              "type":"string"
+            },
+            "monthNumber":{
+              "description":"",
+              "type":"string"
+            },
+            "fiscalYear":{
+              "description":"",
+              "type":"string"
+            },
+            "accouintId":{
+              "description":"",
+              "type":"string"
+            }
+          }
         },
         "budgetBreakdown.instance.cnPlanningBudgetBreakdown": {
           "type": "object",
@@ -2015,7 +2033,21 @@
         },
         "finance.classifications": {
           "description": "Finance classifications must be provided as a set of key-value pairs, where the key is a dimension (or the label of a dimension) used in budget classification, and the value is the value of that dimension for this contracting process or specific contract (depending on the point within an OCDS file at which the classification is provided).",
-          "type": "object"
+          "type": "object",
+          "properties":{
+            "accountId":{
+              "description":"",
+              "type":"string"
+            },
+            "relatedItem":{
+              "description":"",
+              "type":"string"
+            },
+            "fiscalYear":{
+              "description":"",
+              "type":"string"
+            }
+          }
         },
         "finance.instance.genericFinance": {
           "description": "",
