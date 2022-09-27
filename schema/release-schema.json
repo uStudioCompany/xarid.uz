@@ -4294,42 +4294,46 @@
           "format": "date-time"
         },
         "requirement.instance.genericRequirement": {
-          "id": {
-            "$ref": "#/definitions/Requirement/$defs/requirement.id"
-          },
-          "title": {
-            "$ref": "#/definitions/Requirement/$defs/requirement.title"
-          },
-          "description": {
-            "$ref": "#/definitions/Requirement/$defs/requirement.description"
-          },
-          "dataType": {
-            "$ref": "#/definitions/Requirement/$defs/requirement.dataType"
-          },
-          "expectedValue": {
-            "$ref": "#/definitions/Requirement/$defs/requirement.expectedValue"
-          },
-          "minValue": {
-            "$ref": "#/definitions/Requirement/$defs/requirement.minValue"
-          },
-          "maxValue": {
-            "$ref": "#/definitions/Requirement/$defs/requirement.maxValue"
-          },
-          "period": {
-            "description": "Used to specify a particular [Period] the requirement applies to, for example the bidder's turnover in a given year",
-            "$ref": "#/definitions/Period/$defs/period.instance.complete"
-          },
-          "status": {
-            "$ref": "#/definitions/Requirement/$defs/requirement.status"
-          },
-          "dateModified": {
-            "$ref": "#/definitions/Requirement/$defs/requirement.dateModified"
-          },
-          "eligibleEvidences": {
-            "description": "Any [Evidance] that will be accepted as a proof of sasisfaction of sepcific requirement ",
-            "type": "array",
-            "items": {
-              "$ref": "#/definitions/Evidence/$defs/evidence.instance.genericEvidence"
+          "type":"object",
+          "description":"",
+          "properties":{
+            "id": {
+              "$ref": "#/definitions/Requirement/$defs/requirement.id"
+            },
+            "title": {
+              "$ref": "#/definitions/Requirement/$defs/requirement.title"
+            },
+            "description": {
+              "$ref": "#/definitions/Requirement/$defs/requirement.description"
+            },
+            "dataType": {
+              "$ref": "#/definitions/Requirement/$defs/requirement.dataType"
+            },
+            "expectedValue": {
+              "$ref": "#/definitions/Requirement/$defs/requirement.expectedValue"
+            },
+            "minValue": {
+              "$ref": "#/definitions/Requirement/$defs/requirement.minValue"
+            },
+            "maxValue": {
+              "$ref": "#/definitions/Requirement/$defs/requirement.maxValue"
+            },
+            "period": {
+              "description": "Used to specify a particular [Period] the requirement applies to, for example the bidder's turnover in a given year",
+              "$ref": "#/definitions/Period/$defs/period.instance.complete"
+            },
+            "status": {
+              "$ref": "#/definitions/Requirement/$defs/requirement.status"
+            },
+            "dateModified": {
+              "$ref": "#/definitions/Requirement/$defs/requirement.dateModified"
+            },
+            "eligibleEvidences": {
+              "description": "Any [Evidance] that will be accepted as a proof of sasisfaction of sepcific requirement ",
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Evidence/$defs/evidence.instance.genericEvidence"
+              }
             }
           }
         }
@@ -4377,7 +4381,7 @@
               "description": "A list of any [Requirement] which must all be satisified for the requirement group to be met.",
               "type": "array",
               "items": {
-                "type":"string"
+                "$ref": "#/definitions/Requirement/$defs/requirement.instance.genericRequirement"
               }
             }
           }
