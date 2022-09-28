@@ -1,0 +1,6 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description":"Дополнительная информация о процедуре закупки",
+  "type":"object",
+  "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/definitions/Procedure/defs/procedureFeatures.schema.json"
+}
