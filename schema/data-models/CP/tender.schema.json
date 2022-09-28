@@ -2,5 +2,9 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "description":"Мета-данные закупочного проекта",
   "type":"object",
-   "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/definitions/Tender/defs/cpTenderMeta.shema.json"    
+  "$defs":{
+    "tenderMeta":{
+      "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/definitions/Tender/defs/cpTenderMeta.shema.json"    
+    }
+  }
 }
