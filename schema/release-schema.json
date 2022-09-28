@@ -4024,6 +4024,21 @@
       "type": "object",
       "properties": {
         "isAccelerated": {
+          "$ref":"#/definitions/Procedure/$defs/procedure.isAccelerated"
+        },
+        "procedure.acceleratedRationale": {
+          "$ref":"#/definitions/Procedure/$defs/procedure.acceleratedRationale"
+        },
+        "features": {
+          "description": "The main features of the procedure (e.g. description of the individual stages) and information about where the full rules for the procedure can be found.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "$defs":{
+        "procedure.isAccelerated": {
           "title": "Accelerated procedure used",
           "description": "Whether the time limit for receipt of bids or requests to participate can be reduced due to a state of urgency.",
           "type": [
@@ -4031,7 +4046,7 @@
             "null"
           ]
         },
-        "acceleratedRationale": {
+        "procedure.acceleratedRationale": {
           "title": "Accelerated procedure rationale",
           "description": "The justification for using an accelerated procedure.",
           "type": [
@@ -4039,15 +4054,17 @@
             "null"
           ]
         },
-        "features": {
-          "title": "Features",
-          "description": "The main features of the procedure (e.g. description of the individual stages) and information about where the full rules for the procedure can be found.",
-          "type": [
-            "array",
-            "null"
-          ],
-          "items": {
-            "type": "string"
+        "procudere.instance.procedureFeatures":{
+          "description":"",
+          "type":"object",
+          "properties":{
+            "features": {
+              "description": "The main features of the procedure (e.g. description of the individual stages) and information about where the full rules for the procedure can be found.",
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }  
           }
         }
       }
@@ -4995,26 +5012,6 @@
           "description": "The period during which potential bidders may submit questions and requests for clarification to the entity managing procurement. Details of how to submit enquiries should be provided in attached notices, or in submissionMethodDetails. Structured dates for when responses to questions will be made can be provided using tender milestones.",
           "$ref": "#/definitions/Period"
         },
-        "enquiries": {
-          "title": "Enquiries",
-          "type": [
-            "array",
-            "null"
-          ],
-          "description": "Questions sent to the procuring entity, and the answers given",
-          "items": {
-            "$ref": "#/definitions/Enquiry"
-          },
-          "uniqueItems": true
-        },
-        "eligibilityCriteria": {
-          "title": "Eligibility criteria",
-          "description": "A description of any eligibility criteria for potential suppliers.",
-          "type": [
-            "string",
-            "null"
-          ]
-        },
         "awardPeriod": {
           "title": "Evaluation and award period",
           "description": "The period for adjudication and selection of the contract award. The end date should be the date on which an award is due to be finalised. The start date may be used to indicate the start of an evaluation period.",
@@ -5024,20 +5021,6 @@
           "description": "The period over which the contract is estimated or required to be active. If the tender does not specify explicit dates, the duration field may be used.",
           "title": "Contract period",
           "$ref": "#/definitions/Period"
-        },
-        "tenderers": {
-          "title": "Tenderers",
-          "description": "All entities who submit a bid on a tender. More detailed information on bids and the bidding organisation can be provided using the optional bid extension.",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/OrganizationReference"
-          },
-          "uniqueItems": true
-        },
-        "procuringEntity": {
-          "title": "Procuring entity",
-          "description": "The entity managing the procurement, which may be different from the buyer who is paying / using the items being procured.",
-          "$ref": "#/definitions/OrganizationReference"
         },
         "documents": {
           "title": "Documents",
@@ -5106,19 +5089,6 @@
           "title": "Standstill period",
           "description": "The duration of the applicable standstill period following a challenge or appeal of decisions or actions taken by the procuring entity that are allegedly not in compliance with the provisions of the Law",
           "$ref": "#/definitions/Period"
-        },
-        "submissionLanguages": {
-          "title": "Submission Languages",
-          "description": "Language(s) in which tenderers may submit, drawn from the [submissionLanguages codelist](http://standard.open-contracting.org/1.1-dev/en/schema/codelists/#submission-languages)",
-          "type": [
-            "array",
-            "null"
-          ],
-          "items": {
-            "type": "string"
-          },
-          "codelist": "submissionLanguages.csv",
-          "openCodelist": false
         },
         "targets": {
           "type": "array",
@@ -5199,12 +5169,8 @@
           "openCodelist": false
         },
         "tender.procurementMethod": {
-          "title": "Procurement method",
           "description": "Specify tendering method against the [method codelist](http://standard.open-contracting.org/1.1-dev/en/schema/codelists/#method) as per [GPA definitions](http://www.wto.org/english/docs_e/legal_e/rev-gpr-94_01_e.htm) of Open, Selective, Limited",
-          "type": [
-            "string",
-            "null"
-          ],
+          "type":"string",
           "enum": [
             "open",
             "selective",
@@ -5214,22 +5180,14 @@
           "openCodelist": false
         },
         "tender.procurementMethodDetails": {
-          "title": "Procurement method details",
           "description": "Additional detail on the procurement method used. This field may be used to provide the local name of the particular procurement method used.",
           "type":  "string"
         },
         "tender.awardCriteria": {
           "description": "Specify the award criteria for the procurement, using the [award criteria codelist](http://standard.open-contracting.org/1.1-dev/en/schema/codelists/#award-criteria)",
-          "type": [
-            "string",
-            "null"
-          ],
+          "type": "string",
           "codelist": "awardCriteria.csv",
           "openCodelist": true
-        },
-        "tender.secondStage":{
-          "description":"",
-          "$ref":"#/definitions/SecondStage/$defs/secondStage.instance.genericSecondStage"
         },
         "tender.awardCriteriaDetails": {
           "title": "Award criteria details",
@@ -5239,6 +5197,12 @@
             "automated",
             "manual"
           ]
+        },
+        "tender.legalBasis":{},
+        "tender.submissionMethod":{},
+        "tender.secondStage":{
+          "description":"",
+          "$ref":"#/definitions/SecondStage/$defs/secondStage.instance.genericSecondStage"
         },
         "tender.instance.cpTenderMeta":{
           "type":"object",
