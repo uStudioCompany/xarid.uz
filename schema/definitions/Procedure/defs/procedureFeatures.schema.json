@@ -1,0 +1,8 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description":"Объект-наследник дефиниции 'Procedure', применяемый для описания дополнительной информации о процедуре закупочного проекта",
+  "type":"object",
+  "properties":{
+    "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/release-schema.json#/definitions/Procedure/$defs/procudere.instance.procedureFeatures/properties"
+  }
+}
