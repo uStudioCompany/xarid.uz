@@ -5209,7 +5209,7 @@
         "tender.secondStage":{
           "description":"",
           "$ref":"#/definitions/SecondStage/$defs/secondStage.instance.genericSecondStage"
-        },\
+        },
         "tender.instance.tenderPeriod":{
           "description":"",
           "$ref":"#/definitions/Period/$defs/period.instance.complete"
@@ -5290,7 +5290,7 @@
               }
             }
           }
-        }
+        },
         "tender.instance.cpTenderProcedure":{
           "description":"",
           "type":"object",
