@@ -1,0 +1,8 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description":"Объект-наследник дефиниции 'Period', применяемый для описания периода, определенного только его начальной датой",
+  "type":"object",
+  "properties":{
+    "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/release-schema.json#/definitions/Period/$defs/period.instance.startPoint"
+  }
+}
