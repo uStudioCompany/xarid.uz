@@ -4,6 +4,6 @@
   "description":"Перечень платежей, ожидаемых от экономических агентов, связанных с участем в закупочной процедуре",
   "items":{
      "type":"object",
-     "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/definitions/ParticipationFee/defs/genericFee.schema.json"
+     "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/definitions/ParticipationFee/defs/genericFee.schema.json/properties"
   }
 }
