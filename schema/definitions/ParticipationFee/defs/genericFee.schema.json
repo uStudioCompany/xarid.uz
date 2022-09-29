@@ -3,6 +3,6 @@
   "description":"Объект-наследник дефиниции 'ParticipationFee', применяемый для описания платежей, связанных с учачстием в закупочном проекте",
   "type":"object",
   "properties":{
-    "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/release-schema.json#/definitions/ParticipationFee/$defs/participationFee.instance.genericFee"
+    "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/release-schema.json#/definitions/ParticipationFee/$defs/participationFee.instance.genericFee/properties"
   }
 }
