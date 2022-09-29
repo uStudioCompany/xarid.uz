@@ -1,0 +1,8 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type":"object",
+  "description":"Объект-наследник дефиниции 'Milestone', применяемый для описания вехи закупочной процедуры",
+  "properties":{
+    "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/release-schema.json#/definitions/Milestone/$defs/milestone.instance.tenderMilestone/properties"    
+  }
+}
