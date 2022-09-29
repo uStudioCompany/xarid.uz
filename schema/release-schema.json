@@ -2987,6 +2987,43 @@
           "description": "If this milestone relates to a particular lot, provide the identifier(s) of the related lot(s) here.",
           "type": "string"
         },
+        "milestone.instance.tenderMilestone": {
+          "type": "object",
+          "description": "",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/Milestone/$defs/milestone.id"
+            },
+            "type": {
+              "$ref": "#/definitions/Milestone/$defs/milestone.type",
+              "enum":[
+                "contractConclusion",
+                "approval",
+                "contractRegistration",
+                "canPublication"
+              ]
+            },
+            "code": {
+              "$ref": "#/definitions/Milestone/$defs/milestone.code"
+            },
+            "dueDate": {
+              "$ref": "#/definitions/Milestone/$defs/milestone.dueDate"
+            },
+            "dateMet": {
+              "$ref": "#/definitions/Milestone/$defs/milestone.dateMet"
+            },
+            "status": {
+              "$ref": "#/definitions/Milestone/$defs/milestone.status"
+            },
+            "relatedLots": {
+              "description": "If this milestone relates to a particular lot, provide the identifier(s) of the related lot(s) here.",
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Milestone/$defs/milestone.relatedLot"
+              }
+            }
+          }
+        },
         "milestone.instance.noPeriodMilestone": {
           "type": "object",
           "description": "",
@@ -2994,14 +3031,8 @@
             "id": {
               "$ref": "#/definitions/Milestone/$defs/milestone.id"
             },
-            "title": {
-              "$ref": "#/definitions/Milestone/$defs/milestone.title"
-            },
             "type": {
               "$ref": "#/definitions/Milestone/$defs/milestone.type"
-            },
-            "description": {
-              "$ref": "#/definitions/Milestone/$defs/milestone.description"
             },
             "code": {
               "$ref": "#/definitions/Milestone/$defs/milestone.code"
@@ -4948,9 +4979,7 @@
           "$ref":"#/definitions/Tender/$defs/tender.statusDetails"
         },
         "legalBasis": {
-          "properties": {
-            "description": {}
-          }
+          "$ref":"#/definitions/Tender/$defs/tender.legalBasis"
         },
         "items": {
           "title": "Items to be procured",
@@ -4982,25 +5011,14 @@
           "$ref":"#/definitions/Tender/$defs/tender.awardCriteriaDetails"
         },
         "submissionMethod": {
-          "title": "Submission method",
           "description": "Specify the method by which bids must be submitted, in person, written, or electronic auction. Using the [submission method codelist](http://standard.open-contracting.org/1.1-dev/en/schema/codelists/#submission-method)",
-          "type": [
-            "array",
-            "null"
-          ],
+          "type": "array",
           "items": {
-            "type": "string"
-          },
-          "codelist": "submissionMethod.csv",
-          "openCodelist": true
+            "$ref": "#/definitions/Tender/$defs/tender.submissionMethod"
+          }
         },
         "submissionMethodDetails": {
-          "title": "Submission method details",
-          "description": "Any detailed or further information on the submission method. This may include the address, e-mail address or online service to which bids should be submitted, and any special requirements to be followed for submissions.",
-          "type": [
-            "string",
-            "null"
-          ]
+          "$ref": "#/definitions/Tender/$defs/tender.submissionMethodDetails"
         },
         "tenderPeriod": {
           "title": "Tender period",
@@ -5076,7 +5094,6 @@
           }
         },
         "classification": {
-          "title": "Classification",
           "description": "The primary classification for the tender. Required by the EU. Uses CPV Codelist See the [itemClassificationScheme](http://standard.open-contracting.org/1.1-dev/en/schema/codelists/#item-classification-scheme).",
           "$ref": "#/definitions/Classification"
         },
@@ -5116,11 +5133,6 @@
           "title": "Procedure",
           "description": "Information about the procurement procedure.",
           "$ref": "#/definitions/Procedure"
-        },
-        "contractTerms": {
-          "title": "Contract terms",
-          "description": "Information about the terms governing the future contracts for the lot.",
-          "$ref": "#/definitions/ContractTerms"
         }
       },
       "$defs":{
@@ -5168,21 +5180,6 @@
           "codelist": "procurementCategory.csv",
           "openCodelist": false
         },
-        "tender.procurementMethod": {
-          "description": "Specify tendering method against the [method codelist](http://standard.open-contracting.org/1.1-dev/en/schema/codelists/#method) as per [GPA definitions](http://www.wto.org/english/docs_e/legal_e/rev-gpr-94_01_e.htm) of Open, Selective, Limited",
-          "type":"string",
-          "enum": [
-            "open",
-            "selective",
-            "limited"
-          ],
-          "codelist": "method.csv",
-          "openCodelist": false
-        },
-        "tender.procurementMethodDetails": {
-          "description": "Additional detail on the procurement method used. This field may be used to provide the local name of the particular procurement method used.",
-          "type":  "string"
-        },
         "tender.awardCriteria": {
           "description": "Specify the award criteria for the procurement, using the [award criteria codelist](http://standard.open-contracting.org/1.1-dev/en/schema/codelists/#award-criteria)",
           "type": "string",
@@ -5190,7 +5187,6 @@
           "openCodelist": true
         },
         "tender.awardCriteriaDetails": {
-          "title": "Award criteria details",
           "description": "Any detailed or further information on the award or selection criteria.",
           "type": "string",
           "enum": [
@@ -5198,8 +5194,29 @@
             "manual"
           ]
         },
-        "tender.legalBasis":{},
-        "tender.submissionMethod":{},
+        "tender.legalBasis":{
+          "description":"",
+          "type":"object",
+          "properties":{
+            "description":{
+              "description":"",
+              "type":"string"
+            }
+          }
+        },
+        "tender.submissionMethod":{
+          "submissionMethod": {
+            "title": "Submission method",
+            "description": "Specify the method by which bids must be submitted, in person, written, or electronic auction. Using the [submission method codelist](http://standard.open-contracting.org/1.1-dev/en/schema/codelists/#submission-method)",
+            "type": "string",
+            "codelist": "submissionMethod.csv",
+            "openCodelist": true
+          }
+        },
+        "tender.submissionMethodDetails": {
+          "description": "Any detailed or further information on the submission method. This may include the address, e-mail address or online service to which bids should be submitted, and any special requirements to be followed for submissions.",
+          "type": "string"
+        },
         "tender.secondStage":{
           "description":"",
           "$ref":"#/definitions/SecondStage/$defs/secondStage.instance.genericSecondStage"
@@ -5226,11 +5243,37 @@
             "statusDetails": {
               "$ref":"#/definitions/Tender/$defs/tender.statusDetails"
             },
+            "procurementMethod": {
+              "$ref":"#/definitions/Tender/$defs/tender.procurementMethod"
+            },
             "mainProcurementCategory":{
               "$ref":"#/definitions/Tender/$defs/tender.mainProcurementCategory"
             },
             "awardCriteria": {
               "$ref":"#/definitions/Tender/$defs/tender.awardCriteria"
+            },
+            "submissionMethod": {
+              "title": "Submission method",
+              "description": "Specify the method by which bids must be submitted, in person, written, or electronic auction. Using the [submission method codelist](http://standard.open-contracting.org/1.1-dev/en/schema/codelists/#submission-method)",
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Tender/$defs/tender.submissionMethod"
+              }
+            }
+          }
+        },
+        "tender.instance.cpTenderProcedure":{
+          "description":"",
+          "type":"object",
+          "properties":{
+            "procurementMethodDetails": {
+              "$ref":"#/definitions/Tender/$defs/tender.procurementMethodDetails"
+            },
+            "legalBasis": {
+              "$ref":"#/definitions/Tender/$defs/tender.legalBasis"
+            },
+            "submissionMethodDetails": {
+              "$ref": "#/definitions/Tender/$defs/tender.submissionMethodDetails"
             },
             "awardCriteriaDetails": {
               "$ref":"#/definitions/Tender/$defs/tender.awardCriteriaDetails"
