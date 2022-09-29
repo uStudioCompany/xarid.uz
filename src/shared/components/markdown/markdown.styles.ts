@@ -22,9 +22,11 @@ const Heading = styled.h1`
   margin: var(--i-large) 0 0;
   scroll-margin: calc(54px + 2rem) 0 0;
 `;
+
 const Heading = styled.h6`
   margin: var(--i-large) 0 0;
-  scroll-margin: calc(24px + 2rem) 0 0;
+  scroll-margin: calc(54px + 2rem) 0 0;
+  font-size:14px
 `;
 
 const Heading = styled.ul`
