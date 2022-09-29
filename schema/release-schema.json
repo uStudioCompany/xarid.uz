@@ -4956,7 +4956,6 @@
       }
     },
     "Tender": {
-      "title": "",
       "description": "",
       "type": "object",
       "properties": {
@@ -4982,13 +4981,11 @@
           "$ref":"#/definitions/Tender/$defs/tender.legalBasis"
         },
         "items": {
-          "title": "Items to be procured",
           "description": "The goods and services to be purchased, broken into line items wherever possible. Items should not be duplicated, but a quantity of 2 specified instead.",
           "type": "array",
           "items": {
             "$ref": "#/definitions/Item"
-          },
-          "uniqueItems": true
+          }
         },
         "value": {
           "title": "Value",
@@ -5021,27 +5018,22 @@
           "$ref": "#/definitions/Tender/$defs/tender.submissionMethodDetails"
         },
         "tenderPeriod": {
-          "title": "Tender period",
           "description": "The period when the tender is open for submissions. The end date is the closing date for tender submissions.",
           "$ref": "#/definitions/Period"
         },
         "enquiryPeriod": {
-          "title": "Enquiry period",
           "description": "The period during which potential bidders may submit questions and requests for clarification to the entity managing procurement. Details of how to submit enquiries should be provided in attached notices, or in submissionMethodDetails. Structured dates for when responses to questions will be made can be provided using tender milestones.",
           "$ref": "#/definitions/Period"
         },
         "awardPeriod": {
-          "title": "Evaluation and award period",
           "description": "The period for adjudication and selection of the contract award. The end date should be the date on which an award is due to be finalised. The start date may be used to indicate the start of an evaluation period.",
           "$ref": "#/definitions/Period"
         },
         "contractPeriod": {
           "description": "The period over which the contract is estimated or required to be active. If the tender does not specify explicit dates, the duration field may be used.",
-          "title": "Contract period",
           "$ref": "#/definitions/Period"
         },
         "documents": {
-          "title": "Documents",
           "description": "All documents and attachments related to the tender, including any notices. See the [documentType codelist](http://standard.open-contracting.org/1.1-dev/en/schema/codelists/#document-type) for details of potential documents to include.",
           "type": "array",
           "items": {
@@ -5049,7 +5041,6 @@
           }
         },
         "milestones": {
-          "title": "Milestones",
           "description": "A list of milestones associated with the tender.",
           "type": "array",
           "items": {
@@ -5059,13 +5050,11 @@
         "amendments": {
           "description": "A tender amendment is a formal change to the tender, and generally involves the publication of a new tender notice/release. The rationale and a description of the changes made can be provided here.",
           "type": "array",
-          "title": "Amendments",
           "items": {
             "$ref": "#/definitions/Amendment"
           }
         },
         "lots": {
-          "title": "Lots",
           "description": "A tender process may be divided into lots, where bidders can bid on one or more lots. Details of each lot can be provided here. Items, documents and other features can then reference the lot they are related to using relatedLot. Where no relatedLot identifier is given, the values should be interpreted as applicable to the whole tender. Properties of tender can be overridden for a given Lot through their inclusion in the Lot object.",
           "type": "array",
           "items": {
@@ -5073,7 +5062,6 @@
           }
         },
         "participationFees": {
-          "title": "Participation fees",
           "description": "Any fees applicable to bidders wishing to participate in the tender process. Fees may apply for access to bidding documents, for the submission of bids or there may be a win fee payable by the successful bidder.",
           "type": "array",
           "mergeStrategy": "ocdsVersion",
@@ -5085,10 +5073,6 @@
         "criteria": {
           "description": "A list of criteria on which either bidders or items will be judged, evaluated or assessed.",
           "type": "array",
-          "mergeStrategy": "arrayMergeById",
-          "mergeOptions": {
-            "idRef": "id"
-          },
           "items": {
             "$ref": "#/definitions/Criterion"
           }
@@ -5098,26 +5082,21 @@
           "$ref": "#/definitions/Classification"
         },
         "reviewPeriod": {
-          "title": "Review period",
           "description": "The period during which the decision of the procuring entity to award a contract can be challenged.",
           "$ref": "#/definitions/Period"
         },
         "standstillPeriod": {
-          "title": "Standstill period",
           "description": "The duration of the applicable standstill period following a challenge or appeal of decisions or actions taken by the procuring entity that are allegedly not in compliance with the provisions of the Law",
           "$ref": "#/definitions/Period"
         },
         "targets": {
           "type": "array",
-          "title": "Targets",
           "description": "Any target metrics for this results of this contracting process.",
           "items": {
             "$ref": "#/definitions/Metric"
-          },
-          "uniqueItems": true
+          }
         },
         "conversions": {
-          "title": "Conversions",
           "description": "A list of weightings for the used criteria or applicable options",
           "type": "array",
           "items": {
@@ -5125,12 +5104,10 @@
           }
         },
         "secondStage": {
-          "title": "Second stage",
           "description": "Information about the second stage of a two-stage procedure (e.g. a restricted procedure, a competitive procedure with negotiation, a competitive dialogue or an innovation partnership).",
           "$ref": "#/definitions/SecondStage"
         },
         "procedure": {
-          "title": "Procedure",
           "description": "Information about the procurement procedure.",
           "$ref": "#/definitions/Procedure"
         }
@@ -5170,6 +5147,19 @@
           "openCodelist": false
         },
         "tender.statusDetails": {},
+        "tender.procurementMethod": {
+          "description": "",
+          "type": "string",
+          "codelist": "procurementMethods.csv",
+          "openCodelist": false
+        },
+        "tender.procurementMethodDetails": {
+          "title": "",
+          "description": "Название закупочной процедуры",
+          "type": "string",
+          "codelist": "procurementMethodDetails.csv",
+          "openCodelist": false
+        },
         "tender.mainProcurementCategory": {
           "title": "Procurement category",
           "description": "The primary category describing the object of this contracting process from the [procurementCategory](http://standard.open-contracting.org/1.1-dev/en/schema/codelists/#procurement-category) codelist (e.g. supplies, works, services, consultingServices or mixed).",
@@ -5206,7 +5196,6 @@
         },
         "tender.submissionMethod":{
           "submissionMethod": {
-            "title": "Submission method",
             "description": "Specify the method by which bids must be submitted, in person, written, or electronic auction. Using the [submission method codelist](http://standard.open-contracting.org/1.1-dev/en/schema/codelists/#submission-method)",
             "type": "string",
             "codelist": "submissionMethod.csv",
@@ -5220,7 +5209,35 @@
         "tender.secondStage":{
           "description":"",
           "$ref":"#/definitions/SecondStage/$defs/secondStage.instance.genericSecondStage"
+        },\
+        "tender.instance.tenderPeriod":{
+          "description":"",
+          "$ref":"#/definitions/Period/$defs/period.instance.complete"
         },
+        "tender.enquiryPeriod":{
+          "description":"",
+          "$ref":"#/definitions/Period/$defs/period.instance.complete"
+        },
+        "tender.contractPeriod":{
+          "description":"",
+          "$ref":"#/definitions/Period/$defs/period.instance.complete"
+        },
+        "tender.reviewPeriod":{
+          "description":"",
+          "$ref":"#/definitions/Period/$defs/period.instance.complete"
+        },
+        "tender.item":{
+          "description":"",
+          "$ref":"#/definitions/Item/$defs/item.instance.cpTenderItem"
+        },
+        "tender.lot":{},
+        "tenrder.document":{},
+        "tender.criterion":{},
+        "tender.conversion":{},
+        "tender.milestone":{},
+        "tender.amendment":{},
+        "tender.participationFee":{},
+        "tender.target":{},
         "tender.instance.cpTenderMeta":{
           "type":"object",
           "description":"Набор верхнеуровневых данных закупочного процесса в рамках проекта",
@@ -5253,7 +5270,6 @@
               "$ref":"#/definitions/Tender/$defs/tender.awardCriteria"
             },
             "submissionMethod": {
-              "title": "Submission method",
               "description": "Specify the method by which bids must be submitted, in person, written, or electronic auction. Using the [submission method codelist](http://standard.open-contracting.org/1.1-dev/en/schema/codelists/#submission-method)",
               "type": "array",
               "items": {
@@ -5262,6 +5278,19 @@
             }
           }
         },
+        "tender.instance.cpTenderSubject":{
+          "description":"",
+          "type":"object",
+          "properties":{
+            "items":{
+              "type":"array",
+              "description":"",
+              "items":{
+                "$ref":"#/definitions/Tender/$defs/tender.item"
+              }
+            }
+          }
+        }
         "tender.instance.cpTenderProcedure":{
           "description":"",
           "type":"object",
