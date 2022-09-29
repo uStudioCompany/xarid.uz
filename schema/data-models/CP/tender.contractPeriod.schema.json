@@ -2,5 +2,5 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "description":"Период действия договора(ов), индикативный для закупочного проекта",
   "type":"object",
-  "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/definitions/Period/defs/startPoint.shema.json"
+  "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/definitions/Period/defs/startPoint.schema.json"
 }
