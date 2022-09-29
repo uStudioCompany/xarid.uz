@@ -22,6 +22,10 @@ const Heading = styled.h1`
   margin: var(--i-large) 0 0;
   scroll-margin: calc(54px + 2rem) 0 0;
 `;
+const Heading = styled.h6`
+  margin: var(--i-large) 0 0;
+  scroll-margin: calc(24px + 2rem) 0 0;
+`;
 
 const Heading = styled.ul`
   padding:12px 0;
