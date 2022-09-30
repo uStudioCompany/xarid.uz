@@ -1,0 +1,16 @@
+code,name,description
+planning,,A contracting process is proposed or planned. Information in the tender section describes the proposed process. The tender.status field should be used to identify whether the planning is at an early pipeline stage, or whether there are detailed plans for a tender developed.
+tender,,Providing information about a new tender (call for proposals) process. Tender release should contain details of the goods or services being sought.
+tenderAmendment,,An amendment to an existing tender release. There should be at least one tender release with the same ocid, but an earlier release date, before a tenderAmendment is published. The term amendment has legal meaning in many jurisdictions.
+tenderCancellation,,The cancellation of an existing tender. There should be at least one release with the same ocid, but an earlier release date, which provides details of the tender being cancelled.
+qualification,,	
+invitation,,	
+secondStage,,	
+award,,Providing information about the award of a contract. One or more award sections will be present, and the tender section might be populated with details of the process leading up to the award.
+awardUpdate,,An update to an existing award release. There should be at least one award release with the same ocid, but an earlier release date before an awardUpdate is published. An update may add new information or make corrections.
+awardCancellation,,Providing information about the cancellation of an award.
+contract,,Providing information about the details of a contract that has been, or will be, entered into. The tender section might be populated with details of the process leading up to the contract, and the award section might contain details of the award on the basis of which this contract will be signed.
+contractAmendment,,An amendment to an existing contract release. There should be at least one contract release with the same ocid, but an earlier release date, before a contractAmendment is published. The term amendment has legal meaning in many jurisdictions.
+implementation,,Providing new information on the implementation of a contracting process.
+contractTermination,,Providing information at the end of a contracting process.
+compiled,,This tag is used only in compiled records, which have merged together multiple releases to provide a snapshot view of the contract, and a version history.
