@@ -11,8 +11,8 @@
     "negative-light": "#fbab95"
   },
   "repo": {
-    "owner": "uStudioCompany",
-    "name": "xarid.uz",
+    "owner": "xarid-uz",
+    "name": "ocds-data-standard",
     "branch": "main",
     "docsFolder": "docs"
   }
