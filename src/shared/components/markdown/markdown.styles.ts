@@ -23,10 +23,6 @@ const Heading = styled.h1`
   scroll-margin: calc(54px + 2rem) 0 0;
 `;
 
-const Heading = styled.ul`
-  padding:12px 0;
-`;
-
 const Paragraph = styled.div`
   margin: var(--i-medium) 0;
 
@@ -59,6 +55,8 @@ const List = styled.ul(
     grid-gap: var(--i-medium);
 
     margin: var(--i-small) 0;
+    padding-top: 12px;
+    padding-bottom: 12px;
     padding-left: ${depth ? 'var(--i-large)' : 0};
 
     list-style-position: inside;
