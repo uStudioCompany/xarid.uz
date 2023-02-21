@@ -2,7 +2,6 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "type":"array",
   "items":{
-     "type":"object",
      "$ref": "https://raw.githubusercontent.com/uStudioCompany/xarid.uz/main/schema/definitions/Tender/defs/cpTenderItem.schema.json"
   }
 }
